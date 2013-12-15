@@ -1,0 +1,7 @@
+#excerpt_separator: ""
+#mardown: rdiscount
+markdown: pandoc
+pandoc: 
+  extensions: [mathjax, standalone]
+url: http://blog.tonytsai.name
+author: Tony Tsai
