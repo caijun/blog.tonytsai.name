@@ -19,19 +19,18 @@
         </header>
         <nav>
         <span><a title = "home page" class = "" href = "{{ site.url }}/">home</a></span>
-        <span><a title = "about" class = "" href = "{{ site.url }}/about/">about</a></span>
         <span><a title = "categories" class = "" href = "{{ site.url }}/categories/">categories</a></span>
         <span><a title = "tags" class = "" href = "{{ site.url }}/tags/">tags</a></span>
         <span><a title = "links" class = "" href = "{{ site.url }}/links/">links</a></span>
-		<span><a title = "reading" class = "" href = "{{ site.url}}/reading/">reading</a>
-		<span><a title = "resume" class = "" href = "{{ site.url}}/resume/">resume</a></span>
+		<span><a title = "about" class = "" href = "{{ site.url }}/about/">about</a></span>
+		
         </nav>
         <article class = "content">
       	{{ content }}
       	</article>  
       </div>
       <div id = "footer">
-        <p class="licence">Powered by <a href="https://github.com/mojombo/jekyll">Jekyll</a> and <a href="http://johnmacfarlane.net/pandoc">Pandoc</a> | Theme: <a href="http://yihui.name/cn/">yihui's blog</a>.</p>
+        <p class="licence">Powered by <a href="https://github.com/mojombo/jekyll">Jekyll</a> and <a href="http://johnmacfarlane.net/pandoc">Pandoc</a> | Theme: <a href="http://yihui.name/cn/">yihui's blog</a> | Free hosted at <a href="https://github.com/caijun">Github</a> | Copyright 2013 - {{ site.time | date:"%Y" }} by <a href="http://blog.tonytsai.name/about/"> {{ site.author }} | <span class="label label-info">{{ site.time | date:"%Y-%m-%d %H:%M:%S %Z"}}</span></p>
       </div>
     </div>
 
