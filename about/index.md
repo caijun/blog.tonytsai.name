@@ -1,12 +1,10 @@
 ---
-title: About me
+title: About
 layout: page
 comments: yes
 ---
-
-## 我
-清光绪二十五年闻一多先生出生了，90年后在闻先生出生地的25km buffer内我出生了。1928年闻先生来到了武大，80年后在闻先生日常活动的5km buffer内班导告诉我未来四年你会接触到各种各样的buffer。1912年闻先生到清华求学，100年后距闻先生常去的老馆不到2km 的宿舍里我在研究**人流**感。
-
-## 个人兴趣
-
-
+  
+##Tony Tsai 
+Email:tony.tsai.2046@gmail.com    
+Fork me on [Github](https://github.com/caijun)    
+Follow me on [新浪微博](http://weibo.com/caijun2046) or [Facebook](http://www.facebook.com/tony.tsai.9828).    

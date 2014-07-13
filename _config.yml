@@ -1,57 +1,9 @@
-title:            Tony Tsai's Blog
-description:      Notes for dummies just like me.
-logo:             site-logo.png
-disqus_shortname: tonytsai
-search:           true
-# Change url to your domain. Leave localhost server or blank when working locally.
-# You don't need to specify the protocol if you want it available on http and https. Example: //localhost:4000
-url:              http://localhost:4000
-
-# Owner/author information
-owner:
-  name:           Tony Tsai
-  avatar:         bio-photo.jpg
-  email:          tony.tsai.2046@email.com
-  # Social networking links used in footer. Update and remove as you like.
-  twitter:
-  facebook:       tony.tsai.9828
-  github:         caijun
-  stackexchange:
-  linkedin:
-  instagram:
-  flickr:
-  tumblr:
-  # For Google Authorship https://plus.google.com/authorship
-  google_plus:
-
-# Analytics and webmaster tools stuff goes here
-google_analytics: UA-40665800-1
-google_verify:
-# https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
-bing_verify:
-
-# Links to include in top navigation
-# For external links add external: true
-links:
-  - title: About
-    url: /about/
-  - title: R
-    url: /r/
-  - title: Python
-    url: /python/
-  - title: IDL
-    url: /idl/
-
-# http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-timezone:    Asia/Chongqing
-future:      true
-markdown:    kramdown
-
-# https://github.com/mojombo/jekyll/wiki/Permalinks
-permalink:   /:categories/:title/
-  
+markdown: pandoc
 pandoc: 
   extensions: [mathjax, standalone]
+permalink: /:year/:month/:title/
+url: http://blog.tonytsai.name
+author: Tony Tsai
+paginate: 24
 
-include: [".htaccess"]
-exclude: ["Gemfile", "README.md", "LICENSE", "Gemfile.lock"]
+exclude: ["README.md", "LICENSE"]

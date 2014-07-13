@@ -1,6 +1,7 @@
 ---
 title: Categories
 layout: page
+exclude_from_search: true
 ---
 
 <div id='tag_cloud'>
