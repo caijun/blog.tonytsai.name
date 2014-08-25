@@ -8,7 +8,11 @@ layout: default
 <section class="meta">
 <hr/>
 <span class="author">
-  <a href="http://blog.sevenche.com">{{ site.author }}</a> - 程序员，7年工作经验集中在Java, Android, C++，现就职于上海Avaya Emerging Product and Technology部门。
+  <a href="http://blog.tonytsai.name">{{ site.author }}</a>
+</span>
+<span class="time">
+  /
+  <time datetime="{{ page.date | date:"%Y-%m-%d" }}">{{ page.date | date:"%Y-%m-%d" }}</time>
 </span>
 <br />
 <span class="license">
@@ -18,22 +22,19 @@ layout: default
 <span class="categories">
   in categories
   {% for cat in page.categories %}
-  <a href="/categories/#{{ cat }}" title="{{ cat }}">{{ cat }}</a>&nbsp;
+  <a href="/categories/#{{ cat }}" title="{{ cat }}">{{ cat }}</a>
   {% endfor %}
 </span>
 {% endif %}
 {% if page.tags %}
+<br />
 <span class="tags">
-  tagged with 
+  Tagged with 
   {% for tag in page.tags %}
   <a href="/tags/#{{ tag }}" title="{{ tag }}">{{ tag }}</a>&nbsp;
   {% endfor %}
 </span>
 {% endif %}
-<span class="time">
-  <br/>
-  <time datetime="{{ page.date | date:"%Y-%m-%d" }}">{{ page.date | date:"%Y-%m-%d" }}</time>
-</span>
 </section>
 {% include comments.md %}
 <script type="text/javascript">

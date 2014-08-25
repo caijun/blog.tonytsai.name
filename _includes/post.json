@@ -1,0 +1,5 @@
+{
+  "id"    : "http://blog.tonytsai.name{{ post.url }}",
+  "title"   : "{{ post.title }}",
+  "content" : "{{ post.content | strip_html | strip_newlines | remove:'"'  }}"
+}

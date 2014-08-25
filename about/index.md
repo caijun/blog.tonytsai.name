@@ -1,12 +1,15 @@
 ---
-title: About me
+title: About
 layout: page
 comments: yes
 ---
   
-##JIM    
+## Tony Tsai 
+Email:tony.tsai.2046@gmail.com
 
-个人邮箱:dashjim@gmail.com      
-新浪微博: [http://weibo.com/jijunxiang](http://weibo.com/jijunxiang)      
-github : [https://github.com/dashjim](https://github.com/dashjim)   
-Linkedin: [Ji Junxiang at Linkedin](http://www.linkedin.com/pub/junxiang-ji/58/97/b90)
+Fork me on [Github](https://github.com/caijun)
+
+Follow me on [新浪微博](http://weibo.com/caijun2046) or [Facebook](http://www.facebook.com/tony.tsai.9828).
+
+## Blog Architecture
+源码见[GitHub](https://github.com/caijun/blog.tonytsai.name)
