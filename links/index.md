@@ -9,6 +9,7 @@ comments: yes
     + [R packages](http://r-pkgs.had.co.nz/)
     + [Advanced R](http://adv-r.had.co.nz/)
 * [Yihui Xie](http://yihui.name/)
+* [Guang Xu](http://xg1990.com/blog/)
 
 ### Softwares
 * [R](http://www.r-project.org/) 自由的统计计算和图形软件环境，有丰富的package可以使用。习惯使用R的集成开发环境——[RStudio](hhtps://www/rstudio.com/)写R代码。自己开发的R package：
