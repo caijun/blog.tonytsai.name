@@ -5,7 +5,9 @@ comments: yes
 ---
   
 ## Tony Tsai 
-Email:tony.tsai.2046@gmail.com
+Email: <tony.tsai.2046@gmail.com>
+
+[Curriculum Vitae](http://tonytsai.name)
 
 Fork me on [Github](https://github.com/caijun)
 

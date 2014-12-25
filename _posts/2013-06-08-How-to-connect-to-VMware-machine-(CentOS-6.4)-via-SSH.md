@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How to Connect to VMware Machine (CentOS 6.4) via SSH
+title: How to connect to VMware machine (CentOS 6.4) via SSH
 categories: 
 - Linux
 tags: 

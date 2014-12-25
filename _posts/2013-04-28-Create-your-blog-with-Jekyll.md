@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Create Your Blog with Jekyll
+title: Create your blog with Jekyll
 categories:
 - Web
 tags:
