@@ -84,3 +84,6 @@ PS:本文采用了[添加文内注释/参考文献引用](http://celavie.me/lib/
 <span id="[1]">[1]</span>: [Unable to resolve host using curl/wget while page loads in browser](http://superuser.com/questions/518297/unable-to-resolve-host-using-curl-wget-while-page-loads-in-browser)
 
 <span id="[2]">[2]</span>: [如何为MacOS X终端设置代理](http://codelife.me/blog/2012/09/02/how-to-set-proxy-for-terminal/)
+
+### 更新
+由于GFW的原因，Google服务在国内的使用受影响。在国内调用Google Maps API时推荐使用ditu.google.cn，而不是maps.google.com。解决思路是通过调用GeoIP服务，查询用户是在国内还是国外，指定不同的Google Maps API调用链接。[*geoChina*](https://github.com/caijun/geoChina)已更新至`1.1.3`。
