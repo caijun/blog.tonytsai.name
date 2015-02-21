@@ -163,19 +163,22 @@ pre, code {
 	vertical-align: middle;
 	font-family: Consolas;
     font-size: 14px;
-    background-color: #f3f3f3;
     line-height: 1.5;
+    background-color: #f3f3f3;
     border-radius: 5px;
     padding: 2px 5px 1px 5px;
     border: 1px solid #ccc;
+    margin-top: .3em;
+    margin-bottom: .3em;
 }
 pre code {
     overflow: auto;
     display: block;
     border: none;
+    width: 735px;
 }
-.sourceCode pre code {
-	width:735px;
+pre:not([class]), pre:not([class]) code {
+    background-color: white;
 }
 hr {
     border: 0;

@@ -45,5 +45,11 @@ Data Mangement Tools -> Generalization -> Dissolve
 Analysis Tools -> Overlay -> Spatial Join
 ```
 
+#### 7. Find the nearest point for each point feature
+
+```
+Analysis Tools -> Proximity -> Generate Near Table
+```
+
 <br>
 其实知道一个处理操作的关键词（比如clip，projection等），可以直接在ArcGIS的`Search`窗口搜索工具，一般都能找到自己想要的工具。

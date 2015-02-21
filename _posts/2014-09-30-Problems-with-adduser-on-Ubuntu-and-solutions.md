@@ -17,7 +17,7 @@ Linux系统中只有*root*用户有创建其它用户的权限。
 
 切换到*root*用户，创建新用户*zyw* ，并设置密码
 
-```
+```{.bash}
 $ su - root
 $ useradd zyw
 $ passwd zyw
@@ -32,7 +32,7 @@ Could not chdir to home directory /home/zyw: No such file or directory
 
 很显然问题在于使用`useradd`命令创建用户时，忘了使用`-d`参数指定用户主目录（其实我以为系统会根据用户名自动创建，看来系统没有那么智能）。解决办法是为*zyw*用户创建主目录**/home/zyw**并设定相应权限，输入以下命令：
 
-```
+```{.bash}
 $ mkdir /home/zyw
 $ chown zyw:zyw /home/zyw
 $ chmod 0700 /home/zyw
@@ -42,7 +42,7 @@ $ chmod 0700 /home/zyw
 
 通过google发现，原因在于用户使用的`shell`不是常用的`bash`。查看当前使用的`shell`，输入：
 
-```
+```{.bash}
 $ echo $SHELL
 ```
 
@@ -65,7 +65,7 @@ zyw:x:1001:1001::/home/zyw:/bin/sh
 #### 4. 终端缺少配置文件
 重新登录Terminal，提示符正常，但仍没有颜色高亮。通过`ls -a`列出用户主目录下所有文件（包括隐藏文件），发现缺少终端配置文件**.bashrc**和**.profile**。解决办法是从**/etc/skel**目录下拷贝过来，输入以下命令：
 
-```
+```{.bash}
 $ cp /etc/skel/.bashrc /home/zyw/
 $ cp /etc/skel/.profile /home/zyw/
 ```
