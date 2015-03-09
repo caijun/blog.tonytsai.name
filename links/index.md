@@ -19,3 +19,9 @@ comments: yes
 * [ArcGIS](https://www.arcgis.com/) GIS专业软件，主要用于空间矢量数据数据处理、空间分析以及地图制图。利用ArcPy可以扩展ArcGIS的功能。    
 * [ENVI/IDL](http://www.exelisvis.com/) RS专业软件，ENVI是[IDL](http://en.wikipedia.org/wiki/IDL_(programming_language))编程语言开发的遥感影像处理软件平台。利用IDL可以扩展ENVI的功能。自己编写的IDL程序：
     + [LCF](https://github.com/caijun/LCF)：从MOD/MYD35云掩膜产品探测低云并计算低云频率，涉及常用的遥感影像批处理操作——几何校正、重采样、镶嵌、裁剪和ROI提取等。
+    
+### Books
+
+It lists the books that I have read and would like to recommend.
+
+* [The Art of R Programming: A Tour of Statistical Software Design](http://www.amazon.com/The-Art-Programming-Statistical-Software/dp/1593273843)
