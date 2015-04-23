@@ -40,7 +40,7 @@ $ gem -v
 5. Update *RubyGems*
 
 ```{.bash}
-$ sudo gem update --system
+$ gem update --system
 ```
 
 ### Install Jekyll
@@ -49,7 +49,7 @@ $ sudo gem update --system
 Install *Jekyll* via *RubyGems*
 
 ```{.bash}
-$ sudo gem install jekyll
+$ gem install jekyll
 ```
 
 Update *Jekyll*
@@ -184,7 +184,7 @@ $ jekyll build
 $ jekyll server
 ```
 
-然后在浏览器输入`localhost:4000`或`0.0.0.0:4000`地址就可以浏览blog网站了。
+然后在浏览器输入`localhost:4000`或`127.0.0.1:4000/`地址就可以浏览blog网站了。
 
 ##### 7. 发布blog网站
 如果想别人能够通过互联网访问你的blog网站，你需要有域名和具有独立公网IP的服务器。从个人经济能力出发，域名可以考虑购买适合个人使用、相对便宜的域名，比如`.name`，`.me`等；服务器可以考虑购买VPS服务。将`_site`目录上载到虚拟专用服务器 (Virtual Private Server, VPS)，并将blog的域名绑定到`_site`目录。

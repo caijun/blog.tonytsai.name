@@ -9,7 +9,18 @@ tags:
 ---
 
 ### git安装
-稍后补充。。。
+推荐[Homebrew](http://brew.sh/)用于管理常用开源软件包在Mac OS X上的安装和升级。*Homebrew*用Ruby语言开发，支持千余种开源软件在 Mac OS X 中的部署和管理。Homebrew 项目托管在[Github](https://github.com/mxcl/homebrew)上。
+
+1. To install *Homebrew*, run following command in terminal. Note that `ruby` is installed by default on Mac OS X.
+
+```{.bash}
+$ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+2. It is quite easy to install *git* through *Homebrew*.
+
+```{.bash}
+$ brew install git
+```
 
 ### git 常用命令
 1. 将github上面的项目克隆到本地
