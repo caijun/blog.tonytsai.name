@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Host is down using curl/wget while page loads in browser
+title: Host Is Down Using curl/wget While Page Loads in Browser
 categories:
 - GoAgent
 tags:
@@ -12,7 +12,7 @@ tags:
 ### 问题描述
 最近想更新自己开发的[*geoChina*](https://github.com/caijun/geoChina)，发现在Mac上运行以下代码
 
-```{.r .numberLines}
+```{.r}
 library(geoChina)
 geocode('Tsinghua University', api = 'google', ocs = 'GCJ-02', messaging = T)
 ```

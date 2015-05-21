@@ -1,6 +1,6 @@
 ---
 layout: post
-title: A Chinese beamer for ecophilosophy class presentation
+title: A Chinese Beamer for Ecophilosophy Class Presentation
 categories:
 - LaTeX
 tags:

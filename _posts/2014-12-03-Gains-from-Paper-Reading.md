@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Gains from paper reading
+title: Gains from Paper Reading
 categories:
-- influenza
+- Influenza
 tags:
 - Jeffrey Shaman
 - reproducible research

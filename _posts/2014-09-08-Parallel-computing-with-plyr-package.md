@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Parallel computing with plyr package
+title: Parallel Computing with plyr Package
 categories:
 - R
 tags:
@@ -9,4 +9,4 @@ tags:
 - merge
 ---
   
-稍后补充。。。
+To release later...

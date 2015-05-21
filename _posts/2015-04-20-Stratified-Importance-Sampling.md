@@ -2,11 +2,10 @@
 layout: post
 title: Stratified Importance Sampling
 categories: 
-- statistical computing
-tags:
 - R
+tags:
+- statistical computing
 - variance reduction
-- importance sampling
 - stratified importance sampling
 ---
 

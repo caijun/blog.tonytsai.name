@@ -1,6 +1,6 @@
 ---
 layout: post
-title: A beamer for doctoral English class final presentation
+title: A Beamer for Doctoral English Class Final Presentation
 categories:
 - LaTeX
 tags:

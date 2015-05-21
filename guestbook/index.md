@@ -4,4 +4,4 @@ layout: page
 comments: yes
 ---
 
-欢迎使用评论留言哦！可以是对博客网站设计、博客内容、软件工具包、学术问题、甚至吐槽。
+Welcome to leave your messages! You can comment on the design, contents of my blog, software packages occurred in my blog, scientific questions on infectious disease epidemiology. Of course, just chatting is also ok.

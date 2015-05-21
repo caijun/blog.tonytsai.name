@@ -1,6 +1,6 @@
 ---
 layout: post
-title: A zonal statistics toolbox for overlapping polygons
+title: A Zonal Statistics Toolbox for Overlapping Polygons
 categories:
 - GIS
 tags:
@@ -9,4 +9,4 @@ tags:
 - overlapping polygons
 ---
   
-稍后补充。。。
+To release later...

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Problems with adduser on Ubuntu and solutions
+title: Problems with adduser on Ubuntu and Solutions
 categories:
 - Linux
 tags:

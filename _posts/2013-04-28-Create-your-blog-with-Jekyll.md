@@ -1,11 +1,11 @@
 ---
 layout: post
-title: Create your blog with Jekyll
+title: Create Your Blog with Jekyll
 categories:
 - Web
 tags:
 - Jekyll
-- Blog
+- blog
 ---
 
 在使用Jekyll搭建个人blog之前，确认你的PC安装有Jekyll。最简单的安装Jekyll方法是通过RubyGems，RubyGems是Ruby包管理框架。在CentOS 6.4上安装RubyGems和Jekyll的步骤如下：
@@ -104,7 +104,7 @@ $ mkdir _layouts
 </html>
 ```
 
-Jekyll默认使用[Liquid](https://github.com/shopify/liquid/wiki/liquid-for-designers)标记语言。Liquid提供两种标记语言：`output markup`和`tag markup`，`output markup`用<code>&#123;</code>`{% raw %} { } {% endraw %}`<code>&#125;</code>分割，`tag markup`用<code>&#123;</code>`{% raw %} % % {% endraw %}`<code>&#125;</code>分隔。`page.title`和`content`都是Jekyll提供的[模板数据](https://github.com/mojombo/jekyll/wiki/Template-Data)。
+Jekyll默认使用[Liquid](https://github.com/shopify/liquid/wiki/liquid-for-designers)标记语言。Liquid提供两种标记语言：`output markup`和`tag markup`，`output markup`用`{% raw %}{ { } }{% endraw %}`分割，`tag markup`用`{% raw %}{ % % }{% endraw %}`分隔。`page.title`和`content`都是Jekyll提供的[模板数据](https://github.com/mojombo/jekyll/wiki/Template-Data)。
 
 ##### 4. 创建文章
 在jekyll_blog目录下创建`_posts`目录，用于存放blog文章
@@ -116,7 +116,7 @@ $ mkdir _posts
 进入`_posts`目录，创建第一篇文章，文件名为`2013-04-28-Create-your-blog-with-Jekyll.md`。（注：文件名必须为"YYYY-MM-DD-Blog-Title.后缀名"，如果采用`html`网页，后缀名为`html`；如果采用[markdown](http://daringfireball.net/projects/markdown/)格式，后缀名为`md`）
 在该文件中，写入以下内容：
 
-```{.yaml .numberLines}
+```
 ---
 layout: post
 title: Create Your Blog With Jekyll
@@ -135,8 +135,8 @@ tags:
 ##### 5. 创建首页
 有了文章之后，还需要一个首页。回到jekyll_blog目录，新建一个`index.md`文件，内容如下：
 
-```{.html .numberLines}
----
+```
+{% raw %}---
 layout: page
 title: Tony Tsai's Blog
 ---
@@ -153,7 +153,7 @@ title: Tony Tsai's Blog
     <a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
   </li>
 {% endfor %}
-</ul>
+</ul>{% endraw %}
 ```
 
 `index.md`参考[谢益辉中文博客](http://yihui.name/cn/)的GitHub[源码](https://github.com/yihui/cn)。首页使用default模板，标题为"Tony Tsai's Blog"。`{% raw %} {% for post in site.posts %} {% endfor %} {% endraw %}`表示对`_posts`目录下的所有文章遍历。<!TODO:更多说明>

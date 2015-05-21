@@ -2,7 +2,7 @@
 layout: post
 title: Precision Difference of ode45 between R and MATLAB
 categories:
-- numerical computation
+- Numerical Computation
 tags:
 - ode45
 - R

@@ -2,7 +2,7 @@
 layout: post
 title: SIRS Model with Time Dependent Transmission Rate
 categories:
-- influenza
+- Influenza
 tags:
 - SIRS
 - transmission rate

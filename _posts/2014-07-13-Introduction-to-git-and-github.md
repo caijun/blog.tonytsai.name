@@ -1,10 +1,10 @@
 ---
 layout: post
-title: Introduction to git and github
+title: Introduction to git and GitHub
 categories:
-- github
+- GitHub
 tags:
-- github
+- GitHub
 - Mac OS X
 ---
 

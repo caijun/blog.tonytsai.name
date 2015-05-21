@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Why does the jackknife estimate of standard error have the factor (n-1)/n?
+title: Why Does the Jackknife Estimate of Standard Error Have the Factor (n-1)/n?
 categories: 
-- statistical computing
+- Statistical Computing
 tags:
 - jackknife
 - standard error

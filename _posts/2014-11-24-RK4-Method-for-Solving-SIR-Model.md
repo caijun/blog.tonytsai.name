@@ -2,12 +2,12 @@
 layout: post
 title: RK4 Method for Solving SIR Model
 categories:
-- influenza
+- Influenza
 tags:
 - RK4
 - SIR
-- Incidence
-- Benchmark
+- incidence
+- benchmark
 ---
 
 My object is to rewrite the 4th order Runge-Kutta (abbreviated for **RK4**) method for solving the absolute humidity-driven SIRS model developed by [Yang et al. (2014)](http://www.ploscompbiol.org/article/info%3Adoi%2F10.1371%2Fjournal.pcbi.1003583) in `R` language. The details of the SIRS model are provided in the paper.

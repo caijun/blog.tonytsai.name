@@ -11,9 +11,9 @@ Email: <tony.tsai.2046@gmail.com>
 
 Fork me on [Github](https://github.com/caijun)
 
-Follow me on [新浪微博](http://weibo.com/caijun2046) or [Facebook](http://www.facebook.com/tony.tsai.9828).
+Follow me on [Sina Microblog | 新浪微博](http://weibo.com/caijun2046) or [Facebook](http://www.facebook.com/tony.tsai.9828).
 
 ## Blog Architecture
-源码见[GitHub](https://github.com/caijun/blog.tonytsai.name)
+The source code of blog is available on my [GitHub](https://github.com/caijun/blog.tonytsai.name).
 
-博客主题来自[Ji Junxiang](https://github.com/dashjim/dashjim.github.com)，并进行微创新——添加全文搜索功能，目前只支持英文。
+The theme is from[Ji Junxiang](https://github.com/dashjim/dashjim.github.com)，for which I make some enhancements, including fulltext search; however, currently the function only supports English fulltext search.

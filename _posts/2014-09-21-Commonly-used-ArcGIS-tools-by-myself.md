@@ -1,11 +1,11 @@
 ---
 layout: post
-title: Commonly used ArcGIS tools by myself
+title: Commonly Used ArcGIS Tools by Myself
 categories:
 - GIS
 tags:
 - ArcGIS toolbox
-- spatial data processing
+- spatial analysis
 ---
   
 ArcGIS toolbox提供了丰富的工具，但只有一些是在平常的空间数据处理过程中自己会用到。即使如此，每次自己进行一个处理操作时都要再去google一遍（原谅自己的脑子越来越不好使），存在太多的重复性劳动，十分浪费时间。因此十分有必要将自己常面对的数据处理需求及相应的工具实现记录下来。

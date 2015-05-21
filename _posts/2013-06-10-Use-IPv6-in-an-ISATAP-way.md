@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Use IPv6 in an ISATAP way
+title: Use IPv6 in an ISATAP Way
 categories: 
 - Windows
 tags: 
