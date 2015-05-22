@@ -5,7 +5,7 @@ categories:
 - Web
 tags:
 - Jekyll
-- blog
+- Blog
 ---
 
 在使用Jekyll搭建个人blog之前，确认你的PC安装有Jekyll。最简单的安装Jekyll方法是通过RubyGems，RubyGems是Ruby包管理框架。在CentOS 6.4上安装RubyGems和Jekyll的步骤如下：

@@ -4,9 +4,9 @@ title: Why Does the Jackknife Estimate of Standard Error Have the Factor (n-1)/n
 categories: 
 - Statistical Computing
 tags:
-- jackknife
-- standard error
-- resampling
+- Jackknife
+- Standard Error
+- Resampling
 ---
 
 Today I read **7.2 The Jackknife** in [Stastical Computing with R](http://www.amazon.com/Statistical-Computing-Chapman-Hall-Series/dp/1584885459) and found the explanation for why the jackknife estimate of standard error have the factor $(n-1)/n$ is unclear. I refered to [An Introduction to the Bootstrap](http://www.amazon.com/Introduction-Bootstrap-Monographs-Statistics-Probability/dp/0412042312) by Bradley Efron and R. J. Tibshirani, and the [slides](https://www.scss.tcd.ie/Rozenn.Dahyot/453Bootstrap/04_Jackknife.pdf) of jackknife by Rozenn Dahyot to figure out the reason. Here is my understanding for the existence of factor $(n-1)/n$.

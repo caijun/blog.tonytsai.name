@@ -5,8 +5,8 @@ categories:
 - Influenza
 tags:
 - Jeffrey Shaman
-- reproducible research
-- open access
+- Reproducible Research
+- Open Access
 ---
 
 因探究流感传染能力、存活能力与湿度的关系，今天自己将两年前读过的一篇论文（[Shaman.Kohn-PNAS-2009](http://www.pnas.org/content/106/9/3243)）又翻出来重新读了一遍，看到当时做的笔记，感觉自己当时真是too young too simple。

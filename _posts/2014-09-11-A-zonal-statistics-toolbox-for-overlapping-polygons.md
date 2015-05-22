@@ -5,8 +5,8 @@ categories:
 - GIS
 tags:
 - ArcGIS toolbox
-- zonal statistics
-- overlapping polygons
+- Zonal Statistics
+- Overlapping Polygons
 ---
   
 To release later...

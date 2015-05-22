@@ -5,9 +5,9 @@ categories:
 - Influenza
 tags:
 - SIRS
-- transmission rate
-- basic reproductive number
-- Markov chain transition rate
+- Transmission Rate
+- Basic Reproductive Number
+- Markov Chain Transition Rate
 ---
 
 ## 1 SIRS Model

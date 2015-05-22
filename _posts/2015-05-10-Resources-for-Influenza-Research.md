@@ -4,8 +4,8 @@ title: Resources for Influenza Research
 categories: 
 - Influenza
 tags:
-- resource
-- research
+- Resource
+- Research
 ---
 
 Today I made a list of resources for influenza research. I will keep updating this list as my influenza research goes further. The up-to-date version can be found on my [github](https://github.com/caijun/res4flu).

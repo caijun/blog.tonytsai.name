@@ -2,10 +2,10 @@
 layout: post
 title: Host Is Down Using curl/wget While Page Loads in Browser
 categories:
-- GoAgent
-tags:
 - Mac OS X
-- proxy
+tags:
+- GoAgent
+- Proxy
 - geoChina
 ---
   

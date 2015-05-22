@@ -4,7 +4,7 @@ title: Parallel Computing with plyr Package
 categories:
 - R
 tags:
-- parallel computing
+- Parallel Computing
 - plyr
 - merge
 ---

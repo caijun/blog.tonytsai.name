@@ -5,9 +5,9 @@ categories:
 - Linux
 tags:
 - Ubuntu
-- add user
-- shell
-- prompt
+- adduser
+- Shell
+- Prompt
 ---
 
 最近想为Ubuntu服务器增加一个用户，然后`ssh`远程登录使用。折腾了好久总算搞定，现将过程中遇到的问题记录下来，以便将来参考。

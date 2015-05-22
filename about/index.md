@@ -16,4 +16,4 @@ Follow me on [Sina Microblog | 新浪微博](http://weibo.com/caijun2046) or [Fa
 ## Blog Architecture
 The source code of blog is available on my [GitHub](https://github.com/caijun/blog.tonytsai.name).
 
-The theme is from[Ji Junxiang](https://github.com/dashjim/dashjim.github.com)，for which I make some enhancements, including fulltext search; however, currently the function only supports English fulltext search.
+The theme is from [Ji Junxiang](https://github.com/dashjim/dashjim.github.com)，for which I make some enhancements, including fulltext search; however, currently the function only supports English fulltext search.

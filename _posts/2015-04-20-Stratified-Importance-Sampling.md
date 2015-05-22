@@ -4,9 +4,9 @@ title: Stratified Importance Sampling
 categories: 
 - R
 tags:
-- statistical computing
-- variance reduction
-- stratified importance sampling
+- Statistical Computing
+- Variance Reduction
+- Stratified Importance Sampling
 ---
 
 The following `R` codes implement the **Example 5.13** in [Statistical Computing with R](http://www.amazon.com/Statistical-Computing-Chapman-Hall-Series/dp/1584885459), and compare the estimate $\hat{\theta}$ and $\hat{\sigma}$ from stratified importance sampling to the results from importance sampling. The example illustrates that stratification can reduce the varinace of importance sampling estimator.
