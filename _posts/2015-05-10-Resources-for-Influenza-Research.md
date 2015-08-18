@@ -11,13 +11,15 @@ tags:
 Today I made a list of resources for influenza research. I will keep updating this list as my influenza research goes further. The up-to-date version can be found on my [github](https://github.com/caijun/res4flu).
 
 ## Contents
+- [Infectious Diseases Epidemiology](#infectious-diseases-epidemiology)
+- [Modeling Infectious Diseases](#modeling-infectious-diseases)
 - [Topics and Keywords](#topics-and-keywords)
 - [Ecology and Evolution of Influenza](#ecology-and-evolution-of-influenza)
-- [Modeling Infectious Diseases](#modeling-infectious-diseases)
 - [Seasonality of Influenza](#seasonality-of-influenza)
-- [Surveillence of Influenza](#surveillence-of-influenza)
-    - [Forecasting Dynamics of Influenza](#forecasting-dynamics-of-influenza)
-    - [Digital Detection of Influenza](#digital-disease-detection)
+- [Dynamics of Influenza](#dynamics-of-influenza)
+    - [Influenza Transmission](#influenza-transmission)
+    - [Influenza Forecasting](#influenza-forecasting)
+    - [Digital Detection of Influenza](#digital-detection-of-influenza)
 - [Databases for Influenza Research](#databases-for-influenza-research)
 - [Workshops and Conferences](#workshops-and-conferences)
 - [MOOCs](#moocs)
@@ -25,28 +27,20 @@ Today I made a list of resources for influenza research. I will keep updating th
 
 ## Topics and Keywords
 * [Influenza](http://en.wikipedia.org/wiki/Influenza) | Flu
-* Pandemic vs. Epidemic
+* Pandemic (Antigenic Shift) vs. Epidemic (Antigenic Drift)
 * Epidemiology of Influenza
 * Modeling Influenza
-    - Transmission
-    - Forecasting
+  - Transmission
+  - Forecasting
 * Surveillence of Influenza
 * Ecology of Influenza
 * Evolution of Influenza
-    - [Phylogeography](http://en.wikipedia.org/wiki/Phylogeography)
+  - [Phylogeography](http://en.wikipedia.org/wiki/Phylogeography)
+  
+## Infectious Diseases Epidemiology
+*Textbooks*
 
-## Ecology and Evolution of Influenza
-*Textbook*
-
-* Webster, R. G., Monto, A. S., Braciale, T. J., & Lamb, R. A. (2014). [Textbook of Influenza](http://www.amazon.com/Textbook-Influenza-Robert-G-Webster/dp/0470670487/). John Wiley & Sons.
-
-*Review Papers*
-
-* Nelson, M. I., & Holmes, E. C. (2007). [The Evolution of Epidemic Influenza](http://www.nature.com/nrg/journal/v8/n3/abs/nrg2053.html). Nature reviews genetics, 8(3), 196-205.
-* Earn, D. J., Dushoff, J., & Levin, S. A. (2002). [Ecology and Evolution of the Flu](http://www.sciencedirect.com/science/article/pii/S0169534702025028). Trends in ecology & evolution, 17(7), 334-340.
-* Potter, C. W. (2001). [A History of Influenza](http://onlinelibrary.wiley.com/doi/10.1046/j.1365-2672.2001.01492.x/full). Journal of applied microbiology, 91(4), 572-579.
-* Cox, N. J., & Subbarao, K. (2000). [Global Epidemiology of Influenza: Past and Present](http://www.annualreviews.org/doi/abs/10.1146/annurev.med.51.1.407). Annual review of medicine, 51(1), 407-421.
-* Webster, R. G., Bean, W. J., Gorman, O. T., Chambers, T. M., & Kawaoka, Y. (1992). [Evolution and Ecology of Influenza A Viruses](http://mmbr.asm.org/content/56/1/152.short). Microbiological reviews, 56(1), 152-179.
+* Gordis, L. (2013). [Epidemiology](http://www.amazon.com/Epidemiology-STUDENT-CONSULT-Online-Access/dp/145573733X). Elsevier: Saunders.
 
 ## Modeling Infectious Diseases
 *Textbooks*
@@ -62,6 +56,19 @@ Today I made a list of resources for influenza research. I will keep updating th
 * Grassly, N. C., & Fraser, C. (2008). [Mathematical Models of Infectious Disease Transmission](http://www.nature.com/nrmicro/journal/v6/n6/full/nrmicro1845.html). Nature Reviews Microbiology, 6(6), 477-487.
 * Hethcote, H. W. (2000). [The Mathematics of Infectious Diseases](http://epubs.siam.org/doi/abs/10.1137/S0036144500371907). SIAM review, 42(4), 599-653.
 
+## Ecology and Evolution of Influenza
+*Textbook*
+
+* Webster, R. G., Monto, A. S., Braciale, T. J., & Lamb, R. A. (2014). [Textbook of Influenza](http://www.amazon.com/Textbook-Influenza-Robert-G-Webster/dp/0470670487/). John Wiley & Sons.
+
+*Review Papers*
+
+* Nelson, M. I., & Holmes, E. C. (2007). [The Evolution of Epidemic Influenza](http://www.nature.com/nrg/journal/v8/n3/abs/nrg2053.html). Nature reviews genetics, 8(3), 196-205.
+* Earn, D. J., Dushoff, J., & Levin, S. A. (2002). [Ecology and Evolution of the Flu](http://www.sciencedirect.com/science/article/pii/S0169534702025028). Trends in ecology & evolution, 17(7), 334-340.
+* Potter, C. W. (2001). [A History of Influenza](http://onlinelibrary.wiley.com/doi/10.1046/j.1365-2672.2001.01492.x/full). Journal of applied microbiology, 91(4), 572-579.
+* Cox, N. J., & Subbarao, K. (2000). [Global Epidemiology of Influenza: Past and Present](http://www.annualreviews.org/doi/abs/10.1146/annurev.med.51.1.407). Annual review of medicine, 51(1), 407-421.
+* Webster, R. G., Bean, W. J., Gorman, O. T., Chambers, T. M., & Kawaoka, Y. (1992). [Evolution and Ecology of Influenza A Viruses](http://mmbr.asm.org/content/56/1/152.short). Microbiological reviews, 56(1), 152-179.
+
 ## Seasonality of Influenza
 *Review Papers*
 
@@ -70,8 +77,14 @@ Today I made a list of resources for influenza research. I will keep updating th
 * Lipsitch, M., & Viboud, C. (2009). [Influenza Seasonality: Lifting the Fog](http://www.pnas.org/content/106/10/3645.short). Proceedings of the National Academy of Sciences, 106(10), 3645-3646.
 * Lofgren, E., Fefferman, N. H., Naumov, Y. N., Gorski, J., & Naumova, E. N. (2007). [Influenza Seasonality: Underlying Causes and Modeling Theories](http://jvi.asm.org/content/81/11/5429.short). Journal of virology, 81(11), 5429-5436.
 
-## Surveillence of Influenza
-### Forecasting Dynamics of Influenza
+## Dynamics of Influenza
+### Influenza Transmission
+
+*Classical Paper*
+
+* Rvachev, L. A., & Longini, I. M. (1985). [A Mathematical Model for the Global Spread of Influenza](http://www.sciencedirect.com/science/article/pii/0025556485900641). Mathematical biosciences, 75(1), 3-22.
+
+### Influenza Forecasting
 *Review Papers*
 
 * Nsoesie, E. O., Brownstein, J. S., Ramakrishnan, N., & Marathe, M. V. (2014). [A Systematic Review of Studies on Forecasting the Dynamics of Influenza Outbreaks](http://onlinelibrary.wiley.com/doi/10.1111/irv.12226/full). Influenza and other respiratory viruses, 8(3), 309-316.
@@ -114,7 +127,9 @@ Today I made a list of resources for influenza research. I will keep updating th
 ## MOOCs
 *Massive open online courses*
 
-* [Epidemics - the Dynamics of Infectious Diseases](https://www.coursera.org/course/epidemics): a course about the dynamics of Malaria, HIV/AIDS, Influenza, Measles - how they emerge, how they spread around the globe, and how they can best be controlled.
+* [Epidemics - the Dynamics of Infectious Diseases](https://www.coursera.org/course/epidemics): a course provided by the Pennsylvania State University discusses about the dynamics of Malaria, HIV/AIDS, Influenza, Measles - how they emerge, how they spread around the globe, and how they can best be controlled.
+
+* [Epidemics](https://www.edx.org/course/epidemics-hkux-hku01x-0): a course provided by the University of Hong Kong covers these four topics: origins of novel pathogens; analysis of the spread of infectious diseases; medical and public health countermeasures to prevent and control epidemics; panel discussions involving leading public health experts with deep frontline experiences to share their views on risk communication, crisis management, ethics and public trust in the context of infectious disease control. 
 
 ## Contributing
 

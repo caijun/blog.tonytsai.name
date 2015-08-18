@@ -22,8 +22,9 @@ comments: yes
     
 ### Books
 
-The following are the books that I have read and would like to recommend.
+The following are books that I have read and would like to recommend.
 
 * [The Art of R Programming: A Tour of Statistical Software Design](http://www.amazon.com/The-Art-Programming-Statistical-Software/dp/1593273843)
 * [Statistical Methods for Environmental Epidemiology with R: A Case Study in Air Pollution and Health](http://www.amazon.com/Statistical-Methods-Environmental-Epidemiology-Pollution/dp/0387781668)
 * [Statistical Computing with R](http://www.amazon.com/Statistical-Computing-Chapman-Hall-Series/dp/1584885459)
+* [Interactive Data Visualization for the Web: An Introduction to Designing with D3](http://www.amazon.com/Interactive-Data-Visualization-Scott-Murray/dp/1449339735)
