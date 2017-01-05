@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Beamer on Tony Tsai</title>
+    <link>http://blog.tonytsai.name/tags/beamer/index.xml</link>
+    <description>Recent content in Beamer on Tony Tsai</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="http://blog.tonytsai.name/tags/beamer/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>A Chinese Beamer for Ecophilosophy Class Presentation</title>
+      <link>http://blog.tonytsai.name/blog/2013-12-04-a-chinese-beamer-for-ecophilosophy-class-presentation/</link>
+      <pubDate>Wed, 04 Dec 2013 23:44:46 -0400</pubDate>
+      
+      <guid>http://blog.tonytsai.name/blog/2013-12-04-a-chinese-beamer-for-ecophilosophy-class-presentation/</guid>
+      <description>&lt;p&gt;用Beamer做英文&lt;a href=&#34;http://blog.tonytsai.name/2013/06/A-beamer-for-doctoral-english-class-final-presentation/&#34; target=&#34;_blank&#34;&gt;slides&lt;/a&gt;已经尝试过了，做中文slides一直没有尝试过。借着研究生最后一门课程——生态哲学——课堂展示的机会，做了一个中文&lt;a href=&#34;http://tonytsai.name/materials/TonyTsai+20131127.pdf&#34; target=&#34;_blank&#34;&gt;slides&lt;/a&gt;。这次制作过程中学习了如何添加参考文献、Hyperlinks和跳转Buttons以及脚注。自己一直以来坚持用&lt;a href=&#34;http://jabref.sourceforge.net/&#34; target=&#34;_blank&#34;&gt;JabRef&lt;/a&gt;管理文献，就是为了有一天能用$\LaTeX$写东西时能够方便插入文献。这次折腾了&lt;a href=&#34;http://en.wikipedia.org/wiki/BibTeX&#34; target=&#34;_blank&#34;&gt;BibTeX&lt;/a&gt;，插入文献的确很方便，发现自己的判断还是很明智的。&lt;br /&gt;
+使用xeCJK包写中文，因此编译顺序为XeLaTeX + BibTeX + XeLaTeX。其中两次XeLaTeX编译是为了产生中文书签，而BibTeX是为了编译文献。&lt;br /&gt;
+猛戳&lt;a href=&#34;http://tonytsai.name/materials/TonyTsai+20131127.tex&#34; target=&#34;_blank&#34;&gt;此处&lt;/a&gt;下载$\TeX$源文件，欢迎研究交流。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>A Beamer for Doctoral English Class Final Presentation</title>
+      <link>http://blog.tonytsai.name/blog/2013-06-07-a-beamer-for-doctoral-english-class-final-presentation/</link>
+      <pubDate>Fri, 07 Jun 2013 23:44:46 -0400</pubDate>
+      
+      <guid>http://blog.tonytsai.name/blog/2013-06-07-a-beamer-for-doctoral-english-class-final-presentation/</guid>
+      <description>&lt;p&gt;用&lt;a href=&#34;http://en.wikipedia.org/wiki/Beamer_%28LaTeX%29&#34; target=&#34;_blank&#34;&gt;Beamer&lt;/a&gt;做博士英语课程presentation的&lt;a href=&#34;http://tonytsai.name/materials/TonyTsai+20130604.pdf&#34; target=&#34;_blank&#34;&gt;slides&lt;/a&gt;，觉得不错的朋友可以下载&lt;a href=&#34;http://tonytsai.name/materials/TonyTsai+20130604.tex&#34; target=&#34;_blank&#34;&gt;tex源文件&lt;/a&gt;研究，欢迎交流。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

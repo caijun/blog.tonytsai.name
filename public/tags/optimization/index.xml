@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Optimization on Tony Tsai</title>
+    <link>http://blog.tonytsai.name/tags/optimization/index.xml</link>
+    <description>Recent content in Optimization on Tony Tsai</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="http://blog.tonytsai.name/tags/optimization/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Optimization of Disk Usage for animint</title>
+      <link>http://blog.tonytsai.name/blog/2015-08-09-optimization-of-disk-usage-for-animint/</link>
+      <pubDate>Sun, 09 Aug 2015 23:44:46 -0400</pubDate>
+      
+      <guid>http://blog.tonytsai.name/blog/2015-08-09-optimization-of-disk-usage-for-animint/</guid>
+      <description>
+
+&lt;h2 id=&#34;problem&#34;&gt;Problem&lt;/h2&gt;
+
+&lt;p&gt;The easy test for becoming a potential student of &lt;a href=&#34;https://github.com/rstats-gsoc/gsoc2015/wiki/Animint&#34; target=&#34;_blank&#34;&gt;animint project&lt;/a&gt; for GSoC 2015 is to use &lt;a href=&#34;https://github.com/tdhock/animint&#34; target=&#34;_blank&#34;&gt;animint&lt;/a&gt; to visualize some data from your domain of expertise, and upload your visualization to the web using &lt;code&gt;animint2gist&lt;/code&gt;. I used animint to visualize the data from the &lt;a href=&#34;http://gis.cdc.gov/grasp/fluview/main.html&#34; target=&#34;_blank&#34;&gt;CDC&amp;rsquo;s State-level FluView&lt;/a&gt;, which is a main data source of my Ph.D. &lt;a href=&#34;https://github.com/caijun/res4flu#databases-for-influenza-research&#34; target=&#34;_blank&#34;&gt;influenza research&lt;/a&gt;. The script for generating the FluView viz can be found in &lt;a href=&#34;https://github.com/caijun/AnimintTest&#34; target=&#34;_blank&#34;&gt;AnimintTest&lt;/a&gt; repository.&lt;/p&gt;
+
+&lt;p&gt;As shown in following figure, the FluView viz is comprised of two ggplots: the top is a heatmap, and the bottom is a map of US lower 48 states. In the top heatmap, &lt;code&gt;WEEKEND&lt;/code&gt; is a selection variable. As the selected &lt;code&gt;WEEKEND&lt;/code&gt; changes, the bottom state map is re-drawn to show the ILI activity levels across US lower 48 states at the selected &lt;code&gt;WEEKEND&lt;/code&gt;, whose colors are mapping to the ILI activity levels.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://tonytsai.name/materials/FluView.png&#34; alt=&#34;Screenshot of FluView viz&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;However, there are some problems when using the current animint package to produce above FluView viz. First, after making the FluView viz, it took long time for &lt;code&gt;animint2gist&lt;/code&gt; to upload the viz to &lt;a href=&#34;http://bl.ocks.org&#34; target=&#34;_blank&#34;&gt;bl.ocks.org&lt;/a&gt;, but still failed.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #719e07&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;system.time&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;(&lt;/span&gt;animint2gist&lt;span style=&#34;color: #93A1A1&#34;&gt;(&lt;/span&gt;viz&lt;span style=&#34;color: #93A1A1&#34;&gt;,&lt;/span&gt; out.dir &lt;span style=&#34;color: #719e07&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;FluView-old&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;))&lt;/span&gt;
+Loading required namespace&lt;span style=&#34;color: #719e07&#34;&gt;:&lt;/span&gt; gistr
+Error &lt;span style=&#34;color: #268BD2&#34;&gt;in&lt;/span&gt; res&lt;span style=&#34;color: #719e07&#34;&gt;$&lt;/span&gt;errors &lt;span style=&#34;color: #719e07&#34;&gt;:&lt;/span&gt; object of type &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;#39;externalptr&amp;#39;&lt;/span&gt; is not subsettable
+Timing stopped at&lt;span style=&#34;color: #719e07&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;148.793&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;16.205&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;412.56&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;So I had to upload the FluView viz to &lt;a href=&#34;http://tonytsai.name/FluView-old/index.html&#34; target=&#34;_blank&#34;&gt;my personal website&lt;/a&gt; to demonstrate it to &lt;a href=&#34;https://github.com/tdhock&#34; target=&#34;_blank&#34;&gt;Toby Hocking&lt;/a&gt;, the creator of animint package. Second, when you play with the FluView viz, you will feel strongly that the interactivity experience of FluView viz is less responsive. After clicking on the top heatmap,  it took long time for the viz to update the bottom map to show the ILI activity levels at selected &lt;code&gt;WEEKEND&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Actually, these problems are caused by the large filesize of chunks generated by animint. Using the current animint package, the FluView viz took about &lt;strong&gt;219&lt;/strong&gt; MB of chunks, which was too large for &lt;code&gt;animint2gist&lt;/code&gt; to upload it. Individual chunk of &lt;code&gt;geom4_polygon_stateMap&lt;/code&gt; for each &lt;code&gt;WEEKEND&lt;/code&gt; had a filesize of &lt;strong&gt;708&lt;/strong&gt; KB, which also took a while for the browser to load it and made the viz less responsive.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ ls FluView-old/*.tsv&lt;span style=&#34;color: #93A1A1&#34;&gt;|&lt;/span&gt;wc -l
+     316
+$ du -hsc FluView-old/*.tsv&lt;span style=&#34;color: #93A1A1&#34;&gt;|&lt;/span&gt;tail
+708K	FluView-old/geom4_polygon_stateMap_chunk91.tsv
+708K	FluView-old/geom4_polygon_stateMap_chunk92.tsv
+708K	FluView-old/geom4_polygon_stateMap_chunk93.tsv
+708K	FluView-old/geom4_polygon_stateMap_chunk94.tsv
+708K	FluView-old/geom4_polygon_stateMap_chunk95.tsv
+708K	FluView-old/geom4_polygon_stateMap_chunk96.tsv
+708K	FluView-old/geom4_polygon_stateMap_chunk97.tsv
+708K	FluView-old/geom4_polygon_stateMap_chunk98.tsv
+708K	FluView-old/geom4_polygon_stateMap_chunk99.tsv
+219M	total
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Therefore, the disk usage of current animint package need to be optimized, at least for the FluView viz. As stated in the OPTIMIZATION category from the &lt;strong&gt;TODO list of features to implement&lt;/strong&gt; in the &lt;a href=&#34;https://github.com/tdhock/animint/blob/master/README.md&#34; target=&#34;_blank&#34;&gt;README&lt;/a&gt; file of animint package, optimizations in terms of compiler/render speed, disk usage, memory, etc make animint easier to visualize large data sets, for example, the CDC FluView dataset. Hence, optimizations for animint become key project goals for my animint &lt;a href=&#34;https://github.com/caijun/AnimintTest/blob/master/gsoc-r-2015-animint-proposal.md&#34; target=&#34;_blank&#34;&gt;project proposal&lt;/a&gt; for GSoC-R 2015.&lt;/p&gt;
+
+&lt;h2 id=&#34;solution&#34;&gt;Solution&lt;/h2&gt;
+
+&lt;p&gt;By inspecting the chunk files of FluView viz, we can see that each chunk of &lt;code&gt;geom4_polygon_stateMap&lt;/code&gt; has saved the coordinates and fill colours of state polygons. Since using ggplot2 to draw maps, spatial objects are stored in data.frame, in which each row consists of &lt;strong&gt;coordinates&lt;/strong&gt; of a vertex and &lt;strong&gt;attributes&lt;/strong&gt; of the spatial object that the vertex belongs to (e.g. fill colours of state polygons in the FluView viz); however, in the FluView viz, the number of vertex (11527) to draw the borders of state polygons are far more than the number of state polygons (62 other than 48 because holes in some polygons), which leads to the repeated storage of attributes. By virtue of my background of GIS (Geographic Information System), I know the best spatial data storing approach is like &lt;a href=&#34;https://en.wikipedia.org/wiki/Shapefile&#34; target=&#34;_blank&#34;&gt;shapefile&lt;/a&gt;, one advantage of which is to separately store the shape and attribute in .shp file and .dbf table, avoiding the repeated storage of shape coordinates and simplying the storage of object attributes. So for spatial objects such as the FluView viz, I proposed the new chunk storing strategy as shown in the topleft panel of following figure.&lt;/p&gt;
+
+&lt;p&gt;By discussing with Toby Hocking, for non-spatial objects such as the frequent used &lt;a href=&#34;http://bl.ocks.org/caijun/raw/c7899e4c614d0fe37423/&#34; target=&#34;_blank&#34;&gt;WorldBank viz&lt;/a&gt;, there are also redundant information (common columns) across chunks. Hence, the common columns and varied columns should also be saved separately to chunk files. A new chunk storing strategy for non-spatial objects shown in topright panel of following figure is proposed.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+&lt;span class=&#34;caption-wrapper&#34;&gt;
+  &lt;img class=&#34;caption&#34; src=&#34;http://tonytsai.name/materials/animint.png&#34; title=&#34;New chunk storing strategy&#34; alt=&#34;New chunk storing strategy&#34;&gt;
+  &lt;span class=&#34;caption-text&#34;&gt;New chunk storing strategy&lt;/span&gt;
+&lt;/span&gt;
+
+
+&lt;p&gt;For generality, the optimization of disk uage for animint can be abstracted into the new chunk storing strategy shown in the bottom panel of above figure. The columns of each chunk are divided into three categories: &lt;strong&gt;common&lt;/strong&gt; columns across chunks, &lt;strong&gt;varied&lt;/strong&gt; columns across chunks, and &lt;strong&gt;key&lt;/strong&gt; columns. The common and key columns are saved into an &lt;strong&gt;common&lt;/strong&gt; chunk, which is an extra added chunk; the varied and key columns are saved to &lt;strong&gt;varied&lt;/strong&gt; chunks, the number of which are the same. Key columns are saved to both common chunk and varied chunks to ensure that the renderer can recover the original chunk through joining common chunk to varied chunks by key columns. The key columns are expressed as &lt;code&gt;union(group, nest_order)&lt;/code&gt;, of which &lt;code&gt;group&lt;/code&gt; is the column name that represents the row index before splitting the original chunk, and &lt;code&gt;nest_order&lt;/code&gt; is a variable that is used for grouping rows in (both common and varied) chunks into a hierarchical tree structure in the renderer. It&amp;rsquo;s notable that &lt;code&gt;group&lt;/code&gt; has already been included in the &lt;code&gt;nest_order&lt;/code&gt; variable for some visualizations.&lt;/p&gt;
+
+&lt;p&gt;Therefore, the implements of the optimization for animint can be simplified into three main parts:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Determining the common columns across chunks in the compiler&lt;/li&gt;
+&lt;li&gt;Formalising the key columns in the compiler&lt;/li&gt;
+&lt;li&gt;Recovering original chunks through joining common chunk into varied chunks by key columns in the renderer&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;To further reduce writing time and disk space, any rows with NA from varied chunks are not saved to tsv files. A benefit of deleting NA values in the compiler is to fix the warning of &lt;strong&gt;Unexpected value NaN parsing attributes&lt;/strong&gt; from D3.js in the renderer.&lt;/p&gt;
+
+&lt;h2 id=&#34;improvement&#34;&gt;Improvement&lt;/h2&gt;
+
+&lt;p&gt;The pull request of &lt;a href=&#34;https://github.com/tdhock/animint/pull/76&#34; target=&#34;_blank&#34;&gt;optimizations to save disk space&lt;/a&gt; implements the new version of animint compiler and renderer based on the new chunk storing strategy.&lt;/p&gt;
+
+&lt;p&gt;For the above FluView viz, though an extra common chunk is generated by the new animint compiler, the viz takes only &lt;strong&gt;4.4&lt;/strong&gt; MB, which is almost $1/50$ of the original filesize produced by the old animint compiler. Individual varied chunk of &lt;code&gt;geom4_polygon_stateMap&lt;/code&gt; for each &lt;code&gt;WEEKEND&lt;/code&gt; has a filesize of only &lt;strong&gt;4&lt;/strong&gt; KB, which is almost $1/180$ of the original filesize. The sharp descrease in varied chunk filesize  definitely reduces the loading time for the browser and makes the viz responsive.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ ls FluView-new/*.tsv&lt;span style=&#34;color: #93A1A1&#34;&gt;|&lt;/span&gt;wc -l
+     317
+$ du -hsc FluView-new/*.tsv&lt;span style=&#34;color: #93A1A1&#34;&gt;|&lt;/span&gt;tail
+4.0K	FluView-new/geom4_polygon_stateMap_chunk92.tsv
+4.0K	FluView-new/geom4_polygon_stateMap_chunk93.tsv
+4.0K	FluView-new/geom4_polygon_stateMap_chunk94.tsv
+4.0K	FluView-new/geom4_polygon_stateMap_chunk95.tsv
+4.0K	FluView-new/geom4_polygon_stateMap_chunk96.tsv
+4.0K	FluView-new/geom4_polygon_stateMap_chunk97.tsv
+4.0K	FluView-new/geom4_polygon_stateMap_chunk98.tsv
+4.0K	FluView-new/geom4_polygon_stateMap_chunk99.tsv
+588K	FluView-new/geom4_polygon_stateMap_chunk_common.tsv
+4.4M	total
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The save chunk process of new animint compiler becomes more complex than the old one, but there are less chunk contents to write onto disk. As a result of trade-off, the compiling speed of the new animint compiler doesn&amp;rsquo;t increase dramatically comparing to the old one.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #719e07&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;system.time&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;(&lt;/span&gt;animint2dir&lt;span style=&#34;color: #93A1A1&#34;&gt;(&lt;/span&gt;viz&lt;span style=&#34;color: #93A1A1&#34;&gt;,&lt;/span&gt; out.dir &lt;span style=&#34;color: #719e07&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;FluView-old&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;))&lt;/span&gt;
+   user  system elapsed 
+&lt;span style=&#34;color: #2AA198&#34;&gt;115.830&lt;/span&gt;  &lt;span style=&#34;color: #2AA198&#34;&gt;12.223&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;128.720&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #719e07&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;system.time&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;(&lt;/span&gt;animint2dir&lt;span style=&#34;color: #93A1A1&#34;&gt;(&lt;/span&gt;viz&lt;span style=&#34;color: #93A1A1&#34;&gt;,&lt;/span&gt; out.dir &lt;span style=&#34;color: #719e07&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;FluView-new&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;))&lt;/span&gt;
+   user  system elapsed 
+&lt;span style=&#34;color: #2AA198&#34;&gt;115.347&lt;/span&gt;  &lt;span style=&#34;color: #2AA198&#34;&gt;13.833&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;130.460&lt;/span&gt; 
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Now we can successfully post the FluView viz on gist by &lt;code&gt;animint2gist&lt;/code&gt;, which takes almost the same amount of time with &lt;code&gt;animint2dir&lt;/code&gt;. Playing with the &lt;a href=&#34;http://bl.ocks.org/caijun/raw/7ff9b0c53f78d0491366/&#34; target=&#34;_blank&#34;&gt;result&lt;/a&gt;, you can obviously feel that the interactivity experience has been improved. After clicking on the top heatmap, the bottom state map is updated in time that we can bear.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #719e07&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;system.time&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;(&lt;/span&gt;animint2gist&lt;span style=&#34;color: #93A1A1&#34;&gt;(&lt;/span&gt;viz&lt;span style=&#34;color: #93A1A1&#34;&gt;,&lt;/span&gt; out.dir &lt;span style=&#34;color: #719e07&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;FluView-new&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;))&lt;/span&gt;
+   user  system elapsed 
+ &lt;span style=&#34;color: #2AA198&#34;&gt;98.872&lt;/span&gt;  &lt;span style=&#34;color: #2AA198&#34;&gt;17.935&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;134.384&lt;/span&gt; 
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;For non-spatial objects, the new animint compiler can also reduce disk usage. For example the &lt;a href=&#34;http://bl.ocks.org/caijun/raw/c7899e4c614d0fe37423/&#34; target=&#34;_blank&#34;&gt;WorldBank viz&lt;/a&gt;, the disk space of chunk tsvs is reduced from &lt;strong&gt;3.6&lt;/strong&gt; MB to &lt;strong&gt;2.8&lt;/strong&gt; MB.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ du -hsc WorldBank-old/*.tsv&lt;span style=&#34;color: #93A1A1&#34;&gt;|&lt;/span&gt;tail
+ 16K	WorldBank-old/geom2_text_scatter_chunk52.tsv
+8.0K	WorldBank-old/geom2_text_scatter_chunk53.tsv
+ 16K	WorldBank-old/geom2_text_scatter_chunk6.tsv
+ 16K	WorldBank-old/geom2_text_scatter_chunk7.tsv
+ 16K	WorldBank-old/geom2_text_scatter_chunk8.tsv
+ 16K	WorldBank-old/geom2_text_scatter_chunk9.tsv
+4.0K	WorldBank-old/geom3_text_scatter_chunk1.tsv
+4.0K	WorldBank-old/geom4_tallrect_ts_chunk1.tsv
+1.0M	WorldBank-old/geom5_line_ts_chunk1.tsv
+3.6M	total
+
+$ du -hsc WorldBank-new/*.tsv&lt;span style=&#34;color: #93A1A1&#34;&gt;|&lt;/span&gt;tail
+ 12K	WorldBank-new/geom2_text_scatter_chunk52.tsv
+ 12K	WorldBank-new/geom2_text_scatter_chunk6.tsv
+ 12K	WorldBank-new/geom2_text_scatter_chunk7.tsv
+ 12K	WorldBank-new/geom2_text_scatter_chunk8.tsv
+ 12K	WorldBank-new/geom2_text_scatter_chunk9.tsv
+8.0K	WorldBank-new/geom2_text_scatter_chunk_common.tsv
+4.0K	WorldBank-new/geom3_text_scatter_chunk1.tsv
+4.0K	WorldBank-new/geom4_tallrect_ts_chunk1.tsv
+948K	WorldBank-new/geom5_line_ts_chunk1.tsv
+2.8M	total
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id=&#34;future-work&#34;&gt;Future Work&lt;/h2&gt;
+
+&lt;p&gt;For small dataset like WorldBank viz, the animation works well for the new animint compiler and renderer; however, adding &lt;code&gt;time = list(variable = &amp;quot;WEEKEND&amp;quot;, ms = 3000), duration = list(WEEKEND = 1000)&lt;/code&gt; to the FluView viz, the new renderer still doesn&amp;rsquo;t provide smooth transitions between animation frames at different &lt;code&gt;WEENEND&lt;/code&gt; with varied chunks small enough. This is because how the renderer draws state map hasn&amp;rsquo;t been optimized for the new chunk storing strategy. Actually, comparing to the old one, an extra step of joining common chunk into all varied chunks by key columns is added to the new renderer during chunk downloading process.&lt;/p&gt;
+
+&lt;p&gt;For each animation frame, the polygons of state map are constant and only the fill colours for polygons change. Hence, the best rendering approach is to separate geom drawing and attribute rendering. The renderer draws polygons of state map only at the initial rendering step using the common chunk, and for next animation frames only the fill colours for polygons are re-drawn only using corresponding varied chunks.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

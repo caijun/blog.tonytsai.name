@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Windows on Tony Tsai</title>
+    <link>http://blog.tonytsai.name/categories/windows/index.xml</link>
+    <description>Recent content in Windows on Tony Tsai</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="http://blog.tonytsai.name/categories/windows/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Use IPv6 in an ISATAP Way</title>
+      <link>http://blog.tonytsai.name/blog/2013-06-10-use-ipv6-in-an-isatap-way/</link>
+      <pubDate>Mon, 10 Jun 2013 23:44:46 -0400</pubDate>
+      
+      <guid>http://blog.tonytsai.name/blog/2013-06-10-use-ipv6-in-an-isatap-way/</guid>
+      <description>&lt;p&gt;地学前沿最后一次课是和宫老师一起吃饭聊天（主要是听宫老师讲），期间宫老师提到了他写的一篇文章&lt;a href=&#34;http://nature.berkeley.edu/~penggong/Acadjobhunt.pdf&#34; target=&#34;_blank&#34;&gt;How to find an academic job&lt;/a&gt;，挂在了他在berkely的个人主页上。回来google了一下，点击下载，结果又出现了恼人的浏览器报错：&lt;strong&gt;无法显示此网页 与auth.ccert.edu.cn 的连接已中断&lt;/strong&gt;。google图片、连接THU的IPv6主页和六维空间都会出现该错误。不得不吐槽一下THU的网络，出奇的慢，而且还有流量限制。最近连&lt;a href=&#34;http://stackoverflow.com/&#34; target=&#34;_blank&#34;&gt;Stack Overflow&lt;/a&gt;，&lt;a href=&#34;http://tex.stackexchange.com/&#34; target=&#34;_blank&#34;&gt;TeX - LaTeX Stack Exchange&lt;/a&gt;都不能正常显示了（在BNU都能正常显示），下午甚至WOK都不能完全显示，简直无法工作，而且非常影响工作心情。&lt;/p&gt;
+
+&lt;p&gt;是可忍孰不可忍，只能去解决。google了一下，从水木清华上得知是因为紫荆的IPv6挂了，建议通过&lt;a href=&#34;http://en.wikipedia.org/wiki/ISATAP&#34; target=&#34;_blank&#34;&gt;ISATAP&lt;/a&gt;使用IPv6。在Windows 7上的配置过程如下：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;以管理员身份运行cmd&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;在CLI里输入以下命令：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; netsh interface ipv6 isatap set router &amp;lt;ISATAP路由器地址&amp;gt;
+&amp;gt; netsh interface ipv6 isatap set state enabled
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;THU的ISATAP路由器地址为isatap.tsinghua.edu.cn。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;用浏览器去访问&lt;a href=&#34;http://ipv6.tsinghua.edu.cn/&#34; target=&#34;_blank&#34;&gt;THU IPv6主页&lt;/a&gt;，应该可以正常访问了。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;如果还是不能正常访问，可能是因为Windows 7系统会在本地LAN中发出IPv6 RA（Router Advertisement，路由器应答），导致相邻用户不走ISATAP，此时最好在本地网络上禁用IPv6协议选项。&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;现在可以正常访问网络了，再加上&lt;a href=&#34;https://code.google.com/p/goagent/&#34; target=&#34;_blank&#34;&gt;GoAgent&lt;/a&gt;代理，世界又变得美好了。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

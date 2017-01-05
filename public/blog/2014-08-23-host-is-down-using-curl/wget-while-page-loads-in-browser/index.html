@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+
+  
+  
+  <link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+  <link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+  
+
+  
+  <title>Host Is Down Using curl/wget While Page Loads in Browser</title>
+
+  
+  
+  <link rel="stylesheet" href="http://blog.tonytsai.name/css/hugo-octopress.css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+  
+  <link href="http://blog.tonytsai.name/favicon.png" rel="icon">
+
+  
+  
+  
+
+  
+
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <meta name="author" content="Tony Tsai">
+
+  
+  <meta name="generator" content="Hugo 0.18.1" />
+
+  
+  
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-40665800-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+</head>
+<body>
+
+
+<header role="banner"><hgroup>
+  
+  <h1><a href="http://blog.tonytsai.name/">Tony Tsai</a></h1>
+    <h2>May the force of science be with you</h2>
+</hgroup></header>
+
+
+<nav role="navigation">
+
+<ul class="main-navigation">
+  
+  
+    
+      <li><a href="http://blog.tonytsai.name/" title="Blog">Blog</a></li>
+    
+  
+    
+      <li><a href="http://tonytsai.name/cv.pdf" title="Resume"  target="_blank" >Resume</a></li>
+    
+  
+    
+      <li><a href="http://blog.tonytsai.name/douban/" title="Douban"  target="_blank" >Douban</a></li>
+    
+  
+    
+      <li><a href="http://blog.tonytsai.name/archive/" title="Archive"  target="_blank" >Archive</a></li>
+    
+  
+</ul>
+
+
+<ul class="subscription">
+  
+    
+        <a href="http://blog.tonytsai.name/index.xml" target="_blank" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-lg"></i></a>
+    
+  
+
+</ul>
+
+
+</nav>
+
+
+<div id="main">
+  <div id="content">
+    <div>
+      <article class="hentry" role="article">
+
+        
+        
+
+<header>
+    <p class="meta">Aug 23, 2014
+         - 3 minute read 
+         - <a href="http://blog.tonytsai.name/blog/2014-08-23-host-is-down-using-curl/wget-while-page-loads-in-browser/#disqus_thread">Comments</a>
+
+        
+        
+        
+            - <a class="label" href="http://blog.tonytsai.name/categories/mac-os-x/">Mac OS X </a>
+        
+    </p>
+    <h1 class="entry-title">
+         Host Is Down Using curl/wget While Page Loads in Browser 
+    </h1>
+</header>
+
+
+        <div class="entry-content">
+          
+          
+          
+          
+<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+<a class="a2a_button_facebook"></a>
+<a class="a2a_button_twitter"></a>
+<a class="a2a_button_sina_weibo"></a>
+<a class="a2a_button_wechat"></a>
+<a class="a2a_button_douban"></a>
+<a class="a2a_button_evernote"></a>
+<a class="a2a_button_email"></a>
+</div>
+<script async src="https://static.addtoany.com/menu/page.js"></script>
+
+<br>
+
+          
+
+<h3 id="问题描述">问题描述</h3>
+
+<p>最近想更新自己开发的<a href="https://github.com/caijun/geoChina" target="_blank"><em>geoChina</em></a>，发现在Mac上运行以下代码</p>
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span><span style="color: #719e07">library</span><span style="color: #93A1A1">(</span>geoChina<span style="color: #93A1A1">)</span>
+geocode<span style="color: #93A1A1">(</span><span style="color: #2AA198">&#39;Tsinghua University&#39;</span><span style="color: #93A1A1">,</span> api <span style="color: #719e07">=</span> <span style="color: #2AA198">&#39;google&#39;</span><span style="color: #93A1A1">,</span> ocs <span style="color: #719e07">=</span> <span style="color: #2AA198">&#39;GCJ-02&#39;</span><span style="color: #93A1A1">,</span> messaging <span style="color: #719e07">=</span> <span style="color: #268BD2">T</span><span style="color: #93A1A1">)</span>
+</pre></div>
+
+<p>出错，返回
+
+
+<figure class="code">
+  <figcaption>
+  	<span></span>
+  </figcaption>
+  <div class="codewrapper">
+    <table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%">1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>calling http://maps.googleapis.com/maps/api/geocode/json?address<span style="color: #719e07">=</span>Tsinghua%20University<span style="color: #93A1A1">&amp;</span><span style="color: #268BD2">sensor</span><span style="color: #719e07">=</span><span style="color: #B58900">false</span> ...
+Warning message:
+In readLines<span style="color: #719e07">(</span>connect, <span style="color: #268BD2">warn</span> <span style="color: #719e07">=</span> FALSE<span style="color: #719e07">)</span> :
+  unable to connect to <span style="color: #2AA198">&#39;maps.googleapis.com&#39;</span> on port 80.
+Error in fromJSON<span style="color: #719e07">(</span>paste<span style="color: #719e07">(</span>readLines<span style="color: #719e07">(</span>connect, <span style="color: #268BD2">warn</span> <span style="color: #719e07">=</span> FALSE<span style="color: #719e07">)</span>, <span style="color: #268BD2">collapse</span> <span style="color: #719e07">=</span> <span style="color: #2AA198">&quot;&quot;</span><span style="color: #719e07">))</span> : 
+  error in evaluating the argument <span style="color: #2AA198">&#39;content&#39;</span> in selecting a method <span style="color: #719e07">for</span> <span style="color: #719e07">function</span> <span style="color: #2AA198">&#39;fromJSON&#39;</span>: Error in readLines<span style="color: #719e07">(</span>connect, <span style="color: #268BD2">warn</span> <span style="color: #719e07">=</span> FALSE<span style="color: #719e07">)</span> : cannot open the connection
+</pre></div>
+</td></tr></table>
+  </div>
+</figure>
+</p>
+
+<p>将<code>geocode</code>封装的调用直接在浏览器里打开，能返回正确的json结果。而且该函数在Windows上运行正常。</p>
+
+<h3 id="问题分析">问题分析</h3>
+
+<p><em>geoChina</em>的开发的确是在Mac上完成的，但代码并没有针对不同的操作系统作了不同处理。因此可以初步判断是Mac操作系统的终端网络通讯出现了问题。http服务默认80端口，https服务默认443端口，从报错信息来看，终端网络通讯的80端口出现了问题。</p>
+
+<p><code>curl</code>或<code>wget</code>命令能够实现终端网页数据内容下载，因此可以用来验证初步判断。在终端输入</p>
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>$ wget www.google.com
+</pre></div>
+
+<p>返回</p>
+
+<pre><code>Resolving www.google.com... 2404:6800:4005:805::1012, 173.194.127.244, 173.194.127.242, ...
+Connecting to www.google.com|2404:6800:4005:805::1012|:80... failed: Host is down.
+</code></pre>
+
+<p>输入</p>
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>$ curl -v -L www.google.com
+</pre></div>
+
+<p>返回</p>
+
+<pre><code>* Rebuilt URL to: www.google.com/
+* Hostname was NOT found in DNS cache
+*   Trying 2404:6800:4005:801::1010...
+*   Trying 173.194.127.241...
+* connect to 2404:6800:4005:801::1010 port 80 failed: Host is down
+* connect to 173.194.127.241 port 80 failed: Host is down
+</code></pre>
+
+<p>都显示连接失败，<code>Host is down</code>。而将访问的网站换成国内网站，比如<code>www.baidu.com</code>，则都能访问成功，下载到网站首页。</p>
+
+<p>这说明终端网络通讯80端口出问题的只是google等国外易干扰服务，而不是国内网络服务。自己Mac上的应用程序有此影响的只能是代理服务了。经过一番google，发现有人遇到和我十分类似的<a href="#[1]">[1]</a>，回答都是代理作祟，基本可以肯定是自己使用<em>GoAgent</em>代理导致终端无法通过80端口访问google服务。</p>
+
+<h3 id="问题解决">问题解决</h3>
+
+<p><a href="#[1]">[1]</a>给出的解决方案是在终端设置http/https代理，google Mac OS X终端设置代理的方法，找到<a href="#[2]">[2]</a>。只需清楚<em>GoAgent</em>代理服务端口，然后编辑<code>~/.bash_profile</code>文件，输入</p>
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span><span style="color: #B58900">export</span> <span style="color: #268BD2">http_proxy</span><span style="color: #719e07">=</span><span style="color: #2AA198">&#39;http://localhost:8103&#39;</span>
+<span style="color: #B58900">export</span> <span style="color: #268BD2">https_proxy</span><span style="color: #719e07">=</span><span style="color: #2AA198">&#39;http://localhost:8103&#39;</span>
+</pre></div>
+
+<p>保存<code>.bash_profile</code>文件，在终端更新<code>.bash_profile</code>生效</p>
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>$ <span style="color: #B58900">source</span> .bash_profile
+</pre></div>
+
+<p>现在<code>curl</code>或<code>wget</code>命令都可以通过代理访问google服务了，但Mac上<code>geoChina::geocode</code>运行还是时好时坏，看来<code>geoChina</code>的开发维护只能暂时转到Windows上了。</p>
+
+<p>如有同侪知道解决办法，烦请邮件告知。</p>
+
+<p><br>
+PS:本文采用了<a href="http://celavie.me/lib/2013/10/19/Markdown%E5%86%99%E4%BD%9C%EF%BC%88%E4%BA%8C%EF%BC%89.html" target="_blank">添加文内注释/参考文献引用</a><em>Markdown</em>写法。</p>
+
+<h3 id="参考链接">参考链接</h3>
+
+<p><span id="[1]">[1]</span>: <a href="http://superuser.com/questions/518297/unable-to-resolve-host-using-curl-wget-while-page-loads-in-browser" target="_blank">Unable to resolve host using curl/wget while page loads in browser</a></p>
+
+<p><span id="[2]">[2]</span>: <a href="http://codelife.me/blog/2012/09/02/how-to-set-proxy-for-terminal/" target="_blank">如何为MacOS X终端设置代理</a></p>
+
+<h3 id="更新">更新</h3>
+
+<p>由于GFW的原因，Google服务在国内的使用受影响。在国内调用Google Maps API时推荐使用ditu.google.cn，而不是maps.google.com。解决思路是通过调用GeoIP服务，查询用户是在国内还是国外，指定不同的Google Maps API调用链接。<a href="https://github.com/caijun/geoChina" target="_blank"><em>geoChina</em></a>已更新至<code>1.1.3</code>。</p>
+
+        </div>
+        
+
+<footer>
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">Tony Tsai</span></span>
+    
+    <time>Aug 23, 2014</time>
+    
+      <span class="categories">
+        Tags:
+        
+          <a class="category" href="http://blog.tonytsai.name/tags/goagent">GoAgent</a>  <a class="category" href="http://blog.tonytsai.name/tags/proxy">Proxy</a>  <a class="category" href="http://blog.tonytsai.name/tags/geochina">geoChina</a>  
+    
+    </span>
+  </p>
+
+  
+  
+
+  
+
+  <p class="meta">
+    
+        <a class="basic-alignment left" href="http://blog.tonytsai.name/blog/2014-07-13-introduction-to-git-and-github/" title="Introduction to git and GitHub">Introduction to git and GitHub</a>
+    
+
+    
+      <a class="basic-alignment right" href="http://blog.tonytsai.name/blog/2014-09-21-commonly-used-arcgis-tools-by-myself/" title="Commonly Used ArcGIS Tools by Myself">Commonly Used ArcGIS Tools by Myself</a>
+    
+  </p>
+  
+    
+      <div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    
+    
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'tonytsai';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+ 
+    
+  
+  
+</footer>
+
+      </article>
+    </div>
+    
+
+<aside class="sidebar thirds">
+  <section class="first odd">
+
+    
+      <h1>Who am I</h1>
+    
+
+    <p>
+      
+        I am Jun (Tony) Cai (Tsai). A Ph.D. candidate interested in influenza transmission dynamics at Department of Earth System Science, Tsinghua University.
+    </br>
+    View my profile in <a href="https://scholar.google.com/citations?user=_dV_jnkAAAAJ" target="_blank">Google Scholar</a>.
+      
+    </p>
+  </section>
+
+
+
+  
+  <ul class="sidebar-nav">
+    <li class="sidebar-nav-item">
+      <a target="_blank" href="https://github.com/caijun/" title="https://github.com/caijun/"><i class="fa fa-github fa-3x"></i></a>
+      
+      
+      <a target="_blank" href="https://twitter.com/caijun2046/" title="https://twitter.com/caijun2046/"><i class="fa fa-twitter fa-3x"></i></a>
+       
+      
+      
+      
+      <a target="_blank" href="https://www.facebook.com/tony.tsai.007/" title="https://www.facebook.com/tony.tsai.007/"><i class="fa fa-facebook fa-3x"></i></a>
+      
+      
+      <a target="_blank" href="http://weibo.com/caijun2046/" title="http://weibo.com/caijun2046/"><i class="fa fa-weibo fa-3x"></i></a>
+
+    
+    
+    </li>
+  </ul>
+
+  
+
+  
+
+  
+  
+  
+    
+      <section class="even">
+        <h1>Recent Posts</h1>
+        <ul id="recent_posts">
+          
+            <li class="post">
+              <a href="/blog/2017-01-05-test-mathjax/">Test MathJax</a>
+            </li>
+          
+            <li class="post">
+              <a href="/blog/2015-08-09-optimization-of-disk-usage-for-animint/">Optimization of Disk Usage for animint</a>
+            </li>
+          
+            <li class="post">
+              <a href="/blog/2015-05-21-operator-for-extracting-named-list-elements-to-variables/">Operator for Extracting Named List Elements to Variables</a>
+            </li>
+          
+            <li class="post">
+              <a href="/blog/2015-05-10-resources-for-influenza-research/">Resources for Influenza Research</a>
+            </li>
+          
+            <li class="post">
+              <a href="/blog/2015-04-23-why-does-the-jackknife-estimate-of-standard-error-have-the-factor-n-1/n/">Why Does the Jackknife Estimate of Standard Error Have the Factor (n-1)/n?</a>
+            </li>
+          
+        </ul>
+      </section>
+    
+  
+  
+  <section class="even">
+    <h1>Books to Read</h1>
+    <li><a href="https://www.amazon.com/Textbook-Influenza-Robert-G-Webster/dp/0470670487/">Textbook of Influenza</a></li>
+    <li><a href="https://www.amazon.com/Infectious-Diseases-Humans-Dynamics-Publications/dp/019854040X">Infectious Diseases of Humans: Dynamics and Control</a></li>
+    <li><a href="https://www.amazon.com/Modeling-Infectious-Diseases-Humans-Animals/dp/0691116172/">Modeling Infectious Diseases in Humans and Animals</a></li>
+    <li><a href="https://www.amazon.com/Infectious-Disease-Epidemiology-Theory-Practice/dp/1449683797">Infectious Disease Epidemiology: Theory and Practice</a></li>
+    <li><a href="https://www.amazon.com/Bayesian-Analysis-Chapman-Statistical-Science/dp/1439840954">Bayesian Data Analysis</a></li>
+    <li><a href="https://www.amazon.com/Seamless-Integration-Rcpp-Dirk-Eddelbuettel/dp/1461468671">Seamless R and C++ Integration with Rcpp</a></li>
+
+    <h1>Links</h1>
+    <li><a href="http://www.repidemicsconsortium.org/">R Epidemics Consortium</a></li>
+    <li><a href="http://r-bloggers.com/">R-bloggers</a></li>
+
+    <h1>Friends</h1>
+    <li><a href="https://xg1990.com/blog/">xg1990</a></li>
+  </section>
+
+  <script type="text/javascript" src="//ra.revolvermaps.com/0/0/8.js?i=0551xokm7cj&amp;m=0&amp;s=300&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33" async="async"></script>
+
+</aside>
+
+  </div>
+</div>
+
+<footer role="contentinfo">
+  <p>Copyright &copy; 2017 Tony Tsai - <a href="http://blog.tonytsai.name/license/">License</a> -
+  <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
+</p>
+
+</footer>
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] },
+  tex2jax: {
+    inlineMath: [['$','$']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+  }
+});
+</script>
+<script type="text/javascript"
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<script>
+  var _gaq=[['_setAccount','UA-40665800-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+</body>
+</html>
+

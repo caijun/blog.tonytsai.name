@@ -1,0 +1,175 @@
+baseurl = "http://blog.tonytsai.name/"
+disablePathToLower = false
+languageCode = "en-us"
+title = "Tony Tsai"
+theme = "hugo-octopress"
+
+# if true, auto-detect Chinese/Japanese/Korean Languages in the content. (.Summary and .WordCount can work properly in CJKLanguage)
+hasCJKLanguage = true
+
+# Number of blog posts displayed in each page
+paginate = 6
+
+pygmentsuseclasses = false
+pygmentsstyle = "solarized_dark"
+
+# You need to install Solarized from https://github.com/john2x/solarized-pygment.git
+# Octopress blog used Solarized_dark
+# Options are solarized_dark (octopress), solarized_dark256 and default (solarized light)
+
+# This will make the highlight shortcode and ``` do the same thing - otherwise they are treated differently and we do not want that
+pygmentscodefences = true
+
+# We can pass in pygments options here, it can also be added in the highlight shortcode
+# pygmentsoptions = "linenos=true"
+
+[permalinks]
+post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the old ones
+
+# Make tags and categories work
+[indexes]
+    tag = "tags"
+    category = "categories"
+
+# Menu
+# Links are added to navigation in hugo-octopress/layouts/partials/navigation.html
+# If navigationNewWindow is set in [params] to true then all links except root ("/") will open in a new window
+# If navigationNewWindow does not exist or set to false then links will open in the same window
+[[menu.main]]
+    Name = "Blog"
+    URL = "/"
+    weight = -10
+
+[[menu.main]]
+    Name = "Resume"
+    URL = "http://tonytsai.name/cv.pdf"
+    weight = -5
+
+[[menu.main]]
+    Name = "Douban"
+    URL = "/douban/"
+    weight = 1
+
+[[menu.main]]
+    Name = "Archive"
+    URL = "/archive/"
+    weight = 2
+
+
+# Sidebar menus
+# Enable with "sidebarMenuEnabled = true" in [params]
+# Header text is "sidebarMenuHeader" in [params]
+[[menu.sidebar]]
+    Name = "Google"
+    URL = "https://www.google.com"
+    weight = 0
+
+[[menu.sidebar]]
+    Name = "Hugo"
+    URL = "/categories/hugo/"
+    weight = 1
+
+[[menu.sidebar]]
+    Name = "Homepage"
+    URL = "/"
+    weight = 2
+
+[params]
+
+    # --- Start sidebar options ---
+    # Number of recent posts that will be shown in the sidebar - set to 0 or remove to hide this section
+    sidebarRecentLimit = 5
+
+    # Sidebar header - passed to markdownify so you can write markdown here
+    sidebarHeader = "Who am I"
+
+    # Sidebar text also supports markdown
+    # New lines can be added with </br> or normal markdown (two spaces at the end of line or two new lines).
+    # when adding two new lines, remember to remove the indentation otherwise the new line will be treated as a codeblock
+    sidebarText = """I am Jun (Tony) Cai (Tsai). A Ph.D. candidate interested in influenza transmission dynamics at Department of Earth System Science, Tsinghua University.
+    </br>
+    View my profile in [Google Scholar](https://scholar.google.com/citations?user=_dV_jnkAAAAJ).
+    """
+    # Sidebar menu - if true will add a sidebar menu between sidebar text and recent posts
+    sidebarMenuEnabled = false
+    sidebarMenuHeader = "Sidebar Links"
+
+    # sidebar links
+    github = "https://github.com/caijun/"
+    bitbucket = ""
+    twitter = "https://twitter.com/caijun2046/"
+    keybase = ""
+    stackoverflow = ""
+    linkedin = ""
+    googleplus = ""
+    youtube = ""
+    facebook = "https://www.facebook.com/tony.tsai.007/"
+    instagram = ""
+    weibo = "http://weibo.com/caijun2046/"
+
+    # --- End sidebar options ---
+
+    # If set to true, navigation menu links will open in a new window with the exception of links to root ("\")
+    # If this item does not exist or set to false, then navigation menu links will open in the same window
+    navigationNewWindow = true
+
+    # If false, all of the post will appear on front page (and in pagination)
+    truncate = true
+
+    # Author's name (this will appear in metadata and under posts)
+    author = "Tony Tsai"
+
+    # This text appears in the site header under website title
+    subtitle = "May the force of science be with you"
+
+    # Used in the search engine
+    searchEngineURL = "https://www.google.com/search"
+
+    # Text of the "Continue Reading" label. &rarr; == right arrow, but it gets messed up in the string so we will add it to index.html manually
+    continueReadingText = "Read On"
+
+    # Google analytics code
+    googleAnalytics = "UA-40665800-1"
+
+    # Disqus shortcode
+    # Disable comments for a specific post by adding "comments: false" in its frontmatter
+    disqusShortname = "tonytsai"
+
+    rss = true  # switch to true to enable RSS icon link
+
+    # Set to true to use a text label for RSS instead of an icon
+    # This is overwritten by the `rss` setting
+    textrss = false
+
+    # Website's default description
+    defaultDescription = ""
+
+    # Populate this with your own search keywords - these will appear in the meta tags
+    # defaultKeywords = ["keyword1" , "keyword2" , "keyword3" , "keyword4"]
+
+    # CSS override files
+    # Paths should be relative to the `static` directory (either the website static directory or the theme one)
+    # customCSS = ["css/hugo-octopress.css"]
+
+    # 404.html header and text -both support markdown
+    notFoundHeader = "There's nothing here"
+
+    notFoundText = """Please either go back or use the navigation/sidebar menus."""
+
+    # Set to true to hide ReadingTime on posts
+    disableReadingTime = false
+
+    # Set to true to disable downloading of remote Google fonts
+    disableGoogleFonts = false
+
+    # Generate taxonomy pages
+    generateTaxonomyList = true
+
+    # This is not needed unless alphabetical sort is needed
+    # sortTaxonomyAlphabetical = true
+
+
+# Blackfriday is Hugo's markdown engine. Options are at: https://gohugo.io/overview/configuration/ (scroll down to "Configure Blackfriday rendering")
+[blackfriday]
+    hrefTargetBlank = true # open the external links in a new window
+    fractions = false

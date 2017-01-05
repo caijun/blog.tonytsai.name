@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+
+  
+  
+  <link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+  <link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+  
+
+  
+  <title>Create Your Blog with Jekyll</title>
+
+  
+  
+  <link rel="stylesheet" href="http://blog.tonytsai.name/css/hugo-octopress.css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+  
+  <link href="http://blog.tonytsai.name/favicon.png" rel="icon">
+
+  
+  
+  
+
+  
+
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <meta name="author" content="Tony Tsai">
+
+  
+  <meta name="generator" content="Hugo 0.18.1" />
+
+  
+  
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-40665800-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+</head>
+<body>
+
+
+<header role="banner"><hgroup>
+  
+  <h1><a href="http://blog.tonytsai.name/">Tony Tsai</a></h1>
+    <h2>May the force of science be with you</h2>
+</hgroup></header>
+
+
+<nav role="navigation">
+
+<ul class="main-navigation">
+  
+  
+    
+      <li><a href="http://blog.tonytsai.name/" title="Blog">Blog</a></li>
+    
+  
+    
+      <li><a href="http://tonytsai.name/cv.pdf" title="Resume"  target="_blank" >Resume</a></li>
+    
+  
+    
+      <li><a href="http://blog.tonytsai.name/douban/" title="Douban"  target="_blank" >Douban</a></li>
+    
+  
+    
+      <li><a href="http://blog.tonytsai.name/archive/" title="Archive"  target="_blank" >Archive</a></li>
+    
+  
+</ul>
+
+
+<ul class="subscription">
+  
+    
+        <a href="http://blog.tonytsai.name/index.xml" target="_blank" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-lg"></i></a>
+    
+  
+
+</ul>
+
+
+</nav>
+
+
+<div id="main">
+  <div id="content">
+    <div>
+      <article class="hentry" role="article">
+
+        
+        
+
+<header>
+    <p class="meta">Apr 28, 2013
+         - 4 minute read 
+         - <a href="http://blog.tonytsai.name/blog/2013-04-28-create-your-blog-with-jekyll/#disqus_thread">Comments</a>
+
+        
+        
+        
+            - <a class="label" href="http://blog.tonytsai.name/categories/web/">Web </a>
+        
+    </p>
+    <h1 class="entry-title">
+         Create Your Blog with Jekyll 
+    </h1>
+</header>
+
+
+        <div class="entry-content">
+          
+          
+          
+          
+<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+<a class="a2a_button_facebook"></a>
+<a class="a2a_button_twitter"></a>
+<a class="a2a_button_sina_weibo"></a>
+<a class="a2a_button_wechat"></a>
+<a class="a2a_button_douban"></a>
+<a class="a2a_button_evernote"></a>
+<a class="a2a_button_email"></a>
+</div>
+<script async src="https://static.addtoany.com/menu/page.js"></script>
+
+<br>
+
+          
+
+<p>在使用Jekyll搭建个人blog之前，确认你的PC安装有Jekyll。最简单的安装Jekyll方法是通过RubyGems，RubyGems是Ruby包管理框架。在CentOS 6.4上安装RubyGems和Jekyll的步骤如下：</p>
+
+<h3 id="install-rubygems">Install RubyGems</h3>
+
+<p><em>RubyGems</em> is a package management framework for <em>Ruby</em></p>
+
+<ol>
+<li><p>Install <em>Ruby</em></p>
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>$ sudo yum install ruby
+</pre></div></li>
+
+<li><p>Install some <em>Ruby</em> dependancies</p>
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>$ sudo yum install ruby-rdoc ruby-devel
+</pre></div></li>
+
+<li><p>Install <em>RubyGems</em></p>
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>$ sudo yum install rubygems
+</pre></div></li>
+
+<li><p>Check <em>RubyGems</em> version</p>
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>$ gem -v
+</pre></div></li>
+
+<li><p>Update <em>RubyGems</em></p>
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>$ gem update --system
+</pre></div></li>
+</ol>
+
+<h3 id="install-jekyll">Install Jekyll</h3>
+
+<p><em>Jekyll</em> is a simple, blog-aware, static site generator in Ruby.</p>
+
+<p>Install <em>Jekyll</em> via <em>RubyGems</em></p>
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>$ gem install jekyll
+</pre></div>
+
+<p>Update <em>Jekyll</em></p>
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>$ gem update jekyll
+</pre></div>
+
+<h3 id="使用jekyll搭建blog">使用Jekyll搭建blog</h3>
+
+<h5 id="1-创建blog主目录">1. 创建blog主目录</h5>
+
+<p>新建一个目录作为blog的主目录</p>
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>$ mkdir jekyll_blog
+</pre></div>
+
+<h5 id="2-创建配置文件">2. 创建配置文件</h5>
+
+<p>在jekyll_blog目录下新建<code>_config.yml</code>文本文件，写入以下内容，其它设置默认。具体设置参见<a href="https://github.com/mojombo/jekyll/wiki/Configuration" target="_blank">Jekyll Configuration</a>。</p>
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span><span style="color: #93A1A1">markdown:</span> <span style="color: #93A1A1">pandoc</span>
+<span style="color: #93A1A1">pandoc:</span> 
+    <span style="color: #93A1A1">extensions:</span> <span style="color: #93A1A1">[</span><span style="color: #268BD2">mathjax</span><span style="color: #93A1A1">,</span> <span style="color: #268BD2">standalone</span><span style="color: #93A1A1">]</span>
+<span style="color: #93A1A1">url:</span> <span style="color: #93A1A1">http://blog.tonytsai.name</span>
+<span style="color: #93A1A1">author:</span> <span style="color: #93A1A1">Tony Tsai</span>
+</pre></div>
+
+<h5 id="3-创建模板文件">3. 创建模板文件</h5>
+
+<p>在jekyll_blog目录下创建<code>_layouts</code>目录，用于存放模板文件</p>
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>$ mkdir _layouts
+</pre></div>
+
+<p>进入<code>_layouts</code>目录，新建<code>default.html</code>，加入以下代码，作为blog的默认模板。
+
+
+<figure class="code">
+  <figcaption>
+  	<span></span>
+  </figcaption>
+  <div class="codewrapper">
+    <table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span><span style="color: #719e07">&lt;!DOCTYPE html&gt;</span>
+<span style="color: #93A1A1">&lt;</span><span style="color: #268BD2">html</span><span style="color: #93A1A1">&gt;</span>
+  <span style="color: #93A1A1">&lt;</span><span style="color: #268BD2">head</span><span style="color: #93A1A1">&gt;</span>
+    <span style="color: #93A1A1">&lt;</span><span style="color: #268BD2">meta</span> <span style="color: #93A1A1">http-equiv</span><span style="color: #719e07">=</span><span style="color: #2AA198">&quot;content-type&quot;</span> <span style="color: #93A1A1">content</span><span style="color: #719e07">=</span><span style="color: #2AA198">&quot;text/html; charset=utf-8&quot;</span><span style="color: #93A1A1">/&gt;</span>
+    <span style="color: #93A1A1">&lt;</span><span style="color: #268BD2">title</span><span style="color: #93A1A1">&gt;</span>{{ page.title }}<span style="color: #93A1A1">&lt;/</span><span style="color: #268BD2">title</span><span style="color: #93A1A1">&gt;</span>
+  <span style="color: #93A1A1">&lt;/</span><span style="color: #268BD2">head</span><span style="color: #93A1A1">&gt;</span>
+        　
+  <span style="color: #93A1A1">&lt;</span><span style="color: #268BD2">body</span><span style="color: #93A1A1">&gt;</span>
+    {{ content }}
+    <span style="color: #93A1A1">&lt;</span><span style="color: #268BD2">footer</span><span style="color: #93A1A1">&gt;</span>
+      © Tony Tsai 2013 | All Rights Reserved.
+    <span style="color: #93A1A1">&lt;/</span><span style="color: #268BD2">footer</span><span style="color: #93A1A1">&gt;</span>
+  <span style="color: #93A1A1">&lt;/</span><span style="color: #268BD2">body</span><span style="color: #93A1A1">&gt;</span>
+<span style="color: #93A1A1">&lt;/</span><span style="color: #268BD2">html</span><span style="color: #93A1A1">&gt;</span>
+</pre></div>
+</td></tr></table>
+  </div>
+</figure>
+</p>
+
+<p>Jekyll默认使用<a href="https://github.com/shopify/liquid/wiki/liquid-for-designers" target="_blank">Liquid</a>标记语言。Liquid提供两种标记语言：<code>output markup</code>和<code>tag markup</code>，<code>output markup</code>用<code>{% raw %}{ { } }{% endraw %}</code>分割，<code>tag markup</code>用<code>{% raw %}{ % % }{% endraw %}</code>分隔。<code>page.title</code>和<code>content</code>都是Jekyll提供的<a href="https://github.com/mojombo/jekyll/wiki/Template-Data" target="_blank">模板数据</a>。</p>
+
+<h5 id="4-创建文章">4. 创建文章</h5>
+
+<p>在jekyll_blog目录下创建<code>_posts</code>目录，用于存放blog文章</p>
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>$ mkdir _posts
+</pre></div>
+
+<p>进入<code>_posts</code>目录，创建第一篇文章，文件名为<code>2013-04-28-Create-your-blog-with-Jekyll.md</code>。（注：文件名必须为&rdquo;YYYY-MM-DD-Blog-Title.后缀名&rdquo;，如果采用<code>html</code>网页，后缀名为<code>html</code>；如果采用<a href="http://daringfireball.net/projects/markdown/" target="_blank">markdown</a>格式，后缀名为<code>md</code>）
+在该文件中，写入以下内容：</p>
+
+<pre><code>---
+layout: post
+title: Create Your Blog With Jekyll
+categories:
+- Web
+tags:
+- Jekyll
+- blog
+---
+
+...content of this markdown file...
+</code></pre>
+
+<p>每篇文章的头部必须有<a href="https://github.com/mojombo/jekyll/wiki/YAML-Front-Matter" target="_blank">YAML Front Matter</a>，用来设置一些元数据。它用三根短划线&rdquo;- - -&ldquo;标记开始和结束，里面每一行设置一种元数据。“layout: default”表示该文章模板使用<code>_layouts</code>目录下的<code>default.html</code>文件；“title: Create Your Blog With Jekyll”表示该文章标题是“Create Your Blog With Jekyll”，如果不设置<code>title</code>，默认使用文件名作为标题，即“Create your blog with Jekyll”。</p>
+
+<h5 id="5-创建首页">5. 创建首页</h5>
+
+<p>有了文章之后，还需要一个首页。回到jekyll_blog目录，新建一个<code>index.md</code>文件，内容如下：
+
+
+<figure class="code">
+  <figcaption>
+  	<span></span>
+  </figcaption>
+  <div class="codewrapper">
+    <table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>{% raw %}
+---
+layout: page
+title: Tony Tsai&#39;s Blog
+---
+
+<span style="color: #93A1A1">&lt;</span><span style="color: #268BD2">ul</span> <span style="color: #93A1A1">class</span><span style="color: #719e07">=</span><span style="color: #2AA198">&quot;listing&quot;</span><span style="color: #93A1A1">&gt;</span>
+{% for post in site.posts %}
+  {% capture y %}{{post.date | date:&quot;%Y&quot;}}{% endcapture %}
+  {% if year != y %}
+  {% assign year = y %}
+  <span style="color: #93A1A1">&lt;</span><span style="color: #268BD2">li</span> <span style="color: #93A1A1">class</span><span style="color: #719e07">=</span><span style="color: #2AA198">&quot;listing-seperator&quot;</span><span style="color: #93A1A1">&gt;</span>{{ y }}<span style="color: #93A1A1">&lt;/</span><span style="color: #268BD2">li</span><span style="color: #93A1A1">&gt;</span>
+  {% endif %}
+  <span style="color: #93A1A1">&lt;</span><span style="color: #268BD2">li</span> <span style="color: #93A1A1">class</span><span style="color: #719e07">=</span><span style="color: #2AA198">&quot;listing-item&quot;</span><span style="color: #93A1A1">&gt;</span>
+    <span style="color: #93A1A1">&lt;</span><span style="color: #268BD2">time</span> <span style="color: #93A1A1">datetime</span><span style="color: #719e07">=</span><span style="color: #2AA198">&quot;{{ post.date | date:&quot;</span><span style="color: #93A1A1">%Y-%m-%d&quot;</span> <span style="color: #93A1A1">}}&quot;&gt;</span>{{ post.date | date:&quot;%Y-%m-%d&quot; }}<span style="color: #93A1A1">&lt;/</span><span style="color: #268BD2">time</span><span style="color: #93A1A1">&gt;</span>
+    <span style="color: #93A1A1">&lt;</span><span style="color: #268BD2">a</span> <span style="color: #93A1A1">href</span><span style="color: #719e07">=</span><span style="color: #2AA198">&quot;{{ site.url }}{{ post.url }}&quot;</span> <span style="color: #93A1A1">title</span><span style="color: #719e07">=</span><span style="color: #2AA198">&quot;{{ post.title }}&quot;</span><span style="color: #93A1A1">&gt;</span>{{ post.title }}<span style="color: #93A1A1">&lt;/</span><span style="color: #268BD2">a</span><span style="color: #93A1A1">&gt;</span>
+  <span style="color: #93A1A1">&lt;/</span><span style="color: #268BD2">li</span><span style="color: #93A1A1">&gt;</span>
+{% endfor %}
+<span style="color: #93A1A1">&lt;/</span><span style="color: #268BD2">ul</span><span style="color: #93A1A1">&gt;</span>
+{% endraw %}
+</pre></div>
+</td></tr></table>
+  </div>
+</figure>
+</p>
+
+<p><code>index.md</code>参考<a href="http://yihui.name/cn/" target="_blank">谢益辉中文博客</a>的GitHub<a href="https://github.com/yihui/cn" target="_blank">源码</a>。首页使用default模板，标题为&rdquo;Tony Tsai&rsquo;s Blog&rdquo;。<code>{% raw %} {% for post in site.posts %} {% endfor %} {% endraw %}</code>表示对<code>_posts</code>目录下的所有文章遍历。</p>
+
+<p>最终目录结构为：</p>
+
+<pre><code>/jekyll_blog
+    |--　_config.yml
+    |--　_layouts
+    |     |--　default.html
+    |--　_posts
+    |     |--　2013-04-28-Create-your-blog-with-Jekyll.md
+    |--　index.md
+</code></pre>
+
+<h5 id="6-构建blog网站">6. 构建blog网站</h5>
+
+<p>构建<code>blog</code>网站十分容易，进入<code>jekyll_blog</code>目录，运行<code>jekyll build</code>即可。</p>
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>$ <span style="color: #B58900">cd</span> jekyll_blog
+$ jekyll build
+</pre></div>
+
+<p>可以看到blog网站在新建的<code>_site</code>目录中被构建出来。如果直接用浏览器打开<code>_site/index.html</code>文件，点击第一篇文章，发现找不到文件。这是因为文章路径采用了相对路径。但Jekyll内置有服务器，只要运行</p>
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>$ jekyll server
+</pre></div>
+
+<p>然后在浏览器输入<code>localhost:4000</code>或<code>127.0.0.1:4000/</code>地址就可以浏览blog网站了。</p>
+
+<h5 id="7-发布blog网站">7. 发布blog网站</h5>
+
+<p>如果想别人能够通过互联网访问你的blog网站，你需要有域名和具有独立公网IP的服务器。从个人经济能力出发，域名可以考虑购买适合个人使用、相对便宜的域名，比如<code>.name</code>，<code>.me</code>等；服务器可以考虑购买VPS服务。将<code>_site</code>目录上载到虚拟专用服务器 (Virtual Private Server, VPS)，并将blog的域名绑定到<code>_site</code>目录。</p>
+
+<p>现在你就拥有自己的个人blog了。</p>
+
+        </div>
+        
+
+<footer>
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">Tony Tsai</span></span>
+    
+    <time>Apr 28, 2013</time>
+    
+      <span class="categories">
+        Tags:
+        
+          <a class="category" href="http://blog.tonytsai.name/tags/jekyll">Jekyll</a>  <a class="category" href="http://blog.tonytsai.name/tags/blog">Blog</a>  
+    
+    </span>
+  </p>
+
+  
+  
+
+  
+
+  <p class="meta">
+    
+
+    
+      <a class="basic-alignment right" href="http://blog.tonytsai.name/blog/2013-06-07-a-beamer-for-doctoral-english-class-final-presentation/" title="A Beamer for Doctoral English Class Final Presentation">A Beamer for Doctoral English Class Final Presentation</a>
+    
+  </p>
+  
+    
+      <div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    
+    
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'tonytsai';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+ 
+    
+  
+  
+</footer>
+
+      </article>
+    </div>
+    
+
+<aside class="sidebar thirds">
+  <section class="first odd">
+
+    
+      <h1>Who am I</h1>
+    
+
+    <p>
+      
+        I am Jun (Tony) Cai (Tsai). A Ph.D. candidate interested in influenza transmission dynamics at Department of Earth System Science, Tsinghua University.
+    </br>
+    View my profile in <a href="https://scholar.google.com/citations?user=_dV_jnkAAAAJ" target="_blank">Google Scholar</a>.
+      
+    </p>
+  </section>
+
+
+
+  
+  <ul class="sidebar-nav">
+    <li class="sidebar-nav-item">
+      <a target="_blank" href="https://github.com/caijun/" title="https://github.com/caijun/"><i class="fa fa-github fa-3x"></i></a>
+      
+      
+      <a target="_blank" href="https://twitter.com/caijun2046/" title="https://twitter.com/caijun2046/"><i class="fa fa-twitter fa-3x"></i></a>
+       
+      
+      
+      
+      <a target="_blank" href="https://www.facebook.com/tony.tsai.007/" title="https://www.facebook.com/tony.tsai.007/"><i class="fa fa-facebook fa-3x"></i></a>
+      
+      
+      <a target="_blank" href="http://weibo.com/caijun2046/" title="http://weibo.com/caijun2046/"><i class="fa fa-weibo fa-3x"></i></a>
+
+    
+    
+    </li>
+  </ul>
+
+  
+
+  
+
+  
+  
+  
+    
+      <section class="even">
+        <h1>Recent Posts</h1>
+        <ul id="recent_posts">
+          
+            <li class="post">
+              <a href="/blog/2017-01-05-test-mathjax/">Test MathJax</a>
+            </li>
+          
+            <li class="post">
+              <a href="/blog/2015-08-09-optimization-of-disk-usage-for-animint/">Optimization of Disk Usage for animint</a>
+            </li>
+          
+            <li class="post">
+              <a href="/blog/2015-05-21-operator-for-extracting-named-list-elements-to-variables/">Operator for Extracting Named List Elements to Variables</a>
+            </li>
+          
+            <li class="post">
+              <a href="/blog/2015-05-10-resources-for-influenza-research/">Resources for Influenza Research</a>
+            </li>
+          
+            <li class="post">
+              <a href="/blog/2015-04-23-why-does-the-jackknife-estimate-of-standard-error-have-the-factor-n-1/n/">Why Does the Jackknife Estimate of Standard Error Have the Factor (n-1)/n?</a>
+            </li>
+          
+        </ul>
+      </section>
+    
+  
+  
+  <section class="even">
+    <h1>Books to Read</h1>
+    <li><a href="https://www.amazon.com/Textbook-Influenza-Robert-G-Webster/dp/0470670487/">Textbook of Influenza</a></li>
+    <li><a href="https://www.amazon.com/Infectious-Diseases-Humans-Dynamics-Publications/dp/019854040X">Infectious Diseases of Humans: Dynamics and Control</a></li>
+    <li><a href="https://www.amazon.com/Modeling-Infectious-Diseases-Humans-Animals/dp/0691116172/">Modeling Infectious Diseases in Humans and Animals</a></li>
+    <li><a href="https://www.amazon.com/Infectious-Disease-Epidemiology-Theory-Practice/dp/1449683797">Infectious Disease Epidemiology: Theory and Practice</a></li>
+    <li><a href="https://www.amazon.com/Bayesian-Analysis-Chapman-Statistical-Science/dp/1439840954">Bayesian Data Analysis</a></li>
+    <li><a href="https://www.amazon.com/Seamless-Integration-Rcpp-Dirk-Eddelbuettel/dp/1461468671">Seamless R and C++ Integration with Rcpp</a></li>
+
+    <h1>Links</h1>
+    <li><a href="http://www.repidemicsconsortium.org/">R Epidemics Consortium</a></li>
+    <li><a href="http://r-bloggers.com/">R-bloggers</a></li>
+
+    <h1>Friends</h1>
+    <li><a href="https://xg1990.com/blog/">xg1990</a></li>
+  </section>
+
+  <script type="text/javascript" src="//ra.revolvermaps.com/0/0/8.js?i=0551xokm7cj&amp;m=0&amp;s=300&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33" async="async"></script>
+
+</aside>
+
+  </div>
+</div>
+
+<footer role="contentinfo">
+  <p>Copyright &copy; 2017 Tony Tsai - <a href="http://blog.tonytsai.name/license/">License</a> -
+  <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
+</p>
+
+</footer>
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] },
+  tex2jax: {
+    inlineMath: [['$','$']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+  }
+});
+</script>
+<script type="text/javascript"
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<script>
+  var _gaq=[['_setAccount','UA-40665800-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+</body>
+</html>
+

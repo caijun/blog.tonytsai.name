@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Adduser on Tony Tsai</title>
+    <link>http://blog.tonytsai.name/tags/adduser/index.xml</link>
+    <description>Recent content in Adduser on Tony Tsai</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="http://blog.tonytsai.name/tags/adduser/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Problems with adduser on Ubuntu and Solutions</title>
+      <link>http://blog.tonytsai.name/blog/2014-09-30-problems-with-adduser-on-ubuntu-and-solutions/</link>
+      <pubDate>Tue, 30 Sep 2014 23:44:46 -0400</pubDate>
+      
+      <guid>http://blog.tonytsai.name/blog/2014-09-30-problems-with-adduser-on-ubuntu-and-solutions/</guid>
+      <description>
+
+&lt;p&gt;最近想为Ubuntu服务器增加一个用户，然后&lt;code&gt;ssh&lt;/code&gt;远程登录使用。折腾了好久总算搞定，现将过程中遇到的问题记录下来，以便将来参考。&lt;/p&gt;
+
+&lt;h4 id=&#34;1-创建新用户&#34;&gt;1. 创建新用户&lt;/h4&gt;
+
+&lt;p&gt;Linux系统中只有&lt;em&gt;root&lt;/em&gt;用户有创建其它用户的权限。&lt;/p&gt;
+
+&lt;p&gt;切换到&lt;em&gt;root&lt;/em&gt;，创建新用户&lt;em&gt;zyw&lt;/em&gt; ，并设置密码&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ su - root
+$ useradd zyw
+$ passwd zyw
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h4 id=&#34;2-用户缺少主目录&#34;&gt;2. 用户缺少主目录&lt;/h4&gt;
+
+&lt;p&gt;然后以&lt;em&gt;zyw&lt;/em&gt;用户&lt;code&gt;ssh&lt;/code&gt;登录Ubuntu服务器，却显示以下错误信息：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Could not chdir to home directory /home/zyw: No such file or directory
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;很显然问题在于使用&lt;code&gt;useradd&lt;/code&gt;命令创建用户时，忘了使用&lt;code&gt;-d&lt;/code&gt;参数指定用户主目录（其实我以为系统会根据用户名自动创建，看来系统没有那么智能）。解决办法是为&lt;em&gt;zyw&lt;/em&gt;用户创建主目录&lt;strong&gt;/home/zyw&lt;/strong&gt;并设定相应权限，输入以下命令：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ mkdir /home/zyw
+$ chown zyw:zyw /home/zyw
+$ chmod &lt;span style=&#34;color: #2AA198&#34;&gt;0700&lt;/span&gt; /home/zyw
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h4 id=&#34;3-终端提示符不是-user-host-path&#34;&gt;3. 终端提示符不是&lt;code&gt;[user@host path]$&lt;/code&gt;&lt;/h4&gt;
+
+&lt;p&gt;再次登录Ubuntu服务器，成功登录。但终端提示符只显示一个&lt;code&gt;$&lt;/code&gt;，而不是常见的&lt;code&gt;[user@host path]$&lt;/code&gt;。用&lt;code&gt;ls&lt;/code&gt;命令列出当前目录清单时，目录和文件也没有用不同颜色标识，而且命令输入错误也不能删除，使用非常不方便。&lt;/p&gt;
+
+&lt;p&gt;通过google发现，原因在于用户使用的&lt;code&gt;shell&lt;/code&gt;不是常用的&lt;code&gt;bash&lt;/code&gt;。查看当前使用的&lt;code&gt;shell&lt;/code&gt;，输入：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span style=&#34;color: #B58900&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color: #268BD2&#34;&gt;$SHELL&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;果然输出为&lt;code&gt;sh&lt;/code&gt;，而不是&lt;code&gt;bash&lt;/code&gt;。解决办法是修改&lt;strong&gt;/etc/passwd&lt;/strong&gt;配置文件，将&lt;em&gt;zyw&lt;/em&gt;用户使用的&lt;code&gt;shell&lt;/code&gt;改为&lt;code&gt;bash&lt;/code&gt;。修改&lt;strong&gt;/etc/passwd&lt;/strong&gt;需要&lt;code&gt;sudo&lt;/code&gt;权限，新建的用户使用不了&lt;code&gt;sudo&lt;/code&gt;，提示该用户不在&lt;code&gt;sudoers&lt;/code&gt;列表里。解决办法是切换到&lt;em&gt;root&lt;/em&gt;用户，执行&lt;code&gt;visudo&lt;/code&gt;或者修改&lt;strong&gt;/etc/sudoers&lt;/strong&gt;，在&lt;code&gt;root    ALL=(ALL)       ALL&lt;/code&gt;下面添加&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;zyw    ALL=(ALL)       ALL
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这为&lt;em&gt;zyw&lt;/em&gt;用户添加了所有权限。&lt;/p&gt;
+
+&lt;p&gt;切换回&lt;em&gt;zyw&lt;/em&gt;用户，重新修改&lt;strong&gt;/etc/passwd&lt;/strong&gt;，找到&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;zyw:x:1001:1001::/home/zyw:/bin/sh
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;其中最后一个分号后的内容指定&lt;em&gt;zyw&lt;/em&gt;用户使用的&lt;code&gt;shell&lt;/code&gt;，将其修改为&lt;strong&gt;/bin/bash&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;h4 id=&#34;4-终端缺少配置文件&#34;&gt;4. 终端缺少配置文件&lt;/h4&gt;
+
+&lt;p&gt;重新登录Terminal，提示符正常，但仍没有颜色高亮。通过&lt;code&gt;ls -a&lt;/code&gt;列出用户主目录下所有文件（包括隐藏文件），发现缺少终端配置文件&lt;strong&gt;.bashrc&lt;/strong&gt;和&lt;strong&gt;.profile&lt;/strong&gt;。解决办法是从&lt;strong&gt;/etc/skel&lt;/strong&gt;目录下拷贝过来，输入以下命令：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ cp /etc/skel/.bashrc /home/zyw/
+$ cp /etc/skel/.profile /home/zyw/
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;再次登录Terminal，一切都正常了，可以愉快地玩耍了。&lt;/p&gt;
+
+&lt;h3 id=&#34;参考链接&#34;&gt;参考链接&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://www.cyberciti.biz/faq/linux-unix-appleosx-bsd-could-not-chdir-to-home-directory/&#34; target=&#34;_blank&#34;&gt;Could not chdir to home directory: No such file or directory Error and Solution&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://my.oschina.net/shangjx13/blog/32155&#34; target=&#34;_blank&#34;&gt;ubuntu下adduser创建新用户的问题&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://my.oschina.net/shangjx13/blog/30626&#34; target=&#34;_blank&#34;&gt;linux 用户账户管理&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://superuser.com/questions/68397/why-does-my-linux-prompt-show-a-instead-of-the-login-name-and-path&#34; target=&#34;_blank&#34;&gt;Why does my Linux prompt show a $, instead of the login name and path?&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

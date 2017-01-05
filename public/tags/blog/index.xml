@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog on Tony Tsai</title>
+    <link>http://blog.tonytsai.name/tags/blog/index.xml</link>
+    <description>Recent content in Blog on Tony Tsai</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="http://blog.tonytsai.name/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Create Your Blog with Jekyll</title>
+      <link>http://blog.tonytsai.name/blog/2013-04-28-create-your-blog-with-jekyll/</link>
+      <pubDate>Sun, 28 Apr 2013 23:44:46 -0400</pubDate>
+      
+      <guid>http://blog.tonytsai.name/blog/2013-04-28-create-your-blog-with-jekyll/</guid>
+      <description>
+
+&lt;p&gt;在使用Jekyll搭建个人blog之前，确认你的PC安装有Jekyll。最简单的安装Jekyll方法是通过RubyGems，RubyGems是Ruby包管理框架。在CentOS 6.4上安装RubyGems和Jekyll的步骤如下：&lt;/p&gt;
+
+&lt;h3 id=&#34;install-rubygems&#34;&gt;Install RubyGems&lt;/h3&gt;
+
+&lt;p&gt;&lt;em&gt;RubyGems&lt;/em&gt; is a package management framework for &lt;em&gt;Ruby&lt;/em&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Install &lt;em&gt;Ruby&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ sudo yum install ruby
+&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Install some &lt;em&gt;Ruby&lt;/em&gt; dependancies&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ sudo yum install ruby-rdoc ruby-devel
+&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Install &lt;em&gt;RubyGems&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ sudo yum install rubygems
+&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Check &lt;em&gt;RubyGems&lt;/em&gt; version&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ gem -v
+&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Update &lt;em&gt;RubyGems&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ gem update --system
+&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;install-jekyll&#34;&gt;Install Jekyll&lt;/h3&gt;
+
+&lt;p&gt;&lt;em&gt;Jekyll&lt;/em&gt; is a simple, blog-aware, static site generator in Ruby.&lt;/p&gt;
+
+&lt;p&gt;Install &lt;em&gt;Jekyll&lt;/em&gt; via &lt;em&gt;RubyGems&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ gem install jekyll
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Update &lt;em&gt;Jekyll&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ gem update jekyll
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id=&#34;使用jekyll搭建blog&#34;&gt;使用Jekyll搭建blog&lt;/h3&gt;
+
+&lt;h5 id=&#34;1-创建blog主目录&#34;&gt;1. 创建blog主目录&lt;/h5&gt;
+
+&lt;p&gt;新建一个目录作为blog的主目录&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ mkdir jekyll_blog
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h5 id=&#34;2-创建配置文件&#34;&gt;2. 创建配置文件&lt;/h5&gt;
+
+&lt;p&gt;在jekyll_blog目录下新建&lt;code&gt;_config.yml&lt;/code&gt;文本文件，写入以下内容，其它设置默认。具体设置参见&lt;a href=&#34;https://github.com/mojombo/jekyll/wiki/Configuration&#34; target=&#34;_blank&#34;&gt;Jekyll Configuration&lt;/a&gt;。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;markdown:&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;pandoc&lt;/span&gt;
+&lt;span style=&#34;color: #93A1A1&#34;&gt;pandoc:&lt;/span&gt; 
+    &lt;span style=&#34;color: #93A1A1&#34;&gt;extensions:&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #268BD2&#34;&gt;mathjax&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #268BD2&#34;&gt;standalone&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;]&lt;/span&gt;
+&lt;span style=&#34;color: #93A1A1&#34;&gt;url:&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;http://blog.tonytsai.name&lt;/span&gt;
+&lt;span style=&#34;color: #93A1A1&#34;&gt;author:&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;Tony Tsai&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h5 id=&#34;3-创建模板文件&#34;&gt;3. 创建模板文件&lt;/h5&gt;
+
+&lt;p&gt;在jekyll_blog目录下创建&lt;code&gt;_layouts&lt;/code&gt;目录，用于存放模板文件&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ mkdir _layouts
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;进入&lt;code&gt;_layouts&lt;/code&gt;目录，新建&lt;code&gt;default.html&lt;/code&gt;，加入以下代码，作为blog的默认模板。
+
+
+&lt;figure class=&#34;code&#34;&gt;
+  &lt;figcaption&gt;
+  	&lt;span&gt;&lt;/span&gt;
+  &lt;/figcaption&gt;
+  &lt;div class=&#34;codewrapper&#34;&gt;
+    &lt;table class=&#34;highlighttable&#34;&gt;&lt;tr&gt;&lt;td&gt;&lt;div class=&#34;linenodiv&#34; style=&#34;background-color: #f0f0f0; padding-right: 10px&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #719e07&#34;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color: #93A1A1&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #268BD2&#34;&gt;html&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span style=&#34;color: #93A1A1&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #268BD2&#34;&gt;head&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color: #93A1A1&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #268BD2&#34;&gt;meta&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;http-equiv&lt;/span&gt;&lt;span style=&#34;color: #719e07&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;content-type&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;content&lt;/span&gt;&lt;span style=&#34;color: #719e07&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;text/html; charset=utf-8&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color: #93A1A1&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #268BD2&#34;&gt;title&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;&amp;gt;&lt;/span&gt;{{ page.title }}&lt;span style=&#34;color: #93A1A1&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span style=&#34;color: #268BD2&#34;&gt;title&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span style=&#34;color: #93A1A1&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span style=&#34;color: #268BD2&#34;&gt;head&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;&amp;gt;&lt;/span&gt;
+        　
+  &lt;span style=&#34;color: #93A1A1&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #268BD2&#34;&gt;body&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;&amp;gt;&lt;/span&gt;
+    {{ content }}
+    &lt;span style=&#34;color: #93A1A1&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #268BD2&#34;&gt;footer&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;&amp;gt;&lt;/span&gt;
+      © Tony Tsai 2013 | All Rights Reserved.
+    &lt;span style=&#34;color: #93A1A1&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span style=&#34;color: #268BD2&#34;&gt;footer&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span style=&#34;color: #93A1A1&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span style=&#34;color: #268BD2&#34;&gt;body&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color: #93A1A1&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span style=&#34;color: #268BD2&#34;&gt;html&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+  &lt;/div&gt;
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Jekyll默认使用&lt;a href=&#34;https://github.com/shopify/liquid/wiki/liquid-for-designers&#34; target=&#34;_blank&#34;&gt;Liquid&lt;/a&gt;标记语言。Liquid提供两种标记语言：&lt;code&gt;output markup&lt;/code&gt;和&lt;code&gt;tag markup&lt;/code&gt;，&lt;code&gt;output markup&lt;/code&gt;用&lt;code&gt;{% raw %}{ { } }{% endraw %}&lt;/code&gt;分割，&lt;code&gt;tag markup&lt;/code&gt;用&lt;code&gt;{% raw %}{ % % }{% endraw %}&lt;/code&gt;分隔。&lt;code&gt;page.title&lt;/code&gt;和&lt;code&gt;content&lt;/code&gt;都是Jekyll提供的&lt;a href=&#34;https://github.com/mojombo/jekyll/wiki/Template-Data&#34; target=&#34;_blank&#34;&gt;模板数据&lt;/a&gt;。&lt;/p&gt;
+
+&lt;h5 id=&#34;4-创建文章&#34;&gt;4. 创建文章&lt;/h5&gt;
+
+&lt;p&gt;在jekyll_blog目录下创建&lt;code&gt;_posts&lt;/code&gt;目录，用于存放blog文章&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ mkdir _posts
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;进入&lt;code&gt;_posts&lt;/code&gt;目录，创建第一篇文章，文件名为&lt;code&gt;2013-04-28-Create-your-blog-with-Jekyll.md&lt;/code&gt;。（注：文件名必须为&amp;rdquo;YYYY-MM-DD-Blog-Title.后缀名&amp;rdquo;，如果采用&lt;code&gt;html&lt;/code&gt;网页，后缀名为&lt;code&gt;html&lt;/code&gt;；如果采用&lt;a href=&#34;http://daringfireball.net/projects/markdown/&#34; target=&#34;_blank&#34;&gt;markdown&lt;/a&gt;格式，后缀名为&lt;code&gt;md&lt;/code&gt;）
+在该文件中，写入以下内容：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;---
+layout: post
+title: Create Your Blog With Jekyll
+categories:
+- Web
+tags:
+- Jekyll
+- blog
+---
+
+...content of this markdown file...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;每篇文章的头部必须有&lt;a href=&#34;https://github.com/mojombo/jekyll/wiki/YAML-Front-Matter&#34; target=&#34;_blank&#34;&gt;YAML Front Matter&lt;/a&gt;，用来设置一些元数据。它用三根短划线&amp;rdquo;- - -&amp;ldquo;标记开始和结束，里面每一行设置一种元数据。“layout: default”表示该文章模板使用&lt;code&gt;_layouts&lt;/code&gt;目录下的&lt;code&gt;default.html&lt;/code&gt;文件；“title: Create Your Blog With Jekyll”表示该文章标题是“Create Your Blog With Jekyll”，如果不设置&lt;code&gt;title&lt;/code&gt;，默认使用文件名作为标题，即“Create your blog with Jekyll”。&lt;/p&gt;
+
+&lt;h5 id=&#34;5-创建首页&#34;&gt;5. 创建首页&lt;/h5&gt;
+
+&lt;p&gt;有了文章之后，还需要一个首页。回到jekyll_blog目录，新建一个&lt;code&gt;index.md&lt;/code&gt;文件，内容如下：
+
+
+&lt;figure class=&#34;code&#34;&gt;
+  &lt;figcaption&gt;
+  	&lt;span&gt;&lt;/span&gt;
+  &lt;/figcaption&gt;
+  &lt;div class=&#34;codewrapper&#34;&gt;
+    &lt;table class=&#34;highlighttable&#34;&gt;&lt;tr&gt;&lt;td&gt;&lt;div class=&#34;linenodiv&#34; style=&#34;background-color: #f0f0f0; padding-right: 10px&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;{% raw %}
+---
+layout: page
+title: Tony Tsai&amp;#39;s Blog
+---
+
+&lt;span style=&#34;color: #93A1A1&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #268BD2&#34;&gt;ul&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color: #719e07&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;listing&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;&amp;gt;&lt;/span&gt;
+{% for post in site.posts %}
+  {% capture y %}{{post.date | date:&amp;quot;%Y&amp;quot;}}{% endcapture %}
+  {% if year != y %}
+  {% assign year = y %}
+  &lt;span style=&#34;color: #93A1A1&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #268BD2&#34;&gt;li&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color: #719e07&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;listing-seperator&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;&amp;gt;&lt;/span&gt;{{ y }}&lt;span style=&#34;color: #93A1A1&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span style=&#34;color: #268BD2&#34;&gt;li&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;&amp;gt;&lt;/span&gt;
+  {% endif %}
+  &lt;span style=&#34;color: #93A1A1&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #268BD2&#34;&gt;li&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color: #719e07&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;listing-item&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color: #93A1A1&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #268BD2&#34;&gt;time&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;datetime&lt;/span&gt;&lt;span style=&#34;color: #719e07&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;{{ post.date | date:&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;%Y-%m-%d&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;}}&amp;quot;&amp;gt;&lt;/span&gt;{{ post.date | date:&amp;quot;%Y-%m-%d&amp;quot; }}&lt;span style=&#34;color: #93A1A1&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span style=&#34;color: #268BD2&#34;&gt;time&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color: #93A1A1&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #268BD2&#34;&gt;a&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;href&lt;/span&gt;&lt;span style=&#34;color: #719e07&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;{{ site.url }}{{ post.url }}&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;title&lt;/span&gt;&lt;span style=&#34;color: #719e07&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;{{ post.title }}&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;&amp;gt;&lt;/span&gt;{{ post.title }}&lt;span style=&#34;color: #93A1A1&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span style=&#34;color: #268BD2&#34;&gt;a&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span style=&#34;color: #93A1A1&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span style=&#34;color: #268BD2&#34;&gt;li&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;&amp;gt;&lt;/span&gt;
+{% endfor %}
+&lt;span style=&#34;color: #93A1A1&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span style=&#34;color: #268BD2&#34;&gt;ul&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;&amp;gt;&lt;/span&gt;
+{% endraw %}
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+  &lt;/div&gt;
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;index.md&lt;/code&gt;参考&lt;a href=&#34;http://yihui.name/cn/&#34; target=&#34;_blank&#34;&gt;谢益辉中文博客&lt;/a&gt;的GitHub&lt;a href=&#34;https://github.com/yihui/cn&#34; target=&#34;_blank&#34;&gt;源码&lt;/a&gt;。首页使用default模板，标题为&amp;rdquo;Tony Tsai&amp;rsquo;s Blog&amp;rdquo;。&lt;code&gt;{% raw %} {% for post in site.posts %} {% endfor %} {% endraw %}&lt;/code&gt;表示对&lt;code&gt;_posts&lt;/code&gt;目录下的所有文章遍历。&lt;/p&gt;
+
+&lt;p&gt;最终目录结构为：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/jekyll_blog
+    |--　_config.yml
+    |--　_layouts
+    |     |--　default.html
+    |--　_posts
+    |     |--　2013-04-28-Create-your-blog-with-Jekyll.md
+    |--　index.md
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&#34;6-构建blog网站&#34;&gt;6. 构建blog网站&lt;/h5&gt;
+
+&lt;p&gt;构建&lt;code&gt;blog&lt;/code&gt;网站十分容易，进入&lt;code&gt;jekyll_blog&lt;/code&gt;目录，运行&lt;code&gt;jekyll build&lt;/code&gt;即可。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span style=&#34;color: #B58900&#34;&gt;cd&lt;/span&gt; jekyll_blog
+$ jekyll build
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;可以看到blog网站在新建的&lt;code&gt;_site&lt;/code&gt;目录中被构建出来。如果直接用浏览器打开&lt;code&gt;_site/index.html&lt;/code&gt;文件，点击第一篇文章，发现找不到文件。这是因为文章路径采用了相对路径。但Jekyll内置有服务器，只要运行&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ jekyll server
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;然后在浏览器输入&lt;code&gt;localhost:4000&lt;/code&gt;或&lt;code&gt;127.0.0.1:4000/&lt;/code&gt;地址就可以浏览blog网站了。&lt;/p&gt;
+
+&lt;h5 id=&#34;7-发布blog网站&#34;&gt;7. 发布blog网站&lt;/h5&gt;
+
+&lt;p&gt;如果想别人能够通过互联网访问你的blog网站，你需要有域名和具有独立公网IP的服务器。从个人经济能力出发，域名可以考虑购买适合个人使用、相对便宜的域名，比如&lt;code&gt;.name&lt;/code&gt;，&lt;code&gt;.me&lt;/code&gt;等；服务器可以考虑购买VPS服务。将&lt;code&gt;_site&lt;/code&gt;目录上载到虚拟专用服务器 (Virtual Private Server, VPS)，并将blog的域名绑定到&lt;code&gt;_site&lt;/code&gt;目录。&lt;/p&gt;
+
+&lt;p&gt;现在你就拥有自己的个人blog了。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

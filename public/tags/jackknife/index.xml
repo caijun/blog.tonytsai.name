@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jackknife on Tony Tsai</title>
+    <link>http://blog.tonytsai.name/tags/jackknife/index.xml</link>
+    <description>Recent content in Jackknife on Tony Tsai</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="http://blog.tonytsai.name/tags/jackknife/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Why Does the Jackknife Estimate of Standard Error Have the Factor (n-1)/n?</title>
+      <link>http://blog.tonytsai.name/blog/2015-04-23-why-does-the-jackknife-estimate-of-standard-error-have-the-factor-n-1/n/</link>
+      <pubDate>Thu, 23 Apr 2015 23:44:46 -0400</pubDate>
+      
+      <guid>http://blog.tonytsai.name/blog/2015-04-23-why-does-the-jackknife-estimate-of-standard-error-have-the-factor-n-1/n/</guid>
+      <description>&lt;p&gt;Today I read &lt;strong&gt;7.2 The Jackknife&lt;/strong&gt; in &lt;a href=&#34;http://www.amazon.com/Statistical-Computing-Chapman-Hall-Series/dp/1584885459&#34; target=&#34;_blank&#34;&gt;Stastical Computing with R&lt;/a&gt; and found the explanation for why the jackknife estimate of standard error have the factor $(n-1)/n$ is unclear. I refered to &lt;a href=&#34;http://www.amazon.com/Introduction-Bootstrap-Monographs-Statistics-Probability/dp/0412042312&#34; target=&#34;_blank&#34;&gt;An Introduction to the Bootstrap&lt;/a&gt; by Bradley Efron and R. J. Tibshirani, and the &lt;a href=&#34;https://www.scss.tcd.ie/Rozenn.Dahyot/453Bootstrap/04_Jackknife.pdf&#34; target=&#34;_blank&#34;&gt;slides&lt;/a&gt; of jackknife by Rozenn Dahyot to figure out the reason. Here is my understanding for the existence of factor $(n-1)/n$.&lt;/p&gt;
+
+&lt;p&gt;The jackknife samples are computed by leaving out one observation $x_i$ from a sample $\mathbf{x} = (x_1, x_2, \cdots, x_n)$ at a time:
+$$
+\mathbf{x}_{(i)} = (x_1, x_2, \cdots, x_{i-1}, x_{i+1}, \cdots, x_n)
+$$
+for $i = 1, 2, \cdots, n$. The $i$th jackknife replication $\hat{\theta}_{(i)}$ of the statistic $\hat{\theta} = s(\mathbf{x})$ is
+$$
+\hat{\theta}_{(i)} = s(\mathbf{x}_{(i)}), \forall i = 1, 2, \cdots, n.
+$$
+Thus, for $\hat{\theta} = \bar{x}$, we have
+$$
+\begin{equation} \nonumber
+\begin{aligned}
+s(\mathbf{x}_{(i)}) &amp;amp;= \bar{x}_{(i)} \\&lt;br /&gt;
+                    &amp;amp;= \frac{1}{n-1}\sum_{j \ne i}{x_j} \\&lt;br /&gt;
+                    &amp;amp;= \frac{n\bar{x} - x_i}{n-1}
+\end{aligned}
+\end{equation}
+$$&lt;/p&gt;
+
+&lt;p&gt;The jackknife estimate of standard error is defined by
+$$
+\hat{se}_{jack} = [\frac{n-1}{n}\sum_{i=1}^n{(\hat{\theta}_{(i)} - \hat{\theta}_{(\cdot)})^2}]^{&amp;frac12;}
+$$
+where $\hat{\theta}_{(\cdot)} = \frac{1}{n}\sum_{i=1}^n{\hat{\theta}_{(i)}}$.&lt;/p&gt;
+
+&lt;p&gt;The exact form of the factor $(n-1)/n$ in the above formula is derived by considering the special case $\hat{\theta} = \bar{x}$. For $\hat{\theta} = \bar{x}$, it is easy to show that
+$$
+\begin{equation} \nonumber
+\begin{aligned}
+\bar{x}_{(\cdot)} &amp;amp;= \frac{1}{n}\sum_{i=1}^n{\bar{x}_{(i)}} \\&lt;br /&gt;
+                  &amp;amp;= \frac{1}{n}\sum_{i=1}^n{\frac{n\bar{x} - x_i}{n-1}} \\&lt;br /&gt;
+                  &amp;amp;= \frac{n}{n-1}\bar{x} - \frac{1}{n-1}\frac{1}{n}\sum_{i=1}^n{x_i} \\&lt;br /&gt;
+                  &amp;amp;= \frac{n}{n-1}\bar{x} - \frac{1}{n-1}\bar{x} \\&lt;br /&gt;
+                  &amp;amp;= \bar{x}
+\end{aligned}
+\end{equation}
+$$
+Therefore,
+$$
+\begin{equation} \nonumber
+\begin{aligned}
+\hat{se}_{jack} &amp;amp;= [\frac{n-1}{n}\sum_{i=1}^n{(\hat{\theta}_{(i)} - \hat{\theta}_{(\cdot)})^2}]^{&amp;frac12;} \\&lt;br /&gt;
+                &amp;amp;= [\frac{n-1}{n}\sum_{i=1}^n{(\bar{x}_{(i)} - \bar{x}_{(\cdot)})^2}]^{&amp;frac12;} \\&lt;br /&gt;
+                &amp;amp;= [\frac{n-1}{n}\sum_{i=1}^n{(\frac{n\bar{x} - x_i}{n-1} - \bar{x})^2}]^{&amp;frac12;} \\&lt;br /&gt;
+                &amp;amp;= [\frac{1}{n(n-1)}\sum_{i=1}^n{(x_i - \bar{x})^2}]^{&amp;frac12;} \\&lt;br /&gt;
+                &amp;amp;= \frac{[\frac{1}{n-1}\sum_{i=1}^n{(x_i - \bar{x})^2}]^{&amp;frac12;}}{\sqrt{n}} \\&lt;br /&gt;
+                &amp;amp;= \frac{\hat{\sigma}}{\sqrt{n}} \\&lt;br /&gt;
+                &amp;amp;= \hat{se}(\bar{x})
+\end{aligned}
+\end{equation}
+$$
+where $\hat{se}(\bar{x})$ is the unbiased estimate of the standard error of the sample mean, and $\hat{\sigma}$ is unbiased estimate of the standard deviation of the population.&lt;/p&gt;
+
+&lt;p&gt;The derivation suggests that the factor $(n-1)/n$ os exactly what is needed to make $\hat{se}_{jack}$ equal to the unbiased estimate of the standard error of the sample mean $\hat{se}(\bar{x})$. It is a somewhat arbitrary convention that $\hat{se}_{jack}$ uses the factor $(n-1)/n$, as in fact, the factor $(n-1)/n$ is derived by considering the special case $\hat{\theta} = \bar{x}$.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
