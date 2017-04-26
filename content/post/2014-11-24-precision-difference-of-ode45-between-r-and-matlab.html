@@ -1,0 +1,30 @@
+---
+title: Precision Difference of ode45 between R and MATLAB
+author: ''
+date: '2014-11-24'
+slug: ''
+categories: ["Numerical Computation"]
+tags: ["ode45", "R", "MATLAB"]
+draft: yes
+---
+
+
+<p><code>ode45</code> solvers from both <strong>R</strong> and <strong>MATLAB</strong> are used to run simulations of the <a href="https://www.math.duke.edu//education/ccp/materials/diffcalc/sir/sir1.html">spread of Hong Kong flu in New York city</a> with different initial susceptible individuals <span class="math inline">\(S\_0 =\)</span> 790, 7900, 79000, 790000, and 7900000. The maximum infected people <span class="math inline">\(I_{max}\)</span> under each condition is recorded for comparison. The following codes draw a figure showing the precision difference of <code>ode45</code> solvers between <strong>R</strong> and <strong>MATLAB</strong>.</p>
+<pre class="r"><code>Imax &lt;- data.frame(S0 = 79 * 10 ^ (1:5), 
+                   R = c(57.12598, 504.9923, 4984.303, 49749.60, 497474.2), 
+                   MATLAB = c(57.14987, 505.3385, 4987.447, 49774.26, 497552.2))
+Imax$`MATLAB - R` &lt;- Imax$MATLAB - Imax$R
+# plot delta Imax VS. S0
+library(reshape2)
+Imax.plot &lt;- melt(Imax, id = &quot;S0&quot;, measure = c(&quot;R&quot;, &quot;MATLAB&quot;, &quot;MATLAB - R&quot;))
+library(ggplot2)
+library(scales)
+p &lt;- ggplot(Imax.plot, aes(x = S0, y = value, group = variable, color = variable))
+p + geom_line() + 
+  geom_point() + 
+  scale_x_log10(name = expression(S[0]), breaks = 79 * 10 ^ (1:5), labels = comma) + 
+  scale_y_continuous(name = &quot;Imax&quot;, labels = comma) + 
+  facet_wrap(~ variable, scales = &quot;free&quot;) + 
+  ggtitle(&quot;Precision Diffference of ode45 Solver between R and MATLAB&quot;) + 
+  theme_bw(base_size = 14)</code></pre>
+<p><img src="/post/2014-11-24-precision-difference-of-ode45-between-r-and-matlab_files/figure-html/unnamed-chunk-1-1.png" width="1152" style="display: block; margin: auto;" /></p>

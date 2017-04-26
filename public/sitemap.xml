@@ -2,517 +2,518 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://blog.tonytsai.name/blog/2017-01-05-test-mathjax/</loc>
-    <lastmod>2017-01-05T23:44:46-04:00</lastmod>
+    <loc>/blog/2017-01-05-display-multi-line-equations-and-matrix-correctly-in-hugo/</loc>
+    <lastmod>2017-01-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/blog/2015-08-09-optimization-of-disk-usage-for-animint/</loc>
-    <lastmod>2015-08-09T23:44:46-04:00</lastmod>
+    <loc>/blog/2015-08-09-optimization-of-disk-usage-for-animint/</loc>
+    <lastmod>2015-08-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/blog/2015-05-21-operator-for-extracting-named-list-elements-to-variables/</loc>
-    <lastmod>2015-05-21T23:44:46-04:00</lastmod>
+    <loc>/blog/2015-05-21-operator-for-extracting-named-list-elements-to-variables/</loc>
+    <lastmod>2015-05-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/blog/2015-05-10-resources-for-influenza-research/</loc>
-    <lastmod>2015-05-10T23:44:46-04:00</lastmod>
+    <loc>/blog/2015-05-10-resources-for-influenza-research/</loc>
+    <lastmod>2015-05-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/blog/2015-04-23-why-does-the-jackknife-estimate-of-standard-error-have-the-factor-n-1/n/</loc>
-    <lastmod>2015-04-23T23:44:46-04:00</lastmod>
+    <loc>/blog/2015-04-23-why-does-the-jackknife-estimate-of-standard-error-have-the-factor-n-1/n/</loc>
+    <lastmod>2015-04-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/blog/2015-04-20-stratified-importance-sampling/</loc>
-    <lastmod>2015-04-20T23:44:46-04:00</lastmod>
+    <loc>/blog/2015-04-20-stratified-importance-sampling/</loc>
+    <lastmod>2015-04-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/blog/2014-12-04-sirs-model-with-time-dependent-transmission-rate/</loc>
-    <lastmod>2014-12-04T23:44:46-04:00</lastmod>
+    <loc>/blog/2014-12-04-sirs-model-with-time-dependent-transmission-rate/</loc>
+    <lastmod>2014-12-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/blog/2014-12-03-gains-from-paper-reading/</loc>
-    <lastmod>2014-12-03T23:44:46-04:00</lastmod>
+    <loc>/blog/2014-12-03-gains-from-paper-reading/</loc>
+    <lastmod>2014-12-03T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/blog/2014-11-24-precision-difference-of-ode45-between-r-and-matlab/</loc>
-    <lastmod>2014-11-24T23:44:46-04:00</lastmod>
+    <loc>/blog/2014-11-24-precision-difference-of-ode45-between-r-and-matlab/</loc>
+    <lastmod>2014-11-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/blog/2014-11-24-rk4-method-for-solving-sir-model/</loc>
-    <lastmod>2014-11-24T23:44:46-04:00</lastmod>
+    <loc>/blog/2014-11-24-rk4-method-for-solving-sir-model/</loc>
+    <lastmod>2014-11-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/blog/2014-09-30-problems-with-adduser-on-ubuntu-and-solutions/</loc>
-    <lastmod>2014-09-30T23:44:46-04:00</lastmod>
+    <loc>/blog/2014-09-30-problems-with-adduser-on-ubuntu-and-solutions/</loc>
+    <lastmod>2014-09-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/blog/2014-09-21-commonly-used-arcgis-tools-by-myself/</loc>
-    <lastmod>2014-09-21T23:44:46-04:00</lastmod>
+    <loc>/blog/2014-09-21-commonly-used-arcgis-tools-by-myself/</loc>
+    <lastmod>2014-09-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/blog/2014-08-23-host-is-down-using-curl/wget-while-page-loads-in-browser/</loc>
-    <lastmod>2014-08-23T23:44:46-04:00</lastmod>
+    <loc>/blog/2014-08-23-host-is-down-using-curl/wget-while-page-loads-in-browser/</loc>
+    <lastmod>2014-08-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/blog/2014-07-13-introduction-to-git-and-github/</loc>
-    <lastmod>2014-07-13T23:44:46-04:00</lastmod>
+    <loc>/blog/2014-07-13-introduction-to-git-and-github/</loc>
+    <lastmod>2014-07-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/blog/2013-12-04-a-chinese-beamer-for-ecophilosophy-class-presentation/</loc>
-    <lastmod>2013-12-04T23:44:46-04:00</lastmod>
+    <loc>/blog/2013-12-04-a-chinese-beamer-for-ecophilosophy-class-presentation/</loc>
+    <lastmod>2013-12-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/blog/2013-06-10-use-ipv6-in-an-isatap-way/</loc>
-    <lastmod>2013-06-10T23:44:46-04:00</lastmod>
+    <loc>/blog/2013-06-10-use-ipv6-in-an-isatap-way/</loc>
+    <lastmod>2013-06-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/blog/2013-06-08-how-to-connect-to-vmware-machine-centos-6.4-via-ssh/</loc>
-    <lastmod>2013-06-08T23:44:46-04:00</lastmod>
+    <loc>/blog/2013-06-08-how-to-connect-to-vmware-machine-centos-6.4-via-ssh/</loc>
+    <lastmod>2013-06-08T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/blog/2013-06-07-a-beamer-for-doctoral-english-class-final-presentation/</loc>
-    <lastmod>2013-06-07T23:44:46-04:00</lastmod>
+    <loc>/blog/2013-06-07-a-beamer-for-doctoral-english-class-final-presentation/</loc>
+    <lastmod>2013-06-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/blog/2013-04-28-create-your-blog-with-jekyll/</loc>
-    <lastmod>2013-04-28T23:44:46-04:00</lastmod>
+    <loc>/blog/2013-04-28-create-your-blog-with-jekyll/</loc>
+    <lastmod>2013-04-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/tags/adduser/</loc>
-    <lastmod>2014-09-30T23:44:46-04:00</lastmod>
+    <loc>/tags/adduser/</loc>
+    <lastmod>2014-09-30T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/tags/animint/</loc>
-    <lastmod>2015-08-09T23:44:46-04:00</lastmod>
+    <loc>/tags/animint/</loc>
+    <lastmod>2015-08-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/tags/arcgis-toolbox/</loc>
-    <lastmod>2014-09-21T23:44:46-04:00</lastmod>
+    <loc>/tags/arcgis-toolbox/</loc>
+    <lastmod>2014-09-21T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/archive/</loc>
+    <loc>/archive/</loc>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/tags/basic-reproductive-number/</loc>
-    <lastmod>2014-12-04T23:44:46-04:00</lastmod>
+    <loc>/tags/basic-reproductive-number/</loc>
+    <lastmod>2014-12-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/tags/beamer/</loc>
-    <lastmod>2013-12-04T23:44:46-04:00</lastmod>
+    <loc>/tags/beamer/</loc>
+    <lastmod>2013-12-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/tags/benchmark/</loc>
-    <lastmod>2014-11-24T23:44:46-04:00</lastmod>
+    <loc>/tags/benchmark/</loc>
+    <lastmod>2014-11-24T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/tags/blog/</loc>
-    <lastmod>2013-04-28T23:44:46-04:00</lastmod>
+    <loc>/tags/blog/</loc>
+    <lastmod>2013-04-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/categories/</loc>
+    <loc>/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/tags/chinese/</loc>
-    <lastmod>2013-12-04T23:44:46-04:00</lastmod>
+    <loc>/tags/chinese/</loc>
+    <lastmod>2013-12-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/tags/disk-space/</loc>
-    <lastmod>2015-08-09T23:44:46-04:00</lastmod>
+    <loc>/tags/disk-space/</loc>
+    <lastmod>2015-08-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/douban/</loc>
+    <loc>/douban/</loc>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/tags/geochina/</loc>
-    <lastmod>2014-08-23T23:44:46-04:00</lastmod>
+    <loc>/tags/geochina/</loc>
+    <lastmod>2014-08-23T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/categories/gis/</loc>
-    <lastmod>2014-09-21T23:44:46-04:00</lastmod>
+    <loc>/categories/gis/</loc>
+    <lastmod>2014-09-21T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/tags/github/</loc>
-    <lastmod>2014-07-13T23:44:46-04:00</lastmod>
+    <loc>/tags/github/</loc>
+    <lastmod>2014-07-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/categories/github/</loc>
-    <lastmod>2014-07-13T23:44:46-04:00</lastmod>
+    <loc>/categories/github/</loc>
+    <lastmod>2014-07-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/tags/goagent/</loc>
-    <lastmod>2014-08-23T23:44:46-04:00</lastmod>
+    <loc>/tags/goagent/</loc>
+    <lastmod>2014-08-23T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/tags/gsoc-2015/</loc>
-    <lastmod>2015-08-09T23:44:46-04:00</lastmod>
+    <loc>/tags/gsoc-2015/</loc>
+    <lastmod>2015-08-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/tags/hugo/</loc>
-    <lastmod>2017-01-05T23:44:46-04:00</lastmod>
+    <loc>/tags/hugo/</loc>
+    <lastmod>2017-01-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/tags/incidence/</loc>
-    <lastmod>2014-11-24T23:44:46-04:00</lastmod>
+    <loc>/tags/incidence/</loc>
+    <lastmod>2014-11-24T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/categories/influenza/</loc>
-    <lastmod>2015-05-10T23:44:46-04:00</lastmod>
+    <loc>/categories/influenza/</loc>
+    <lastmod>2015-05-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/tags/ipv6/</loc>
-    <lastmod>2013-06-10T23:44:46-04:00</lastmod>
+    <loc>/tags/ipv6/</loc>
+    <lastmod>2013-06-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/tags/isatap/</loc>
-    <lastmod>2013-06-10T23:44:46-04:00</lastmod>
+    <loc>/tags/isatap/</loc>
+    <lastmod>2013-06-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/tags/jackknife/</loc>
-    <lastmod>2015-04-23T23:44:46-04:00</lastmod>
+    <loc>/tags/jackknife/</loc>
+    <lastmod>2015-04-23T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/tags/jeffrey-shaman/</loc>
-    <lastmod>2014-12-03T23:44:46-04:00</lastmod>
+    <loc>/tags/jeffrey-shaman/</loc>
+    <lastmod>2014-12-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/tags/jekyll/</loc>
-    <lastmod>2013-04-28T23:44:46-04:00</lastmod>
+    <loc>/tags/jekyll/</loc>
+    <lastmod>2013-04-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/tags/latex/</loc>
-    <lastmod>2013-12-04T23:44:46-04:00</lastmod>
+    <loc>/tags/latex/</loc>
+    <lastmod>2013-12-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/categories/latex/</loc>
-    <lastmod>2013-12-04T23:44:46-04:00</lastmod>
+    <loc>/categories/latex/</loc>
+    <lastmod>2013-12-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/categories/linux/</loc>
-    <lastmod>2014-09-30T23:44:46-04:00</lastmod>
+    <loc>/categories/linux/</loc>
+    <lastmod>2014-09-30T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/tags/list-operator/</loc>
-    <lastmod>2015-05-21T23:44:46-04:00</lastmod>
+    <loc>/tags/list-operator/</loc>
+    <lastmod>2015-05-21T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/tags/mac-os-x/</loc>
-    <lastmod>2014-07-13T23:44:46-04:00</lastmod>
+    <loc>/tags/mac-os-x/</loc>
+    <lastmod>2014-07-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/categories/mac-os-x/</loc>
-    <lastmod>2014-08-23T23:44:46-04:00</lastmod>
+    <loc>/categories/mac-os-x/</loc>
+    <lastmod>2014-08-23T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/tags/markov-chain-transition-rate/</loc>
-    <lastmod>2014-12-04T23:44:46-04:00</lastmod>
+    <loc>/tags/markov-chain-transition-rate/</loc>
+    <lastmod>2014-12-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/categories/mathjax/</loc>
-    <lastmod>2017-01-05T23:44:46-04:00</lastmod>
+    <loc>/categories/mathjax/</loc>
+    <lastmod>2017-01-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/tags/matlab/</loc>
-    <lastmod>2014-11-24T23:44:46-04:00</lastmod>
+    <loc>/tags/matlab/</loc>
+    <lastmod>2014-11-24T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/tags/matrix/</loc>
-    <lastmod>2017-01-05T23:44:46-04:00</lastmod>
+    <loc>/tags/matrix/</loc>
+    <lastmod>2017-01-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/tags/multi-line-equations/</loc>
-    <lastmod>2017-01-05T23:44:46-04:00</lastmod>
+    <loc>/tags/multi-line-equations/</loc>
+    <lastmod>2017-01-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/categories/numerical-computation/</loc>
-    <lastmod>2014-11-24T23:44:46-04:00</lastmod>
+    <loc>/categories/numerical-computation/</loc>
+    <lastmod>2014-11-24T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/tags/ode45/</loc>
-    <lastmod>2014-11-24T23:44:46-04:00</lastmod>
+    <loc>/tags/ode45/</loc>
+    <lastmod>2014-11-24T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/tags/open-access/</loc>
-    <lastmod>2014-12-03T23:44:46-04:00</lastmod>
+    <loc>/tags/open-access/</loc>
+    <lastmod>2014-12-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/tags/optimization/</loc>
-    <lastmod>2015-08-09T23:44:46-04:00</lastmod>
+    <loc>/tags/optimization/</loc>
+    <lastmod>2015-08-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/post/</loc>
-    <lastmod>2017-01-05T23:44:46-04:00</lastmod>
+    <loc>/post/</loc>
+    <lastmod>2017-01-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/tags/prompt/</loc>
-    <lastmod>2014-09-30T23:44:46-04:00</lastmod>
+    <loc>/tags/prompt/</loc>
+    <lastmod>2014-09-30T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/tags/proxy/</loc>
-    <lastmod>2014-08-23T23:44:46-04:00</lastmod>
+    <loc>/tags/proxy/</loc>
+    <lastmod>2014-08-23T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/tags/r/</loc>
-    <lastmod>2014-11-24T23:44:46-04:00</lastmod>
+    <loc>/tags/r/</loc>
+    <lastmod>2014-11-24T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/categories/r/</loc>
-    <lastmod>2015-08-09T23:44:46-04:00</lastmod>
+    <loc>/categories/r/</loc>
+    <lastmod>2015-08-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/tags/reproducible-research/</loc>
-    <lastmod>2014-12-03T23:44:46-04:00</lastmod>
+    <loc>/tags/reproducible-research/</loc>
+    <lastmod>2014-12-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/tags/resampling/</loc>
-    <lastmod>2015-04-23T23:44:46-04:00</lastmod>
+    <loc>/tags/resampling/</loc>
+    <lastmod>2015-04-23T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/tags/research/</loc>
-    <lastmod>2015-05-10T23:44:46-04:00</lastmod>
+    <loc>/tags/research/</loc>
+    <lastmod>2015-05-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/tags/resource/</loc>
-    <lastmod>2015-05-10T23:44:46-04:00</lastmod>
+    <loc>/tags/resource/</loc>
+    <lastmod>2015-05-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/tags/rk4/</loc>
-    <lastmod>2014-11-24T23:44:46-04:00</lastmod>
+    <loc>/tags/rk4/</loc>
+    <lastmod>2014-11-24T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/tags/shell/</loc>
-    <lastmod>2014-09-30T23:44:46-04:00</lastmod>
+    <loc>/tags/shell/</loc>
+    <lastmod>2014-09-30T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/tags/sir/</loc>
-    <lastmod>2014-11-24T23:44:46-04:00</lastmod>
+    <loc>/tags/sir/</loc>
+    <lastmod>2014-11-24T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/tags/sirs/</loc>
-    <lastmod>2014-12-04T23:44:46-04:00</lastmod>
+    <loc>/tags/sirs/</loc>
+    <lastmod>2014-12-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/tags/spatial-analysis/</loc>
-    <lastmod>2014-09-21T23:44:46-04:00</lastmod>
+    <loc>/tags/spatial-analysis/</loc>
+    <lastmod>2014-09-21T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/tags/ssh/</loc>
-    <lastmod>2013-06-08T23:44:46-04:00</lastmod>
+    <loc>/tags/ssh/</loc>
+    <lastmod>2013-06-08T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/tags/standard-error/</loc>
-    <lastmod>2015-04-23T23:44:46-04:00</lastmod>
+    <loc>/tags/standard-error/</loc>
+    <lastmod>2015-04-23T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/tags/statistical-computing/</loc>
-    <lastmod>2015-04-20T23:44:46-04:00</lastmod>
+    <loc>/tags/statistical-computing/</loc>
+    <lastmod>2015-04-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/categories/statistical-computing/</loc>
-    <lastmod>2015-04-23T23:44:46-04:00</lastmod>
+    <loc>/categories/statistical-computing/</loc>
+    <lastmod>2015-04-23T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/tags/stratified-importance-sampling/</loc>
-    <lastmod>2015-04-20T23:44:46-04:00</lastmod>
+    <loc>/tags/stratified-importance-sampling/</loc>
+    <lastmod>2015-04-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/tags/</loc>
+    <loc>/tags/</loc>
+    <lastmod>2014-09-30T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/tags/thu/</loc>
-    <lastmod>2013-06-10T23:44:46-04:00</lastmod>
+    <loc>/tags/thu/</loc>
+    <lastmod>2013-06-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/</loc>
-    <lastmod>2017-01-05T23:44:46-04:00</lastmod>
+    <loc>/</loc>
+    <lastmod>2017-01-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/tags/transmission-rate/</loc>
-    <lastmod>2014-12-04T23:44:46-04:00</lastmod>
+    <loc>/tags/transmission-rate/</loc>
+    <lastmod>2014-12-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/tags/ubuntu/</loc>
-    <lastmod>2014-09-30T23:44:46-04:00</lastmod>
+    <loc>/tags/ubuntu/</loc>
+    <lastmod>2014-09-30T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/tags/variable-extraction/</loc>
-    <lastmod>2015-05-21T23:44:46-04:00</lastmod>
+    <loc>/tags/variable-extraction/</loc>
+    <lastmod>2015-05-21T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/tags/variance-reduction/</loc>
-    <lastmod>2015-04-20T23:44:46-04:00</lastmod>
+    <loc>/tags/variance-reduction/</loc>
+    <lastmod>2015-04-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/tags/vmware-machine/</loc>
-    <lastmod>2013-06-08T23:44:46-04:00</lastmod>
+    <loc>/tags/vmware-machine/</loc>
+    <lastmod>2013-06-08T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/categories/web/</loc>
-    <lastmod>2013-04-28T23:44:46-04:00</lastmod>
+    <loc>/categories/web/</loc>
+    <lastmod>2013-04-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/categories/windows/</loc>
-    <lastmod>2013-06-10T23:44:46-04:00</lastmod>
+    <loc>/categories/windows/</loc>
+    <lastmod>2013-06-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.tonytsai.name/tags/windows-7/</loc>
-    <lastmod>2013-06-10T23:44:46-04:00</lastmod>
+    <loc>/tags/windows-7/</loc>
+    <lastmod>2013-06-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

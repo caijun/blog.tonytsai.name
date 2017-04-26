@@ -2,114 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Proxy on Tony Tsai</title>
-    <link>http://blog.tonytsai.name/tags/proxy/index.xml</link>
+    <link>/tags/proxy/</link>
     <description>Recent content in Proxy on Tony Tsai</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="http://blog.tonytsai.name/tags/proxy/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 23 Aug 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/proxy/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Host Is Down Using curl/wget While Page Loads in Browser</title>
-      <link>http://blog.tonytsai.name/blog/2014-08-23-host-is-down-using-curl/wget-while-page-loads-in-browser/</link>
-      <pubDate>Sat, 23 Aug 2014 23:44:46 -0400</pubDate>
+      <link>/blog/2014-08-23-host-is-down-using-curl/wget-while-page-loads-in-browser/</link>
+      <pubDate>Sat, 23 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://blog.tonytsai.name/blog/2014-08-23-host-is-down-using-curl/wget-while-page-loads-in-browser/</guid>
-      <description>
-
-&lt;h3 id=&#34;问题描述&#34;&gt;问题描述&lt;/h3&gt;
-
-&lt;p&gt;最近想更新自己开发的&lt;a href=&#34;https://github.com/caijun/geoChina&#34; target=&#34;_blank&#34;&gt;&lt;em&gt;geoChina&lt;/em&gt;&lt;/a&gt;，发现在Mac上运行以下代码&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #719e07&#34;&gt;library&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;(&lt;/span&gt;geoChina&lt;span style=&#34;color: #93A1A1&#34;&gt;)&lt;/span&gt;
-geocode&lt;span style=&#34;color: #93A1A1&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;&amp;#39;Tsinghua University&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;,&lt;/span&gt; api &lt;span style=&#34;color: #719e07&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;#39;google&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;,&lt;/span&gt; ocs &lt;span style=&#34;color: #719e07&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;#39;GCJ-02&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;,&lt;/span&gt; messaging &lt;span style=&#34;color: #719e07&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #268BD2&#34;&gt;T&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;出错，返回
-
-
-&lt;figure class=&#34;code&#34;&gt;
-  &lt;figcaption&gt;
-  	&lt;span&gt;&lt;/span&gt;
-  &lt;/figcaption&gt;
-  &lt;div class=&#34;codewrapper&#34;&gt;
-    &lt;table class=&#34;highlighttable&#34;&gt;&lt;tr&gt;&lt;td&gt;&lt;div class=&#34;linenodiv&#34; style=&#34;background-color: #f0f0f0; padding-right: 10px&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;1
-2
-3
-4
-5
-6&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;calling http://maps.googleapis.com/maps/api/geocode/json?address&lt;span style=&#34;color: #719e07&#34;&gt;=&lt;/span&gt;Tsinghua%20University&lt;span style=&#34;color: #93A1A1&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color: #268BD2&#34;&gt;sensor&lt;/span&gt;&lt;span style=&#34;color: #719e07&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #B58900&#34;&gt;false&lt;/span&gt; ...
-Warning message:
-In readLines&lt;span style=&#34;color: #719e07&#34;&gt;(&lt;/span&gt;connect, &lt;span style=&#34;color: #268BD2&#34;&gt;warn&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;=&lt;/span&gt; FALSE&lt;span style=&#34;color: #719e07&#34;&gt;)&lt;/span&gt; :
-  unable to connect to &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;#39;maps.googleapis.com&amp;#39;&lt;/span&gt; on port 80.
-Error in fromJSON&lt;span style=&#34;color: #719e07&#34;&gt;(&lt;/span&gt;paste&lt;span style=&#34;color: #719e07&#34;&gt;(&lt;/span&gt;readLines&lt;span style=&#34;color: #719e07&#34;&gt;(&lt;/span&gt;connect, &lt;span style=&#34;color: #268BD2&#34;&gt;warn&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;=&lt;/span&gt; FALSE&lt;span style=&#34;color: #719e07&#34;&gt;)&lt;/span&gt;, &lt;span style=&#34;color: #268BD2&#34;&gt;collapse&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #719e07&#34;&gt;))&lt;/span&gt; : 
-  error in evaluating the argument &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;#39;content&amp;#39;&lt;/span&gt; in selecting a method &lt;span style=&#34;color: #719e07&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;#39;fromJSON&amp;#39;&lt;/span&gt;: Error in readLines&lt;span style=&#34;color: #719e07&#34;&gt;(&lt;/span&gt;connect, &lt;span style=&#34;color: #268BD2&#34;&gt;warn&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;=&lt;/span&gt; FALSE&lt;span style=&#34;color: #719e07&#34;&gt;)&lt;/span&gt; : cannot open the connection
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-  &lt;/div&gt;
-&lt;/figure&gt;
-&lt;/p&gt;
-
-&lt;p&gt;将&lt;code&gt;geocode&lt;/code&gt;封装的调用直接在浏览器里打开，能返回正确的json结果。而且该函数在Windows上运行正常。&lt;/p&gt;
-
-&lt;h3 id=&#34;问题分析&#34;&gt;问题分析&lt;/h3&gt;
-
-&lt;p&gt;&lt;em&gt;geoChina&lt;/em&gt;的开发的确是在Mac上完成的，但代码并没有针对不同的操作系统作了不同处理。因此可以初步判断是Mac操作系统的终端网络通讯出现了问题。http服务默认80端口，https服务默认443端口，从报错信息来看，终端网络通讯的80端口出现了问题。&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;curl&lt;/code&gt;或&lt;code&gt;wget&lt;/code&gt;命令能够实现终端网页数据内容下载，因此可以用来验证初步判断。在终端输入&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ wget www.google.com
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;返回&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;Resolving www.google.com... 2404:6800:4005:805::1012, 173.194.127.244, 173.194.127.242, ...
-Connecting to www.google.com|2404:6800:4005:805::1012|:80... failed: Host is down.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;输入&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ curl -v -L www.google.com
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;返回&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;* Rebuilt URL to: www.google.com/
-* Hostname was NOT found in DNS cache
-*   Trying 2404:6800:4005:801::1010...
-*   Trying 173.194.127.241...
-* connect to 2404:6800:4005:801::1010 port 80 failed: Host is down
-* connect to 173.194.127.241 port 80 failed: Host is down
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;都显示连接失败，&lt;code&gt;Host is down&lt;/code&gt;。而将访问的网站换成国内网站，比如&lt;code&gt;www.baidu.com&lt;/code&gt;，则都能访问成功，下载到网站首页。&lt;/p&gt;
-
-&lt;p&gt;这说明终端网络通讯80端口出问题的只是google等国外易干扰服务，而不是国内网络服务。自己Mac上的应用程序有此影响的只能是代理服务了。经过一番google，发现有人遇到和我十分类似的&lt;a href=&#34;#[1]&#34;&gt;[1]&lt;/a&gt;，回答都是代理作祟，基本可以肯定是自己使用&lt;em&gt;GoAgent&lt;/em&gt;代理导致终端无法通过80端口访问google服务。&lt;/p&gt;
-
-&lt;h3 id=&#34;问题解决&#34;&gt;问题解决&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&#34;#[1]&#34;&gt;[1]&lt;/a&gt;给出的解决方案是在终端设置http/https代理，google Mac OS X终端设置代理的方法，找到&lt;a href=&#34;#[2]&#34;&gt;[2]&lt;/a&gt;。只需清楚&lt;em&gt;GoAgent&lt;/em&gt;代理服务端口，然后编辑&lt;code&gt;~/.bash_profile&lt;/code&gt;文件，输入&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #B58900&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color: #268BD2&#34;&gt;http_proxy&lt;/span&gt;&lt;span style=&#34;color: #719e07&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;&amp;#39;http://localhost:8103&amp;#39;&lt;/span&gt;
-&lt;span style=&#34;color: #B58900&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color: #268BD2&#34;&gt;https_proxy&lt;/span&gt;&lt;span style=&#34;color: #719e07&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;&amp;#39;http://localhost:8103&amp;#39;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;保存&lt;code&gt;.bash_profile&lt;/code&gt;文件，在终端更新&lt;code&gt;.bash_profile&lt;/code&gt;生效&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span style=&#34;color: #B58900&#34;&gt;source&lt;/span&gt; .bash_profile
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;现在&lt;code&gt;curl&lt;/code&gt;或&lt;code&gt;wget&lt;/code&gt;命令都可以通过代理访问google服务了，但Mac上&lt;code&gt;geoChina::geocode&lt;/code&gt;运行还是时好时坏，看来&lt;code&gt;geoChina&lt;/code&gt;的开发维护只能暂时转到Windows上了。&lt;/p&gt;
-
-&lt;p&gt;如有同侪知道解决办法，烦请邮件告知。&lt;/p&gt;
-
-&lt;p&gt;&lt;br&gt;
-PS:本文采用了&lt;a href=&#34;http://celavie.me/lib/2013/10/19/Markdown%E5%86%99%E4%BD%9C%EF%BC%88%E4%BA%8C%EF%BC%89.html&#34; target=&#34;_blank&#34;&gt;添加文内注释/参考文献引用&lt;/a&gt;&lt;em&gt;Markdown&lt;/em&gt;写法。&lt;/p&gt;
-
-&lt;h3 id=&#34;参考链接&#34;&gt;参考链接&lt;/h3&gt;
-
-&lt;p&gt;&lt;span id=&#34;[1]&#34;&gt;[1]&lt;/span&gt;: &lt;a href=&#34;http://superuser.com/questions/518297/unable-to-resolve-host-using-curl-wget-while-page-loads-in-browser&#34; target=&#34;_blank&#34;&gt;Unable to resolve host using curl/wget while page loads in browser&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;span id=&#34;[2]&#34;&gt;[2]&lt;/span&gt;: &lt;a href=&#34;http://codelife.me/blog/2012/09/02/how-to-set-proxy-for-terminal/&#34; target=&#34;_blank&#34;&gt;如何为MacOS X终端设置代理&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;更新&#34;&gt;更新&lt;/h3&gt;
-
-&lt;p&gt;由于GFW的原因，Google服务在国内的使用受影响。在国内调用Google Maps API时推荐使用ditu.google.cn，而不是maps.google.com。解决思路是通过调用GeoIP服务，查询用户是在国内还是国外，指定不同的Google Maps API调用链接。&lt;a href=&#34;https://github.com/caijun/geoChina&#34; target=&#34;_blank&#34;&gt;&lt;em&gt;geoChina&lt;/em&gt;&lt;/a&gt;已更新至&lt;code&gt;1.1.3&lt;/code&gt;。&lt;/p&gt;
-</description>
+      <guid>/blog/2014-08-23-host-is-down-using-curl/wget-while-page-loads-in-browser/</guid>
+      <description>问题描述 最近想更新自己开发的geoChina，发现在Mac上运行以下代码 library(geoChina) geocode(&amp;#39;Tsinghua University&amp;#39;, api = &amp;#39;google&amp;#39;, ocs = &amp;#39;GCJ-02&amp;#39;, messaging = T) 出错，返回 1 2 3 4 5 6calling http://maps.googleapis.com/maps/api/geocode/json?address=Tsinghua%20University&amp;amp;sensor=false ... Warning message: In readLines(connect, warn = FALSE) : unable</description>
     </item>
     
   </channel>

@@ -1,84 +1,4 @@
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
     margin: 0;
     padding: 0;
     border: 0;
@@ -92,111 +12,102 @@ html {
     line-height: 1
 }
 
-ol,
-ul {
+ol, ul {
     list-style: none
 }
 
-caption {
-    padding-top: 8px;
-    padding-bottom: 8px;
-    color: #777;
-    text-align: left;
+table.highlighttable {
+    border-collapse: separate;
+}
+
+table.highlighttable tr {
+    background-color: transparent;
+}
+
+table.highlighttable td {
+    border-top: none;
+    border-bottom: none;
+}
+
+table.highlighttable, table.highlighttable th {
+    border-left: 1px solid black;
+    padding: 3px;
 }
 
 table {
-    border-collapse: collapse;
-    border-spacing: 0;
-    background-color: transparent;
+    display: table;
     width: 100%;
-    max-width: 100%;
-    margin-bottom: 20px;
-}
-
-th {
-    font-weight: bold;
-    text-align: left;
-}
-
-table>caption+thead>tr:first-child>th,
-table>colgroup+thead>tr:first-child>th,
-table>thead:first-child>tr:first-child>th,
-table>caption+thead>tr:first-child>td,
-table>colgroup+thead>tr:first-child>td,
-table>thead:first-child>tr:first-child>td {
-    border-top: 0;
-}
-
-table>thead>tr>th {
-    vertical-align: bottom;
-    border-bottom: 2px solid #ddd;
-}
-
-table>thead>tr>th,
-table>tbody>tr>th,
-table>tfoot>tr>th,
-table>thead>tr>td,
-table>tbody>tr>td,
-table>tfoot>tr>td {
-    padding: 8px;
-    line-height: 1.5;
-    vertical-align: top;
-    border-top: 1px solid #ddd;
-}
-
-
-/*table {
-    border-collapse: collapse;
     border-spacing: 0;
+    border-collapse: collapse;
+    overflow: auto;
+    margin-top: 0;
+    margin-bottom: .85em;
 }
 
-caption,
-th,
-td {
-    text-align: left;
-    font-weight: normal;
-    vertical-align: middle;
-}*/
+table, tr {
+    page-break-inside: avoid;
+}
 
-/*table,
-th,
-td {
-    border-left: 1px solid black;
-    /* remove the right border for when overflow happens */
+table tr {
+    background-color: #fff;
+    border-top: 1px solid #ccc;
+}
 
+table td, table th {
+    padding: 6px 13px;
+    border: 1px solid #ddd;
+    border-left: none;
+    border-right: none;
+}
 
-/*    padding: 3px;
-}*/
+table tr:nth-child(2n) {
+    background-color: #f8f8f8;
+}
 
-q,
+table tr:last-child td {
+    border-bottom-width: 2px;
+}
+
+table tr.header {
+    border-top-width: 2px;
+}
+
+.kable_wrapper {
+    border-spacing: 20px 0;
+    border-collapse: separate;
+    border: none;
+    margin: auto;
+}
+
+.kable_wrapper > tbody > tr > td {
+    vertical-align: top;
+}
+
+table.kable_wrapper > tbody > tr, table.kable_wrapper > tbody > tr > td {
+    border-top: none;
+}
+
+table.kable_wrapper > tbody > tr:last-child > td {
+    border-bottom: none;
+}
+
 blockquote {
-    quotes: none
+    font-style: italic;
+    margin: 0 0 .85em;
+    padding: 0 15px;
+    color: #858585;
+    border-left: 4px solid #e5e5e5;
 }
 
-q:before,
-q:after,
-blockquote:before,
-blockquote:after {
-    content: "";
-    content: none
+blockquote > p:last-child {
+    text-align: right;
 }
 
 a img {
     border: none
 }
 
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section,
-summary {
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
     display: block
 }
 
@@ -257,14 +168,7 @@ body>div>div {
     border-right: 1px solid #e0e0e0
 }
 
-.heading,
-body>header h1,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+.heading, body>header h1, h1, h2, h3, h4, h5, h6 {
     font-family: "PT Serif", "Georgia", "Helvetica Neue", Arial, sans-serif
 }
 
@@ -281,18 +185,11 @@ body>footer {
     font-family: "PT Sans", "Helvetica Neue", Arial, sans-serif
 }
 
-.serif,
-body,
-#content .blog-index a[rel=full-article] {
+.serif, body, #content .blog-index a[rel=full-article] {
     /* font-family: "PT Serif", Georgia, Times, "Times New Roman", serif */
 }
 
-.mono,
-pre,
-code,
-tt,
-p code,
-li code {
+.mono, pre, code, tt, p code, li code {
     font-family: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace;
 }
 
@@ -328,53 +225,34 @@ h1 {
     }
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
     text-rendering: optimizelegibility;
     margin-bottom: 1em;
     font-weight: bold;
     /*margin-top: 1em;*/
 }
 
-h2,
-section h1 {
+h2, section h1 {
     font-size: 1.5em
 }
 
-h3,
-section h2,
-section section h1 {
+h3, section h2, section section h1 {
     font-size: 1.3em
 }
 
-h4,
-section h3,
-section section h2,
-section section section h1 {
+h4, section h3, section section h2, section section section h1 {
     font-size: 1em
 }
 
-h5,
-section h4,
-section section h3 {
+h5, section h4, section section h3 {
     font-size: .9em
 }
 
-h6,
-section h5,
-section section h4,
-section section section h3 {
+h6, section h5, section section h4, section section section h3 {
     font-size: .8em
 }
 
-p,
-article blockquote,
-ul,
-ol {
+p, ul, ol {
     margin-bottom: 0.8em;
     /* changed this from 1.5em to 0.8 */
 }
@@ -407,19 +285,11 @@ ol ol ol {
     margin-bottom: 0px
 }
 
-ul,
-ul ul,
-ul ol,
-ol,
-ol ul,
-ol ol {
+ul, ul ul, ul ol, ol, ol ul, ol ol {
     margin-left: 1.3em
 }
 
-ul ul,
-ul ol,
-ol ul,
-ol ol {
+ul ul, ul ol, ol ul, ol ol {
     margin-bottom: 0em
 }
 
@@ -431,8 +301,7 @@ em {
     font-style: italic
 }
 
-sup,
-sub {
+sup, sub {
     font-size: 0.75em;
     position: relative;
     display: inline-block;
@@ -466,23 +335,19 @@ q:after {
     content: "\201D"
 }
 
-em,
-dfn {
+em, dfn {
     font-style: italic
 }
 
-strong,
-dfn {
+strong, dfn {
     font-weight: bold
 }
 
-del,
-s {
+del, s {
     text-decoration: line-through
 }
 
-abbr,
-acronym {
+abbr, acronym {
     border-bottom: 1px dotted;
     cursor: help
 }
@@ -497,38 +362,6 @@ small {
 
 big {
     font-size: 1.2em
-}
-
-article blockquote {
-    font-style: italic;
-    position: relative;
-    font-size: 1.0em;
-    line-height: 1.5em;
-    padding-left: 1em;
-    border-left: 4px solid rgba(170, 170, 170, 0.5)
-}
-
-article blockquote cite {
-    font-style: italic
-}
-
-article blockquote cite a {
-    color: #aaa !important;
-    word-wrap: break-word
-}
-
-article blockquote cite:before {
-    content: '\2014';
-    padding-right: .3em;
-    padding-left: .3em;
-    color: #aaa
-}
-
-@media only screen and (min-width: 992px) {
-    article blockquote {
-        padding-left: 1.5em;
-        border-left-width: 4px
-    }
 }
 
 .pullquote-right:before,
@@ -550,9 +383,7 @@ article blockquote cite:before {
     margin: .5em 1.5em 1em 0
 }
 
-.force-wrap,
-article a,
-aside.sidebar a {
+.force-wrap, article a, aside.sidebar a {
     white-space: -moz-pre-wrap;
     white-space: -pre-wrap;
     white-space: -o-pre-wrap;
@@ -1626,11 +1457,10 @@ pre {
     -o-border-radius: 0.0em;
     border-radius: 0.0em;
     line-height: 1.45em;
-    margin-bottom: 0em;
+    margin: 0.4em 0em;
     padding: 0em 0em;
     color: #93a1a1;
     font-size: 80%;
-    /* change the code font size */
 }
 
 h3.filename+pre {
@@ -1642,8 +1472,7 @@ h3.filename+pre {
     border-top-right-radius: 0px
 }
 
-p code,
-li code {
+p code, li code {
     display: inline-block;
     white-space: no-wrap;
     background: #fff;
@@ -1660,8 +1489,7 @@ li code {
     margin: -1px 0
 }
 
-p pre code,
-li pre code {
+p pre code, li pre code {
     font-size: 1em !important;
     background: none;
     border: none
@@ -2022,8 +1850,7 @@ html .gist .gist-file .gist-syntax .highlighttable pre div .gi .x,
     width: 100%
 }
 
-.highlighttable,
-.gist-highlighttable {
+.highlighttable, .gist-highlighttable {
     margin-bottom: 1.8em;
     background: #002b36;
     overflow-y: hidden;
@@ -2558,6 +2385,7 @@ pre span {
 
 td.code {
     width: 95%;
+    border-left: 1px solid black;
 }
 
 
@@ -2584,7 +2412,7 @@ div.entry-content > div.highlight {
     border-color: #002B36;
     overflow-x: auto;
     overflow-y: hidden;
-    margin-bottom: 0.4em;
+    margin: 0.4em 0.0em;
 }
 
 
@@ -2659,4 +2487,17 @@ h6 {
         bottom: 1rem;
         left: 1rem;
     }
+}
+
+/* https://bookdown.org/yihui/bookdown/libs/gitbook/css/plugin-bookdown.css
+ */
+div.theorem, div.lemma, div.corollary, div.proposition {
+  font-style: italic;
+}
+span.theorem, span.lemma, span.corollary, span.proposition {
+  font-style: normal;
+}
+div.proof:after {
+  content: "\25a2";
+  float: right;
 }

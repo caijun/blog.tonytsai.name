@@ -2,89 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ssh on Tony Tsai</title>
-    <link>http://blog.tonytsai.name/tags/ssh/index.xml</link>
+    <link>/tags/ssh/</link>
     <description>Recent content in Ssh on Tony Tsai</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="http://blog.tonytsai.name/tags/ssh/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 08 Jun 2013 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/ssh/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>How to Connect to VMware Machine (CentOS 6.4) via SSH</title>
-      <link>http://blog.tonytsai.name/blog/2013-06-08-how-to-connect-to-vmware-machine-centos-6.4-via-ssh/</link>
-      <pubDate>Sat, 08 Jun 2013 23:44:46 -0400</pubDate>
+      <link>/blog/2013-06-08-how-to-connect-to-vmware-machine-centos-6.4-via-ssh/</link>
+      <pubDate>Sat, 08 Jun 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://blog.tonytsai.name/blog/2013-06-08-how-to-connect-to-vmware-machine-centos-6.4-via-ssh/</guid>
-      <description>
-
-&lt;p&gt;之前使用CentOS虚拟机都是在GUI里操作，四年前配置的笔记本实在吃不消，非常的卡，都没有了工作的欲望。最近在做《高性能计算导论》课程作业时，需要SSH远程登录Linux环境操作，就想到是否也可以SSH远程登录我的CentOS虚拟机，在Terminal里操作，节省一些资源。Google了一下，发现的确可以，现将配置过程记录下来。（昨天上完《高性能计算导论》课程和付老师交流，他说不要怕花时间在配置工具上，我笑了。）&lt;/p&gt;
-
-&lt;h3 id=&#34;1-设置虚拟机网络连接为nat&#34;&gt;1. 设置虚拟机网络连接为NAT&lt;/h3&gt;
-
-&lt;p&gt;打开CentOS虚拟机的Virtual Machine Settings，点击Network Adapter，将Network connection设置为NAT。我的CentOS虚拟机一直都是通过NAT方式联网的。&lt;/p&gt;
-
-&lt;p&gt;
-
-
-
-
-
-
-
-&lt;span class=&#34;caption-wrapper&#34;&gt;
-  &lt;img class=&#34;caption&#34; src=&#34;http://tonytsai.name/materials/NAT.png&#34; title=&#34;设置联网模式为NAT&#34; alt=&#34;设置联网模式为NAT&#34;&gt;
-  &lt;span class=&#34;caption-text&#34;&gt;设置联网模式为NAT&lt;/span&gt;
-&lt;/span&gt;
-
-&lt;!-- ![设置联网模式为NAT](http://tonytsai.name/materials/NAT.png) --&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;2-查看主机和虚拟机的ip并测试ping&#34;&gt;2. 查看主机和虚拟机的IP并测试ping&lt;/h3&gt;
-
-&lt;p&gt;在CentOS中查看IP只需在终端中输入&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ ifconfig
-$ ping ipaddr
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;在WIN 7查看IP只需在CLI中输入&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;gt; ipconfig
-&amp;gt; ping ipaddr
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;在CentOS中ping 主机WIN 7的IP，在WIN 7中ping虚拟机CentOS的IP，保证能够互相ping通。&lt;/p&gt;
-
-&lt;h3 id=&#34;3-更改openssh配置文件&#34;&gt;3. 更改openssh配置文件&lt;/h3&gt;
-
-&lt;p&gt;CentOS 6.4默认已经安装openssh，更改openssh配置文件&lt;code&gt;/etc/ssh/sshd_config&lt;/code&gt;，去掉&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;Port 22
-ListenAddress 0.0.0.0
-Protocol 2
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;前面的#。&lt;/p&gt;
-
-&lt;h3 id=&#34;4-开启ssh服务&#34;&gt;4. 开启ssh服务&lt;/h3&gt;
-
-&lt;p&gt;在CentOS中开启sshd服务只需输入&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ service sshd start
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;设置sshd服务开机自启动，输入&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ chkconfig sshd on
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;查看sshd服务是否开启，输入&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ ps -le&lt;span style=&#34;color: #93A1A1&#34;&gt;|&lt;/span&gt;grep sshd
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;显示sshd信息说明服务已经开启。&lt;/p&gt;
-
-&lt;h3 id=&#34;5-使用ssh连接工具连接&#34;&gt;5. 使用ssh连接工具连接&lt;/h3&gt;
-
-&lt;p&gt;ssh连接工具推荐使用&lt;a href=&#34;http://www.netsarang.com/products/xme_overview.html&#34; target=&#34;_blank&#34;&gt;NetSarang Xmanager&lt;/a&gt;，它是一款商业软件，能够较好支持中文，集FTP、SSH FTP和图形远程登录于一身，非常方便，没有安装多个软件的麻烦。&lt;a href=&#34;http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html&#34; target=&#34;_blank&#34;&gt;Putty&lt;/a&gt;非常小巧，而且开源，也能够较好支持中文，但是SSH文件传输需要另外使用PSFTP程序，也推荐使用。&lt;/p&gt;
-
-&lt;p&gt;连接时Host填写CentOS的IP，端口号默认22，用户名和密码使用CentOS的登录名和密码即可。&lt;/p&gt;
-</description>
+      <guid>/blog/2013-06-08-how-to-connect-to-vmware-machine-centos-6.4-via-ssh/</guid>
+      <description>之前使用CentOS虚拟机都是在GUI里操作，四年前配置的笔记本实在吃不消，非常的卡，都没有了工作的欲望。最近在做《高性能计算导论》课程作业</description>
     </item>
     
   </channel>

@@ -2,68 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hugo on Tony Tsai</title>
-    <link>http://blog.tonytsai.name/tags/hugo/index.xml</link>
+    <link>/tags/hugo/</link>
     <description>Recent content in Hugo on Tony Tsai</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="http://blog.tonytsai.name/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 05 Jan 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
-      <title>Test MathJax</title>
-      <link>http://blog.tonytsai.name/blog/2017-01-05-test-mathjax/</link>
-      <pubDate>Thu, 05 Jan 2017 23:44:46 -0400</pubDate>
+      <title>Display Multi-line Equations and Matrix Correctly in Hugo</title>
+      <link>/blog/2017-01-05-display-multi-line-equations-and-matrix-correctly-in-hugo/</link>
+      <pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://blog.tonytsai.name/blog/2017-01-05-test-mathjax/</guid>
-      <description>&lt;p&gt;The first test case is to create a matrix
-$$
-\begin{matrix}
-  1 &amp;amp; x &amp;amp; x^2 &lt;br /&gt;
-  1 &amp;amp; y &amp;amp; y^2 &lt;br /&gt;
-  1 &amp;amp; z &amp;amp; z^2 &lt;br /&gt;
-\end{matrix}
-$$&lt;/p&gt;
-
-&lt;p&gt;but all elemments of the matrix are displayed in one line. Fortunately, this can be solved by wraping the math expression inside a &lt;code&gt;&amp;lt;div&amp;gt; &amp;lt;/div&amp;gt;&lt;/code&gt; block, which is hinted by the hugo documents of &lt;a href=&#34;https://gohugo.io/tutorials/mathjax/&#34; target=&#34;_blank&#34;&gt;MathJax Support&lt;/a&gt;. besides, the blank line before &lt;code&gt;&amp;lt;div&amp;gt; &amp;lt;/div&amp;gt;&lt;/code&gt; block is necessary, otherwise the matrix would not be displayed correctly.&lt;/p&gt;
-
-&lt;div&gt;
-$$
-\begin{matrix}
-  1 &amp; x &amp; x^2 \\
-  1 &amp; y &amp; y^2 \\
-  1 &amp; z &amp; z^2 \\
-\end{matrix}
-$$
-&lt;/div&gt;
-
-&lt;p&gt;Actually, what I would like to do is to display multi-line equations.Taking the example from the stackoverflow question &lt;a href=&#34;http://stackoverflow.com/questions/18860693/mathjax-multi-line-equation-rendering-issue&#34; target=&#34;_blank&#34;&gt;Mathjax multi-line equation rendering issue&lt;/a&gt;, I input following MathJax expressions.&lt;/p&gt;
-
-&lt;p&gt;$$
-\begin{eqnarray}
-y &amp;amp;=&amp;amp; x^4 + 4      \nonumber &lt;br /&gt;
-  &amp;amp;=&amp;amp; (x^2+2)^2 -4x^2 \nonumber &lt;br /&gt;
-  &amp;amp;\le&amp;amp;(x^2+2)^2    \nonumber
-\end{eqnarray}
-$$&lt;/p&gt;
-
-&lt;p&gt;As you can see, the equations are displayed in one line. From the comments of the question, the solution is to use &lt;code&gt;\\\\\\&lt;/code&gt; instead of &lt;code&gt;\\&lt;/code&gt; as newline command, which also can be applied to the test example of matrix. But I think typing 6 &lt;code&gt;\&lt;/code&gt; is quite tedious. Is there any concise solution?&lt;/p&gt;
-
-&lt;p&gt;$$
-\begin{eqnarray}
-y &amp;amp;=&amp;amp; x^4 + 4      \nonumber \\&lt;br /&gt;
-  &amp;amp;=&amp;amp; (x^2+2)^2 -4x^2 \nonumber \\&lt;br /&gt;
-  &amp;amp;\le&amp;amp;(x^2+2)^2    \nonumber
-\end{eqnarray}
-$$&lt;/p&gt;
-
-&lt;p&gt;Alternative way to display matrix correctly is to use &lt;code&gt;\\\\\\&lt;/code&gt; instead of &lt;code&gt;\\&lt;/code&gt; as newline command.
-$$
-\begin{matrix}
-  1 &amp;amp; x &amp;amp; x^2 \\&lt;br /&gt;
-  1 &amp;amp; y &amp;amp; y^2 \\&lt;br /&gt;
-  1 &amp;amp; z &amp;amp; z^2 \\&lt;br /&gt;
-\end{matrix}
-$$&lt;/p&gt;
-</description>
+      <guid>/blog/2017-01-05-display-multi-line-equations-and-matrix-correctly-in-hugo/</guid>
+      <description>The first test case is to create a matrix consisting of following elements $$ \begin{matrix} 1 &amp;amp; x &amp;amp; x^2 1 &amp;amp; y &amp;amp; y^2 1 &amp;amp; z &amp;amp; z^2 \end{matrix} $$
+but all elemments of the matrix are displayed in one line. Fortunately, this can be solved by wraping the math expression inside a &amp;lt;div&amp;gt; &amp;lt;/div&amp;gt; block, which is hinted by the hugo documents of MathJax Support. besides, the blank line before &amp;lt;div&amp;gt; &amp;lt;/div&amp;gt; block is necessary, otherwise the matrix would not be displayed correctly.</description>
     </item>
     
   </channel>

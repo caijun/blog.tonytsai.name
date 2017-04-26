@@ -20,16 +20,22 @@
 
   
   
-  <link rel="stylesheet" href="http://blog.tonytsai.name/css/hugo-octopress.css">
+  <link rel="stylesheet" href="/css/hugo-octopress.css">
 
   
   
+
+  <link rel="stylesheet" href="/css/solarized-dark.css">
+  <script src="/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
 
   
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 
   
-  <link href="http://blog.tonytsai.name/favicon.png" rel="icon">
+  <link href="/favicon.png" rel="icon">
 
   
   
@@ -43,7 +49,7 @@
   <meta name="author" content="Tony Tsai">
 
   
-  <meta name="generator" content="Hugo 0.18.1" />
+  <meta name="generator" content="Hugo 0.20.5" />
 
   
   
@@ -61,7 +67,7 @@ ga('send', 'pageview');
 
 <header role="banner"><hgroup>
   
-  <h1><a href="http://blog.tonytsai.name/">Tony Tsai</a></h1>
+  <h1><a href="/">Tony Tsai</a></h1>
     <h2>May the force of science be with you</h2>
 </hgroup></header>
 
@@ -72,7 +78,7 @@ ga('send', 'pageview');
   
   
     
-      <li><a href="http://blog.tonytsai.name/" title="Blog">Blog</a></li>
+      <li><a href="/" title="Blog">Blog</a></li>
     
   
     
@@ -80,11 +86,11 @@ ga('send', 'pageview');
     
   
     
-      <li><a href="http://blog.tonytsai.name/douban/" title="Douban"  target="_blank" >Douban</a></li>
+      <li><a href="/douban/" title="Douban"  target="_blank" >Douban</a></li>
     
   
     
-      <li><a href="http://blog.tonytsai.name/archive/" title="Archive"  target="_blank" >Archive</a></li>
+      <li><a href="/archive/" title="Archive"  target="_blank" >Archive</a></li>
     
   
 </ul>
@@ -93,7 +99,7 @@ ga('send', 'pageview');
 <ul class="subscription">
   
     
-        <a href="http://blog.tonytsai.name/index.xml" target="_blank" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-lg"></i></a>
+        <a href="/index.xml" target="_blank" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-lg"></i></a>
     
   
 
@@ -114,12 +120,12 @@ ga('send', 'pageview');
 <header>
     <p class="meta">Apr 20, 2015
          - 1 minute read 
-         - <a href="http://blog.tonytsai.name/blog/2015-04-20-stratified-importance-sampling/#disqus_thread">Comments</a>
+         - <a href="/blog/2015-04-20-stratified-importance-sampling/#disqus_thread">Comments</a>
 
         
         
         
-            - <a class="label" href="http://blog.tonytsai.name/categories/r/">R </a>
+            - <a class="label" href="/categories/r/">R </a>
         
     </p>
     <h1 class="entry-title">
@@ -147,50 +153,42 @@ ga('send', 'pageview');
 
 <br>
 
-          <p>The following <code>R</code> codes implement the <strong>Example 5.13</strong> in <a href="http://www.amazon.com/Statistical-Computing-Chapman-Hall-Series/dp/1584885459" target="_blank">Statistical Computing with R</a>, and compare the estimate $\hat{\theta}$ and $\hat{\sigma}$ from stratified importance sampling to the results from importance sampling. The example illustrates that stratification can reduce the varinace of importance sampling estimator.</p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>M <span style="color: #719e07">&lt;-</span> <span style="color: #2AA198">100000</span>  <span style="color: #586E75"># number of replicates</span>
-g <span style="color: #719e07">&lt;-</span> <span style="color: #268BD2">function</span><span style="color: #93A1A1">(</span>x<span style="color: #93A1A1">)</span> <span style="color: #93A1A1">{</span>
-  <span style="color: #719e07">exp</span><span style="color: #93A1A1">(</span><span style="color: #719e07">-</span>x <span style="color: #719e07">-</span> <span style="color: #719e07">log</span><span style="color: #93A1A1">(</span><span style="color: #2AA198">1</span> <span style="color: #719e07">+</span> x<span style="color: #719e07">^</span><span style="color: #2AA198">2</span><span style="color: #93A1A1">))</span> <span style="color: #719e07">*</span> <span style="color: #93A1A1">(</span>x <span style="color: #719e07">&gt;</span> <span style="color: #2AA198">0</span><span style="color: #93A1A1">)</span> <span style="color: #719e07">*</span> <span style="color: #93A1A1">(</span>x <span style="color: #719e07">&lt;</span> <span style="color: #2AA198">1</span><span style="color: #93A1A1">)</span>
-<span style="color: #93A1A1">}</span>
+          <!-- BLOGDOWN-HEAD -->
+<!-- /BLOGDOWN-HEAD -->
 
-<span style="color: #586E75"># importance sampling</span>
-u <span style="color: #719e07">&lt;-</span> runif<span style="color: #93A1A1">(</span>M<span style="color: #93A1A1">)</span>  <span style="color: #586E75"># f3, inverse transform method</span>
-x <span style="color: #719e07">&lt;-</span> <span style="color: #719e07">-log</span><span style="color: #93A1A1">(</span><span style="color: #2AA198">1</span> <span style="color: #719e07">-</span> u <span style="color: #719e07">*</span> <span style="color: #93A1A1">(</span><span style="color: #2AA198">1</span> <span style="color: #719e07">-</span> <span style="color: #719e07">exp</span><span style="color: #93A1A1">(</span><span style="color: #2AA198">-1</span><span style="color: #93A1A1">)))</span>
-fg <span style="color: #719e07">&lt;-</span> g<span style="color: #93A1A1">(</span>x<span style="color: #93A1A1">)</span> <span style="color: #719e07">/</span> <span style="color: #93A1A1">(</span><span style="color: #719e07">exp</span><span style="color: #93A1A1">(</span><span style="color: #719e07">-</span>x<span style="color: #93A1A1">)</span> <span style="color: #719e07">/</span> <span style="color: #93A1A1">(</span><span style="color: #2AA198">1</span> <span style="color: #719e07">-</span> <span style="color: #719e07">exp</span><span style="color: #93A1A1">(</span><span style="color: #2AA198">-1</span><span style="color: #93A1A1">)))</span>
-<span style="color: #93A1A1">(</span>theta.hat0 <span style="color: #719e07">&lt;-</span> <span style="color: #719e07">mean</span><span style="color: #93A1A1">(</span>fg<span style="color: #93A1A1">))</span>
-</pre></div>
+<!-- BLOGDOWN-BODY-BEFORE -->
+<!-- /BLOGDOWN-BODY-BEFORE -->
+<p>The following <code>R</code> codes implement the <strong>Example 5.13</strong> in <a href="http://www.amazon.com/Statistical-Computing-Chapman-Hall-Series/dp/1584885459">Statistical Computing with R</a>, and compare the estimate <span class="math inline">\(\hat{\theta}\)</span> and <span class="math inline">\(\hat{\sigma}\)</span> from stratified importance sampling to the results from importance sampling. The example illustrates that stratification can reduce the varinace of importance sampling estimator.</p>
+<pre class="r"><code>M &lt;- 100000  # number of replicates
+g &lt;- function(x) {
+  exp(-x - log(1 + x^2)) * (x &gt; 0) * (x &lt; 1)
+}
 
-<pre><code>## [1] 0.5253551
-</code></pre>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span><span style="color: #93A1A1">(</span>se0 <span style="color: #719e07">&lt;-</span> sd<span style="color: #93A1A1">(</span>fg<span style="color: #93A1A1">))</span>
-</pre></div>
+# importance sampling
+u &lt;- runif(M)  # f3, inverse transform method
+x &lt;- -log(1 - u * (1 - exp(-1)))
+fg &lt;- g(x) / (exp(-x) / (1 - exp(-1)))
+(theta.hat0 &lt;- mean(fg))</code></pre>
+<pre><code>## [1] 0.5252976</code></pre>
+<pre class="r"><code>(se0 &lt;- sd(fg))</code></pre>
+<pre><code>## [1] 0.09658921</code></pre>
+<pre class="r"><code># stratified importance sampling
+k &lt;- 5  # number of strata
+m &lt;- M / k  # replicates per stratum
+theta.hat &lt;- se &lt;- numeric(k)
 
-<pre><code>## [1] 0.09655589
-</code></pre>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span><span style="color: #586E75"># stratified importance sampling</span>
-k <span style="color: #719e07">&lt;-</span> <span style="color: #2AA198">5</span>  <span style="color: #586E75"># number of strata</span>
-m <span style="color: #719e07">&lt;-</span> M <span style="color: #719e07">/</span> k  <span style="color: #586E75"># replicates per stratum</span>
-theta.hat <span style="color: #719e07">&lt;-</span> se <span style="color: #719e07">&lt;-</span> <span style="color: #DC322F">numeric</span><span style="color: #93A1A1">(</span>k<span style="color: #93A1A1">)</span>
-
-<span style="color: #268BD2">for</span> <span style="color: #93A1A1">(</span>j <span style="color: #268BD2">in</span> <span style="color: #2AA198">1</span><span style="color: #719e07">:</span>k<span style="color: #93A1A1">)</span> <span style="color: #93A1A1">{</span>
-  u <span style="color: #719e07">&lt;-</span> runif<span style="color: #93A1A1">(</span>m<span style="color: #93A1A1">,</span> <span style="color: #93A1A1">(</span>j <span style="color: #719e07">-</span> <span style="color: #2AA198">1</span><span style="color: #93A1A1">)</span> <span style="color: #719e07">/</span> k<span style="color: #93A1A1">,</span> j <span style="color: #719e07">/</span> k<span style="color: #93A1A1">)</span>
-  x <span style="color: #719e07">&lt;-</span> <span style="color: #719e07">-log</span><span style="color: #93A1A1">(</span><span style="color: #2AA198">1</span> <span style="color: #719e07">-</span> u <span style="color: #719e07">*</span> <span style="color: #93A1A1">(</span><span style="color: #2AA198">1</span> <span style="color: #719e07">-</span> <span style="color: #719e07">exp</span><span style="color: #93A1A1">(</span><span style="color: #2AA198">-1</span><span style="color: #93A1A1">)))</span>
-  fg <span style="color: #719e07">&lt;-</span> g<span style="color: #93A1A1">(</span>x<span style="color: #93A1A1">)</span> <span style="color: #719e07">/</span> <span style="color: #93A1A1">(</span>k <span style="color: #719e07">*</span> <span style="color: #719e07">exp</span><span style="color: #93A1A1">(</span><span style="color: #719e07">-</span>x<span style="color: #93A1A1">)</span> <span style="color: #719e07">/</span> <span style="color: #93A1A1">(</span><span style="color: #2AA198">1</span> <span style="color: #719e07">-</span> <span style="color: #719e07">exp</span><span style="color: #93A1A1">(</span><span style="color: #2AA198">-1</span><span style="color: #93A1A1">)))</span>
-  theta.hat<span style="color: #93A1A1">[</span>j<span style="color: #93A1A1">]</span> <span style="color: #719e07">&lt;-</span> <span style="color: #719e07">mean</span><span style="color: #93A1A1">(</span>fg<span style="color: #93A1A1">)</span>
-  se<span style="color: #93A1A1">[</span>j<span style="color: #93A1A1">]</span> <span style="color: #719e07">&lt;-</span> sd<span style="color: #93A1A1">(</span>fg<span style="color: #93A1A1">)</span>
-<span style="color: #93A1A1">}</span>
-<span style="color: #719e07">sum</span><span style="color: #93A1A1">(</span>theta.hat<span style="color: #93A1A1">)</span>
-</pre></div>
-
-<pre><code>## [1] 0.5248449
-</code></pre>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span><span style="color: #719e07">sum</span><span style="color: #93A1A1">(</span>se<span style="color: #93A1A1">)</span>
-</pre></div>
-
-<pre><code>## [1] 0.01832981
-</code></pre>
-
-<p>The estimate $\hat{\theta}$ is close, while the estimated standard error $\hat{\sigma}$ is reduced from 0.0965559 to 0.0183298 with stratification.</p>
+for (j in 1:k) {
+  u &lt;- runif(m, (j - 1) / k, j / k)
+  x &lt;- -log(1 - u * (1 - exp(-1)))
+  fg &lt;- g(x) / (k * exp(-x) / (1 - exp(-1)))
+  theta.hat[j] &lt;- mean(fg)
+  se[j] &lt;- sd(fg)
+}
+sum(theta.hat)</code></pre>
+<pre><code>## [1] 0.5248945</code></pre>
+<pre class="r"><code>sum(se)</code></pre>
+<pre><code>## [1] 0.01829785</code></pre>
+<p>The estimate <span class="math inline">\(\hat{\theta}\)</span> is close, while the estimated standard error <span class="math inline">\(\hat{\sigma}\)</span> is reduced from 0.0965892 to 0.0182978 with stratification.</p>
 
         </div>
         
@@ -204,7 +202,7 @@ theta.hat <span style="color: #719e07">&lt;-</span> se <span style="color: #719e
       <span class="categories">
         Tags:
         
-          <a class="category" href="http://blog.tonytsai.name/tags/statistical-computing">Statistical Computing</a>  <a class="category" href="http://blog.tonytsai.name/tags/variance-reduction">Variance Reduction</a>  <a class="category" href="http://blog.tonytsai.name/tags/stratified-importance-sampling">Stratified Importance Sampling</a>  
+          <a class="category" href="/tags/statistical-computing">Statistical Computing</a>  <a class="category" href="/tags/variance-reduction">Variance Reduction</a>  <a class="category" href="/tags/stratified-importance-sampling">Stratified Importance Sampling</a>  
     
     </span>
   </p>
@@ -216,11 +214,11 @@ theta.hat <span style="color: #719e07">&lt;-</span> se <span style="color: #719e
 
   <p class="meta">
     
-        <a class="basic-alignment left" href="http://blog.tonytsai.name/blog/2014-12-04-sirs-model-with-time-dependent-transmission-rate/" title="SIRS Model with Time Dependent Transmission Rate">SIRS Model with Time Dependent Transmission Rate</a>
+        <a class="basic-alignment left" href="/blog/2014-12-04-sirs-model-with-time-dependent-transmission-rate/" title="SIRS Model with Time Dependent Transmission Rate">SIRS Model with Time Dependent Transmission Rate</a>
     
 
     
-      <a class="basic-alignment right" href="http://blog.tonytsai.name/blog/2015-04-23-why-does-the-jackknife-estimate-of-standard-error-have-the-factor-n-1/n/" title="Why Does the Jackknife Estimate of Standard Error Have the Factor (n-1)/n?">Why Does the Jackknife Estimate of Standard Error Have the Factor (n-1)/n?</a>
+      <a class="basic-alignment right" href="/blog/2015-04-23-why-does-the-jackknife-estimate-of-standard-error-have-the-factor-n-1/n/" title="Why Does the Jackknife Estimate of Standard Error Have the Factor (n-1)/n?">Why Does the Jackknife Estimate of Standard Error Have the Factor (n-1)/n?</a>
     
   </p>
   
@@ -304,7 +302,7 @@ theta.hat <span style="color: #719e07">&lt;-</span> se <span style="color: #719e
         <ul id="recent_posts">
           
             <li class="post">
-              <a href="/blog/2017-01-05-test-mathjax/">Test MathJax</a>
+              <a href="/blog/2017-01-05-display-multi-line-equations-and-matrix-correctly-in-hugo/">Display Multi-line Equations and Matrix Correctly in Hugo</a>
             </li>
           
             <li class="post">
@@ -340,9 +338,11 @@ theta.hat <span style="color: #719e07">&lt;-</span> se <span style="color: #719e
     <h1>Links</h1>
     <li><a href="http://www.repidemicsconsortium.org/">R Epidemics Consortium</a></li>
     <li><a href="http://r-bloggers.com/">R-bloggers</a></li>
+    <li><a href="https://rweekly.org/">R Weekly</a></li>
 
     <h1>Friends</h1>
     <li><a href="https://xg1990.com/blog/">xg1990</a></li>
+    <li><a href="https://guangchuangyu.github.io/cn/">Guangchuang Yu</a></li>
   </section>
 
   <script type="text/javascript" src="//ra.revolvermaps.com/0/0/8.js?i=0551xokm7cj&amp;m=0&amp;s=300&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33" async="async"></script>
@@ -353,8 +353,8 @@ theta.hat <span style="color: #719e07">&lt;-</span> se <span style="color: #719e
 </div>
 
 <footer role="contentinfo">
-  <p>Copyright &copy; 2017 Tony Tsai - <a href="http://blog.tonytsai.name/license/">License</a> -
-  <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
+  <p>Copyright &copy; 2017 Tony Tsai - <a href="/license/">License</a> -
+  <span class="credit">Powered by <a target="_blank" href="https://github.com/rstudio/blogdown">blogdown</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
 </p>
 
 </footer>
@@ -365,8 +365,8 @@ MathJax.Hub.Config({
   TeX: { equationNumbers: { autoNumber: "AMS" },
          extensions: ["AMSmath.js", "AMSsymbols.js"] },
   tex2jax: {
-    inlineMath: [['$','$']],
-    displayMath: [['$$','$$']],
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\\[','\\]']],
     processEscapes: true,
     processEnvironments: true,
     skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']

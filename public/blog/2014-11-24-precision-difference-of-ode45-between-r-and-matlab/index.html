@@ -20,16 +20,22 @@
 
   
   
-  <link rel="stylesheet" href="http://blog.tonytsai.name/css/hugo-octopress.css">
+  <link rel="stylesheet" href="/css/hugo-octopress.css">
 
   
   
+
+  <link rel="stylesheet" href="/css/solarized-dark.css">
+  <script src="/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
 
   
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 
   
-  <link href="http://blog.tonytsai.name/favicon.png" rel="icon">
+  <link href="/favicon.png" rel="icon">
 
   
   
@@ -43,7 +49,7 @@
   <meta name="author" content="Tony Tsai">
 
   
-  <meta name="generator" content="Hugo 0.18.1" />
+  <meta name="generator" content="Hugo 0.20.5" />
 
   
   
@@ -61,7 +67,7 @@ ga('send', 'pageview');
 
 <header role="banner"><hgroup>
   
-  <h1><a href="http://blog.tonytsai.name/">Tony Tsai</a></h1>
+  <h1><a href="/">Tony Tsai</a></h1>
     <h2>May the force of science be with you</h2>
 </hgroup></header>
 
@@ -72,7 +78,7 @@ ga('send', 'pageview');
   
   
     
-      <li><a href="http://blog.tonytsai.name/" title="Blog">Blog</a></li>
+      <li><a href="/" title="Blog">Blog</a></li>
     
   
     
@@ -80,11 +86,11 @@ ga('send', 'pageview');
     
   
     
-      <li><a href="http://blog.tonytsai.name/douban/" title="Douban"  target="_blank" >Douban</a></li>
+      <li><a href="/douban/" title="Douban"  target="_blank" >Douban</a></li>
     
   
     
-      <li><a href="http://blog.tonytsai.name/archive/" title="Archive"  target="_blank" >Archive</a></li>
+      <li><a href="/archive/" title="Archive"  target="_blank" >Archive</a></li>
     
   
 </ul>
@@ -93,7 +99,7 @@ ga('send', 'pageview');
 <ul class="subscription">
   
     
-        <a href="http://blog.tonytsai.name/index.xml" target="_blank" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-lg"></i></a>
+        <a href="/index.xml" target="_blank" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-lg"></i></a>
     
   
 
@@ -113,13 +119,13 @@ ga('send', 'pageview');
 
 <header>
     <p class="meta">Nov 24, 2014
-         - 2 minute read 
-         - <a href="http://blog.tonytsai.name/blog/2014-11-24-precision-difference-of-ode45-between-r-and-matlab/#disqus_thread">Comments</a>
+         - 1 minute read 
+         - <a href="/blog/2014-11-24-precision-difference-of-ode45-between-r-and-matlab/#disqus_thread">Comments</a>
 
         
         
         
-            - <a class="label" href="http://blog.tonytsai.name/categories/numerical-computation/">Numerical Computation </a>
+            - <a class="label" href="/categories/numerical-computation/">Numerical Computation </a>
         
     </p>
     <h1 class="entry-title">
@@ -147,27 +153,25 @@ ga('send', 'pageview');
 
 <br>
 
-          <p><code>ode45</code> solvers from both <code>R</code> and <code>MATLAB</code> are used to run simulations of the <a href="https://www.math.duke.edu//education/ccp/materials/diffcalc/sir/sir1.html" target="_blank">spread of Hong Kong flu in New York city</a> with different initial susceptible individuals $S_0 =$ 790, 7900, 79000, 790000, and 7900000. The maximum infected people $I_{max}$ under each condition is recorded for comparison. The following codes draw a figure showing the precision difference of <code>ode45</code> solvers between <code>R</code> and <code>MATLAB</code>.</p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>Imax <span style="color: #719e07">&lt;-</span> <span style="color: #DC322F">data.frame</span><span style="color: #93A1A1">(</span>S0 <span style="color: #719e07">=</span> <span style="color: #2AA198">79</span> <span style="color: #719e07">*</span> <span style="color: #2AA198">10</span> <span style="color: #719e07">^</span> <span style="color: #93A1A1">(</span><span style="color: #2AA198">1</span> <span style="color: #719e07">:</span> <span style="color: #2AA198">5</span><span style="color: #93A1A1">),</span> 
-                   R <span style="color: #719e07">=</span> <span style="color: #DC322F">c</span><span style="color: #93A1A1">(</span><span style="color: #2AA198">57.12598</span><span style="color: #93A1A1">,</span> <span style="color: #2AA198">504.9923</span><span style="color: #93A1A1">,</span> <span style="color: #2AA198">4984.303</span><span style="color: #93A1A1">,</span> <span style="color: #2AA198">49749.60</span><span style="color: #93A1A1">,</span> <span style="color: #2AA198">497474.2</span><span style="color: #93A1A1">),</span> 
-                   MATLAB <span style="color: #719e07">=</span> <span style="color: #DC322F">c</span><span style="color: #93A1A1">(</span><span style="color: #2AA198">57.14987</span><span style="color: #93A1A1">,</span> <span style="color: #2AA198">505.3385</span><span style="color: #93A1A1">,</span> <span style="color: #2AA198">4987.447</span><span style="color: #93A1A1">,</span> <span style="color: #2AA198">49774.26</span><span style="color: #93A1A1">,</span> <span style="color: #2AA198">497552.2</span><span style="color: #93A1A1">))</span>
-Imax<span style="color: #719e07">$</span><span style="color: #586E75">`MATLAB - R`</span> <span style="color: #719e07">&lt;-</span> Imax<span style="color: #719e07">$</span>MATLAB <span style="color: #719e07">-</span> Imax<span style="color: #719e07">$</span>R
-<span style="color: #586E75"># plot delta Imax VS. S0</span>
-Imax.plot <span style="color: #719e07">&lt;-</span> melt<span style="color: #93A1A1">(</span>Imax<span style="color: #93A1A1">,</span> id <span style="color: #719e07">=</span> <span style="color: #2AA198">&quot;S0&quot;</span><span style="color: #93A1A1">,</span> measure <span style="color: #719e07">=</span> <span style="color: #DC322F">c</span><span style="color: #93A1A1">(</span><span style="color: #2AA198">&quot;R&quot;</span><span style="color: #93A1A1">,</span> <span style="color: #2AA198">&quot;MATLAB&quot;</span><span style="color: #93A1A1">,</span> <span style="color: #2AA198">&quot;MATLAB - R&quot;</span><span style="color: #93A1A1">))</span>
-<span style="color: #719e07">library</span><span style="color: #93A1A1">(</span>scales<span style="color: #93A1A1">)</span>
-p <span style="color: #719e07">&lt;-</span> ggplot<span style="color: #93A1A1">(</span>Imax.plot<span style="color: #93A1A1">,</span> aes<span style="color: #93A1A1">(</span>x <span style="color: #719e07">=</span> S0<span style="color: #93A1A1">,</span> y <span style="color: #719e07">=</span> value<span style="color: #93A1A1">,</span> group <span style="color: #719e07">=</span> variable<span style="color: #93A1A1">,</span> color <span style="color: #719e07">=</span> variable<span style="color: #93A1A1">))</span>
-p <span style="color: #719e07">+</span> geom_line<span style="color: #93A1A1">()</span> <span style="color: #719e07">+</span> 
-  geom_point<span style="color: #93A1A1">()</span> <span style="color: #719e07">+</span> 
-  scale_x_log10<span style="color: #93A1A1">(</span>name <span style="color: #719e07">=</span> <span style="color: #719e07">expression</span><span style="color: #93A1A1">(</span>S<span style="color: #93A1A1">[</span><span style="color: #2AA198">0</span><span style="color: #93A1A1">]),</span> breaks <span style="color: #719e07">=</span> <span style="color: #2AA198">79</span> <span style="color: #719e07">*</span> <span style="color: #2AA198">10</span> <span style="color: #719e07">^</span> <span style="color: #93A1A1">(</span><span style="color: #2AA198">1</span> <span style="color: #719e07">:</span> <span style="color: #2AA198">5</span><span style="color: #93A1A1">),</span> labels <span style="color: #719e07">=</span> comma<span style="color: #93A1A1">)</span> <span style="color: #719e07">+</span> 
-  scale_y_continuous<span style="color: #93A1A1">(</span>name <span style="color: #719e07">=</span> <span style="color: #2AA198">&quot;Imax&quot;</span><span style="color: #93A1A1">,</span> labels <span style="color: #719e07">=</span> comma<span style="color: #93A1A1">)</span> <span style="color: #719e07">+</span> 
-  facet_wrap<span style="color: #93A1A1">(</span><span style="color: #719e07">~</span> variable<span style="color: #93A1A1">,</span> scales <span style="color: #719e07">=</span> <span style="color: #2AA198">&quot;free&quot;</span><span style="color: #93A1A1">)</span> <span style="color: #719e07">+</span> 
-  ggtitle<span style="color: #93A1A1">(</span><span style="color: #2AA198">&quot;Precision Diffference of ode45 Solver between R and MATLAB&quot;</span><span style="color: #93A1A1">)</span> <span style="color: #719e07">+</span> 
-  theme_bw<span style="color: #93A1A1">(</span>base_size <span style="color: #719e07">=</span> <span style="color: #2AA198">14</span><span style="color: #93A1A1">)</span>
-</pre></div>
-
-<p><img src="http://tonytsai.name/materials/RK4SIR_files/figure-html/unnamed-chunk-21-1.png" alt="" /></p>
-
-<p>As shown in the right panel, the difference of $I_{max}$ increases with the initial susceptible number $S_0$ getting larger. When $S_0 &lt; 8,000$, the difference is no more than 1. When $S_0$ is very large, the absolute precision difference also becomes larger; however, the relative accuracy keeps and it is accepted in this case.</p>
+          <p><code>ode45</code> solvers from both <strong>R</strong> and <strong>MATLAB</strong> are used to run simulations of the <a href="https://www.math.duke.edu//education/ccp/materials/diffcalc/sir/sir1.html">spread of Hong Kong flu in New York city</a> with different initial susceptible individuals <span class="math inline">\(S\_0 =\)</span> 790, 7900, 79000, 790000, and 7900000. The maximum infected people <span class="math inline">\(I_{max}\)</span> under each condition is recorded for comparison. The following codes draw a figure showing the precision difference of <code>ode45</code> solvers between <strong>R</strong> and <strong>MATLAB</strong>.</p>
+<pre class="r"><code>Imax &lt;- data.frame(S0 = 79 * 10 ^ (1:5), 
+                   R = c(57.12598, 504.9923, 4984.303, 49749.60, 497474.2), 
+                   MATLAB = c(57.14987, 505.3385, 4987.447, 49774.26, 497552.2))
+Imax$`MATLAB - R` &lt;- Imax$MATLAB - Imax$R
+# plot delta Imax VS. S0
+library(reshape2)
+Imax.plot &lt;- melt(Imax, id = &quot;S0&quot;, measure = c(&quot;R&quot;, &quot;MATLAB&quot;, &quot;MATLAB - R&quot;))
+library(ggplot2)
+library(scales)
+p &lt;- ggplot(Imax.plot, aes(x = S0, y = value, group = variable, color = variable))
+p + geom_line() + 
+  geom_point() + 
+  scale_x_log10(name = expression(S[0]), breaks = 79 * 10 ^ (1:5), labels = comma) + 
+  scale_y_continuous(name = &quot;Imax&quot;, labels = comma) + 
+  facet_wrap(~ variable, scales = &quot;free&quot;) + 
+  ggtitle(&quot;Precision Diffference of ode45 Solver between R and MATLAB&quot;) + 
+  theme_bw(base_size = 14)</code></pre>
+<p><img src="/post/2014-11-24-precision-difference-of-ode45-between-r-and-matlab_files/figure-html/unnamed-chunk-1-1.png" width="1152" style="display: block; margin: auto;" /></p>
 
         </div>
         
@@ -181,7 +185,7 @@ p <span style="color: #719e07">+</span> geom_line<span style="color: #93A1A1">()
       <span class="categories">
         Tags:
         
-          <a class="category" href="http://blog.tonytsai.name/tags/ode45">ode45</a>  <a class="category" href="http://blog.tonytsai.name/tags/r">R</a>  <a class="category" href="http://blog.tonytsai.name/tags/matlab">MATLAB</a>  
+          <a class="category" href="/tags/ode45">ode45</a>  <a class="category" href="/tags/r">R</a>  <a class="category" href="/tags/matlab">MATLAB</a>  
     
     </span>
   </p>
@@ -193,11 +197,11 @@ p <span style="color: #719e07">+</span> geom_line<span style="color: #93A1A1">()
 
   <p class="meta">
     
-        <a class="basic-alignment left" href="http://blog.tonytsai.name/blog/2014-11-24-rk4-method-for-solving-sir-model/" title="RK4 Method for Solving SIR Model">RK4 Method for Solving SIR Model</a>
+        <a class="basic-alignment left" href="/blog/2014-11-24-rk4-method-for-solving-sir-model/" title="RK4 Method for Solving SIR Model">RK4 Method for Solving SIR Model</a>
     
 
     
-      <a class="basic-alignment right" href="http://blog.tonytsai.name/blog/2014-12-03-gains-from-paper-reading/" title="Gains from Paper Reading">Gains from Paper Reading</a>
+      <a class="basic-alignment right" href="/blog/2014-12-03-gains-from-paper-reading/" title="Gains from Paper Reading">Gains from Paper Reading</a>
     
   </p>
   
@@ -281,7 +285,7 @@ p <span style="color: #719e07">+</span> geom_line<span style="color: #93A1A1">()
         <ul id="recent_posts">
           
             <li class="post">
-              <a href="/blog/2017-01-05-test-mathjax/">Test MathJax</a>
+              <a href="/blog/2017-01-05-display-multi-line-equations-and-matrix-correctly-in-hugo/">Display Multi-line Equations and Matrix Correctly in Hugo</a>
             </li>
           
             <li class="post">
@@ -317,9 +321,11 @@ p <span style="color: #719e07">+</span> geom_line<span style="color: #93A1A1">()
     <h1>Links</h1>
     <li><a href="http://www.repidemicsconsortium.org/">R Epidemics Consortium</a></li>
     <li><a href="http://r-bloggers.com/">R-bloggers</a></li>
+    <li><a href="https://rweekly.org/">R Weekly</a></li>
 
     <h1>Friends</h1>
     <li><a href="https://xg1990.com/blog/">xg1990</a></li>
+    <li><a href="https://guangchuangyu.github.io/cn/">Guangchuang Yu</a></li>
   </section>
 
   <script type="text/javascript" src="//ra.revolvermaps.com/0/0/8.js?i=0551xokm7cj&amp;m=0&amp;s=300&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33" async="async"></script>
@@ -330,8 +336,8 @@ p <span style="color: #719e07">+</span> geom_line<span style="color: #93A1A1">()
 </div>
 
 <footer role="contentinfo">
-  <p>Copyright &copy; 2017 Tony Tsai - <a href="http://blog.tonytsai.name/license/">License</a> -
-  <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
+  <p>Copyright &copy; 2017 Tony Tsai - <a href="/license/">License</a> -
+  <span class="credit">Powered by <a target="_blank" href="https://github.com/rstudio/blogdown">blogdown</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
 </p>
 
 </footer>
@@ -342,8 +348,8 @@ MathJax.Hub.Config({
   TeX: { equationNumbers: { autoNumber: "AMS" },
          extensions: ["AMSmath.js", "AMSsymbols.js"] },
   tex2jax: {
-    inlineMath: [['$','$']],
-    displayMath: [['$$','$$']],
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\\[','\\]']],
     processEscapes: true,
     processEnvironments: true,
     skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']

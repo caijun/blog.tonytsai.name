@@ -20,16 +20,22 @@
 
   
   
-  <link rel="stylesheet" href="http://blog.tonytsai.name/css/hugo-octopress.css">
+  <link rel="stylesheet" href="/css/hugo-octopress.css">
 
   
   
+
+  <link rel="stylesheet" href="/css/solarized-dark.css">
+  <script src="/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
 
   
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 
   
-  <link href="http://blog.tonytsai.name/favicon.png" rel="icon">
+  <link href="/favicon.png" rel="icon">
 
   
   
@@ -43,7 +49,7 @@
   <meta name="author" content="Tony Tsai">
 
   
-  <meta name="generator" content="Hugo 0.18.1" />
+  <meta name="generator" content="Hugo 0.20.5" />
 
   
   
@@ -61,7 +67,7 @@ ga('send', 'pageview');
 
 <header role="banner"><hgroup>
   
-  <h1><a href="http://blog.tonytsai.name/">Tony Tsai</a></h1>
+  <h1><a href="/">Tony Tsai</a></h1>
     <h2>May the force of science be with you</h2>
 </hgroup></header>
 
@@ -72,7 +78,7 @@ ga('send', 'pageview');
   
   
     
-      <li><a href="http://blog.tonytsai.name/" title="Blog">Blog</a></li>
+      <li><a href="/" title="Blog">Blog</a></li>
     
   
     
@@ -80,11 +86,11 @@ ga('send', 'pageview');
     
   
     
-      <li><a href="http://blog.tonytsai.name/douban/" title="Douban"  target="_blank" >Douban</a></li>
+      <li><a href="/douban/" title="Douban"  target="_blank" >Douban</a></li>
     
   
     
-      <li><a href="http://blog.tonytsai.name/archive/" title="Archive"  target="_blank" >Archive</a></li>
+      <li><a href="/archive/" title="Archive"  target="_blank" >Archive</a></li>
     
   
 </ul>
@@ -93,7 +99,7 @@ ga('send', 'pageview');
 <ul class="subscription">
   
     
-        <a href="http://blog.tonytsai.name/index.xml" target="_blank" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-lg"></i></a>
+        <a href="/index.xml" target="_blank" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-lg"></i></a>
     
   
 
@@ -113,13 +119,13 @@ ga('send', 'pageview');
 
 <header>
     <p class="meta">Dec 4, 2014
-         - 16 minute read 
-         - <a href="http://blog.tonytsai.name/blog/2014-12-04-sirs-model-with-time-dependent-transmission-rate/#disqus_thread">Comments</a>
+         - 17 minute read 
+         - <a href="/blog/2014-12-04-sirs-model-with-time-dependent-transmission-rate/#disqus_thread">Comments</a>
 
         
         
         
-            - <a class="label" href="http://blog.tonytsai.name/categories/influenza/">Influenza </a>
+            - <a class="label" href="/categories/influenza/">Influenza </a>
         
     </p>
     <h1 class="entry-title">
@@ -147,461 +153,460 @@ ga('send', 'pageview');
 
 <br>
 
-          
-
-<h2 id="1-sirs-model">1 SIRS Model</h2>
-
-<p>The <a href="http://en.wikipedia.org/wiki/Epidemic_model#The_SIRS_model" target="_blank">SIRS model</a> is simply an extension of the <a href="http://en.wikipedia.org/wiki/Epidemic_model#The_SIR_model" target="_blank">SIR model</a> as it allows members of the recovered class to rejoin the susceptible class at a defined rate, which integrates the impact of waning immunity following antigenic drift. Similar to the SIR model, a fixed population without births and deaths is considered in the SIRS model. The standard form of SIRS model is described as
-$$
+          <div id="sirs-model" class="section level2">
+<h2>1 SIRS Model</h2>
+<p>The <a href="http://en.wikipedia.org/wiki/Epidemic_model#The_SIRS_model">SIRS model</a> is simply an extension of the <a href="http://en.wikipedia.org/wiki/Epidemic_model#The_SIR_model">SIR model</a> as it allows members of the recovered class to rejoin the susceptible class at a defined rate, which integrates the impact of waning immunity following antigenic drift. Similar to the SIR model, a fixed population without births and deaths is considered in the SIRS model. The standard form of SIRS model is described as <span class="math display">\[
 \begin{equation}
 \begin{aligned}
-  &amp; \frac{dS}{dt} = fR - \frac{\beta SI}{N} \\<br />
-  &amp; \frac{dI}{dt} = \frac{\beta SI}{N} - \gamma I \\<br />
+  &amp; \frac{dS}{dt} = fR - \frac{\beta SI}{N} \\
+  &amp; \frac{dI}{dt} = \frac{\beta SI}{N} - \gamma I \\
   &amp; \frac{dR}{dt} = \gamma I - fR
 \end{aligned}
 \label{eq1}
 \end{equation}
-$$
-where $f$ is the average loss of immunity rate of recovered indiviuals, and the other notations are the same as the SIR model. Note that SIR model is a special case  of SIRS model under condition of $f = 0$. Hence, it is possible to create a general function to solve both SIR and SIRS models.</p>
-
-<p>As only two of the three ODEs are independent, $R(t)$ does not have to be treated explicitly and using ODEs of $S(t)$ and $I(t)$ to describe the dynamic of SIRS model are adequate. Substitute $R(t) = N - S(t) - I(t)$ into ODE of $S(t)$ and the formula is simplified as follows
-$$
+\]</span> where <span class="math inline">\(f\)</span> is the average loss of immunity rate of recovered indiviuals, and the other notations are the same as the SIR model. Note that SIR model is a special case of SIRS model under condition of <span class="math inline">\(f = 0\)</span>. Hence, it is possible to create a general function to solve both SIR and SIRS models.</p>
+<p>As only two of the three ODEs are independent, <span class="math inline">\(R(t)\)</span> does not have to be treated explicitly and using ODEs of <span class="math inline">\(S(t)\)</span> and <span class="math inline">\(I(t)\)</span> to describe the dynamic of SIRS model are adequate. Substitute <span class="math inline">\(R(t) = N - S(t) - I(t)\)</span> into ODE of <span class="math inline">\(S(t)\)</span> and the formula is simplified as follows <span class="math display">\[
 \begin{equation}
 \begin{aligned}
-  &amp; \frac{dS}{dt} = f(N - S - I) - \frac{\beta SI}{N} \\<br />
+  &amp; \frac{dS}{dt} = f(N - S - I) - \frac{\beta SI}{N} \\
   &amp; \frac{dI}{dt} = \frac{\beta SI}{N} - \gamma I
 \end{aligned}
 \label{eq2}
 \end{equation}
-$$</p>
-
-<p>The form of SIRS model described in <a href="http://www.pnas.org/content/101/48/16915.abstract" target="_blank">Dushoff et al. (2004)</a> and <a href="http://www.plosbiology.org/article/info%3Adoi%2F10.1371%2Fjournal.pbio.1000316" target="_blank">Shaman et al. (2010)</a> is as follows
-$$
+\]</span></p>
+<p>The form of SIRS model described in <a href="http://www.pnas.org/content/101/48/16915.abstract">Dushoff et al. (2004)</a> and <a href="http://www.plosbiology.org/article/info%3Adoi%2F10.1371%2Fjournal.pbio.1000316">Shaman et al. (2010)</a> is as follows <span class="math display">\[
 \begin{equation}
 \begin{aligned} \label{eq3}
-  &amp; \frac{dS}{dt} = \frac{N - S - I}{L} - \frac{\beta SI}{N} \\<br />
+  &amp; \frac{dS}{dt} = \frac{N - S - I}{L} - \frac{\beta SI}{N} \\
   &amp; \frac{dI}{dt} = \frac{\beta SI}{N} - \frac{I}{D}
 \end{aligned}
 \end{equation}
-$$
-where $L$ is the average duration of immunity of recoverd indiviuals, and $D$ is the mean infectious period of infected indiviuals. Comparing with ODEs $(\ref{eq2})$, $L = \frac{1}{f}$ and $D = \frac{1}{\gamma}$ are derived.</p>
-
+\]</span> where <span class="math inline">\(L\)</span> is the average duration of immunity of recoverd indiviuals, and <span class="math inline">\(D\)</span> is the mean infectious period of infected indiviuals. Comparing with ODEs <span class="math inline">\((\ref{eq2})\)</span>, <span class="math inline">\(L = \frac{1}{f}\)</span> and <span class="math inline">\(D = \frac{1}{\gamma}\)</span> are derived.</p>
 <p>In the following subsections, <strong>RK4</strong> method is applied to solve SIRS model in different forms.</p>
+<div id="rk4sirs.std-function" class="section level3">
+<h3>1.1 <code>RK4SIRS.std</code> function</h3>
+<p>The iterative formula of <strong>RK4</strong> method for solving SIRS model in the standard form <span class="math inline">\((\ref{eq1})\)</span> can be easily derived and won’t be presented here. The following codes firstly define four helper functions. Three of them describe <span class="math inline">\(S(t)\)</span>, <span class="math inline">\(I(t)\)</span> and <span class="math inline">\(R(t)\)</span> compartments of SIRS model. The other one defines the <strong>infection rate</strong> (see Table 1 in <a href="http://www.pnas.org/content/101/48/16915.abstract">Dushoff et al. (2004)</a>) to calculate cummulative incidence. Different from SIR model, the infection rate is only the second term of <span class="math inline">\(S(t)\)</span> compartment in SIRS model. Therefore, an additional helper function is needed to separately define the infection rate.</p>
+<pre class="r"><code># define S, I, R compartments of SIRS model
+dSdt.std &lt;- function(t, S, I, R) {
+  return(f * R - beta * S * I / N)
+}
 
-<h3 id="1-1-rk4sirs-std-function">1.1 <code>RK4SIRS.std</code> function</h3>
+dIdt.std &lt;- function(t, S, I) {
+  return(beta * S * I / N - gamma * I)
+}
 
-<p>The iterative formula of <strong>RK4</strong> method for solving SIRS model in the standard form $(\ref{eq1})$ can be easily derived and won&rsquo;t be presented here. The following codes firstly define four helper functions. Three of them describe $S(t)$, $I(t)$ and $R(t)$ compartments of SIRS model. The other one defines the <strong>infection rate</strong> (see Table 1 in <a href="http://www.pnas.org/content/101/48/16915.abstract" target="_blank">Dushoff et al. (2004)</a>) to calculate cummulative incidence. Different from SIR model, the infection rate is only the second term of $S(t)$ compartment in SIRS model. Therefore, an additional helper function is needed to separately define the infection rate.</p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span><span style="color: #586E75"># define S, I, R compartments of SIRS model</span>
-dSdt.std <span style="color: #719e07">&lt;-</span> <span style="color: #268BD2">function</span><span style="color: #93A1A1">(</span><span style="color: #719e07">t</span><span style="color: #93A1A1">,</span> S<span style="color: #93A1A1">,</span> <span style="color: #719e07">I</span><span style="color: #93A1A1">,</span> R<span style="color: #93A1A1">)</span> <span style="color: #93A1A1">{</span>
-  <span style="color: #268BD2">return</span><span style="color: #93A1A1">(</span>f <span style="color: #719e07">*</span> R <span style="color: #719e07">-</span> beta <span style="color: #719e07">*</span> S <span style="color: #719e07">*</span> I <span style="color: #719e07">/</span> N<span style="color: #93A1A1">)</span>
-<span style="color: #93A1A1">}</span>
+dRdt.std &lt;- function(t, I, R) {
+  return(gamma * I - f * R)
+}
 
-dIdt.std <span style="color: #719e07">&lt;-</span> <span style="color: #268BD2">function</span><span style="color: #93A1A1">(</span><span style="color: #719e07">t</span><span style="color: #93A1A1">,</span> S<span style="color: #93A1A1">,</span> <span style="color: #719e07">I</span><span style="color: #93A1A1">)</span> <span style="color: #93A1A1">{</span>
-  <span style="color: #268BD2">return</span><span style="color: #93A1A1">(</span>beta <span style="color: #719e07">*</span> S <span style="color: #719e07">*</span> I <span style="color: #719e07">/</span> N <span style="color: #719e07">-</span> gamma <span style="color: #719e07">*</span> <span style="color: #719e07">I</span><span style="color: #93A1A1">)</span>
-<span style="color: #93A1A1">}</span>
-
-dRdt.std <span style="color: #719e07">&lt;-</span> <span style="color: #268BD2">function</span><span style="color: #93A1A1">(</span><span style="color: #719e07">t</span><span style="color: #93A1A1">,</span> <span style="color: #719e07">I</span><span style="color: #93A1A1">,</span> R<span style="color: #93A1A1">)</span> <span style="color: #93A1A1">{</span>
-  <span style="color: #268BD2">return</span><span style="color: #93A1A1">(</span>gamma <span style="color: #719e07">*</span> I <span style="color: #719e07">-</span> f <span style="color: #719e07">*</span> R<span style="color: #93A1A1">)</span>
-<span style="color: #93A1A1">}</span>
-
-<span style="color: #586E75"># define infection rate</span>
-dCIdt.std <span style="color: #719e07">&lt;-</span> <span style="color: #268BD2">function</span><span style="color: #93A1A1">(</span><span style="color: #719e07">t</span><span style="color: #93A1A1">,</span> S<span style="color: #93A1A1">,</span> <span style="color: #719e07">I</span><span style="color: #93A1A1">)</span> <span style="color: #93A1A1">{</span>
-  <span style="color: #268BD2">return</span><span style="color: #93A1A1">(</span>beta <span style="color: #719e07">*</span> S <span style="color: #719e07">*</span> I <span style="color: #719e07">/</span> N<span style="color: #93A1A1">)</span>
-<span style="color: #93A1A1">}</span>
-</pre></div>
-
-<p>The iterative algorithm for calculating cummumcaltive incidence resembles those of $S(t)$, $I(t)$ and $R(t)$. The implementation of <strong>RK4</strong> method for SIRS model is presented as follows.</p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span><span style="color: #586E75"># RK4 method for the numerical integration of SIRS model in standard form</span>
-RK4SIRS.std <span style="color: #719e07">&lt;-</span> <span style="color: #268BD2">function</span><span style="color: #93A1A1">(</span>n<span style="color: #93A1A1">,</span> <span style="color: #719e07">beta</span><span style="color: #93A1A1">,</span> <span style="color: #719e07">gamma</span><span style="color: #93A1A1">,</span> f<span style="color: #93A1A1">,</span> S0<span style="color: #93A1A1">,</span> I0<span style="color: #93A1A1">,</span> R0 <span style="color: #719e07">=</span> <span style="color: #2AA198">0</span><span style="color: #93A1A1">,</span> dt <span style="color: #719e07">=</span> <span style="color: #2AA198">1</span><span style="color: #93A1A1">,</span> incidence <span style="color: #719e07">=</span> <span style="color: #CB4B16">FALSE</span><span style="color: #93A1A1">)</span> <span style="color: #93A1A1">{</span>
-  N <span style="color: #719e07">&lt;&lt;-</span> S0 <span style="color: #719e07">+</span> I0 <span style="color: #719e07">+</span> R0
+# define infection rate
+dCIdt.std &lt;- function(t, S, I) {
+  return(beta * S * I / N)
+}</code></pre>
+<p>The iterative algorithm for calculating cummumcaltive incidence resembles those of <span class="math inline">\(S(t)\)</span>, <span class="math inline">\(I(t)\)</span> and <span class="math inline">\(R(t)\)</span>. The implementation of <strong>RK4</strong> method for SIRS model is presented as follows.</p>
+<pre class="r"><code># RK4 method for the numerical integration of SIRS model in standard form
+RK4SIRS.std &lt;- function(n, beta, gamma, f, S0, I0, R0 = 0, dt = 1, incidence = FALSE) {
+  N &lt;&lt;- S0 + I0 + R0
   
-  S <span style="color: #719e07">&lt;-</span> <span style="color: #DC322F">c</span><span style="color: #93A1A1">(</span>S0<span style="color: #93A1A1">,</span> <span style="color: #719e07">rep</span><span style="color: #93A1A1">(</span><span style="color: #2AA198">0</span><span style="color: #93A1A1">,</span> n<span style="color: #93A1A1">))</span>
-  I <span style="color: #719e07">&lt;-</span> <span style="color: #DC322F">c</span><span style="color: #93A1A1">(</span>I0<span style="color: #93A1A1">,</span> <span style="color: #719e07">rep</span><span style="color: #93A1A1">(</span><span style="color: #2AA198">0</span><span style="color: #93A1A1">,</span> n<span style="color: #93A1A1">))</span>
-  R <span style="color: #719e07">&lt;-</span> <span style="color: #DC322F">c</span><span style="color: #93A1A1">(</span>R0<span style="color: #93A1A1">,</span> <span style="color: #719e07">rep</span><span style="color: #93A1A1">(</span><span style="color: #2AA198">0</span><span style="color: #93A1A1">,</span> n<span style="color: #93A1A1">))</span>
-  CI <span style="color: #719e07">&lt;-</span> <span style="color: #DC322F">c</span><span style="color: #93A1A1">(</span>I0<span style="color: #93A1A1">,</span> <span style="color: #719e07">rep</span><span style="color: #93A1A1">(</span><span style="color: #2AA198">0</span><span style="color: #93A1A1">,</span> n<span style="color: #93A1A1">))</span>  <span style="color: #586E75"># cummulative incidence</span>
-  <span style="color: #268BD2">for</span> <span style="color: #93A1A1">(</span>i <span style="color: #268BD2">in</span> <span style="color: #2AA198">1</span><span style="color: #719e07">:</span>n<span style="color: #93A1A1">)</span> <span style="color: #93A1A1">{</span>
-    Si <span style="color: #719e07">&lt;-</span> S<span style="color: #93A1A1">[</span>i<span style="color: #93A1A1">]</span>
-    Ii <span style="color: #719e07">&lt;-</span> <span style="color: #719e07">I</span><span style="color: #93A1A1">[</span>i<span style="color: #93A1A1">]</span>
-    Ri <span style="color: #719e07">&lt;-</span> R<span style="color: #93A1A1">[</span>i<span style="color: #93A1A1">]</span>
-    CIi <span style="color: #719e07">&lt;-</span> CI<span style="color: #93A1A1">[</span>i<span style="color: #93A1A1">]</span>
+  S &lt;- c(S0, rep(0, n))
+  I &lt;- c(I0, rep(0, n))
+  R &lt;- c(R0, rep(0, n))
+  CI &lt;- c(I0, rep(0, n))  # cummulative incidence
+  for (i in 1:n) {
+    Si &lt;- S[i]
+    Ii &lt;- I[i]
+    Ri &lt;- R[i]
+    CIi &lt;- CI[i]
     
-    S.k1 <span style="color: #719e07">&lt;-</span> dSdt.std<span style="color: #93A1A1">(</span>i<span style="color: #93A1A1">,</span> Si<span style="color: #93A1A1">,</span> Ii<span style="color: #93A1A1">,</span> Ri<span style="color: #93A1A1">)</span>
-    I.k1 <span style="color: #719e07">&lt;-</span> dIdt.std<span style="color: #93A1A1">(</span>i<span style="color: #93A1A1">,</span> Si<span style="color: #93A1A1">,</span> Ii<span style="color: #93A1A1">)</span>
-    R.k1 <span style="color: #719e07">&lt;-</span> dRdt.std<span style="color: #93A1A1">(</span>i<span style="color: #93A1A1">,</span> Ii<span style="color: #93A1A1">,</span> Ri<span style="color: #93A1A1">)</span>
-    CI.k1 <span style="color: #719e07">&lt;-</span> dCIdt.std<span style="color: #93A1A1">(</span>i<span style="color: #93A1A1">,</span> Si<span style="color: #93A1A1">,</span> Ii<span style="color: #93A1A1">)</span>
+    S.k1 &lt;- dSdt.std(i, Si, Ii, Ri)
+    I.k1 &lt;- dIdt.std(i, Si, Ii)
+    R.k1 &lt;- dRdt.std(i, Ii, Ri)
+    CI.k1 &lt;- dCIdt.std(i, Si, Ii)
     
-    S.k2 <span style="color: #719e07">&lt;-</span> dSdt.std<span style="color: #93A1A1">(</span>i <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">2</span><span style="color: #93A1A1">,</span> Si <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">2</span> <span style="color: #719e07">*</span> S.k1<span style="color: #93A1A1">,</span> Ii <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">2</span> <span style="color: #719e07">*</span> I.k1<span style="color: #93A1A1">,</span> Ri <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">2</span> <span style="color: #719e07">*</span> R.k1<span style="color: #93A1A1">)</span>
-    I.k2 <span style="color: #719e07">&lt;-</span> dIdt.std<span style="color: #93A1A1">(</span>i <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">2</span><span style="color: #93A1A1">,</span> Si <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">2</span> <span style="color: #719e07">*</span> S.k1<span style="color: #93A1A1">,</span> Ii <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">2</span> <span style="color: #719e07">*</span> I.k1<span style="color: #93A1A1">)</span>
-    R.k2 <span style="color: #719e07">&lt;-</span> dRdt.std<span style="color: #93A1A1">(</span>i <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">2</span><span style="color: #93A1A1">,</span> Ii <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">2</span> <span style="color: #719e07">*</span> I.k1<span style="color: #93A1A1">,</span> Ri <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">2</span> <span style="color: #719e07">*</span> R.k1<span style="color: #93A1A1">)</span>
-    CI.k2 <span style="color: #719e07">&lt;-</span> dCIdt.std<span style="color: #93A1A1">(</span>i <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">2</span><span style="color: #93A1A1">,</span> Si <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">2</span> <span style="color: #719e07">*</span> S.k1<span style="color: #93A1A1">,</span> Ii <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">2</span> <span style="color: #719e07">*</span> I.k1<span style="color: #93A1A1">)</span>
+    S.k2 &lt;- dSdt.std(i + dt / 2, Si + dt / 2 * S.k1, Ii + dt / 2 * I.k1, Ri + dt / 2 * R.k1)
+    I.k2 &lt;- dIdt.std(i + dt / 2, Si + dt / 2 * S.k1, Ii + dt / 2 * I.k1)
+    R.k2 &lt;- dRdt.std(i + dt / 2, Ii + dt / 2 * I.k1, Ri + dt / 2 * R.k1)
+    CI.k2 &lt;- dCIdt.std(i + dt / 2, Si + dt / 2 * S.k1, Ii + dt / 2 * I.k1)
     
-    S.k3 <span style="color: #719e07">&lt;-</span> dSdt.std<span style="color: #93A1A1">(</span>i <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">2</span><span style="color: #93A1A1">,</span> Si <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">2</span> <span style="color: #719e07">*</span> S.k2<span style="color: #93A1A1">,</span> Ii <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">2</span> <span style="color: #719e07">*</span> I.k2<span style="color: #93A1A1">,</span> Ri <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">2</span> <span style="color: #719e07">*</span> R.k2<span style="color: #93A1A1">)</span>
-    I.k3 <span style="color: #719e07">&lt;-</span> dIdt.std<span style="color: #93A1A1">(</span>i <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">2</span><span style="color: #93A1A1">,</span> Si <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">2</span> <span style="color: #719e07">*</span> S.k2<span style="color: #93A1A1">,</span> Ii <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">2</span> <span style="color: #719e07">*</span> I.k2<span style="color: #93A1A1">)</span>
-    R.k3 <span style="color: #719e07">&lt;-</span> dRdt.std<span style="color: #93A1A1">(</span>i <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">2</span><span style="color: #93A1A1">,</span> Ii <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">2</span> <span style="color: #719e07">*</span> I.k2<span style="color: #93A1A1">,</span> Ri <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">2</span> <span style="color: #719e07">*</span> R.k2<span style="color: #93A1A1">)</span>
-    CI.k3 <span style="color: #719e07">&lt;-</span> dCIdt.std<span style="color: #93A1A1">(</span>i <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">2</span><span style="color: #93A1A1">,</span> Si <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">2</span> <span style="color: #719e07">*</span> S.k2<span style="color: #93A1A1">,</span> Ii <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">2</span> <span style="color: #719e07">*</span> I.k2<span style="color: #93A1A1">)</span>
+    S.k3 &lt;- dSdt.std(i + dt / 2, Si + dt / 2 * S.k2, Ii + dt / 2 * I.k2, Ri + dt / 2 * R.k2)
+    I.k3 &lt;- dIdt.std(i + dt / 2, Si + dt / 2 * S.k2, Ii + dt / 2 * I.k2)
+    R.k3 &lt;- dRdt.std(i + dt / 2, Ii + dt / 2 * I.k2, Ri + dt / 2 * R.k2)
+    CI.k3 &lt;- dCIdt.std(i + dt / 2, Si + dt / 2 * S.k2, Ii + dt / 2 * I.k2)
     
-    S.k4 <span style="color: #719e07">&lt;-</span> dSdt.std<span style="color: #93A1A1">(</span>i <span style="color: #719e07">+</span> dt<span style="color: #93A1A1">,</span> Si <span style="color: #719e07">+</span> dt <span style="color: #719e07">*</span> S.k3<span style="color: #93A1A1">,</span> Ii <span style="color: #719e07">+</span> dt <span style="color: #719e07">*</span> I.k3<span style="color: #93A1A1">,</span> Ri <span style="color: #719e07">+</span> dt <span style="color: #719e07">*</span> R.k3<span style="color: #93A1A1">)</span>
-    I.k4 <span style="color: #719e07">&lt;-</span> dIdt.std<span style="color: #93A1A1">(</span>i <span style="color: #719e07">+</span> dt<span style="color: #93A1A1">,</span> Si <span style="color: #719e07">+</span> dt <span style="color: #719e07">*</span> S.k3<span style="color: #93A1A1">,</span> Ii <span style="color: #719e07">+</span> dt <span style="color: #719e07">*</span> I.k3<span style="color: #93A1A1">)</span>
-    R.k4 <span style="color: #719e07">&lt;-</span> dRdt.std<span style="color: #93A1A1">(</span>i <span style="color: #719e07">+</span> dt<span style="color: #93A1A1">,</span> Ii <span style="color: #719e07">+</span> dt <span style="color: #719e07">*</span> I.k3<span style="color: #93A1A1">,</span> Ri <span style="color: #719e07">+</span> dt <span style="color: #719e07">*</span> R.k3<span style="color: #93A1A1">)</span>
-    CI.k4 <span style="color: #719e07">&lt;-</span> dCIdt.std<span style="color: #93A1A1">(</span>i <span style="color: #719e07">+</span> dt<span style="color: #93A1A1">,</span> Si <span style="color: #719e07">+</span> dt <span style="color: #719e07">*</span> S.k3<span style="color: #93A1A1">,</span> Ii <span style="color: #719e07">+</span> dt <span style="color: #719e07">*</span> I.k3<span style="color: #93A1A1">)</span>
+    S.k4 &lt;- dSdt.std(i + dt, Si + dt * S.k3, Ii + dt * I.k3, Ri + dt * R.k3)
+    I.k4 &lt;- dIdt.std(i + dt, Si + dt * S.k3, Ii + dt * I.k3)
+    R.k4 &lt;- dRdt.std(i + dt, Ii + dt * I.k3, Ri + dt * R.k3)
+    CI.k4 &lt;- dCIdt.std(i + dt, Si + dt * S.k3, Ii + dt * I.k3)
     
-    S<span style="color: #93A1A1">[</span>i <span style="color: #719e07">+</span> <span style="color: #2AA198">1</span><span style="color: #93A1A1">]</span> <span style="color: #719e07">&lt;-</span> Si <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">6</span> <span style="color: #719e07">*</span> <span style="color: #93A1A1">(</span>S.k1 <span style="color: #719e07">+</span> <span style="color: #2AA198">2</span> <span style="color: #719e07">*</span> S.k2 <span style="color: #719e07">+</span> <span style="color: #2AA198">2</span> <span style="color: #719e07">*</span> S.k3 <span style="color: #719e07">+</span> S.k4<span style="color: #93A1A1">)</span>
-    <span style="color: #719e07">I</span><span style="color: #93A1A1">[</span>i <span style="color: #719e07">+</span> <span style="color: #2AA198">1</span><span style="color: #93A1A1">]</span> <span style="color: #719e07">&lt;-</span> Ii <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">6</span> <span style="color: #719e07">*</span> <span style="color: #93A1A1">(</span>I.k1 <span style="color: #719e07">+</span> <span style="color: #2AA198">2</span> <span style="color: #719e07">*</span> I.k2 <span style="color: #719e07">+</span> <span style="color: #2AA198">2</span> <span style="color: #719e07">*</span> I.k3 <span style="color: #719e07">+</span> I.k4<span style="color: #93A1A1">)</span>
-    R<span style="color: #93A1A1">[</span>i <span style="color: #719e07">+</span> <span style="color: #2AA198">1</span><span style="color: #93A1A1">]</span> <span style="color: #719e07">&lt;-</span> Ri <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">6</span> <span style="color: #719e07">*</span> <span style="color: #93A1A1">(</span>R.k1 <span style="color: #719e07">+</span> <span style="color: #2AA198">2</span> <span style="color: #719e07">*</span> R.k2 <span style="color: #719e07">+</span> <span style="color: #2AA198">2</span> <span style="color: #719e07">*</span> R.k3 <span style="color: #719e07">+</span> R.k4<span style="color: #93A1A1">)</span>
-    CI<span style="color: #93A1A1">[</span>i <span style="color: #719e07">+</span> <span style="color: #2AA198">1</span><span style="color: #93A1A1">]</span> <span style="color: #719e07">&lt;-</span> CIi <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">6</span> <span style="color: #719e07">*</span> <span style="color: #93A1A1">(</span>CI.k1 <span style="color: #719e07">+</span> <span style="color: #2AA198">2</span> <span style="color: #719e07">*</span> CI.k2 <span style="color: #719e07">+</span> <span style="color: #2AA198">2</span> <span style="color: #719e07">*</span> CI.k3 <span style="color: #719e07">+</span> CI.k4<span style="color: #93A1A1">)</span>
-  <span style="color: #93A1A1">}</span>
-  <span style="color: #268BD2">if</span> <span style="color: #93A1A1">(</span><span style="color: #719e07">!</span>incidence<span style="color: #93A1A1">)</span> <span style="color: #93A1A1">{</span>
-    <span style="color: #268BD2">return</span><span style="color: #93A1A1">(</span><span style="color: #DC322F">data.frame</span><span style="color: #93A1A1">(</span>n <span style="color: #719e07">=</span> <span style="color: #2AA198">0</span> <span style="color: #719e07">:</span> n<span style="color: #93A1A1">,</span> S <span style="color: #719e07">=</span> S<span style="color: #93A1A1">,</span> I <span style="color: #719e07">=</span> <span style="color: #719e07">I</span><span style="color: #93A1A1">,</span> R <span style="color: #719e07">=</span> R<span style="color: #93A1A1">))</span>
-  <span style="color: #93A1A1">}</span> <span style="color: #268BD2">else</span> <span style="color: #93A1A1">{</span>
-    <span style="color: #586E75"># newly infected per day (incidence)</span>
-    inc <span style="color: #719e07">=</span> <span style="color: #DC322F">c</span><span style="color: #93A1A1">(</span>I0<span style="color: #93A1A1">,</span> <span style="color: #719e07">diff</span><span style="color: #93A1A1">(</span>CI<span style="color: #93A1A1">))</span>
-    <span style="color: #268BD2">return</span><span style="color: #93A1A1">(</span><span style="color: #DC322F">data.frame</span><span style="color: #93A1A1">(</span>n <span style="color: #719e07">=</span> <span style="color: #2AA198">0</span> <span style="color: #719e07">:</span> n<span style="color: #93A1A1">,</span> S <span style="color: #719e07">=</span> S<span style="color: #93A1A1">,</span> I <span style="color: #719e07">=</span> <span style="color: #719e07">I</span><span style="color: #93A1A1">,</span> R <span style="color: #719e07">=</span> R<span style="color: #93A1A1">,</span> inc <span style="color: #719e07">=</span> inc<span style="color: #93A1A1">,</span> cum.inc <span style="color: #719e07">=</span> CI<span style="color: #93A1A1">))</span>
-  <span style="color: #93A1A1">}</span>
-<span style="color: #93A1A1">}</span>
-</pre></div>
-
-<h3 id="1-2-rk4sirs-function">1.2 <code>RK4SIRS</code> function</h3>
-
-<p>There are many repetitive computations in the implementation of <code>RK4SIRS.std</code> function, especially for calculating cummulative incidence. Actually, the system of ODEs of SIRS model describes the transition of an individual between susceptible, infectious, and recovered states. For SIRS model in simplified form $(\ref{eq2})$, only susceptible and infectious states are necessary to represent the system state and the system state at time $t$ is usually expressed as state vector $\mathbf{Z}(t)\equiv (S(t), I(t))$. As presented in Table 1, infection, recovery, and immunity loss events can change the system state at a rate of $\frac{\beta SI}{N}$, $\gamma I$, and $f(N-S-I)$, respectively.</p>
-
-<p>Table 1:  Markov chain transition rate (source: <a href="http://www.pnas.org/content/101/48/16915.abstract" target="_blank">Dushoff et al. (2004)</a>) <!-- how to generate table caption, which is supported in pandoc --></p>
-
+    S[i + 1] &lt;- Si + dt / 6 * (S.k1 + 2 * S.k2 + 2 * S.k3 + S.k4)
+    I[i + 1] &lt;- Ii + dt / 6 * (I.k1 + 2 * I.k2 + 2 * I.k3 + I.k4)
+    R[i + 1] &lt;- Ri + dt / 6 * (R.k1 + 2 * R.k2 + 2 * R.k3 + R.k4)
+    CI[i + 1] &lt;- CIi + dt / 6 * (CI.k1 + 2 * CI.k2 + 2 * CI.k3 + CI.k4)
+  }
+  if (!incidence) {
+    return(data.frame(n = 0:n, S = S, I = I, R = R))
+  } else {
+    # newly infected per day (incidence)
+    inc = c(I0, diff(CI))
+    return(data.frame(n = 0:n, S = S, I = I, R = R, inc = inc, cum.inc = CI))
+  }
+}</code></pre>
+</div>
+<div id="rk4sirs-function" class="section level3">
+<h3>1.2 <code>RK4SIRS</code> function</h3>
+<p>There are many repetitive computations in the implementation of <code>RK4SIRS.std</code> function, especially for calculating cummulative incidence. Actually, the system of ODEs of SIRS model describes the transition of an individual between susceptible, infectious, and recovered states. For SIRS model in simplified form <span class="math inline">\((\ref{eq2})\)</span>, only susceptible and infectious states are necessary to represent the system state and the system state at time <span class="math inline">\(t\)</span> is usually expressed as state vector <span class="math inline">\(\mathbf{Z}(t)\equiv (S(t), I(t))\)</span>. As presented in Table 1, infection, recovery, and immunity loss events can change the system state at a rate of <span class="math inline">\(\frac{\beta SI}{N}\)</span>, <span class="math inline">\(\gamma I\)</span>, and <span class="math inline">\(f(N-S-I)\)</span>, respectively.</p>
 <table>
+<caption><strong>Table 1. Markov chain transition rate (source: <a href="http://www.pnas.org/content/101/48/16915.abstract">Dushoff et al. (2004)</a>)</strong></caption>
 <thead>
-<tr>
-<th>Event</th>
-<th>Change</th>
-<th>Rate</th>
+<tr class="header">
+<th align="center"><strong>Event</strong></th>
+<th align="center"><strong>Change</strong></th>
+<th align="center"><strong>Rate</strong></th>
 </tr>
 </thead>
-
 <tbody>
-<tr>
-<td>Infection</td>
-<td>$(S,I)\rightarrow (S-1,I+1)$</td>
-<td>$\frac{\beta SI}{N}$</td>
+<tr class="odd">
+<td align="center">Infection</td>
+<td align="center"><span class="math inline">\((S,I)\rightarrow (S-1,I+1)\)</span></td>
+<td align="center"><span class="math inline">\(\frac{\beta SI}{N}\)</span></td>
 </tr>
-
-<tr>
-<td>Recovery</td>
-<td>$(S,I)\rightarrow (S, I-1)$</td>
-<td>$\gamma I$</td>
+<tr class="even">
+<td align="center">Recovery</td>
+<td align="center"><span class="math inline">\((S,I)\rightarrow (S, I-1)\)</span></td>
+<td align="center"><span class="math inline">\(\gamma I\)</span></td>
 </tr>
-
-<tr>
-<td>Immunity loss</td>
-<td>$(S,I)\rightarrow (S+1, I)$</td>
-<td>$f(N-S-I)$</td>
+<tr class="odd">
+<td align="center">Immunity loss</td>
+<td align="center"><span class="math inline">\((S,I)\rightarrow (S+1, I)\)</span></td>
+<td align="center"><span class="math inline">\(f(N-S-I)\)</span></td>
 </tr>
 </tbody>
 </table>
+<p>Instead of directly defining <span class="math inline">\(S(t)\)</span> and <span class="math inline">\(I(t)\)</span> compartments of SIRS model, using helper functions to define the events can avoid redundant computing as events describe the changes in system state at fine-grained scale. According to Table 1, <strong>RK4</strong> method for solving SIRS model in simplified form <span class="math inline">\((\ref{eq2})\)</span> can be easily implemented by slightly modified from <code>RK4SIRS.std</code> function.</p>
+<pre class="r"><code># define infection rate
+inf.rate &lt;- function(t, S, I) {
+  return(beta * S * I / N)
+}
 
-<p>Instead of directly defining $S(t)$ and $I(t)$ compartments of SIRS model, using helper functions to define the events can avoid redundant computing as events describe the changes in system state at fine-grained scale. According to Table 1, <strong>RK4</strong> method for solving SIRS model in simplified form $(\ref{eq2})$ can be easily implemented by slightly modified from <code>RK4SIRS.std</code> function.</p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span><span style="color: #586E75"># define infection rate</span>
-inf.rate <span style="color: #719e07">&lt;-</span> <span style="color: #268BD2">function</span><span style="color: #93A1A1">(</span><span style="color: #719e07">t</span><span style="color: #93A1A1">,</span> S<span style="color: #93A1A1">,</span> <span style="color: #719e07">I</span><span style="color: #93A1A1">)</span> <span style="color: #93A1A1">{</span>
-  <span style="color: #268BD2">return</span><span style="color: #93A1A1">(</span>beta <span style="color: #719e07">*</span> S <span style="color: #719e07">*</span> I <span style="color: #719e07">/</span> N<span style="color: #93A1A1">)</span>
-<span style="color: #93A1A1">}</span>
+# define recovery rate
+rec.rate &lt;- function(t, I) {
+  return(gamma * I)
+}
 
-<span style="color: #586E75"># define recovery rate</span>
-rec.rate <span style="color: #719e07">&lt;-</span> <span style="color: #268BD2">function</span><span style="color: #93A1A1">(</span><span style="color: #719e07">t</span><span style="color: #93A1A1">,</span> <span style="color: #719e07">I</span><span style="color: #93A1A1">)</span> <span style="color: #93A1A1">{</span>
-  <span style="color: #268BD2">return</span><span style="color: #93A1A1">(</span>gamma <span style="color: #719e07">*</span> <span style="color: #719e07">I</span><span style="color: #93A1A1">)</span>
-<span style="color: #93A1A1">}</span>
+# define immunity loss rate
+ilos.rate &lt;- function(t, S, I) {
+  return(f * (N - S - I))
+}
 
-<span style="color: #586E75"># define immunity loss rate</span>
-ilos.rate <span style="color: #719e07">&lt;-</span> <span style="color: #268BD2">function</span><span style="color: #93A1A1">(</span><span style="color: #719e07">t</span><span style="color: #93A1A1">,</span> S<span style="color: #93A1A1">,</span> <span style="color: #719e07">I</span><span style="color: #93A1A1">)</span> <span style="color: #93A1A1">{</span>
-  <span style="color: #268BD2">return</span><span style="color: #93A1A1">(</span>f <span style="color: #719e07">*</span> <span style="color: #93A1A1">(</span>N <span style="color: #719e07">-</span> S <span style="color: #719e07">-</span> <span style="color: #719e07">I</span><span style="color: #93A1A1">))</span>
-<span style="color: #93A1A1">}</span>
-
-<span style="color: #586E75"># RK4 method for numerical integration of SIRS model in simplified form</span>
-RK4SIRS <span style="color: #719e07">&lt;-</span> <span style="color: #268BD2">function</span><span style="color: #93A1A1">(</span>n<span style="color: #93A1A1">,</span> <span style="color: #719e07">beta</span><span style="color: #93A1A1">,</span> <span style="color: #719e07">gamma</span><span style="color: #93A1A1">,</span> f<span style="color: #93A1A1">,</span> S0<span style="color: #93A1A1">,</span> I0<span style="color: #93A1A1">,</span> R0 <span style="color: #719e07">=</span> <span style="color: #2AA198">0</span><span style="color: #93A1A1">,</span> dt <span style="color: #719e07">=</span> <span style="color: #2AA198">1</span><span style="color: #93A1A1">,</span> incidence <span style="color: #719e07">=</span> <span style="color: #CB4B16">FALSE</span><span style="color: #93A1A1">)</span> <span style="color: #93A1A1">{</span>
-  N <span style="color: #719e07">&lt;&lt;-</span> S0 <span style="color: #719e07">+</span> I0 <span style="color: #719e07">+</span> R0
+# RK4 method for numerical integration of SIRS model in simplified form
+RK4SIRS &lt;- function(n, beta, gamma, f, S0, I0, R0 = 0, dt = 1, incidence = FALSE) {
+  N &lt;&lt;- S0 + I0 + R0
   
-  S <span style="color: #719e07">&lt;-</span> <span style="color: #DC322F">c</span><span style="color: #93A1A1">(</span>S0<span style="color: #93A1A1">,</span> <span style="color: #719e07">rep</span><span style="color: #93A1A1">(</span><span style="color: #2AA198">0</span><span style="color: #93A1A1">,</span> n<span style="color: #93A1A1">))</span>
-  I <span style="color: #719e07">&lt;-</span> <span style="color: #DC322F">c</span><span style="color: #93A1A1">(</span>I0<span style="color: #93A1A1">,</span> <span style="color: #719e07">rep</span><span style="color: #93A1A1">(</span><span style="color: #2AA198">0</span><span style="color: #93A1A1">,</span> n<span style="color: #93A1A1">))</span>
-  R <span style="color: #719e07">&lt;-</span> <span style="color: #DC322F">c</span><span style="color: #93A1A1">(</span>R0<span style="color: #93A1A1">,</span> <span style="color: #719e07">rep</span><span style="color: #93A1A1">(</span><span style="color: #2AA198">0</span><span style="color: #93A1A1">,</span> n<span style="color: #93A1A1">))</span>
-  CI <span style="color: #719e07">&lt;-</span> <span style="color: #DC322F">c</span><span style="color: #93A1A1">(</span>I0<span style="color: #93A1A1">,</span> <span style="color: #719e07">rep</span><span style="color: #93A1A1">(</span><span style="color: #2AA198">0</span><span style="color: #93A1A1">,</span> n<span style="color: #93A1A1">))</span>  <span style="color: #586E75"># cummulative incidence</span>
-  <span style="color: #268BD2">for</span> <span style="color: #93A1A1">(</span>i <span style="color: #268BD2">in</span> <span style="color: #2AA198">1</span><span style="color: #719e07">:</span>n<span style="color: #93A1A1">)</span> <span style="color: #93A1A1">{</span>
-    Si <span style="color: #719e07">&lt;-</span> S<span style="color: #93A1A1">[</span>i<span style="color: #93A1A1">]</span>
-    Ii <span style="color: #719e07">&lt;-</span> <span style="color: #719e07">I</span><span style="color: #93A1A1">[</span>i<span style="color: #93A1A1">]</span>
-    Ri <span style="color: #719e07">&lt;-</span> R<span style="color: #93A1A1">[</span>i<span style="color: #93A1A1">]</span>
-    CIi <span style="color: #719e07">&lt;-</span> CI<span style="color: #93A1A1">[</span>i<span style="color: #93A1A1">]</span>
+  S &lt;- c(S0, rep(0, n))
+  I &lt;- c(I0, rep(0, n))
+  R &lt;- c(R0, rep(0, n))
+  CI &lt;- c(I0, rep(0, n))  # cummulative incidence
+  for (i in 1:n) {
+    Si &lt;- S[i]
+    Ii &lt;- I[i]
+    Ri &lt;- R[i]
+    CIi &lt;- CI[i]
     
-    Einf <span style="color: #719e07">&lt;-</span> inf.rate<span style="color: #93A1A1">(</span>i<span style="color: #93A1A1">,</span> Si<span style="color: #93A1A1">,</span> Ii<span style="color: #93A1A1">)</span>  <span style="color: #586E75"># event of infection</span>
-    Erec <span style="color: #719e07">&lt;-</span> rec.rate<span style="color: #93A1A1">(</span>i<span style="color: #93A1A1">,</span> Ii<span style="color: #93A1A1">)</span>  <span style="color: #586E75"># event of recovery</span>
-    Eilos <span style="color: #719e07">&lt;-</span> ilos.rate<span style="color: #93A1A1">(</span>i<span style="color: #93A1A1">,</span> Si<span style="color: #93A1A1">,</span> Ii<span style="color: #93A1A1">)</span>  <span style="color: #586E75"># event of immunity loss</span>
-    S.k1 <span style="color: #719e07">&lt;-</span> Eilos <span style="color: #719e07">-</span> Einf
-    I.k1 <span style="color: #719e07">&lt;-</span> Einf <span style="color: #719e07">-</span> Erec
-    CI.k1 <span style="color: #719e07">&lt;-</span> Einf
+    Einf &lt;- inf.rate(i, Si, Ii)  # event of infection
+    Erec &lt;- rec.rate(i, Ii)  # event of recovery
+    Eilos &lt;- ilos.rate(i, Si, Ii)  # event of immunity loss
+    S.k1 &lt;- Eilos - Einf
+    I.k1 &lt;- Einf - Erec
+    CI.k1 &lt;- Einf
     
-    Einf <span style="color: #719e07">&lt;-</span> inf.rate<span style="color: #93A1A1">(</span>i <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">2</span><span style="color: #93A1A1">,</span> Si <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">2</span> <span style="color: #719e07">*</span> S.k1<span style="color: #93A1A1">,</span> Ii <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">2</span> <span style="color: #719e07">*</span> I.k1<span style="color: #93A1A1">)</span>
-    Erec <span style="color: #719e07">&lt;-</span> rec.rate<span style="color: #93A1A1">(</span>i <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">2</span><span style="color: #93A1A1">,</span> Ii <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">2</span> <span style="color: #719e07">*</span> I.k1<span style="color: #93A1A1">)</span>
-    Eilos <span style="color: #719e07">&lt;-</span> ilos.rate<span style="color: #93A1A1">(</span>i <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">2</span><span style="color: #93A1A1">,</span> Si <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">2</span> <span style="color: #719e07">*</span> S.k1<span style="color: #93A1A1">,</span> Ii <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">2</span> <span style="color: #719e07">*</span> I.k1<span style="color: #93A1A1">)</span>
-    S.k2 <span style="color: #719e07">&lt;-</span> Eilos <span style="color: #719e07">-</span> Einf
-    I.k2 <span style="color: #719e07">&lt;-</span> Einf <span style="color: #719e07">-</span> Erec
-    CI.k2 <span style="color: #719e07">&lt;-</span> Einf
+    Einf &lt;- inf.rate(i + dt / 2, Si + dt / 2 * S.k1, Ii + dt / 2 * I.k1)
+    Erec &lt;- rec.rate(i + dt / 2, Ii + dt / 2 * I.k1)
+    Eilos &lt;- ilos.rate(i + dt / 2, Si + dt / 2 * S.k1, Ii + dt / 2 * I.k1)
+    S.k2 &lt;- Eilos - Einf
+    I.k2 &lt;- Einf - Erec
+    CI.k2 &lt;- Einf
     
-    Einf <span style="color: #719e07">&lt;-</span> inf.rate<span style="color: #93A1A1">(</span>i <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">2</span><span style="color: #93A1A1">,</span> Si <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">2</span> <span style="color: #719e07">*</span> S.k2<span style="color: #93A1A1">,</span> Ii <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">2</span> <span style="color: #719e07">*</span> I.k2<span style="color: #93A1A1">)</span>
-    Erec <span style="color: #719e07">&lt;-</span> rec.rate<span style="color: #93A1A1">(</span>i <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">2</span><span style="color: #93A1A1">,</span> Ii <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">2</span> <span style="color: #719e07">*</span> I.k2<span style="color: #93A1A1">)</span>
-    Eilos <span style="color: #719e07">&lt;-</span> ilos.rate<span style="color: #93A1A1">(</span>i <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">2</span><span style="color: #93A1A1">,</span> Si <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">2</span> <span style="color: #719e07">*</span> S.k2<span style="color: #93A1A1">,</span> Ii <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">2</span> <span style="color: #719e07">*</span> I.k2<span style="color: #93A1A1">)</span>
-    S.k3 <span style="color: #719e07">&lt;-</span> Eilos <span style="color: #719e07">-</span> Einf
-    I.k3 <span style="color: #719e07">&lt;-</span> Einf <span style="color: #719e07">-</span> Erec
-    CI.k3 <span style="color: #719e07">&lt;-</span> Einf
+    Einf &lt;- inf.rate(i + dt / 2, Si + dt / 2 * S.k2, Ii + dt / 2 * I.k2)
+    Erec &lt;- rec.rate(i + dt / 2, Ii + dt / 2 * I.k2)
+    Eilos &lt;- ilos.rate(i + dt / 2, Si + dt / 2 * S.k2, Ii + dt / 2 * I.k2)
+    S.k3 &lt;- Eilos - Einf
+    I.k3 &lt;- Einf - Erec
+    CI.k3 &lt;- Einf
     
-    Einf <span style="color: #719e07">&lt;-</span> inf.rate<span style="color: #93A1A1">(</span>i <span style="color: #719e07">+</span> dt<span style="color: #93A1A1">,</span> Si <span style="color: #719e07">+</span> dt <span style="color: #719e07">*</span> S.k3<span style="color: #93A1A1">,</span> Ii <span style="color: #719e07">+</span> dt <span style="color: #719e07">*</span> I.k3<span style="color: #93A1A1">)</span>
-    Erec <span style="color: #719e07">&lt;-</span> rec.rate<span style="color: #93A1A1">(</span>i <span style="color: #719e07">+</span> dt<span style="color: #93A1A1">,</span> Ii <span style="color: #719e07">+</span> dt <span style="color: #719e07">*</span> I.k3<span style="color: #93A1A1">)</span>
-    Eilos <span style="color: #719e07">&lt;-</span> ilos.rate<span style="color: #93A1A1">(</span>i <span style="color: #719e07">+</span> dt<span style="color: #93A1A1">,</span> Si <span style="color: #719e07">+</span> dt <span style="color: #719e07">*</span> S.k3<span style="color: #93A1A1">,</span> Ii <span style="color: #719e07">+</span> dt <span style="color: #719e07">*</span> I.k3<span style="color: #93A1A1">)</span>
-    S.k4 <span style="color: #719e07">&lt;-</span> Eilos <span style="color: #719e07">-</span> Einf
-    I.k4 <span style="color: #719e07">&lt;-</span> Einf <span style="color: #719e07">-</span> Erec
-    CI.k4 <span style="color: #719e07">&lt;-</span> Einf
+    Einf &lt;- inf.rate(i + dt, Si + dt * S.k3, Ii + dt * I.k3)
+    Erec &lt;- rec.rate(i + dt, Ii + dt * I.k3)
+    Eilos &lt;- ilos.rate(i + dt, Si + dt * S.k3, Ii + dt * I.k3)
+    S.k4 &lt;- Eilos - Einf
+    I.k4 &lt;- Einf - Erec
+    CI.k4 &lt;- Einf
     
-    S<span style="color: #93A1A1">[</span>i <span style="color: #719e07">+</span> <span style="color: #2AA198">1</span><span style="color: #93A1A1">]</span> <span style="color: #719e07">&lt;-</span> Si <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">6</span> <span style="color: #719e07">*</span> <span style="color: #93A1A1">(</span>S.k1 <span style="color: #719e07">+</span> <span style="color: #2AA198">2</span> <span style="color: #719e07">*</span> S.k2 <span style="color: #719e07">+</span> <span style="color: #2AA198">2</span> <span style="color: #719e07">*</span> S.k3 <span style="color: #719e07">+</span> S.k4<span style="color: #93A1A1">)</span>
-    <span style="color: #719e07">I</span><span style="color: #93A1A1">[</span>i <span style="color: #719e07">+</span> <span style="color: #2AA198">1</span><span style="color: #93A1A1">]</span> <span style="color: #719e07">&lt;-</span> Ii <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">6</span> <span style="color: #719e07">*</span> <span style="color: #93A1A1">(</span>I.k1 <span style="color: #719e07">+</span> <span style="color: #2AA198">2</span> <span style="color: #719e07">*</span> I.k2 <span style="color: #719e07">+</span> <span style="color: #2AA198">2</span> <span style="color: #719e07">*</span> I.k3 <span style="color: #719e07">+</span> I.k4<span style="color: #93A1A1">)</span>
-    CI<span style="color: #93A1A1">[</span>i <span style="color: #719e07">+</span> <span style="color: #2AA198">1</span><span style="color: #93A1A1">]</span> <span style="color: #719e07">&lt;-</span> CIi <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">6</span> <span style="color: #719e07">*</span> <span style="color: #93A1A1">(</span>CI.k1 <span style="color: #719e07">+</span> <span style="color: #2AA198">2</span> <span style="color: #719e07">*</span> CI.k2 <span style="color: #719e07">+</span> <span style="color: #2AA198">2</span> <span style="color: #719e07">*</span> CI.k3 <span style="color: #719e07">+</span> CI.k4<span style="color: #93A1A1">)</span>
-  <span style="color: #93A1A1">}</span>
-  R <span style="color: #719e07">&lt;-</span> N <span style="color: #719e07">-</span> S <span style="color: #719e07">-</span> <span style="color: #719e07">I</span>
+    S[i + 1] &lt;- Si + dt / 6 * (S.k1 + 2 * S.k2 + 2 * S.k3 + S.k4)
+    I[i + 1] &lt;- Ii + dt / 6 * (I.k1 + 2 * I.k2 + 2 * I.k3 + I.k4)
+    CI[i + 1] &lt;- CIi + dt / 6 * (CI.k1 + 2 * CI.k2 + 2 * CI.k3 + CI.k4)
+  }
+  R &lt;- N - S - I
   
-  <span style="color: #268BD2">if</span> <span style="color: #93A1A1">(</span><span style="color: #719e07">!</span>incidence<span style="color: #93A1A1">)</span> <span style="color: #93A1A1">{</span>
-    <span style="color: #268BD2">return</span><span style="color: #93A1A1">(</span><span style="color: #DC322F">data.frame</span><span style="color: #93A1A1">(</span>n <span style="color: #719e07">=</span> <span style="color: #2AA198">0</span> <span style="color: #719e07">:</span> n<span style="color: #93A1A1">,</span> S <span style="color: #719e07">=</span> S<span style="color: #93A1A1">,</span> I <span style="color: #719e07">=</span> <span style="color: #719e07">I</span><span style="color: #93A1A1">,</span> R <span style="color: #719e07">=</span> R<span style="color: #93A1A1">))</span>
-  <span style="color: #93A1A1">}</span> <span style="color: #268BD2">else</span> <span style="color: #93A1A1">{</span>
-    <span style="color: #586E75"># newly infected per day (incidence)</span>
-    inc <span style="color: #719e07">=</span> <span style="color: #DC322F">c</span><span style="color: #93A1A1">(</span>I0<span style="color: #93A1A1">,</span> <span style="color: #719e07">diff</span><span style="color: #93A1A1">(</span>CI<span style="color: #93A1A1">))</span>
-    <span style="color: #268BD2">return</span><span style="color: #93A1A1">(</span><span style="color: #DC322F">data.frame</span><span style="color: #93A1A1">(</span>n <span style="color: #719e07">=</span> <span style="color: #2AA198">0</span> <span style="color: #719e07">:</span> n<span style="color: #93A1A1">,</span> S <span style="color: #719e07">=</span> S<span style="color: #93A1A1">,</span> I <span style="color: #719e07">=</span> <span style="color: #719e07">I</span><span style="color: #93A1A1">,</span> R <span style="color: #719e07">=</span> R<span style="color: #93A1A1">,</span> inc <span style="color: #719e07">=</span> inc<span style="color: #93A1A1">,</span> cum.inc <span style="color: #719e07">=</span> CI<span style="color: #93A1A1">))</span>
-  <span style="color: #93A1A1">}</span>
-<span style="color: #93A1A1">}</span>
-</pre></div>
-
-<h3 id="1-3-rk4-function">1.3 <code>rk4</code> function</h3>
-
+  if (!incidence) {
+    return(data.frame(n = 0:n, S = S, I = I, R = R))
+  } else {
+    # newly infected per day (incidence)
+    inc = c(I0, diff(CI))
+    return(data.frame(n = 0:n, S = S, I = I, R = R, inc = inc, cum.inc = CI))
+  }
+}</code></pre>
+</div>
+<div id="rk4-function" class="section level3">
+<h3>1.3 <code>rk4</code> function</h3>
 <p>Using <code>rk4</code> function from <code>deSolve</code> package to solve SIRS model only needs to redefine the model and the vector of parameters used in SIRS model.</p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span><span style="color: #586E75"># vector of parameters used in SIRS model</span>
-params <span style="color: #719e07">&lt;-</span> <span style="color: #DC322F">c</span><span style="color: #93A1A1">(</span>beta <span style="color: #719e07">=</span> <span style="color: #719e07">beta</span><span style="color: #93A1A1">,</span> gamma <span style="color: #719e07">=</span> <span style="color: #719e07">gamma</span><span style="color: #93A1A1">,</span> f <span style="color: #719e07">=</span> f<span style="color: #93A1A1">)</span>
-<span style="color: #586E75"># definition of SIRS model</span>
-SIRS <span style="color: #719e07">&lt;-</span> <span style="color: #268BD2">function</span><span style="color: #93A1A1">(</span><span style="color: #719e07">t</span><span style="color: #93A1A1">,</span> y<span style="color: #93A1A1">,</span> params<span style="color: #93A1A1">)</span> <span style="color: #93A1A1">{</span>
-  <span style="color: #719e07">with</span><span style="color: #93A1A1">(</span><span style="color: #719e07">as.list</span><span style="color: #93A1A1">(</span><span style="color: #DC322F">c</span><span style="color: #93A1A1">(</span>params<span style="color: #93A1A1">,</span> y<span style="color: #93A1A1">)),</span> <span style="color: #93A1A1">{</span>
-    dS <span style="color: #719e07">&lt;-</span> f <span style="color: #719e07">*</span> R <span style="color: #719e07">-</span> beta <span style="color: #719e07">*</span> S <span style="color: #719e07">*</span> I <span style="color: #719e07">/</span> N
-    dI <span style="color: #719e07">&lt;-</span> beta <span style="color: #719e07">*</span> S <span style="color: #719e07">*</span> I <span style="color: #719e07">/</span> N <span style="color: #719e07">-</span> gamma <span style="color: #719e07">*</span> <span style="color: #719e07">I</span>
-    dR <span style="color: #719e07">&lt;-</span> gamma <span style="color: #719e07">*</span> I <span style="color: #719e07">-</span> f <span style="color: #719e07">*</span> R
-    <span style="color: #DC322F">list</span><span style="color: #93A1A1">(</span><span style="color: #DC322F">c</span><span style="color: #93A1A1">(</span>dS<span style="color: #93A1A1">,</span> dI<span style="color: #93A1A1">,</span> dR<span style="color: #93A1A1">))</span>
-  <span style="color: #93A1A1">})</span>
-<span style="color: #93A1A1">}</span>
-</pre></div>
+<pre class="r"><code># vector of parameters used in SIRS model
+params &lt;- c(beta = beta, gamma = gamma, f = f)
+# definition of SIRS model
+SIRS &lt;- function(t, y, params) {
+  with(as.list(c(params, y)), {
+    dS &lt;- f * R - beta * S * I / N
+    dI &lt;- beta * S * I / N - gamma * I
+    dR &lt;- gamma * I - f * R
+    list(c(dS, dI, dR))
+  })
+}</code></pre>
+<p>The above three functions are tested with the same study case of the spread of Hong Kong flu in New York city and they all give the same results. Note that the parameter <span class="math inline">\(f = \frac{1}{L} = \frac{1}{3.86 \times 365}\)</span> comes from the parameters combination for generation of synthetic truth in <a href="http://www.pnas.org/content/109/50/20425.abstract">Shaman and Karspeck (2012)</a>. Here, only results given by <code>RK4SIRS</code> function are presented to avoid redundancy.</p>
+<pre class="r"><code># simulate the spread of Hong Kong flu of NYC
+S0 &lt;- 7900000
+I0 &lt;- 10
+beta &lt;- 1 / 2
+gamma &lt;- 1 / 3  # gamma = 1 / D
+f &lt;- 1 / (3.86 * 365)  # L = 3.86 years, f = 1 / L
+n &lt;- 200
 
-<p>The above three functions are tested with the same study case of the spread of Hong Kong flu in New York city and they all give the same results. Note that the parameter $f = \frac{1}{L} = \frac{1}{3.86 \times 365}$ comes from the parameters combination for generation of synthetic truth in <a href="http://www.pnas.org/content/109/50/20425.abstract" target="_blank">Shaman and Karspeck (2012)</a>. Here, only results given by <code>RK4SIRS</code> function are presented to avoid redundancy.</p>
-
-<p><img src="http://tonytsai.name/materials/SIRS_files/figure-html/unnamed-chunk-5-1.png" alt="" /></p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span><span style="color: #586E75"># peak of the infected</span>
-<span style="color: #719e07">which.max</span><span style="color: #93A1A1">(</span>r<span style="color: #719e07">$I</span><span style="color: #93A1A1">)</span>
-</pre></div>
-
-<pre><code>## [1] 75
-</code></pre>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span><span style="color: #719e07">max</span><span style="color: #93A1A1">(</span>r<span style="color: #719e07">$I</span><span style="color: #93A1A1">)</span>
-</pre></div>
-
-<pre><code>## [1] 499451.1
-</code></pre>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span><span style="color: #586E75"># peak of incidence</span>
-<span style="color: #719e07">which.max</span><span style="color: #93A1A1">(</span>r<span style="color: #719e07">$</span>inc<span style="color: #93A1A1">)</span>
-</pre></div>
-
-<pre><code>## [1] 73
-</code></pre>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span><span style="color: #719e07">max</span><span style="color: #93A1A1">(</span>r<span style="color: #719e07">$</span>inc<span style="color: #93A1A1">)</span>
-</pre></div>
-
-<pre><code>## [1] 174175.2
-</code></pre>
-
-<h3 id="1-4-benchmark">1.4 Benchmark</h3>
-
+r &lt;- RK4SIRS(n, beta, gamma, f, S0, I0, incidence = TRUE)
+# plot S, I, R curves
+library(reshape2)
+r.plot &lt;- melt(r, id = &quot;n&quot;, measure = c(&quot;S&quot;, &quot;I&quot;, &quot;R&quot;, &quot;inc&quot;, &quot;cum.inc&quot;))
+library(ggplot2)
+p &lt;- ggplot(r.plot, aes(x = n, y = value, group = variable, color = variable))
+p + geom_line() + 
+  scale_colour_discrete(name = &quot;Legend&quot;, 
+                        breaks = c(&quot;S&quot;, &quot;I&quot;, &quot;R&quot;, &quot;inc&quot;, &quot;cum.inc&quot;), 
+                        labels = c(&quot;Susceptible&quot;, &quot;Infected &quot;, &quot;Recovered&quot;, &quot;Incidence&quot;, 
+                                   &quot;Cumulative incidence&quot;)) + 
+  ggtitle(&quot;Spread of Hong Kong Flu in New York City&quot;)</code></pre>
+<p><img src="/post/2014-12-04-sirs-model-with-time-dependent-transmission-rate_files/figure-html/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code># peak of the infected
+which.max(r$I)</code></pre>
+<pre><code>## [1] 75</code></pre>
+<pre class="r"><code>max(r$I)</code></pre>
+<pre><code>## [1] 499451.1</code></pre>
+<pre class="r"><code># peak of incidence
+which.max(r$inc)</code></pre>
+<pre><code>## [1] 73</code></pre>
+<pre class="r"><code>max(r$inc)</code></pre>
+<pre><code>## [1] 174175.2</code></pre>
+</div>
+<div id="benchmark" class="section level3">
+<h3>1.4 Benchmark</h3>
 <p><code>RK4SIRS.std</code>, <code>RK4SIRS</code> and <code>rk4</code> are separately runned 1000 times for benchmark performance analysis.</p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>compare <span style="color: #719e07">&lt;-</span> microbenchmark<span style="color: #93A1A1">(</span>rk4<span style="color: #93A1A1">(</span>y0<span style="color: #93A1A1">,</span> times<span style="color: #93A1A1">,</span> SIRS<span style="color: #93A1A1">,</span> params<span style="color: #93A1A1">),</span> 
-                          RK4SIRS<span style="color: #93A1A1">(</span>n<span style="color: #93A1A1">,</span> <span style="color: #719e07">beta</span><span style="color: #93A1A1">,</span> <span style="color: #719e07">gamma</span><span style="color: #93A1A1">,</span> f<span style="color: #93A1A1">,</span> S0<span style="color: #93A1A1">,</span> I0<span style="color: #93A1A1">,</span> incidence <span style="color: #719e07">=</span> <span style="color: #CB4B16">TRUE</span><span style="color: #93A1A1">),</span> 
-                          RK4SIRS.std<span style="color: #93A1A1">(</span>n<span style="color: #93A1A1">,</span> <span style="color: #719e07">beta</span><span style="color: #93A1A1">,</span> <span style="color: #719e07">gamma</span><span style="color: #93A1A1">,</span> f<span style="color: #93A1A1">,</span> S0<span style="color: #93A1A1">,</span> I0<span style="color: #93A1A1">,</span> incidence <span style="color: #719e07">=</span> <span style="color: #CB4B16">TRUE</span><span style="color: #93A1A1">),</span> 
-                          times <span style="color: #719e07">=</span> <span style="color: #2AA198">10</span><span style="color: #93A1A1">)</span>
-</pre></div>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>compare
-</pre></div>
-
+<pre class="r"><code>####
+library(deSolve)
+# initial (state) values for SIR model
+y0 &lt;- c(S = S0, I = I0, R = 0)
+# vector of time steps
+times &lt;- 0:n
+# vector of parameters used in SIRS model
+params &lt;- c(beta = beta, gamma = gamma, f = f)
+# definition of SIRS model
+SIRS &lt;- function(t, y, params) {
+  with(as.list(c(params, y)), {
+    dS &lt;- f * R - beta * S * I / N
+    dI &lt;- beta * S * I / N - gamma * I
+    dR &lt;- gamma * I - f * R
+    list(c(dS, dI, dR))
+  })
+}
+####</code></pre>
+<pre class="r"><code># benchmark
+library(microbenchmark)
+compare &lt;- microbenchmark(rk4(y0, times, SIRS, params), 
+                          RK4SIRS(n, beta, gamma, f, S0, I0, incidence = TRUE), 
+                          RK4SIRS.std(n, beta, gamma, f, S0, I0, incidence = TRUE), 
+                          times = 10)
+# change expr for display
+compare$expr &lt;- gsub(&quot;rk4(y0, times, SIRS, params)&quot;, &quot;rk4&quot;, 
+                     compare$expr, fixed = TRUE)
+compare$expr &lt;- gsub(&quot;RK4SIRS(n, beta, gamma, f, S0, I0, incidence = TRUE)&quot;, &quot;RK4SIRS&quot;, 
+                     compare$expr, fixed = TRUE)
+compare$expr &lt;- gsub(&quot;RK4SIRS.std(n, beta, gamma, f, S0, I0, incidence = TRUE)&quot;, 
+                     &quot;RK4SIRS.std&quot;, compare$expr, fixed = TRUE)
+compare</code></pre>
 <pre><code>## Unit: milliseconds
 ##         expr       min        lq      mean    median        uq       max
-##          rk4 27.804584 29.519107 30.347914 30.938286 31.275767 32.472944
-##      RK4SIRS  6.015463  6.542592  7.377228  7.411822  8.341024  8.769777
-##  RK4SIRS.std  8.610047  9.109195  9.961587  9.599131 10.197847 12.959678
+##          rk4 20.799931 21.996299 30.331371 22.510846 24.255553 90.442877
+##      RK4SIRS  2.746910  2.823056  3.141078  2.935857  3.047888  4.316303
+##  RK4SIRS.std  4.224989  4.318835 13.094657  4.345218  4.575705 91.390604
 ##  neval
 ##     10
 ##     10
-##     10
-</code></pre>
-
-<p><img src="http://tonytsai.name/materials/SIRS_files/figure-html/unnamed-chunk-11-1.png" alt="" />
-As shown in the above figure, <code>RK4SIRS</code> function runs the fastest. Subsequently, SIRS model will be solved in simplified form \eqref{eq:2}.</p>
-
-<h3 id="1-5-basic-reproductive-number-r-0">1.5 Basic Reproductive Number $R_0$</h3>
-
-<p>Technically, the <a href="http://en.wikipedia.org/wiki/Basic_reproduction_number" target="_blank">basic reproductive number</a> $R_0$ is defined as the number of secondary infections caused by a single infective introduced into a population made up entirely of susceptible individuals over the course of the infection of this single infective. For the susceptible population ($S_0 \approx N$), this infective individual makes $\beta$ contacts per unit time producing new infections with a mean infectious period of $D$. Therefore, the basic reproduction number is
-$$
+##     10</code></pre>
+<pre class="r"><code># plot comparing results
+library(ggplot2)
+p &lt;- autoplot(compare)
+p + geom_violin(aes(color = expr, fill = expr)) + 
+  theme(legend.position = &quot;none&quot;)</code></pre>
+<p><img src="/post/2014-12-04-sirs-model-with-time-dependent-transmission-rate_files/figure-html/unnamed-chunk-9-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>As shown in the above figure, <code>RK4SIRS</code> function runs the fastest. Subsequently, SIRS model will be solved in simplified form .</p>
+</div>
+<div id="basic-reproductive-number-r_0" class="section level3">
+<h3>1.5 Basic Reproductive Number <span class="math inline">\(R_0\)</span></h3>
+<p>Technically, the <a href="http://en.wikipedia.org/wiki/Basic_reproduction_number">basic reproductive number</a> <span class="math inline">\(R_0\)</span> is defined as the number of secondary infections caused by a single infective introduced into a population made up entirely of susceptible individuals over the course of the infection of this single infective. For the susceptible population (<span class="math inline">\(S_0 \approx N\)</span>), this infective individual makes <span class="math inline">\(\beta\)</span> contacts per unit time producing new infections with a mean infectious period of <span class="math inline">\(D\)</span>. Therefore, the basic reproduction number is <span class="math display">\[
 \begin{equation} \label{eq4}
   R_0 = \beta D = \frac{\beta}{\gamma}
 \end{equation}
-$$</p>
-
+\]</span></p>
 <p>Actually, the basic reproductive number is often compared to <strong>1</strong> to determine whether an epidemic occurs or the disease simply dies out.</p>
-
-<h2 id="2-time-dependent-transmission-rate-beta-t">2 Time Dependent Transmission Rate $\beta(t)$</h2>
-
-<p>Equation $(6)$ in <strong>Effects of Absolute Humidity on Influenza Virus</strong> shows the relationship between basic reproductive number $R_0(t)$ and specific humidity $q(t)$ at time $t$. Combining with equation $(\ref{eq4})$, it&rsquo;s easy to deduce that transmission rate $\beta$ is also modulated by specific humidity $q$ and time dependent. Hence, replacing the constant $\beta$ in ODEs $(\ref{eq2})$ with time dependent $\beta (t)$ can make SIRS model more reasonable. The resulting SIRS model with time dependent transmission rate $\beta (t)$ is expressed as follow
-$$
+</div>
+</div>
+<div id="time-dependent-transmission-rate-betat" class="section level2">
+<h2>2 Time Dependent Transmission Rate <span class="math inline">\(\beta(t)\)</span></h2>
+<p>Equation (4) in <a href="http://www.plosbiology.org/article/info%3Adoi%2F10.1371%2Fjournal.pbio.1000316">Shaman et al. (2010)</a> shows the relationship between basic reproductive number <span class="math inline">\(R_0(t)\)</span> and specific humidity <span class="math inline">\(q(t)\)</span> at time <span class="math inline">\(t\)</span>. Combining with equation <span class="math inline">\((\ref{eq4})\)</span>, it’s easy to deduce that transmission rate <span class="math inline">\(\beta\)</span> is also modulated by specific humidity <span class="math inline">\(q\)</span> and time dependent. Hence, replacing the constant <span class="math inline">\(\beta\)</span> in ODEs <span class="math inline">\((\ref{eq2})\)</span> with time dependent <span class="math inline">\(\beta (t)\)</span> can make SIRS model more reasonable. The resulting SIRS model with time dependent transmission rate <span class="math inline">\(\beta (t)\)</span> is expressed as follow <span class="math display">\[
 \begin{equation}
 \begin{aligned} \label{eq:5}
-  &amp; \frac{dS}{dt} = f(N - S - I) - \frac{\beta (t) SI}{N} <br />
+  &amp; \frac{dS}{dt} = f(N - S - I) - \frac{\beta (t) SI}{N} \\
   &amp; \frac{dI}{dt} = \frac{\beta (t) SI}{N} - \gamma I
 \end{aligned}
 \end{equation}
-$$</p>
+\]</span></p>
+<div id="implementation" class="section level3">
+<h3>2.1 Implementation</h3>
+<p>The <strong>RK4</strong> method for numerical integration of SIRS model with time dependent transmission rate <span class="math inline">\(\beta(t)\)</span> can be easily implemented by adding parameters to helper event functions.</p>
+<pre class="r"><code># define infection rate
+inf.rate &lt;- function(t, beta, S, I) {
+  return(beta * S * I / N)
+}
 
-<h3 id="2-1-implementation">2.1 Implementation</h3>
+# define recovery rate
+rec.rate &lt;- function(t, gamma, I) {
+  return(gamma * I)
+}
 
-<p>The <strong>RK4</strong> method for numerical integration of SIRS model with time dependent transmission rate $\beta(t)$ can be easily implemented by adding parameters to helper event functions.</p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span><span style="color: #586E75"># define infection rate</span>
-inf.rate <span style="color: #719e07">&lt;-</span> <span style="color: #268BD2">function</span><span style="color: #93A1A1">(</span><span style="color: #719e07">t</span><span style="color: #93A1A1">,</span> <span style="color: #719e07">beta</span><span style="color: #93A1A1">,</span> S<span style="color: #93A1A1">,</span> <span style="color: #719e07">I</span><span style="color: #93A1A1">)</span> <span style="color: #93A1A1">{</span>
-  <span style="color: #268BD2">return</span><span style="color: #93A1A1">(</span>beta <span style="color: #719e07">*</span> S <span style="color: #719e07">*</span> I <span style="color: #719e07">/</span> N<span style="color: #93A1A1">)</span>
-<span style="color: #93A1A1">}</span>
+# define immunity loss rate
+ilos.rate &lt;- function(t, f, S, I) {
+  return(f * (N - S - I))
+}
 
-<span style="color: #586E75"># define recovery rate</span>
-rec.rate <span style="color: #719e07">&lt;-</span> <span style="color: #268BD2">function</span><span style="color: #93A1A1">(</span><span style="color: #719e07">t</span><span style="color: #93A1A1">,</span> <span style="color: #719e07">gamma</span><span style="color: #93A1A1">,</span> <span style="color: #719e07">I</span><span style="color: #93A1A1">)</span> <span style="color: #93A1A1">{</span>
-  <span style="color: #268BD2">return</span><span style="color: #93A1A1">(</span>gamma <span style="color: #719e07">*</span> <span style="color: #719e07">I</span><span style="color: #93A1A1">)</span>
-<span style="color: #93A1A1">}</span>
-
-<span style="color: #586E75"># define immunity loss rate</span>
-ilos.rate <span style="color: #719e07">&lt;-</span> <span style="color: #268BD2">function</span><span style="color: #93A1A1">(</span><span style="color: #719e07">t</span><span style="color: #93A1A1">,</span> f<span style="color: #93A1A1">,</span> S<span style="color: #93A1A1">,</span> <span style="color: #719e07">I</span><span style="color: #93A1A1">)</span> <span style="color: #93A1A1">{</span>
-  <span style="color: #268BD2">return</span><span style="color: #93A1A1">(</span>f <span style="color: #719e07">*</span> <span style="color: #93A1A1">(</span>N <span style="color: #719e07">-</span> S <span style="color: #719e07">-</span> <span style="color: #719e07">I</span><span style="color: #93A1A1">))</span>
-<span style="color: #93A1A1">}</span>
-
-<span style="color: #586E75"># beta is a numeric vector of length n or 1</span>
-RK4SIRS <span style="color: #719e07">&lt;-</span> <span style="color: #268BD2">function</span><span style="color: #93A1A1">(</span>n<span style="color: #93A1A1">,</span> <span style="color: #719e07">beta</span><span style="color: #93A1A1">,</span> <span style="color: #719e07">gamma</span><span style="color: #93A1A1">,</span> f<span style="color: #93A1A1">,</span> S0<span style="color: #93A1A1">,</span> I0<span style="color: #93A1A1">,</span> R0 <span style="color: #719e07">=</span> <span style="color: #2AA198">0</span><span style="color: #93A1A1">,</span> dt <span style="color: #719e07">=</span> <span style="color: #2AA198">1</span><span style="color: #93A1A1">,</span> incidence <span style="color: #719e07">=</span> <span style="color: #CB4B16">FALSE</span><span style="color: #93A1A1">)</span> <span style="color: #93A1A1">{</span>
-  N <span style="color: #719e07">&lt;&lt;-</span> S0 <span style="color: #719e07">+</span> I0 <span style="color: #719e07">+</span> R0
+# beta is a numeric vector of length n or 1
+RK4SIRS &lt;- function(n, beta, gamma, f, S0, I0, R0 = 0, dt = 1, incidence = FALSE) {
+  N &lt;&lt;- S0 + I0 + R0
   
-  S <span style="color: #719e07">&lt;-</span> <span style="color: #DC322F">c</span><span style="color: #93A1A1">(</span>S0<span style="color: #93A1A1">,</span> <span style="color: #719e07">rep</span><span style="color: #93A1A1">(</span><span style="color: #2AA198">0</span><span style="color: #93A1A1">,</span> n<span style="color: #93A1A1">))</span>
-  I <span style="color: #719e07">&lt;-</span> <span style="color: #DC322F">c</span><span style="color: #93A1A1">(</span>I0<span style="color: #93A1A1">,</span> <span style="color: #719e07">rep</span><span style="color: #93A1A1">(</span><span style="color: #2AA198">0</span><span style="color: #93A1A1">,</span> n<span style="color: #93A1A1">))</span>
-  R <span style="color: #719e07">&lt;-</span> <span style="color: #DC322F">c</span><span style="color: #93A1A1">(</span>R0<span style="color: #93A1A1">,</span> <span style="color: #719e07">rep</span><span style="color: #93A1A1">(</span><span style="color: #2AA198">0</span><span style="color: #93A1A1">,</span> n<span style="color: #93A1A1">))</span>
-  CI <span style="color: #719e07">&lt;-</span> <span style="color: #DC322F">c</span><span style="color: #93A1A1">(</span>I0<span style="color: #93A1A1">,</span> <span style="color: #719e07">rep</span><span style="color: #93A1A1">(</span><span style="color: #2AA198">0</span><span style="color: #93A1A1">,</span> n<span style="color: #93A1A1">))</span>  <span style="color: #586E75"># cummulative incidence</span>
-  <span style="color: #268BD2">for</span> <span style="color: #93A1A1">(</span>i <span style="color: #268BD2">in</span> <span style="color: #2AA198">1</span><span style="color: #719e07">:</span>n<span style="color: #93A1A1">)</span> <span style="color: #93A1A1">{</span>
-    bti <span style="color: #719e07">&lt;-</span> <span style="color: #719e07">beta</span><span style="color: #93A1A1">[</span>i<span style="color: #93A1A1">]</span>
-    Si <span style="color: #719e07">&lt;-</span> S<span style="color: #93A1A1">[</span>i<span style="color: #93A1A1">]</span>
-    Ii <span style="color: #719e07">&lt;-</span> <span style="color: #719e07">I</span><span style="color: #93A1A1">[</span>i<span style="color: #93A1A1">]</span>
-    CIi <span style="color: #719e07">&lt;-</span> CI<span style="color: #93A1A1">[</span>i<span style="color: #93A1A1">]</span>
+  S &lt;- c(S0, rep(0, n))
+  I &lt;- c(I0, rep(0, n))
+  R &lt;- c(R0, rep(0, n))
+  CI &lt;- c(I0, rep(0, n))  # cummulative incidence
+  for (i in 1:n) {
+    bti &lt;- beta[i]
+    Si &lt;- S[i]
+    Ii &lt;- I[i]
+    CIi &lt;- CI[i]
     
-    Einf <span style="color: #719e07">&lt;-</span> inf.rate<span style="color: #93A1A1">(</span>i<span style="color: #93A1A1">,</span> bti<span style="color: #93A1A1">,</span> Si<span style="color: #93A1A1">,</span> Ii<span style="color: #93A1A1">)</span>  <span style="color: #586E75"># event of infection</span>
-    Erec <span style="color: #719e07">&lt;-</span> rec.rate<span style="color: #93A1A1">(</span>i<span style="color: #93A1A1">,</span> <span style="color: #719e07">gamma</span><span style="color: #93A1A1">,</span> Ii<span style="color: #93A1A1">)</span>  <span style="color: #586E75"># event of recovery</span>
-    Eilos <span style="color: #719e07">&lt;-</span> ilos.rate<span style="color: #93A1A1">(</span>i<span style="color: #93A1A1">,</span> f<span style="color: #93A1A1">,</span> Si<span style="color: #93A1A1">,</span> Ii<span style="color: #93A1A1">)</span>  <span style="color: #586E75"># event of immunity loss</span>
-    S.k1 <span style="color: #719e07">&lt;-</span> Eilos <span style="color: #719e07">-</span> Einf
-    I.k1 <span style="color: #719e07">&lt;-</span> Einf <span style="color: #719e07">-</span> Erec
-    CI.k1 <span style="color: #719e07">&lt;-</span> Einf
+    Einf &lt;- inf.rate(i, bti, Si, Ii)  # event of infection
+    Erec &lt;- rec.rate(i, gamma, Ii)  # event of recovery
+    Eilos &lt;- ilos.rate(i, f, Si, Ii)  # event of immunity loss
+    S.k1 &lt;- Eilos - Einf
+    I.k1 &lt;- Einf - Erec
+    CI.k1 &lt;- Einf
     
-    Einf <span style="color: #719e07">&lt;-</span> inf.rate<span style="color: #93A1A1">(</span>i <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">2</span><span style="color: #93A1A1">,</span> bti<span style="color: #93A1A1">,</span> Si <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">2</span> <span style="color: #719e07">*</span> S.k1<span style="color: #93A1A1">,</span> Ii <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">2</span> <span style="color: #719e07">*</span> I.k1<span style="color: #93A1A1">)</span>
-    Erec <span style="color: #719e07">&lt;-</span> rec.rate<span style="color: #93A1A1">(</span>i <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">2</span><span style="color: #93A1A1">,</span> <span style="color: #719e07">gamma</span><span style="color: #93A1A1">,</span> Ii <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">2</span> <span style="color: #719e07">*</span> I.k1<span style="color: #93A1A1">)</span>
-    Eilos <span style="color: #719e07">&lt;-</span> ilos.rate<span style="color: #93A1A1">(</span>i <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">2</span><span style="color: #93A1A1">,</span> f<span style="color: #93A1A1">,</span> Si <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">2</span> <span style="color: #719e07">*</span> S.k1<span style="color: #93A1A1">,</span> Ii <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">2</span> <span style="color: #719e07">*</span> I.k1<span style="color: #93A1A1">)</span>
-    S.k2 <span style="color: #719e07">&lt;-</span> Eilos <span style="color: #719e07">-</span> Einf
-    I.k2 <span style="color: #719e07">&lt;-</span> Einf <span style="color: #719e07">-</span> Erec
-    CI.k2 <span style="color: #719e07">&lt;-</span> Einf
+    Einf &lt;- inf.rate(i + dt / 2, bti, Si + dt / 2 * S.k1, Ii + dt / 2 * I.k1)
+    Erec &lt;- rec.rate(i + dt / 2, gamma, Ii + dt / 2 * I.k1)
+    Eilos &lt;- ilos.rate(i + dt / 2, f, Si + dt / 2 * S.k1, Ii + dt / 2 * I.k1)
+    S.k2 &lt;- Eilos - Einf
+    I.k2 &lt;- Einf - Erec
+    CI.k2 &lt;- Einf
     
-    Einf <span style="color: #719e07">&lt;-</span> inf.rate<span style="color: #93A1A1">(</span>i <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">2</span><span style="color: #93A1A1">,</span> bti<span style="color: #93A1A1">,</span> Si <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">2</span> <span style="color: #719e07">*</span> S.k2<span style="color: #93A1A1">,</span> Ii <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">2</span> <span style="color: #719e07">*</span> I.k2<span style="color: #93A1A1">)</span>
-    Erec <span style="color: #719e07">&lt;-</span> rec.rate<span style="color: #93A1A1">(</span>i <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">2</span><span style="color: #93A1A1">,</span> <span style="color: #719e07">gamma</span><span style="color: #93A1A1">,</span> Ii <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">2</span> <span style="color: #719e07">*</span> I.k2<span style="color: #93A1A1">)</span>
-    Eilos <span style="color: #719e07">&lt;-</span> ilos.rate<span style="color: #93A1A1">(</span>i <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">2</span><span style="color: #93A1A1">,</span> f<span style="color: #93A1A1">,</span> Si <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">2</span> <span style="color: #719e07">*</span> S.k2<span style="color: #93A1A1">,</span> Ii <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">2</span> <span style="color: #719e07">*</span> I.k2<span style="color: #93A1A1">)</span>
-    S.k3 <span style="color: #719e07">&lt;-</span> Eilos <span style="color: #719e07">-</span> Einf
-    I.k3 <span style="color: #719e07">&lt;-</span> Einf <span style="color: #719e07">-</span> Erec
-    CI.k3 <span style="color: #719e07">&lt;-</span> Einf
+    Einf &lt;- inf.rate(i + dt / 2, bti, Si + dt / 2 * S.k2, Ii + dt / 2 * I.k2)
+    Erec &lt;- rec.rate(i + dt / 2, gamma, Ii + dt / 2 * I.k2)
+    Eilos &lt;- ilos.rate(i + dt / 2, f, Si + dt / 2 * S.k2, Ii + dt / 2 * I.k2)
+    S.k3 &lt;- Eilos - Einf
+    I.k3 &lt;- Einf - Erec
+    CI.k3 &lt;- Einf
     
-    Einf <span style="color: #719e07">&lt;-</span> inf.rate<span style="color: #93A1A1">(</span>i <span style="color: #719e07">+</span> dt<span style="color: #93A1A1">,</span> bti<span style="color: #93A1A1">,</span> Si <span style="color: #719e07">+</span> dt <span style="color: #719e07">*</span> S.k3<span style="color: #93A1A1">,</span> Ii <span style="color: #719e07">+</span> dt <span style="color: #719e07">*</span> I.k3<span style="color: #93A1A1">)</span>
-    Erec <span style="color: #719e07">&lt;-</span> rec.rate<span style="color: #93A1A1">(</span>i <span style="color: #719e07">+</span> dt<span style="color: #93A1A1">,</span> <span style="color: #719e07">gamma</span><span style="color: #93A1A1">,</span> Ii <span style="color: #719e07">+</span> dt <span style="color: #719e07">*</span> I.k3<span style="color: #93A1A1">)</span>
-    Eilos <span style="color: #719e07">&lt;-</span> ilos.rate<span style="color: #93A1A1">(</span>i <span style="color: #719e07">+</span> dt<span style="color: #93A1A1">,</span> f<span style="color: #93A1A1">,</span> Si <span style="color: #719e07">+</span> dt <span style="color: #719e07">*</span> S.k3<span style="color: #93A1A1">,</span> Ii <span style="color: #719e07">+</span> dt <span style="color: #719e07">*</span> I.k3<span style="color: #93A1A1">)</span>
-    S.k4 <span style="color: #719e07">&lt;-</span> Eilos <span style="color: #719e07">-</span> Einf
-    I.k4 <span style="color: #719e07">&lt;-</span> Einf <span style="color: #719e07">-</span> Erec
-    CI.k4 <span style="color: #719e07">&lt;-</span> Einf
+    Einf &lt;- inf.rate(i + dt, bti, Si + dt * S.k3, Ii + dt * I.k3)
+    Erec &lt;- rec.rate(i + dt, gamma, Ii + dt * I.k3)
+    Eilos &lt;- ilos.rate(i + dt, f, Si + dt * S.k3, Ii + dt * I.k3)
+    S.k4 &lt;- Eilos - Einf
+    I.k4 &lt;- Einf - Erec
+    CI.k4 &lt;- Einf
     
-    S<span style="color: #93A1A1">[</span>i <span style="color: #719e07">+</span> <span style="color: #2AA198">1</span><span style="color: #93A1A1">]</span> <span style="color: #719e07">&lt;-</span> Si <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">6</span> <span style="color: #719e07">*</span> <span style="color: #93A1A1">(</span>S.k1 <span style="color: #719e07">+</span> <span style="color: #2AA198">2</span> <span style="color: #719e07">*</span> S.k2 <span style="color: #719e07">+</span> <span style="color: #2AA198">2</span> <span style="color: #719e07">*</span> S.k3 <span style="color: #719e07">+</span> S.k4<span style="color: #93A1A1">)</span>
-    <span style="color: #719e07">I</span><span style="color: #93A1A1">[</span>i <span style="color: #719e07">+</span> <span style="color: #2AA198">1</span><span style="color: #93A1A1">]</span> <span style="color: #719e07">&lt;-</span> Ii <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">6</span> <span style="color: #719e07">*</span> <span style="color: #93A1A1">(</span>I.k1 <span style="color: #719e07">+</span> <span style="color: #2AA198">2</span> <span style="color: #719e07">*</span> I.k2 <span style="color: #719e07">+</span> <span style="color: #2AA198">2</span> <span style="color: #719e07">*</span> I.k3 <span style="color: #719e07">+</span> I.k4<span style="color: #93A1A1">)</span>
-    CI<span style="color: #93A1A1">[</span>i <span style="color: #719e07">+</span> <span style="color: #2AA198">1</span><span style="color: #93A1A1">]</span> <span style="color: #719e07">&lt;-</span> CIi <span style="color: #719e07">+</span> dt <span style="color: #719e07">/</span> <span style="color: #2AA198">6</span> <span style="color: #719e07">*</span> <span style="color: #93A1A1">(</span>CI.k1 <span style="color: #719e07">+</span> <span style="color: #2AA198">2</span> <span style="color: #719e07">*</span> CI.k2 <span style="color: #719e07">+</span> <span style="color: #2AA198">2</span> <span style="color: #719e07">*</span> CI.k3 <span style="color: #719e07">+</span> CI.k4<span style="color: #93A1A1">)</span>
-  <span style="color: #93A1A1">}</span>
-  R <span style="color: #719e07">&lt;-</span> N <span style="color: #719e07">-</span> S <span style="color: #719e07">-</span> <span style="color: #719e07">I</span>
+    S[i + 1] &lt;- Si + dt / 6 * (S.k1 + 2 * S.k2 + 2 * S.k3 + S.k4)
+    I[i + 1] &lt;- Ii + dt / 6 * (I.k1 + 2 * I.k2 + 2 * I.k3 + I.k4)
+    CI[i + 1] &lt;- CIi + dt / 6 * (CI.k1 + 2 * CI.k2 + 2 * CI.k3 + CI.k4)
+  }
+  R &lt;- N - S - I
   
-  <span style="color: #268BD2">if</span> <span style="color: #93A1A1">(</span><span style="color: #719e07">!</span>incidence<span style="color: #93A1A1">)</span> <span style="color: #93A1A1">{</span>
-    <span style="color: #268BD2">return</span><span style="color: #93A1A1">(</span><span style="color: #DC322F">data.frame</span><span style="color: #93A1A1">(</span>n <span style="color: #719e07">=</span> <span style="color: #2AA198">0</span> <span style="color: #719e07">:</span> n<span style="color: #93A1A1">,</span> S <span style="color: #719e07">=</span> S<span style="color: #93A1A1">,</span> I <span style="color: #719e07">=</span> <span style="color: #719e07">I</span><span style="color: #93A1A1">,</span> R <span style="color: #719e07">=</span> R<span style="color: #93A1A1">))</span>
-  <span style="color: #93A1A1">}</span> <span style="color: #268BD2">else</span> <span style="color: #93A1A1">{</span>
-    <span style="color: #586E75"># newly infected per day (incidence)</span>
-    inc <span style="color: #719e07">=</span> <span style="color: #DC322F">c</span><span style="color: #93A1A1">(</span>I0<span style="color: #93A1A1">,</span> <span style="color: #719e07">diff</span><span style="color: #93A1A1">(</span>CI<span style="color: #93A1A1">))</span>
-    <span style="color: #268BD2">return</span><span style="color: #93A1A1">(</span><span style="color: #DC322F">data.frame</span><span style="color: #93A1A1">(</span>n <span style="color: #719e07">=</span> <span style="color: #2AA198">0</span> <span style="color: #719e07">:</span> n<span style="color: #93A1A1">,</span> S <span style="color: #719e07">=</span> S<span style="color: #93A1A1">,</span> I <span style="color: #719e07">=</span> <span style="color: #719e07">I</span><span style="color: #93A1A1">,</span> R <span style="color: #719e07">=</span> R<span style="color: #93A1A1">,</span> inc <span style="color: #719e07">=</span> inc<span style="color: #93A1A1">,</span> cum.inc <span style="color: #719e07">=</span> CI<span style="color: #93A1A1">))</span>
-  <span style="color: #93A1A1">}</span>
-<span style="color: #93A1A1">}</span>
-</pre></div>
+  if (!incidence) {
+    return(data.frame(n = 0:n, S = S, I = I, R = R))
+  } else {
+    # newly infected per day (incidence)
+    inc = c(I0, diff(CI))
+    return(data.frame(n = 0:n, S = S, I = I, R = R, inc = inc, cum.inc = CI))
+  }
+}</code></pre>
+</div>
+<div id="simulation" class="section level3">
+<h3>2.2 Simulation</h3>
+<p>The following simulation example is adapted from <em>Fig. 1a</em> in <a href="http://www.pnas.org/content/101/48/16915.abstract">Dushoff et al. (2004)</a>.</p>
+<pre class="r"><code>S0 &lt;- 500000
+I0 &lt;- 100  # I0 has little effect on the dynamic equilibrium
+R0 &lt;- 0
+N &lt;- S0 + I0 + R0
+L &lt;- 4  # yr
+f &lt;- 1 / L
+D &lt;- 0.02  # yr
+gamma &lt;- 1 / D
+dt &lt;- 0.01  # yr
+t &lt;- seq(from = 0, to = 20, by = dt)
+beta0 &lt;- 500  # persons per yr
+beta1 &lt;- 0.04
+beta &lt;- beta0 * (1 + beta1 * cos(2 * pi * t))
+n &lt;- length(t[-1])
 
-<h3 id="2-2-simulation">2.2 Simulation</h3>
-
-<p>The following simulation example is adapted from <em>Fig. 1a</em> in <a href="http://www.pnas.org/content/101/48/16915.abstract" target="_blank">Dushoff et al. (2004)</a>.</p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>S0 <span style="color: #719e07">&lt;-</span> <span style="color: #2AA198">500000</span>
-I0 <span style="color: #719e07">&lt;-</span> <span style="color: #2AA198">100</span>  <span style="color: #586E75"># I0 has little effect on the dynamic equilibrium</span>
-R0 <span style="color: #719e07">&lt;-</span> <span style="color: #2AA198">0</span>
-N <span style="color: #719e07">&lt;-</span> S0 <span style="color: #719e07">+</span> I0 <span style="color: #719e07">+</span> R0
-L <span style="color: #719e07">&lt;-</span> <span style="color: #2AA198">4</span>  <span style="color: #586E75"># yr</span>
-f <span style="color: #719e07">&lt;-</span> <span style="color: #2AA198">1</span> <span style="color: #719e07">/</span> L
-D <span style="color: #719e07">&lt;-</span> <span style="color: #2AA198">0.02</span>  <span style="color: #586E75"># yr</span>
-gamma <span style="color: #719e07">&lt;-</span> <span style="color: #2AA198">1</span> <span style="color: #719e07">/</span> D
-dt <span style="color: #719e07">=</span> <span style="color: #2AA198">0.01</span>  <span style="color: #586E75"># yr</span>
-t <span style="color: #719e07">=</span> <span style="color: #719e07">seq</span><span style="color: #93A1A1">(</span>from <span style="color: #719e07">=</span> <span style="color: #2AA198">0</span><span style="color: #93A1A1">,</span> to <span style="color: #719e07">=</span> <span style="color: #2AA198">20</span><span style="color: #93A1A1">,</span> by <span style="color: #719e07">=</span> dt<span style="color: #93A1A1">)</span>
-beta0 <span style="color: #719e07">&lt;-</span> <span style="color: #2AA198">500</span>  <span style="color: #586E75"># persons per yr</span>
-beta1 <span style="color: #719e07">&lt;-</span> <span style="color: #2AA198">0.04</span>
-beta <span style="color: #719e07">&lt;-</span> beta0 <span style="color: #719e07">*</span> <span style="color: #93A1A1">(</span><span style="color: #2AA198">1</span> <span style="color: #719e07">+</span> beta1 <span style="color: #719e07">*</span> <span style="color: #719e07">cos</span><span style="color: #93A1A1">(</span><span style="color: #2AA198">2</span> <span style="color: #719e07">*</span> <span style="color: #CB4B16">pi</span> <span style="color: #719e07">*</span> <span style="color: #719e07">t</span><span style="color: #93A1A1">))</span>
-n <span style="color: #719e07">&lt;-</span> <span style="color: #719e07">length</span><span style="color: #93A1A1">(</span><span style="color: #719e07">t</span><span style="color: #93A1A1">[</span><span style="color: #2AA198">-1</span><span style="color: #93A1A1">])</span>
-
-r <span style="color: #719e07">&lt;-</span> RK4SIRS<span style="color: #93A1A1">(</span>n<span style="color: #93A1A1">,</span> <span style="color: #719e07">beta</span><span style="color: #93A1A1">,</span> <span style="color: #719e07">gamma</span><span style="color: #93A1A1">,</span> S0<span style="color: #93A1A1">,</span> I0<span style="color: #93A1A1">,</span> f <span style="color: #719e07">=</span> f<span style="color: #93A1A1">,</span> dt <span style="color: #719e07">=</span> dt<span style="color: #93A1A1">,</span> incidence <span style="color: #719e07">=</span> <span style="color: #CB4B16">TRUE</span><span style="color: #93A1A1">)</span>
-r <span style="color: #719e07">&lt;-</span> <span style="color: #719e07">cbind</span><span style="color: #93A1A1">(</span><span style="color: #719e07">t</span><span style="color: #93A1A1">,</span> r<span style="color: #93A1A1">)</span>
-<span style="color: #586E75"># plot S, I, R curves</span>
-<span style="color: #719e07">library</span><span style="color: #93A1A1">(</span>reshape2<span style="color: #93A1A1">)</span>
-r.plot <span style="color: #719e07">&lt;-</span> melt<span style="color: #93A1A1">(</span>r<span style="color: #93A1A1">,</span> id <span style="color: #719e07">=</span> <span style="color: #2AA198">&quot;t&quot;</span><span style="color: #93A1A1">,</span> measure <span style="color: #719e07">=</span> <span style="color: #DC322F">c</span><span style="color: #93A1A1">(</span><span style="color: #2AA198">&quot;S&quot;</span><span style="color: #93A1A1">,</span> <span style="color: #2AA198">&quot;I&quot;</span><span style="color: #93A1A1">,</span> <span style="color: #2AA198">&quot;R&quot;</span><span style="color: #93A1A1">,</span> <span style="color: #2AA198">&quot;inc&quot;</span><span style="color: #93A1A1">,</span> <span style="color: #2AA198">&quot;cum.inc&quot;</span><span style="color: #93A1A1">))</span>
-<span style="color: #586E75"># change levels for display</span>
-<span style="color: #719e07">levels</span><span style="color: #93A1A1">(</span>r.plot<span style="color: #719e07">$</span>variable<span style="color: #93A1A1">)</span> <span style="color: #719e07">&lt;-</span> <span style="color: #DC322F">c</span><span style="color: #93A1A1">(</span><span style="color: #2AA198">&quot;Susceptible&quot;</span><span style="color: #93A1A1">,</span> <span style="color: #2AA198">&quot;Infected&quot;</span><span style="color: #93A1A1">,</span> <span style="color: #2AA198">&quot;Recovered&quot;</span><span style="color: #93A1A1">,</span> <span style="color: #2AA198">&quot;Incidence&quot;</span><span style="color: #93A1A1">,</span> 
-                             <span style="color: #2AA198">&quot;Cummulative incidence&quot;</span><span style="color: #93A1A1">)</span>
-<span style="color: #719e07">library</span><span style="color: #93A1A1">(</span>ggplot2<span style="color: #93A1A1">)</span>
-p <span style="color: #719e07">&lt;-</span> ggplot<span style="color: #93A1A1">(</span>r.plot<span style="color: #93A1A1">,</span> aes<span style="color: #93A1A1">(</span>x <span style="color: #719e07">=</span> <span style="color: #719e07">t</span><span style="color: #93A1A1">,</span> y <span style="color: #719e07">=</span> value<span style="color: #93A1A1">,</span> group <span style="color: #719e07">=</span> variable<span style="color: #93A1A1">,</span> color <span style="color: #719e07">=</span> variable<span style="color: #93A1A1">))</span>
-p <span style="color: #719e07">+</span> geom_line<span style="color: #93A1A1">()</span> <span style="color: #719e07">+</span> 
-  xlab<span style="color: #93A1A1">(</span><span style="color: #2AA198">&quot;Time (years)&quot;</span><span style="color: #93A1A1">)</span> <span style="color: #719e07">+</span> 
-  facet_wrap<span style="color: #93A1A1">(</span><span style="color: #719e07">~</span> variable<span style="color: #93A1A1">,</span> scales <span style="color: #719e07">=</span> <span style="color: #2AA198">&quot;free&quot;</span><span style="color: #93A1A1">)</span> <span style="color: #719e07">+</span> 
-  ggtitle<span style="color: #93A1A1">(</span><span style="color: #2AA198">&quot;Simulation&quot;</span><span style="color: #93A1A1">)</span> <span style="color: #719e07">+</span> 
-  theme_bw<span style="color: #93A1A1">(</span>base_size <span style="color: #719e07">=</span> <span style="color: #2AA198">12</span><span style="color: #93A1A1">)</span> <span style="color: #719e07">+</span> 
-  theme<span style="color: #93A1A1">(</span>legend.position <span style="color: #719e07">=</span> <span style="color: #2AA198">&quot;none&quot;</span><span style="color: #93A1A1">)</span>
-</pre></div>
-
-<p><img src="http://tonytsai.name/materials/SIRS_files/figure-html/unnamed-chunk-13-1.png" alt="" /></p>
-
-<p>In <em>Fig. 1a</em> simulation, the basic reproductive number $R_0=D\beta_0=$ 10, and the intrinsic period of oscillation $T=2\pi \sqrt{\frac{DL}{R_0-1}}=$ 0.59. As shown in above figures, after starting simulation for several years, the compartments of SIRS model (including <strong>incidence</strong>) are in dynamic equilibrium. To show the details of deterministic equilibrium, the following codes only plot the subset results of 10 ~ 20 years.</p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>r.eqb <span style="color: #719e07">&lt;-</span> r<span style="color: #93A1A1">[</span>r<span style="color: #719e07">$</span>t <span style="color: #719e07">&gt;=</span> <span style="color: #2AA198">10</span><span style="color: #93A1A1">,</span> <span style="color: #93A1A1">]</span>
-r.plot <span style="color: #719e07">&lt;-</span> melt<span style="color: #93A1A1">(</span>r.eqb<span style="color: #93A1A1">,</span> id <span style="color: #719e07">=</span> <span style="color: #2AA198">&quot;t&quot;</span><span style="color: #93A1A1">,</span> measure <span style="color: #719e07">=</span> <span style="color: #DC322F">c</span><span style="color: #93A1A1">(</span><span style="color: #2AA198">&quot;S&quot;</span><span style="color: #93A1A1">,</span> <span style="color: #2AA198">&quot;I&quot;</span><span style="color: #93A1A1">,</span> <span style="color: #2AA198">&quot;R&quot;</span><span style="color: #93A1A1">,</span> <span style="color: #2AA198">&quot;inc&quot;</span><span style="color: #93A1A1">,</span> <span style="color: #2AA198">&quot;cum.inc&quot;</span><span style="color: #93A1A1">))</span>
-<span style="color: #719e07">levels</span><span style="color: #93A1A1">(</span>r.plot<span style="color: #719e07">$</span>variable<span style="color: #93A1A1">)</span> <span style="color: #719e07">&lt;-</span> <span style="color: #DC322F">c</span><span style="color: #93A1A1">(</span><span style="color: #2AA198">&quot;Susceptible&quot;</span><span style="color: #93A1A1">,</span> <span style="color: #2AA198">&quot;Infected&quot;</span><span style="color: #93A1A1">,</span> <span style="color: #2AA198">&quot;Recovered&quot;</span><span style="color: #93A1A1">,</span> <span style="color: #2AA198">&quot;Incidence&quot;</span><span style="color: #93A1A1">,</span> 
-                             <span style="color: #2AA198">&quot;Cummulative incidence&quot;</span><span style="color: #93A1A1">)</span>
-p <span style="color: #719e07">&lt;-</span> ggplot<span style="color: #93A1A1">(</span>r.plot<span style="color: #93A1A1">,</span> aes<span style="color: #93A1A1">(</span>x <span style="color: #719e07">=</span> <span style="color: #719e07">t</span><span style="color: #93A1A1">,</span> y <span style="color: #719e07">=</span> value<span style="color: #93A1A1">,</span> group <span style="color: #719e07">=</span> variable<span style="color: #93A1A1">,</span> color <span style="color: #719e07">=</span> variable<span style="color: #93A1A1">))</span>
-p <span style="color: #719e07">+</span> geom_line<span style="color: #93A1A1">()</span> <span style="color: #719e07">+</span> 
-  scale_x_continuous<span style="color: #93A1A1">(</span>breaks <span style="color: #719e07">=</span> <span style="color: #2AA198">10</span> <span style="color: #719e07">:</span> <span style="color: #2AA198">20</span><span style="color: #93A1A1">,</span> labels <span style="color: #719e07">=</span> <span style="color: #2AA198">10</span> <span style="color: #719e07">:</span> <span style="color: #2AA198">20</span><span style="color: #93A1A1">,</span> expand <span style="color: #719e07">=</span> <span style="color: #DC322F">c</span><span style="color: #93A1A1">(</span><span style="color: #2AA198">0</span><span style="color: #93A1A1">,</span> <span style="color: #2AA198">0</span><span style="color: #93A1A1">))</span> <span style="color: #719e07">+</span> 
-  xlab<span style="color: #93A1A1">(</span><span style="color: #2AA198">&quot;Time (years)&quot;</span><span style="color: #93A1A1">)</span> <span style="color: #719e07">+</span> 
-  facet_wrap<span style="color: #93A1A1">(</span><span style="color: #719e07">~</span> variable<span style="color: #93A1A1">,</span> scales <span style="color: #719e07">=</span> <span style="color: #2AA198">&quot;free&quot;</span><span style="color: #93A1A1">,</span> ncol <span style="color: #719e07">=</span> <span style="color: #2AA198">1</span><span style="color: #93A1A1">)</span> <span style="color: #719e07">+</span> 
-  ggtitle<span style="color: #93A1A1">(</span><span style="color: #2AA198">&quot;Subset Results of Equilibrium&quot;</span><span style="color: #93A1A1">)</span> <span style="color: #719e07">+</span> 
-  theme_bw<span style="color: #93A1A1">(</span>base_size <span style="color: #719e07">=</span> <span style="color: #2AA198">14</span><span style="color: #93A1A1">)</span> <span style="color: #719e07">+</span> 
-  theme<span style="color: #93A1A1">(</span>legend.position <span style="color: #719e07">=</span> <span style="color: #2AA198">&quot;none&quot;</span><span style="color: #93A1A1">)</span>
-</pre></div>
-
-<p><img src="http://tonytsai.name/materials/SIRS_files/figure-html/unnamed-chunk-14-1.png" alt="" /></p>
-
-<p>The <em>Fig. 1b</em> simulation is very similar to the one of Fig. 1a, but with different parameters of $L=8$ yr, $D=0.025$ yr, and $\beta_0=400$ persons per yr. The resulting plots of simulation are presented.</p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>L <span style="color: #719e07">&lt;-</span> <span style="color: #2AA198">8</span>  <span style="color: #586E75"># yr</span>
-D <span style="color: #719e07">&lt;-</span> <span style="color: #2AA198">0.025</span>  <span style="color: #586E75"># yr</span>
-beta0 <span style="color: #719e07">&lt;-</span> <span style="color: #2AA198">400</span>  <span style="color: #586E75"># persons per yr</span>
-</pre></div>
-
-<p><img src="http://tonytsai.name/materials/SIRS_files/figure-html/unnamed-chunk-16-1.png" alt="" /></p>
-
-<p><img src="http://tonytsai.name/materials/SIRS_files/figure-html/unnamed-chunk-17-1.png" alt="" /></p>
-
-<p>In <em>Fig. 1b</em> simulation, the basic reproductive number $R_0=$ 10, and the intrinsic period of oscillation $T=$ 0.94. From the <code>Infected</code> panel of <code>Subset Results of Equilibrium</code> figure, strong oscillations (noticing the y-axis range) due to <strong>resonance</strong> are observed. This is because comparing with <em>Fig. 1a</em> simulation, while the basic reprodutive number $R_0$ keeps the same, the period of endogenous SIRS oscillation $T$ is much more near the period of seasonal forcing (<strong>1</strong> year) (see <a href="http://www.pnas.org/content/101/48/16915.abstract" target="_blank">Dushoff et al. (2004)</a> for further details).</p>
+r &lt;- RK4SIRS(n, beta, gamma, S0, I0, f = f, dt = dt, incidence = TRUE)
+r &lt;- cbind(t, r)
+# plot S, I, R curves
+library(reshape2)
+r.plot &lt;- melt(r, id = &quot;t&quot;, measure = c(&quot;S&quot;, &quot;I&quot;, &quot;R&quot;, &quot;inc&quot;, &quot;cum.inc&quot;))
+# change levels for display
+levels(r.plot$variable) &lt;- c(&quot;Susceptible&quot;, &quot;Infected&quot;, &quot;Recovered&quot;, &quot;Incidence&quot;, 
+                             &quot;Cummulative incidence&quot;)
+library(ggplot2)
+p &lt;- ggplot(r.plot, aes(x = t, y = value, group = variable, color = variable))
+p + geom_line() + 
+  xlab(&quot;Time (years)&quot;) + 
+  facet_wrap(~ variable, scales = &quot;free&quot;) + 
+  ggtitle(&quot;Simulation&quot;) + 
+  theme_bw(base_size = 12) + 
+  theme(legend.position = &quot;none&quot;)</code></pre>
+<p><img src="/post/2014-12-04-sirs-model-with-time-dependent-transmission-rate_files/figure-html/unnamed-chunk-11-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>In <em>Fig. 1a</em> simulation, the basic reproductive number <span class="math inline">\(R_0=D\beta_0=\)</span> 10, and the intrinsic period of oscillation <span class="math inline">\(T=2\pi \sqrt{\frac{DL}{R_0-1}}=\)</span> 0.59. As shown in above figures, after starting simulation for several years, the compartments of SIRS model (including <strong>incidence</strong>) are in dynamic equilibrium. To show the details of deterministic equilibrium, the following codes only plot the subset results of 10 ~ 20 years.</p>
+<pre class="r"><code>r.eqb &lt;- r[r$t &gt;= 10, ]
+r.plot &lt;- melt(r.eqb, id = &quot;t&quot;, measure = c(&quot;S&quot;, &quot;I&quot;, &quot;R&quot;, &quot;inc&quot;, &quot;cum.inc&quot;))
+levels(r.plot$variable) &lt;- c(&quot;Susceptible&quot;, &quot;Infected&quot;, &quot;Recovered&quot;, &quot;Incidence&quot;, 
+                             &quot;Cummulative incidence&quot;)
+p &lt;- ggplot(r.plot, aes(x = t, y = value, group = variable, color = variable))
+p + geom_line() + 
+  scale_x_continuous(breaks = 10:20, labels = 10:20, expand = c(0, 0)) + 
+  xlab(&quot;Time (years)&quot;) + 
+  facet_wrap(~ variable, scales = &quot;free&quot;, ncol = 1) + 
+  ggtitle(&quot;Subset Results of Equilibrium&quot;) + 
+  theme_bw(base_size = 14) + 
+  theme(legend.position = &quot;none&quot;)</code></pre>
+<p><img src="/post/2014-12-04-sirs-model-with-time-dependent-transmission-rate_files/figure-html/unnamed-chunk-12-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p>The <em>Fig. 1b</em> simulation is very similar to Fig. 1a, but with different parameters of <span class="math inline">\(L=8\)</span> yr, <span class="math inline">\(D=0.025\)</span> yr, and <span class="math inline">\(\beta_0=400\)</span> persons per yr. The resulting plots of simulation are presented.</p>
+<pre class="r"><code>L &lt;- 8  # yr
+D &lt;- 0.025  # yr
+beta0 &lt;- 400  # persons per yr</code></pre>
+<p><img src="/post/2014-12-04-sirs-model-with-time-dependent-transmission-rate_files/figure-html/unnamed-chunk-14-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p><img src="/post/2014-12-04-sirs-model-with-time-dependent-transmission-rate_files/figure-html/unnamed-chunk-15-1.png" width="768" /></p>
+<p>In <em>Fig. 1b</em> simulation, the basic reproductive number <span class="math inline">\(R_0=\)</span> 10, and the intrinsic period of oscillation <span class="math inline">\(T=\)</span> 0.94. From the <code>Infected</code> panel of <code>Subset Results of Equilibrium</code> figure, strong oscillations (noticing the y-axis range) due to <strong>resonance</strong> are observed. This is because comparing with <em>Fig. 1a</em> simulation, while the basic reprodutive number <span class="math inline">\(R_0\)</span> keeps the same, the period of endogenous SIRS oscillation <span class="math inline">\(T\)</span> is much more near the period of seasonal forcing (<strong>1</strong> year) (see <a href="http://www.pnas.org/content/101/48/16915.abstract">Dushoff et al. (2004)</a> for further details).</p>
+</div>
+</div>
 
         </div>
         
@@ -615,7 +620,7 @@ beta0 <span style="color: #719e07">&lt;-</span> <span style="color: #2AA198">400
       <span class="categories">
         Tags:
         
-          <a class="category" href="http://blog.tonytsai.name/tags/sirs">SIRS</a>  <a class="category" href="http://blog.tonytsai.name/tags/transmission-rate">Transmission Rate</a>  <a class="category" href="http://blog.tonytsai.name/tags/basic-reproductive-number">Basic Reproductive Number</a>  <a class="category" href="http://blog.tonytsai.name/tags/markov-chain-transition-rate">Markov Chain Transition Rate</a>  
+          <a class="category" href="/tags/sirs">SIRS</a>  <a class="category" href="/tags/transmission-rate">Transmission Rate</a>  <a class="category" href="/tags/basic-reproductive-number">Basic Reproductive Number</a>  <a class="category" href="/tags/markov-chain-transition-rate">Markov Chain Transition Rate</a>  
     
     </span>
   </p>
@@ -627,11 +632,11 @@ beta0 <span style="color: #719e07">&lt;-</span> <span style="color: #2AA198">400
 
   <p class="meta">
     
-        <a class="basic-alignment left" href="http://blog.tonytsai.name/blog/2014-12-03-gains-from-paper-reading/" title="Gains from Paper Reading">Gains from Paper Reading</a>
+        <a class="basic-alignment left" href="/blog/2014-12-03-gains-from-paper-reading/" title="Gains from Paper Reading">Gains from Paper Reading</a>
     
 
     
-      <a class="basic-alignment right" href="http://blog.tonytsai.name/blog/2015-04-20-stratified-importance-sampling/" title="Stratified Importance Sampling">Stratified Importance Sampling</a>
+      <a class="basic-alignment right" href="/blog/2015-04-20-stratified-importance-sampling/" title="Stratified Importance Sampling">Stratified Importance Sampling</a>
     
   </p>
   
@@ -715,7 +720,7 @@ beta0 <span style="color: #719e07">&lt;-</span> <span style="color: #2AA198">400
         <ul id="recent_posts">
           
             <li class="post">
-              <a href="/blog/2017-01-05-test-mathjax/">Test MathJax</a>
+              <a href="/blog/2017-01-05-display-multi-line-equations-and-matrix-correctly-in-hugo/">Display Multi-line Equations and Matrix Correctly in Hugo</a>
             </li>
           
             <li class="post">
@@ -751,9 +756,11 @@ beta0 <span style="color: #719e07">&lt;-</span> <span style="color: #2AA198">400
     <h1>Links</h1>
     <li><a href="http://www.repidemicsconsortium.org/">R Epidemics Consortium</a></li>
     <li><a href="http://r-bloggers.com/">R-bloggers</a></li>
+    <li><a href="https://rweekly.org/">R Weekly</a></li>
 
     <h1>Friends</h1>
     <li><a href="https://xg1990.com/blog/">xg1990</a></li>
+    <li><a href="https://guangchuangyu.github.io/cn/">Guangchuang Yu</a></li>
   </section>
 
   <script type="text/javascript" src="//ra.revolvermaps.com/0/0/8.js?i=0551xokm7cj&amp;m=0&amp;s=300&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33" async="async"></script>
@@ -764,8 +771,8 @@ beta0 <span style="color: #719e07">&lt;-</span> <span style="color: #2AA198">400
 </div>
 
 <footer role="contentinfo">
-  <p>Copyright &copy; 2017 Tony Tsai - <a href="http://blog.tonytsai.name/license/">License</a> -
-  <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
+  <p>Copyright &copy; 2017 Tony Tsai - <a href="/license/">License</a> -
+  <span class="credit">Powered by <a target="_blank" href="https://github.com/rstudio/blogdown">blogdown</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
 </p>
 
 </footer>
@@ -776,8 +783,8 @@ MathJax.Hub.Config({
   TeX: { equationNumbers: { autoNumber: "AMS" },
          extensions: ["AMSmath.js", "AMSsymbols.js"] },
   tex2jax: {
-    inlineMath: [['$','$']],
-    displayMath: [['$$','$$']],
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\\[','\\]']],
     processEscapes: true,
     processEnvironments: true,
     skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']

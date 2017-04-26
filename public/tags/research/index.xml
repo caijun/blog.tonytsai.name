@@ -2,204 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Research on Tony Tsai</title>
-    <link>http://blog.tonytsai.name/tags/research/index.xml</link>
+    <link>/tags/research/</link>
     <description>Recent content in Research on Tony Tsai</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="http://blog.tonytsai.name/tags/research/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 10 May 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/research/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Resources for Influenza Research</title>
-      <link>http://blog.tonytsai.name/blog/2015-05-10-resources-for-influenza-research/</link>
-      <pubDate>Sun, 10 May 2015 23:44:46 -0400</pubDate>
+      <link>/blog/2015-05-10-resources-for-influenza-research/</link>
+      <pubDate>Sun, 10 May 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://blog.tonytsai.name/blog/2015-05-10-resources-for-influenza-research/</guid>
-      <description>
-
-&lt;p&gt;Today I made a list of resources for influenza research. I will keep updating this list as my influenza research goes further. The up-to-date version can be found on my &lt;a href=&#34;https://github.com/caijun/res4flu&#34; target=&#34;_blank&#34;&gt;github&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&#34;contents&#34;&gt;Contents&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#infectious-diseases-epidemiology&#34;&gt;Infectious Diseases Epidemiology&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#modeling-infectious-diseases&#34;&gt;Modeling Infectious Diseases&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#topics-and-keywords&#34;&gt;Topics and Keywords&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#ecology-and-evolution-of-influenza&#34;&gt;Ecology and Evolution of Influenza&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#seasonality-of-influenza&#34;&gt;Seasonality of Influenza&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#dynamics-of-influenza&#34;&gt;Dynamics of Influenza&lt;/a&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#influenza-transmission&#34;&gt;Influenza Transmission&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#influenza-forecasting&#34;&gt;Influenza Forecasting&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#digital-detection-of-influenza&#34;&gt;Digital Detection of Influenza&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#databases-for-influenza-research&#34;&gt;Databases for Influenza Research&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#workshops-and-conferences&#34;&gt;Workshops and Conferences&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#moocs&#34;&gt;MOOCs&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#contributing&#34;&gt;Contributing&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;topics-and-keywords&#34;&gt;Topics and Keywords&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://en.wikipedia.org/wiki/Influenza&#34; target=&#34;_blank&#34;&gt;Influenza&lt;/a&gt; | Flu&lt;/li&gt;
-&lt;li&gt;Pandemic (Antigenic Shift) vs. Epidemic (Antigenic Drift)&lt;/li&gt;
-&lt;li&gt;Epidemiology of Influenza&lt;/li&gt;
-&lt;li&gt;Modeling Influenza
-
-&lt;ul&gt;
-&lt;li&gt;Transmission&lt;/li&gt;
-&lt;li&gt;Forecasting&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;Surveillence of Influenza&lt;/li&gt;
-&lt;li&gt;Ecology of Influenza&lt;/li&gt;
-&lt;li&gt;Evolution of Influenza
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://en.wikipedia.org/wiki/Phylogeography&#34; target=&#34;_blank&#34;&gt;Phylogeography&lt;/a&gt;
-&lt;br /&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;infectious-diseases-epidemiology&#34;&gt;Infectious Diseases Epidemiology&lt;/h2&gt;
-
-&lt;p&gt;&lt;em&gt;Textbooks&lt;/em&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Gordis, L. (2013). &lt;a href=&#34;http://www.amazon.com/Epidemiology-STUDENT-CONSULT-Online-Access/dp/145573733X&#34; target=&#34;_blank&#34;&gt;Epidemiology&lt;/a&gt;. Elsevier: Saunders.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;modeling-infectious-diseases&#34;&gt;Modeling Infectious Diseases&lt;/h2&gt;
-
-&lt;p&gt;&lt;em&gt;Textbooks&lt;/em&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Anderson, R. M., &amp;amp; May, R. M. (1991). &lt;a href=&#34;http://www.amazon.com/Infectious-Diseases-Humans-Dynamics-Publications/dp/019854040X&#34; target=&#34;_blank&#34;&gt;Infectious Diseases of Humans: Dynamics and Control&lt;/a&gt;. Oxford: Oxford university press.&lt;/li&gt;
-&lt;li&gt;Keeling, M. J., &amp;amp; Rohani, P. (2008). &lt;a href=&#34;http://www.amazon.com/Modeling-Infectious-Diseases-Humans-Animals/dp/0691116172/&#34; target=&#34;_blank&#34;&gt;Modeling Infectious Diseases in Humans and Animals&lt;/a&gt;. Princeton University Press.&lt;/li&gt;
-&lt;li&gt;Sattenspiel, L. (2009). &lt;a href=&#34;http://www.amazon.com/Geographic-Spread-Infectious-Diseases-Computational/dp/069112132X/&#34; target=&#34;_blank&#34;&gt;The Geographic Spread of Infectious Diseases: Models and Applications&lt;/a&gt;. Princeton University Press.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;em&gt;Review Papers&lt;/em&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Heesterbeek, H., Anderson, R. M., Andreasen, V., Bansal, S., De Angelis, D., Dye, C., &amp;hellip; &amp;amp; Viboud, C. (2015). &lt;a href=&#34;http://www.sciencemag.org/content/347/6227/aaa4339.short&#34; target=&#34;_blank&#34;&gt;Modeling Infectious Disease Dynamics in the Complex Landscape of Global Health&lt;/a&gt;. Science, 347(6227), aaa4339.&lt;/li&gt;
-&lt;li&gt;A Special Issue of &lt;em&gt;Epidemics&lt;/em&gt; on &lt;a href=&#34;http://www.sciencedirect.com/science/journal/17554365/10&#34; target=&#34;_blank&#34;&gt;Challenges in Modelling Infectious Disease Dynamics&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;Grassly, N. C., &amp;amp; Fraser, C. (2008). &lt;a href=&#34;http://www.nature.com/nrmicro/journal/v6/n6/full/nrmicro1845.html&#34; target=&#34;_blank&#34;&gt;Mathematical Models of Infectious Disease Transmission&lt;/a&gt;. Nature Reviews Microbiology, 6(6), 477-487.&lt;/li&gt;
-&lt;li&gt;Hethcote, H. W. (2000). &lt;a href=&#34;http://epubs.siam.org/doi/abs/10.1137/S0036144500371907&#34; target=&#34;_blank&#34;&gt;The Mathematics of Infectious Diseases&lt;/a&gt;. SIAM review, 42(4), 599-653.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;ecology-and-evolution-of-influenza&#34;&gt;Ecology and Evolution of Influenza&lt;/h2&gt;
-
-&lt;p&gt;&lt;em&gt;Textbook&lt;/em&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Webster, R. G., Monto, A. S., Braciale, T. J., &amp;amp; Lamb, R. A. (2014). &lt;a href=&#34;http://www.amazon.com/Textbook-Influenza-Robert-G-Webster/dp/0470670487/&#34; target=&#34;_blank&#34;&gt;Textbook of Influenza&lt;/a&gt;. John Wiley &amp;amp; Sons.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;em&gt;Review Papers&lt;/em&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Nelson, M. I., &amp;amp; Holmes, E. C. (2007). &lt;a href=&#34;http://www.nature.com/nrg/journal/v8/n3/abs/nrg2053.html&#34; target=&#34;_blank&#34;&gt;The Evolution of Epidemic Influenza&lt;/a&gt;. Nature reviews genetics, 8(3), 196-205.&lt;/li&gt;
-&lt;li&gt;Earn, D. J., Dushoff, J., &amp;amp; Levin, S. A. (2002). &lt;a href=&#34;http://www.sciencedirect.com/science/article/pii/S0169534702025028&#34; target=&#34;_blank&#34;&gt;Ecology and Evolution of the Flu&lt;/a&gt;. Trends in ecology &amp;amp; evolution, 17(7), 334-340.&lt;/li&gt;
-&lt;li&gt;Potter, C. W. (2001). &lt;a href=&#34;http://onlinelibrary.wiley.com/doi/10.1046/j.1365-2672.2001.01492.x/full&#34; target=&#34;_blank&#34;&gt;A History of Influenza&lt;/a&gt;. Journal of applied microbiology, 91(4), 572-579.&lt;/li&gt;
-&lt;li&gt;Cox, N. J., &amp;amp; Subbarao, K. (2000). &lt;a href=&#34;http://www.annualreviews.org/doi/abs/10.1146/annurev.med.51.1.407&#34; target=&#34;_blank&#34;&gt;Global Epidemiology of Influenza: Past and Present&lt;/a&gt;. Annual review of medicine, 51(1), 407-421.&lt;/li&gt;
-&lt;li&gt;Webster, R. G., Bean, W. J., Gorman, O. T., Chambers, T. M., &amp;amp; Kawaoka, Y. (1992). &lt;a href=&#34;http://mmbr.asm.org/content/56/1/152.short&#34; target=&#34;_blank&#34;&gt;Evolution and Ecology of Influenza A Viruses&lt;/a&gt;. Microbiological reviews, 56(1), 152-179.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;seasonality-of-influenza&#34;&gt;Seasonality of Influenza&lt;/h2&gt;
-
-&lt;p&gt;&lt;em&gt;Review Papers&lt;/em&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Rates, C. (2011). &lt;a href=&#34;http://ehp.niehs.nih.gov/1002383/&#34; target=&#34;_blank&#34;&gt;Global Influenza Seasonality: Reconciling Patterns Across Temperate and Tropical Regions&lt;/a&gt;. Environmental health perspectives, 119(4), 439.&lt;/li&gt;
-&lt;li&gt;Fuhrmann, C. (2010). &lt;a href=&#34;http://onlinelibrary.wiley.com/doi/10.1111/j.1749-8198.2010.00343.x/full&#34; target=&#34;_blank&#34;&gt;The Effects of Weather and Climate on the Seasonality of Influenza: What We Know and What We Need to Know&lt;/a&gt;. Geography Compass, 4(7), 718-730.&lt;/li&gt;
-&lt;li&gt;Lipsitch, M., &amp;amp; Viboud, C. (2009). &lt;a href=&#34;http://www.pnas.org/content/106/10/3645.short&#34; target=&#34;_blank&#34;&gt;Influenza Seasonality: Lifting the Fog&lt;/a&gt;. Proceedings of the National Academy of Sciences, 106(10), 3645-3646.&lt;/li&gt;
-&lt;li&gt;Lofgren, E., Fefferman, N. H., Naumov, Y. N., Gorski, J., &amp;amp; Naumova, E. N. (2007). &lt;a href=&#34;http://jvi.asm.org/content/81/11/5429.short&#34; target=&#34;_blank&#34;&gt;Influenza Seasonality: Underlying Causes and Modeling Theories&lt;/a&gt;. Journal of virology, 81(11), 5429-5436.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;dynamics-of-influenza&#34;&gt;Dynamics of Influenza&lt;/h2&gt;
-
-&lt;h3 id=&#34;influenza-transmission&#34;&gt;Influenza Transmission&lt;/h3&gt;
-
-&lt;p&gt;&lt;em&gt;Classical Paper&lt;/em&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Rvachev, L. A., &amp;amp; Longini, I. M. (1985). &lt;a href=&#34;http://www.sciencedirect.com/science/article/pii/0025556485900641&#34; target=&#34;_blank&#34;&gt;A Mathematical Model for the Global Spread of Influenza&lt;/a&gt;. Mathematical biosciences, 75(1), 3-22.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;influenza-forecasting&#34;&gt;Influenza Forecasting&lt;/h3&gt;
-
-&lt;p&gt;&lt;em&gt;Review Papers&lt;/em&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Nsoesie, E. O., Brownstein, J. S., Ramakrishnan, N., &amp;amp; Marathe, M. V. (2014). &lt;a href=&#34;http://onlinelibrary.wiley.com/doi/10.1111/irv.12226/full&#34; target=&#34;_blank&#34;&gt;A Systematic Review of Studies on Forecasting the Dynamics of Influenza Outbreaks&lt;/a&gt;. Influenza and other respiratory viruses, 8(3), 309-316.&lt;/li&gt;
-&lt;li&gt;Chretien, J. P., George, D., Shaman, J., Chitale, R. A., &amp;amp; McKenzie, F. E. (2014). &lt;a href=&#34;http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0094130&#34; target=&#34;_blank&#34;&gt;Influenza Forecasting in Human Populations: a Scoping Review&lt;/a&gt;. PloS one, 9(4), e94130.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;digital-detection-of-influenza&#34;&gt;Digital Detection of Influenza&lt;/h3&gt;
-
-&lt;p&gt;&lt;em&gt;Review Paper&lt;/em&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Salathe, M., Bengtsson, L., Bodnar, T. J., Brewer, D. D., Brownstein, J. S., Buckee, C., &amp;hellip; &amp;amp; Vespignani, A. (2012). &lt;a href=&#34;http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1002616&#34; target=&#34;_blank&#34;&gt;Digital Epidemiology&lt;/a&gt;. PLoS computational biology, 8(7), e1002616.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;em&gt;Classical Paper&lt;/em&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Ginsberg, J., Mohebbi, M. H., Patel, R. S., Brammer, L., Smolinski, M. S., &amp;amp; Brilliant, L. (2009). &lt;a href=&#34;http://www.nature.com/nature/journal/v457/n7232/abs/nature07634.html&#34; target=&#34;_blank&#34;&gt;Detecting Influenza Epidemics using Search Engine Query Data&lt;/a&gt;. Nature, 457(7232), 1012-1014.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;em&gt;Projects&lt;/em&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.google.org/flutrends/intl/en_us/&#34; target=&#34;_blank&#34;&gt;Google Flu Trends&lt;/a&gt;: using aggregated Google search data to estimate flu activity.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.healthmap.org/en/&#34; target=&#34;_blank&#34;&gt;HealthMap&lt;/a&gt;: flu &amp;amp; Ebola map | virus &amp;amp; contagious disease surveillence.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;databases-for-influenza-research&#34;&gt;Databases for Influenza Research&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.who.int/influenza/gisrs_laboratory/flunet/en/&#34; target=&#34;_blank&#34;&gt;WHO FluNet&lt;/a&gt;: a global tool for influenza virological surveillance.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.cdc.gov/flu/weekly/&#34; target=&#34;_blank&#34;&gt;Weekly U.S. Influenza Surveillance Report&lt;/a&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://gis.cdc.gov/grasp/fluview/fluportaldashboard.html&#34; target=&#34;_blank&#34;&gt;FluView&lt;/a&gt;: national and regional level outpatient illness and viral surveillence.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://gis.cdc.gov/grasp/fluview/main.html&#34; target=&#34;_blank&#34;&gt;FluView&lt;/a&gt;: influenza-like illness (ILI) activity level indicator determined by data reported to ILINet.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;Estimated flu activity from &lt;a href=&#34;https://www.google.org/flutrends/intl/en_us/&#34; target=&#34;_blank&#34;&gt;Google Flu Trends&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.fludb.org/&#34; target=&#34;_blank&#34;&gt;Influenza Research Database (IRD)&lt;/a&gt;: global public database and analysis resource for the study of influenza viruses.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.ncbi.nlm.nih.gov/genomes/FLU/&#34; target=&#34;_blank&#34;&gt;NCBI Influenza Virus Resource&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://platform.gisaid.org/&#34; target=&#34;_blank&#34;&gt;Global Initiative on Sharing Avian Influenza Data (GISAID)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://empres-i.fao.org/eipws3g/&#34; target=&#34;_blank&#34;&gt;EMPRES Global Animal Disease Information System (EMPRES-i)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://influenza.sph.unimelb.edu.au/&#34; target=&#34;_blank&#34;&gt;FluWeb Historical Influenza Database&lt;/a&gt;: free access to a number of rare and valuable sources of data concerning past influenza outbreaks.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;workshops-and-conferences&#34;&gt;Workshops and Conferences&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.origem.info/misms/&#34; target=&#34;_blank&#34;&gt;Multinational Influenza Seasonal Mortality Study (MISMS) Workshop&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.iceid.org/&#34; target=&#34;_blank&#34;&gt;International Conference on Emerging Infectious Diseases&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.epidemics.elsevier.com/&#34; target=&#34;_blank&#34;&gt;Epidemics: International Conference on Infectious Disease Dynamics&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://eeidconference.org/&#34; target=&#34;_blank&#34;&gt;Annual Ecology and Evolution of Infectious Disease Conference&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;moocs&#34;&gt;MOOCs&lt;/h2&gt;
-
-&lt;p&gt;&lt;em&gt;Massive open online courses&lt;/em&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://www.coursera.org/course/epidemics&#34; target=&#34;_blank&#34;&gt;Epidemics - the Dynamics of Infectious Diseases&lt;/a&gt;: a course provided by the Pennsylvania State University discusses about the dynamics of Malaria, HIV/AIDS, Influenza, Measles - how they emerge, how they spread around the globe, and how they can best be controlled.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://www.edx.org/course/epidemics-hkux-hku01x-0&#34; target=&#34;_blank&#34;&gt;Epidemics&lt;/a&gt;: a course provided by the University of Hong Kong covers these four topics: origins of novel pathogens; analysis of the spread of infectious diseases; medical and public health countermeasures to prevent and control epidemics; panel discussions involving leading public health experts with deep frontline experiences to share their views on risk communication, crisis management, ethics and public trust in the context of infectious disease control.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;contributing&#34;&gt;Contributing&lt;/h2&gt;
-
-&lt;p&gt;Your contributions are always welcome!&lt;/p&gt;
-
-&lt;p&gt;This work is distributed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License - &lt;a href=&#34;http://creativecommons.org/licenses/by-nc-sa/4.0/legalcode&#34; target=&#34;_blank&#34;&gt;CC BY-NC-SA 4.0&lt;/a&gt;.&lt;/p&gt;
-</description>
+      <guid>/blog/2015-05-10-resources-for-influenza-research/</guid>
+      <description>Today I made a list of resources for influenza research. I will keep updating this list as my influenza research goes further. The up-to-date version can be found on my github.
+Contents  Infectious Diseases Epidemiology Modeling Infectious Diseases Topics and Keywords Ecology and Evolution of Influenza Seasonality of Influenza Dynamics of Influenza  Influenza Transmission Influenza Forecasting Digital Detection of Influenza  Databases for Influenza Research Workshops and Conferences MOOCs Contributing  Topics and Keywords  Influenza | Flu Pandemic (Antigenic Shift) vs.</description>
     </item>
     
   </channel>

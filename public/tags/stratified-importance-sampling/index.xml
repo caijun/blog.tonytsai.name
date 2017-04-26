@@ -2,63 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Stratified Importance Sampling on Tony Tsai</title>
-    <link>http://blog.tonytsai.name/tags/stratified-importance-sampling/index.xml</link>
+    <link>/tags/stratified-importance-sampling/</link>
     <description>Recent content in Stratified Importance Sampling on Tony Tsai</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="http://blog.tonytsai.name/tags/stratified-importance-sampling/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 20 Apr 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/stratified-importance-sampling/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Stratified Importance Sampling</title>
-      <link>http://blog.tonytsai.name/blog/2015-04-20-stratified-importance-sampling/</link>
-      <pubDate>Mon, 20 Apr 2015 23:44:46 -0400</pubDate>
+      <link>/blog/2015-04-20-stratified-importance-sampling/</link>
+      <pubDate>Mon, 20 Apr 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://blog.tonytsai.name/blog/2015-04-20-stratified-importance-sampling/</guid>
-      <description>&lt;p&gt;The following &lt;code&gt;R&lt;/code&gt; codes implement the &lt;strong&gt;Example 5.13&lt;/strong&gt; in &lt;a href=&#34;http://www.amazon.com/Statistical-Computing-Chapman-Hall-Series/dp/1584885459&#34; target=&#34;_blank&#34;&gt;Statistical Computing with R&lt;/a&gt;, and compare the estimate $\hat{\theta}$ and $\hat{\sigma}$ from stratified importance sampling to the results from importance sampling. The example illustrates that stratification can reduce the varinace of importance sampling estimator.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;M &lt;span style=&#34;color: #719e07&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;100000&lt;/span&gt;  &lt;span style=&#34;color: #586E75&#34;&gt;# number of replicates&lt;/span&gt;
-g &lt;span style=&#34;color: #719e07&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span style=&#34;color: #268BD2&#34;&gt;function&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;(&lt;/span&gt;x&lt;span style=&#34;color: #93A1A1&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;{&lt;/span&gt;
-  &lt;span style=&#34;color: #719e07&#34;&gt;exp&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #719e07&#34;&gt;-&lt;/span&gt;x &lt;span style=&#34;color: #719e07&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;log&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;+&lt;/span&gt; x&lt;span style=&#34;color: #719e07&#34;&gt;^&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;))&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;(&lt;/span&gt;x &lt;span style=&#34;color: #719e07&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;(&lt;/span&gt;x &lt;span style=&#34;color: #719e07&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;)&lt;/span&gt;
-&lt;span style=&#34;color: #93A1A1&#34;&gt;}&lt;/span&gt;
-
-&lt;span style=&#34;color: #586E75&#34;&gt;# importance sampling&lt;/span&gt;
-u &lt;span style=&#34;color: #719e07&#34;&gt;&amp;lt;-&lt;/span&gt; runif&lt;span style=&#34;color: #93A1A1&#34;&gt;(&lt;/span&gt;M&lt;span style=&#34;color: #93A1A1&#34;&gt;)&lt;/span&gt;  &lt;span style=&#34;color: #586E75&#34;&gt;# f3, inverse transform method&lt;/span&gt;
-x &lt;span style=&#34;color: #719e07&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;-log&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;-&lt;/span&gt; u &lt;span style=&#34;color: #719e07&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;exp&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;-1&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;)))&lt;/span&gt;
-fg &lt;span style=&#34;color: #719e07&#34;&gt;&amp;lt;-&lt;/span&gt; g&lt;span style=&#34;color: #93A1A1&#34;&gt;(&lt;/span&gt;x&lt;span style=&#34;color: #93A1A1&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;/&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #719e07&#34;&gt;exp&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #719e07&#34;&gt;-&lt;/span&gt;x&lt;span style=&#34;color: #93A1A1&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;/&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;exp&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;-1&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;)))&lt;/span&gt;
-&lt;span style=&#34;color: #93A1A1&#34;&gt;(&lt;/span&gt;theta.hat0 &lt;span style=&#34;color: #719e07&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;mean&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;(&lt;/span&gt;fg&lt;span style=&#34;color: #93A1A1&#34;&gt;))&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;pre&gt;&lt;code&gt;## [1] 0.5253551
-&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;(&lt;/span&gt;se0 &lt;span style=&#34;color: #719e07&#34;&gt;&amp;lt;-&lt;/span&gt; sd&lt;span style=&#34;color: #93A1A1&#34;&gt;(&lt;/span&gt;fg&lt;span style=&#34;color: #93A1A1&#34;&gt;))&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;pre&gt;&lt;code&gt;## [1] 0.09655589
-&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #586E75&#34;&gt;# stratified importance sampling&lt;/span&gt;
-k &lt;span style=&#34;color: #719e07&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;5&lt;/span&gt;  &lt;span style=&#34;color: #586E75&#34;&gt;# number of strata&lt;/span&gt;
-m &lt;span style=&#34;color: #719e07&#34;&gt;&amp;lt;-&lt;/span&gt; M &lt;span style=&#34;color: #719e07&#34;&gt;/&lt;/span&gt; k  &lt;span style=&#34;color: #586E75&#34;&gt;# replicates per stratum&lt;/span&gt;
-theta.hat &lt;span style=&#34;color: #719e07&#34;&gt;&amp;lt;-&lt;/span&gt; se &lt;span style=&#34;color: #719e07&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span style=&#34;color: #DC322F&#34;&gt;numeric&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;(&lt;/span&gt;k&lt;span style=&#34;color: #93A1A1&#34;&gt;)&lt;/span&gt;
-
-&lt;span style=&#34;color: #268BD2&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;(&lt;/span&gt;j &lt;span style=&#34;color: #268BD2&#34;&gt;in&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #719e07&#34;&gt;:&lt;/span&gt;k&lt;span style=&#34;color: #93A1A1&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;{&lt;/span&gt;
-  u &lt;span style=&#34;color: #719e07&#34;&gt;&amp;lt;-&lt;/span&gt; runif&lt;span style=&#34;color: #93A1A1&#34;&gt;(&lt;/span&gt;m&lt;span style=&#34;color: #93A1A1&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;(&lt;/span&gt;j &lt;span style=&#34;color: #719e07&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #2AA198&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;/&lt;/span&gt; k&lt;span style=&#34;color: #93A1A1&#34;&gt;,&lt;/span&gt; j &lt;span style=&#34;color: #719e07&#34;&gt;/&lt;/span&gt; k&lt;span style=&#34;color: #93A1A1&#34;&gt;)&lt;/span&gt;
-  x &lt;span style=&#34;color: #719e07&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;-log&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;-&lt;/span&gt; u &lt;span style=&#34;color: #719e07&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;exp&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;-1&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;)))&lt;/span&gt;
-  fg &lt;span style=&#34;color: #719e07&#34;&gt;&amp;lt;-&lt;/span&gt; g&lt;span style=&#34;color: #93A1A1&#34;&gt;(&lt;/span&gt;x&lt;span style=&#34;color: #93A1A1&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;/&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;(&lt;/span&gt;k &lt;span style=&#34;color: #719e07&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;exp&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #719e07&#34;&gt;-&lt;/span&gt;x&lt;span style=&#34;color: #93A1A1&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;/&lt;/span&gt; &lt;span style=&#34;color: #93A1A1&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;exp&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;-1&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;)))&lt;/span&gt;
-  theta.hat&lt;span style=&#34;color: #93A1A1&#34;&gt;[&lt;/span&gt;j&lt;span style=&#34;color: #93A1A1&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;mean&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;(&lt;/span&gt;fg&lt;span style=&#34;color: #93A1A1&#34;&gt;)&lt;/span&gt;
-  se&lt;span style=&#34;color: #93A1A1&#34;&gt;[&lt;/span&gt;j&lt;span style=&#34;color: #93A1A1&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color: #719e07&#34;&gt;&amp;lt;-&lt;/span&gt; sd&lt;span style=&#34;color: #93A1A1&#34;&gt;(&lt;/span&gt;fg&lt;span style=&#34;color: #93A1A1&#34;&gt;)&lt;/span&gt;
-&lt;span style=&#34;color: #93A1A1&#34;&gt;}&lt;/span&gt;
-&lt;span style=&#34;color: #719e07&#34;&gt;sum&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;(&lt;/span&gt;theta.hat&lt;span style=&#34;color: #93A1A1&#34;&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;pre&gt;&lt;code&gt;## [1] 0.5248449
-&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #719e07&#34;&gt;sum&lt;/span&gt;&lt;span style=&#34;color: #93A1A1&#34;&gt;(&lt;/span&gt;se&lt;span style=&#34;color: #93A1A1&#34;&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;pre&gt;&lt;code&gt;## [1] 0.01832981
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The estimate $\hat{\theta}$ is close, while the estimated standard error $\hat{\sigma}$ is reduced from 0.0965559 to 0.0183298 with stratification.&lt;/p&gt;
-</description>
+      <guid>/blog/2015-04-20-stratified-importance-sampling/</guid>
+      <description>The following R codes implement the Example 5.13 in Statistical Computing with R, and compare the estimate \(\hat{\theta}\) and \(\hat{\sigma}\) from stratified importance sampling to the results from importance sampling. The example illustrates that stratification can reduce the varinace of importance sampling estimator.
+M &amp;lt;- 100000 # number of replicates g &amp;lt;- function(x) { exp(-x - log(1 + x^2)) * (x &amp;gt; 0) * (x &amp;lt; 1) } # importance sampling u &amp;lt;- runif(M) # f3, inverse transform method x &amp;lt;- -log(1 - u * (1 - exp(-1))) fg &amp;lt;- g(x) / (exp(-x) / (1 - exp(-1))) (theta.</description>
     </item>
     
   </channel>

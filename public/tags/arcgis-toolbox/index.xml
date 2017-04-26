@@ -2,64 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Arcgis Toolbox on Tony Tsai</title>
-    <link>http://blog.tonytsai.name/tags/arcgis-toolbox/index.xml</link>
+    <link>/tags/arcgis-toolbox/</link>
     <description>Recent content in Arcgis Toolbox on Tony Tsai</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="http://blog.tonytsai.name/tags/arcgis-toolbox/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 21 Sep 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/arcgis-toolbox/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Commonly Used ArcGIS Tools by Myself</title>
-      <link>http://blog.tonytsai.name/blog/2014-09-21-commonly-used-arcgis-tools-by-myself/</link>
-      <pubDate>Sun, 21 Sep 2014 23:44:46 -0400</pubDate>
+      <link>/blog/2014-09-21-commonly-used-arcgis-tools-by-myself/</link>
+      <pubDate>Sun, 21 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://blog.tonytsai.name/blog/2014-09-21-commonly-used-arcgis-tools-by-myself/</guid>
-      <description>
-
-&lt;p&gt;ArcGIS toolbox提供了丰富的工具，但只有一些是在平常的空间数据处理过程中自己会用到。即使如此，每次自己进行一个处理操作时都要再去google一遍（原谅自己的脑子越来越不好使），存在太多的重复性劳动，十分浪费时间。因此十分有必要将自己常面对的数据处理需求及相应的工具实现记录下来。&lt;/p&gt;
-
-&lt;h4 id=&#34;1-矢量数据裁剪&#34;&gt;1. 矢量数据裁剪&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;Analysis Tools -&amp;gt; Extract -&amp;gt; Clip
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;2-栅格数据裁剪&#34;&gt;2. 栅格数据裁剪&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;Spatial Analyst -&amp;gt; Extraction -&amp;gt; Extract by Mask
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;3-提取多边形外边界&#34;&gt;3. 提取多边形外边界&lt;/h4&gt;
-
-&lt;p&gt;首先将多边形转化为多线&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;Data Management Tools -&amp;gt; Features -&amp;gt; Polygon To Line
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;然后删除属性表里&lt;code&gt;LEFT_FID != -1&lt;/code&gt;的feature。&lt;/p&gt;
-
-&lt;h4 id=&#34;4-定义投影&#34;&gt;4. 定义投影&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;Data Management Tools -&amp;gt; Projections and Transformations -&amp;gt; Define Projection
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;5-merge-multiple-polygons-into-multipart-feature&#34;&gt;5. Merge multiple polygons into multipart feature&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;Data Mangement Tools -&amp;gt; Generalization -&amp;gt; Dissolve
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;6-overlay-analysis-count-attribute-statistics-for-points-in-polygon&#34;&gt;6. Overlay analysis (count, attribute statistics) for points in polygon&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;Analysis Tools -&amp;gt; Overlay -&amp;gt; Spatial Join
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;7-find-the-nearest-point-for-each-point-feature&#34;&gt;7. Find the nearest point for each point feature&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;Analysis Tools -&amp;gt; Proximity -&amp;gt; Generate Near Table
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;br&gt;
-其实知道一个处理操作的关键词（比如clip，projection等），可以直接在ArcGIS的&lt;code&gt;Search&lt;/code&gt;窗口搜索工具，一般都能找到自己想要的工具。&lt;/p&gt;
-</description>
+      <guid>/blog/2014-09-21-commonly-used-arcgis-tools-by-myself/</guid>
+      <description>ArcGIS toolbox提供了丰富的工具，但只有一些是在平常的空间数据处理过程中自己会用到。即使如此，每次自己进行一个处理操作时都要再去google</description>
     </item>
     
   </channel>

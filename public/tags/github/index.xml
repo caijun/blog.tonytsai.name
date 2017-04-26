@@ -2,85 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Github on Tony Tsai</title>
-    <link>http://blog.tonytsai.name/tags/github/index.xml</link>
+    <link>/tags/github/</link>
     <description>Recent content in Github on Tony Tsai</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="http://blog.tonytsai.name/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 13 Jul 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Introduction to git and GitHub</title>
-      <link>http://blog.tonytsai.name/blog/2014-07-13-introduction-to-git-and-github/</link>
-      <pubDate>Sun, 13 Jul 2014 23:44:46 -0400</pubDate>
+      <link>/blog/2014-07-13-introduction-to-git-and-github/</link>
+      <pubDate>Sun, 13 Jul 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://blog.tonytsai.name/blog/2014-07-13-introduction-to-git-and-github/</guid>
-      <description>
-
-&lt;h3 id=&#34;git安装&#34;&gt;git安装&lt;/h3&gt;
-
-&lt;p&gt;推荐&lt;a href=&#34;http://brew.sh/&#34; target=&#34;_blank&#34;&gt;Homebrew&lt;/a&gt;用于管理常用开源软件包在Mac OS X上的安装和升级。&lt;em&gt;Homebrew&lt;/em&gt;(可能是由于Hugo的markdown parser——&lt;a href=&#34;https://github.com/russross/blackfriday&#34; target=&#34;_blank&#34;&gt;blackfriday&lt;/a&gt;的原因，如果没有英文括号里面的内容，*italic*效果不能出现。)用Ruby语言开发，支持千余种开源软件在 Mac OS X 中的部署和管理。&lt;em&gt;Homebrew&lt;/em&gt; 项目托管在&lt;a href=&#34;https://github.com/mxcl/homebrew&#34; target=&#34;_blank&#34;&gt;Github&lt;/a&gt;上。&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;To install &lt;em&gt;Homebrew&lt;/em&gt;, run following command in terminal. Note that &lt;code&gt;ruby&lt;/code&gt; is installed by default on Mac OS X.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ ruby -e &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #719e07&#34;&gt;$(&lt;/span&gt;curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install&lt;span style=&#34;color: #719e07&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color: #2AA198&#34;&gt;&amp;quot;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;It is quite easy to install &lt;em&gt;git&lt;/em&gt; through &lt;em&gt;Homebrew&lt;/em&gt;.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ brew install git
-&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&#34;git-常用命令&#34;&gt;git 常用命令&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;将github上面的项目克隆到本地&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ git clone git@github.com:caijun/blog.tonytsai.name.git
-&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;查看当前项目下所有文件的状态&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ git status
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;状态（包括新建、删除、修改）发生改变的文件用红色标出。&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;将更新后的项目提交到git本地仓库&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ git add .
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;code&gt;.&lt;/code&gt;表示当前项目目录下的所有内容。&lt;br /&gt;
-若更新包括删除文件，该命令在&lt;code&gt;git 2.0&lt;/code&gt;以上版本失效，并产生&lt;code&gt;warning&lt;/code&gt;提示使用&lt;code&gt;git add --all&lt;/code&gt;代替。&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;对更新内容确认并添加确认信息&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ git commit -m &lt;span style=&#34;color: #2AA198&#34;&gt;&amp;#39;commit message&amp;#39;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;确认信息对于版本控制很关键，每次版本更新时都应该添加描述准确的确认信息。&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;将项目提到github，首先要与github上面对应的远程仓库建立连接&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ git remote add origin git@github.com:caijun/blog.tonytsai.name.git
-&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;查看当前项目远程连接的仓库地址&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ git remote -v
-&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;将本地的项目提交到远程仓库&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #002B36&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ git push -u origin master
-&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&#34;git使用常见错误及解决办法&#34;&gt;git使用常见错误及解决办法&lt;/h3&gt;
-
-&lt;p&gt;稍后补充。。。&lt;/p&gt;
-
-&lt;h3 id=&#34;资源链接&#34;&gt;资源链接&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://www.cnblogs.com/fnng/archive/2011/08/25/2153807.html&#34; target=&#34;_blank&#34;&gt;git/github学习笔记&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://www.cnblogs.com/fnng/archive/2012/01/07/2315685.html&#34; target=&#34;_blank&#34;&gt;git/github初级运用自如&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-</description>
+      <guid>/blog/2014-07-13-introduction-to-git-and-github/</guid>
+      <description>git安装 推荐Homebrew用于管理常用开源软件包在Mac OS X上的安装和升级。Homebrew用Ruby语言开发，支持千余种开源软件在 Mac OS</description>
     </item>
     
   </channel>

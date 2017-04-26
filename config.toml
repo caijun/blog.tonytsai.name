@@ -2,7 +2,7 @@ baseurl = "http://blog.tonytsai.name/"
 disablePathToLower = false
 languageCode = "en-us"
 title = "Tony Tsai"
-theme = "hugo-octopress"
+theme = "Hugo-Octopress"
 
 # if true, auto-detect Chinese/Japanese/Korean Languages in the content. (.Summary and .WordCount can work properly in CJKLanguage)
 hasCJKLanguage = true
