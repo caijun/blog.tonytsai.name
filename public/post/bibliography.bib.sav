@@ -1,0 +1,27 @@
+% Encoding: UTF-8
+
+@Book{Anderson.May-InfectiousDiseasesHumans-1992,
+  title         = {Infectious Diseases of Humans: Dynamics and Control},
+  publisher     = {Oxford University Press},
+  year          = {1992},
+  author        = {Anderson, Roy M. and May, Robert M.},
+  __markedentry = {[Tony Tsai:6]},
+  issn          = {019854040X},
+  owner         = {Tony Tsai},
+  timestamp     = {2017.04.27},
+}
+
+@Book{Hens.etal-Modelinginfectiousdisease-2012,
+  title         = {Modeling infectious disease parameters based on serological and social contact data: a modern statistical perspective},
+  publisher     = {Springer Science \& Business Media},
+  year          = {2012},
+  author        = {Hens, Niel and Shkedy, Ziv and Aerts, Marc and Faes, Christel and Van Damme, Pierre and Beutels, Philippe},
+  volume        = {63},
+  __markedentry = {[Tony Tsai:6]},
+  file          = {Hens.etal-Modelinginfectiousdisease-2012.pdf:Book/Hens.etal-Modelinginfectiousdisease-2012.pdf:PDF},
+  issn          = {1461440726},
+  owner         = {Tony Tsai},
+  timestamp     = {2017.04.27},
+}
+
+@Comment{jabref-meta: databaseType:bibtex;}

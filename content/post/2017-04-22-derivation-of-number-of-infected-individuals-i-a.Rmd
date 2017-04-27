@@ -1,0 +1,131 @@
+---
+title: "Derivation of Number of Infected Individuals I(a)"
+author: ''
+date: '2017-04-22'
+categories: ['Influenza']
+draft: yes
+slug: ''
+tags: []
+bibliography: ["bibliography.bib"]
+link-citations: yes
+output:
+  bookdown::html_document2
+---
+
+[@Hens.etal-Modelinginfectiousdisease-2012, pp. 41] gives the formula for the total number of infective individuals $I(a)$:
+
+$$
+\begin{equation} 
+  I(a) = \frac{\lambda}{\lambda - \nu}N(0)l(a)\left[e^{-\nu a} - e^{-\lambda a}\right],
+  (\#eq:Ia)
+\end{equation} 
+$$
+
+which is obtained by integrating following differential equation with respect to age $a$:
+
+$$
+\begin{equation}
+  \frac{dI(a)}{da}=\lambda S(a) - (\nu + \mu)I(a).
+  (\#eq:dIa)
+\end{equation}
+$$
+
+This is also equation (4.11) in [@Anderson.May-InfectiousDiseasesHumans-1992, pp. 67]. Here I will present the details of integration.
+
+Equation \@ref(eq:dIa) can be written as follows:
+
+$$
+\begin{equation}
+  \frac{dI(a)}{da} + (\nu + \mu)I(a)=\lambda S(a).
+  (\#eq:dIa1)
+\end{equation}
+$$
+
+This equation can be solved using the technique of “integrating factors”^[http://mathworld.wolfram.com/IntegratingFactor.html] by following the steps below:
+
+*Step 1*. Multiply both sides of the equation by $e^{(\nu + \mu)a}$, to obtain the following:
+
+$$
+\begin{equation}
+  \frac{dI(a)}{da}e^{(\nu + \mu)a} + I(a)(\nu + \mu)e^{(\nu + \mu)a}=\lambda S(a)e^{(\nu + \mu)a}.
+  (\#eq:dIa2)
+\end{equation}
+$$
+
+Note that, according to the rules of differentiation, the left-hand side of this equation is equivalent to the derivative of $I(a)e^{(\nu + \mu)a}$ with respect to $a$, and so the equation can be rewritten as follows:
+
+$$
+\begin{equation}
+  \frac{d}{da}(I(a)e^{(\nu + \mu)a})=\lambda S(a)e^{(\nu + \mu)a}.
+  (\#eq:dIa3)
+\end{equation}
+$$
+
+*Step 2*. We now integrate both sides of equation \@ref(eq:dIa3) between 0 and $a$ to obtain the following:
+
+$$
+\begin{equation}
+  \int_{0}^{a}\frac{d}{da}(I(a)e^{(\nu + \mu)a})da = \int_{0}^{a}\lambda S(a)e^{(\nu + \mu)a}da.
+  (\#eq:int)
+\end{equation}
+$$
+
+Since integration is the converse of differentiation, the left-hand side of equation \@ref(eq:int) simplifies to:
+
+$$
+\begin{equation}
+  \left[I(a)e^{(\nu + \mu)a} \right]_{0}^{a} = I(a)e^{(\nu + \mu)a} - I(0)
+  (\#eq:intL)
+\end{equation}
+$$
+
+However, $I(0)=0$ (since no individuals are infected at birth) and therefore the left-hand side of equation \@ref(eq:int) simplifies to $I(a)e^{(\nu + \mu)a}$.
+
+Since here we are discussiing the static model (3.8) [@Hens.etal-Modelinginfectiousdisease-2012, pp. 38] with demographic processes ($\mu$ is the constant mortality rate), the survival function $l(a) = e^{-\mu a}$ and $S(a) = N(0)l(a)e^{-\lambda a} = N(0)e^{-(\mu + \lambda)a}$. The right hand side of equation \@ref(eq:int) can be writtern as following:
+
+$$
+\begin{equation}
+  \int_{0}^{a}\lambda S(a)e^{(\nu + \mu)a}da = \lambda N(0)\int_{0}^{a}e^{(\nu - \lambda)a}da.
+  (\#eq:intR)
+\end{equation}
+$$
+
+By the rules of integration, equation \@ref(eq:intR) simplifies to the following:
+
+$$
+\begin{equation}
+\begin{split}
+  \lambda N(0)\int_{0}^{a}e^{(\nu - \lambda)a}da &= \frac{\lambda N(0)}{\nu - \lambda}\left[e^{(\nu - \lambda)a} \right]_{0}^{a} \\
+  &= \frac{\lambda}{\lambda - \nu}N(0)\left[1 - e^{(\nu - \lambda)a} \right].
+\end{split}
+(\#eq:intR1)
+\end{equation}
+$$
+
+*Step 3*. Equating the expressions obtained from integrating the left-hand and right-hand sides of equation \@ref(eq:int) leads to the following:
+
+$$
+\begin{equation}
+  I(a)e^{(\nu + \mu)a} = \frac{\lambda}{\lambda - \nu}N(0)\left[1 - e^{(\nu - \lambda)a} \right].
+  (\#eq:int1)
+\end{equation}
+$$
+
+Dividing both sides of this equation by $e^{(\nu + \mu)a}$ leads to the intended equation \@ref(eq:Ia):
+
+$$
+\begin{equation*}
+\begin{split}
+  I(a) &= \frac{\lambda}{\lambda - \nu}N(0)\left[e^{(-\nu -\mu)a} - e^{(-\lambda -\mu)a} \right] \\
+  &= \frac{\lambda}{\lambda - \nu}N(0)e^{-\mu a}\left[e^{-\nu a} - e^{-\lambda a} \right] \\
+  &= \frac{\lambda}{\lambda - \nu}N(0)l(a)\left[e^{-\nu a} - e^{-\lambda a} \right].
+\end{split}
+\end{equation*}
+$$
+
+</br>
+
+### PS
+- blank line before `$$` is necessary for correctly displaying numbered equation.
+
+`r if (knitr:::is_html_output()) '## References {-}'`

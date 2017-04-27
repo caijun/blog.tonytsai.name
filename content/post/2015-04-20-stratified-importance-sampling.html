@@ -24,9 +24,9 @@ u &lt;- runif(M)  # f3, inverse transform method
 x &lt;- -log(1 - u * (1 - exp(-1)))
 fg &lt;- g(x) / (exp(-x) / (1 - exp(-1)))
 (theta.hat0 &lt;- mean(fg))</code></pre>
-<pre><code>## [1] 0.5252976</code></pre>
+<pre><code>## [1] 0.5244593</code></pre>
 <pre class="r"><code>(se0 &lt;- sd(fg))</code></pre>
-<pre><code>## [1] 0.09658921</code></pre>
+<pre><code>## [1] 0.09699656</code></pre>
 <pre class="r"><code># stratified importance sampling
 k &lt;- 5  # number of strata
 m &lt;- M / k  # replicates per stratum
@@ -40,7 +40,7 @@ for (j in 1:k) {
   se[j] &lt;- sd(fg)
 }
 sum(theta.hat)</code></pre>
-<pre><code>## [1] 0.5248945</code></pre>
+<pre><code>## [1] 0.524707</code></pre>
 <pre class="r"><code>sum(se)</code></pre>
-<pre><code>## [1] 0.01829785</code></pre>
-<p>The estimate <span class="math inline">\(\hat{\theta}\)</span> is close, while the estimated standard error <span class="math inline">\(\hat{\sigma}\)</span> is reduced from 0.0965892 to 0.0182978 with stratification.</p>
+<pre><code>## [1] 0.01832047</code></pre>
+<p>The estimate <span class="math inline">\(\hat{\theta}\)</span> is close, while the estimated standard error <span class="math inline">\(\hat{\sigma}\)</span> is reduced from 0.0969966 to 0.0183205 with stratification.</p>

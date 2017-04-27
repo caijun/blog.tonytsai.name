@@ -6,10 +6,23 @@
     <description>Recent content on Tony Tsai</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 05 Jan 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 22 Apr 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Derivation of Number of Infected Individuals I(a)</title>
+      <link>/blog/2017-04-22-derivation-of-number-of-infected-individuals-ia/</link>
+      <pubDate>Sat, 22 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/2017-04-22-derivation-of-number-of-infected-individuals-ia/</guid>
+      <description>(Hens et al. 2012, 63:41) gives the formula for the total number of infective individuals \(I(a)\):
+\[ \begin{equation} I(a) = \frac{\lambda}{\lambda - \nu}N(0)l(a)\left[e^{-\nu a} - e^{-\lambda a}\right], \tag{1} \end{equation} \]
+which is obtained by integrating following differential equation with respect to age \(a\):
+\[ \begin{equation} \frac{dI(a)}{da}=\lambda S(a) - (\nu + \mu)I(a). \tag{2} \end{equation} \]
+This is also equation (4.11) in (Anderson and May 1992, 67). Here I will present the details of integration.</description>
+    </item>
     
     <item>
       <title>Display Multi-line Equations and Matrix Correctly in Hugo</title>
