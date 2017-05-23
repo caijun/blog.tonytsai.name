@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>/blog/2017-05-23-narrative-outline-of-my-talk-at-the-10th-china-r-conference/</loc>
+    <lastmod>2017-05-23T00:00:00+00:00</lastmod>
+  </url>
   
   <url>
     <loc>/blog/2017-04-22-derivation-of-number-of-infected-individuals-ia/</loc>
@@ -153,6 +159,12 @@
   </url>
   
   <url>
+    <loc>/tags/china-r-conference/</loc>
+    <lastmod>2017-05-23T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/tags/chinese/</loc>
     <lastmod>2013-12-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -169,6 +181,12 @@
   </url>
   
   <url>
+    <loc>/tags/epidemics/</loc>
+    <lastmod>2017-05-23T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/tags/geochina/</loc>
     <lastmod>2014-08-23T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -181,13 +199,13 @@
   </url>
   
   <url>
-    <loc>/tags/github/</loc>
+    <loc>/categories/github/</loc>
     <lastmod>2014-07-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/github/</loc>
+    <loc>/tags/github/</loc>
     <lastmod>2014-07-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -223,6 +241,12 @@
   </url>
   
   <url>
+    <loc>/tags/influenza/</loc>
+    <lastmod>2017-05-23T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/tags/ipv6/</loc>
     <lastmod>2013-06-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -253,13 +277,13 @@
   </url>
   
   <url>
-    <loc>/tags/latex/</loc>
+    <loc>/categories/latex/</loc>
     <lastmod>2013-12-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/latex/</loc>
+    <loc>/tags/latex/</loc>
     <lastmod>2013-12-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -277,14 +301,14 @@
   </url>
   
   <url>
-    <loc>/tags/mac-os-x/</loc>
-    <lastmod>2014-07-13T00:00:00+00:00</lastmod>
+    <loc>/categories/mac-os-x/</loc>
+    <lastmod>2014-08-23T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/mac-os-x/</loc>
-    <lastmod>2014-08-23T00:00:00+00:00</lastmod>
+    <loc>/tags/mac-os-x/</loc>
+    <lastmod>2014-07-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -344,7 +368,7 @@
   
   <url>
     <loc>/post/</loc>
-    <lastmod>2017-04-22T00:00:00+00:00</lastmod>
+    <lastmod>2017-05-23T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -361,14 +385,14 @@
   </url>
   
   <url>
-    <loc>/tags/r/</loc>
-    <lastmod>2014-11-24T00:00:00+00:00</lastmod>
+    <loc>/categories/r/</loc>
+    <lastmod>2017-05-23T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/r/</loc>
-    <lastmod>2015-08-09T00:00:00+00:00</lastmod>
+    <loc>/tags/r/</loc>
+    <lastmod>2014-11-24T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -439,14 +463,14 @@
   </url>
   
   <url>
-    <loc>/tags/statistical-computing/</loc>
-    <lastmod>2015-04-20T00:00:00+00:00</lastmod>
+    <loc>/categories/statistical-computing/</loc>
+    <lastmod>2015-04-23T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/statistical-computing/</loc>
-    <lastmod>2015-04-23T00:00:00+00:00</lastmod>
+    <loc>/tags/statistical-computing/</loc>
+    <lastmod>2015-04-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -470,7 +494,7 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2017-04-22T00:00:00+00:00</lastmod>
+    <lastmod>2017-05-23T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
