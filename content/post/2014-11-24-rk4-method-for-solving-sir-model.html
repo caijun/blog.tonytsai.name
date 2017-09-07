@@ -9,6 +9,7 @@ draft: yes
 ---
 
 
+
 <p>My object is to rewrite the 4th order Runge-Kutta (abbreviated for <strong>RK4</strong>) method for solving the absolute humidity-driven SIRS model developed by <a href="http://www.ploscompbiol.org/article/info%3Adoi%2F10.1371%2Fjournal.pcbi.1003583">Yang et al. (2014)</a> in <strong>R</strong> language. The details of the SIRS model are provided in the paper.</p>
 <div id="rk4" class="section level2">
 <h2>1 RK4</h2>
@@ -453,9 +454,9 @@ compare$expr &lt;- gsub(&quot;RK4SIR.Yang(n, beta, gamma, S0, I0, incidence = TR
 compare</code></pre>
 <pre><code>## Unit: milliseconds
 ##         expr       min        lq      mean    median        uq       max
-##          rk4 19.079682 19.438184 24.517588 20.737893 22.948858 57.147988
-##       RK4SIR  2.093104  2.123184  2.257929  2.217657  2.350281  2.591081
-##  RK4SIR.Yang  1.963385  2.004501  6.386244  2.099527  2.145794 45.202040
+##          rk4 20.450011 20.886987 26.522678 21.678935 23.614650 66.010133
+##       RK4SIR  2.091019  2.260780  2.620531  2.354402  2.945804  3.361457
+##  RK4SIR.Yang  1.979417  2.127702  7.024959  2.204769  2.815772 48.812018
 ##  neval
 ##     10
 ##     10

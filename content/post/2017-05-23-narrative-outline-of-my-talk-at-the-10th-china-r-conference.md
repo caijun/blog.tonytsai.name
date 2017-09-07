@@ -2,7 +2,7 @@
 title: Narrative Outline of My Talk at the 10th China R Conference
 author: ~
 date: '2017-05-23'
-slug: ''
+slug: narrative-outline-of-my-talk-at-the-10th-china-r-conference
 categories: ['R']
 tags: ["China-R Conference", "Epidemics", "Influenza"]
 draft: yes

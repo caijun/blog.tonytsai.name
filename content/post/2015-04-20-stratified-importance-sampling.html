@@ -8,11 +8,8 @@ tags: ["Statistical Computing", "Variance Reduction", "Stratified Importance Sam
 draft: yes
 ---
 
-<!-- BLOGDOWN-HEAD -->
-<!-- /BLOGDOWN-HEAD -->
 
-<!-- BLOGDOWN-BODY-BEFORE -->
-<!-- /BLOGDOWN-BODY-BEFORE -->
+
 <p>The following <code>R</code> codes implement the <strong>Example 5.13</strong> in <a href="http://www.amazon.com/Statistical-Computing-Chapman-Hall-Series/dp/1584885459">Statistical Computing with R</a>, and compare the estimate <span class="math inline">\(\hat{\theta}\)</span> and <span class="math inline">\(\hat{\sigma}\)</span> from stratified importance sampling to the results from importance sampling. The example illustrates that stratification can reduce the varinace of importance sampling estimator.</p>
 <pre class="r"><code>M &lt;- 100000  # number of replicates
 g &lt;- function(x) {
@@ -24,9 +21,9 @@ u &lt;- runif(M)  # f3, inverse transform method
 x &lt;- -log(1 - u * (1 - exp(-1)))
 fg &lt;- g(x) / (exp(-x) / (1 - exp(-1)))
 (theta.hat0 &lt;- mean(fg))</code></pre>
-<pre><code>## [1] 0.5244593</code></pre>
+<pre><code>## [1] 0.5249782</code></pre>
 <pre class="r"><code>(se0 &lt;- sd(fg))</code></pre>
-<pre><code>## [1] 0.09699656</code></pre>
+<pre><code>## [1] 0.09679257</code></pre>
 <pre class="r"><code># stratified importance sampling
 k &lt;- 5  # number of strata
 m &lt;- M / k  # replicates per stratum
@@ -40,7 +37,7 @@ for (j in 1:k) {
   se[j] &lt;- sd(fg)
 }
 sum(theta.hat)</code></pre>
-<pre><code>## [1] 0.524707</code></pre>
+<pre><code>## [1] 0.5248795</code></pre>
 <pre class="r"><code>sum(se)</code></pre>
-<pre><code>## [1] 0.01832047</code></pre>
-<p>The estimate <span class="math inline">\(\hat{\theta}\)</span> is close, while the estimated standard error <span class="math inline">\(\hat{\sigma}\)</span> is reduced from 0.0969966 to 0.0183205 with stratification.</p>
+<pre><code>## [1] 0.01833763</code></pre>
+<p>The estimate <span class="math inline">\(\hat{\theta}\)</span> is close, while the estimated standard error <span class="math inline">\(\hat{\sigma}\)</span> is reduced from 0.0967926 to 0.0183376 with stratification.</p>

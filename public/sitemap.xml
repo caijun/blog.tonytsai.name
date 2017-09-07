@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/blog/2017-09-07-pip-for-different-versions-of-python-on-macos-sierra/</loc>
+    <lastmod>2017-09-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/blog/2017-05-23-narrative-outline-of-my-talk-at-the-10th-china-r-conference/</loc>
     <lastmod>2017-05-23T00:00:00+00:00</lastmod>
   </url>
@@ -313,6 +318,12 @@
   </url>
   
   <url>
+    <loc>/tags/macos/</loc>
+    <lastmod>2017-09-07T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/tags/markov-chain-transition-rate/</loc>
     <lastmod>2014-12-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -367,8 +378,14 @@
   </url>
   
   <url>
+    <loc>/tags/pip/</loc>
+    <lastmod>2017-09-07T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/post/</loc>
-    <lastmod>2017-05-23T00:00:00+00:00</lastmod>
+    <lastmod>2017-09-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -381,6 +398,12 @@
   <url>
     <loc>/tags/proxy/</loc>
     <lastmod>2014-08-23T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/python/</loc>
+    <lastmod>2017-09-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -494,7 +517,7 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2017-05-23T00:00:00+00:00</lastmod>
+    <lastmod>2017-09-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
