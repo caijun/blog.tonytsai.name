@@ -49,7 +49,7 @@
   <meta name="author" content="Tony Tsai">
 
   
-  <meta name="generator" content="Hugo 0.26" />
+  <meta name="generator" content="Hugo 0.31.1" />
 
   
   
@@ -73,6 +73,23 @@ ga('send', 'pageview');
 
 
 <nav role="navigation">
+<fieldset class="mobile-nav">
+  
+  <select onchange="location = this.value;">
+    <option value="">Navigate…</option>
+      
+        <option value="/">» Blog</option>
+      
+        <option value="http://tonytsai.name/cv.pdf">» Resume</option>
+      
+        <option value="/douban/">» Douban</option>
+      
+        <option value="/archive/">» Archive</option>
+      
+
+  </select>
+</fieldset>
+
 
 <ul class="main-navigation">
   
@@ -164,61 +181,61 @@ ga('send', 'pageview');
           <p>Three versions of Python exist on my macOS Sierra. The first one is the original Python come with macOS. The other two are Python 2 and Python 3 installed by <code>brew</code>.</p>
 
 <p>To load the raw Python 2 interpreter inside the terminal, type</p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>$ python
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><code class="language-bash" data-lang="bash"><span></span>$ python
 Python 2.7.10 <span style="color: #719e07">(</span>default, Feb  <span style="color: #2AA198">7</span> 2017, 00:08:15<span style="color: #719e07">)</span>
 <span style="color: #719e07">[</span>GCC 4.2.1 Compatible Apple LLVM 8.0.0 <span style="color: #719e07">(</span>clang-800.0.34<span style="color: #719e07">)]</span> on darwin
 Type <span style="color: #2AA198">&quot;help&quot;</span>, <span style="color: #2AA198">&quot;copyright&quot;</span>, <span style="color: #2AA198">&quot;credits&quot;</span> or <span style="color: #2AA198">&quot;license&quot;</span> <span style="color: #719e07">for</span> more information.
 &gt;&gt;&gt;
-</pre></div>
+</code></pre></div>
 
 <p>To load the brew-installed Python 2 interpreter inside the terminal, type</p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>$ python2
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><code class="language-bash" data-lang="bash"><span></span>$ python2
 Python 2.7.13 <span style="color: #719e07">(</span>default, Jul <span style="color: #2AA198">20</span> 2017, 21:05:06<span style="color: #719e07">)</span>
 <span style="color: #719e07">[</span>GCC 4.2.1 Compatible Apple LLVM 8.1.0 <span style="color: #719e07">(</span>clang-802.0.42<span style="color: #719e07">)]</span> on darwin
 Type <span style="color: #2AA198">&quot;help&quot;</span>, <span style="color: #2AA198">&quot;copyright&quot;</span>, <span style="color: #2AA198">&quot;credits&quot;</span> or <span style="color: #2AA198">&quot;license&quot;</span> <span style="color: #719e07">for</span> more information.
 &gt;&gt;&gt;
-</pre></div>
+</code></pre></div>
 
 <p>To load the brew-installed Python 3 interpreter inside the terminal, type</p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>$ python3
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><code class="language-bash" data-lang="bash"><span></span>$ python3
 Python 3.6.2 <span style="color: #719e07">(</span>default, Jul <span style="color: #2AA198">18</span> 2017, 13:03:54<span style="color: #719e07">)</span>
 <span style="color: #719e07">[</span>GCC 4.2.1 Compatible Apple LLVM 8.1.0 <span style="color: #719e07">(</span>clang-802.0.42<span style="color: #719e07">)]</span> on darwin
 Type <span style="color: #2AA198">&quot;help&quot;</span>, <span style="color: #2AA198">&quot;copyright&quot;</span>, <span style="color: #2AA198">&quot;credits&quot;</span> or <span style="color: #2AA198">&quot;license&quot;</span> <span style="color: #719e07">for</span> more information.
 &gt;&gt;&gt;
-</pre></div>
+</code></pre></div>
 
 <p><br>
 <a href="https://pypi.python.org/pypi/pip" target="_blank">pip</a> is the PyPA recommended tool for installing Python packages. Therefore, to install pip for different versions of Python, we need to use the corresponding Python interpreter to run the <a href="https://bootstrap.pypa.io/get-pip.py" target="_blank">get-pip.py</a>.</p>
 
 <p>For the raw Python 2</p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>$ python get-pip.py
-</pre></div>
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><code class="language-bash" data-lang="bash"><span></span>$ python get-pip.py
+</code></pre></div>
 
 <p>For the brew-installed Python 2</p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>$ python2 get-pip.py
-</pre></div>
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><code class="language-bash" data-lang="bash"><span></span>$ python2 get-pip.py
+</code></pre></div>
 
 <p>For the brew-installed Python 3</p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>$ python3 get-pip.py
-</pre></div>
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><code class="language-bash" data-lang="bash"><span></span>$ python3 get-pip.py
+</code></pre></div>
 
 <p><br>
 After successfully installed pip package, we can type following command to check the directory of <code>site-packages</code> where <code>pip</code> self is installed and later <code>pip</code> will install other packages to</p>
 
 <p>For the raw Python 2</p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>$ pip --version
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><code class="language-bash" data-lang="bash"><span></span>$ pip --version
 pip 9.0.1 from /Library/Python/2.7/site-packages <span style="color: #719e07">(</span>python 2.7<span style="color: #719e07">)</span>
-</pre></div>
+</code></pre></div>
 
 <p>For the brew-installed Python 2</p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>$ pip --version
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><code class="language-bash" data-lang="bash"><span></span>$ pip --version
 pip 9.0.1 from /usr/local/lib/python2.7/site-packages <span style="color: #719e07">(</span>python 2.7<span style="color: #719e07">)</span>
-</pre></div>
+</code></pre></div>
 
 <p>For the brew-installed Python 3</p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>$ pip --version
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><code class="language-bash" data-lang="bash"><span></span>$ pip --version
 pip 9.0.1 from /usr/local/lib/python3.6/site-packages <span style="color: #719e07">(</span>python 3.6<span style="color: #719e07">)</span>
-</pre></div>
+</code></pre></div>
 
 <p><br>
 For the two versions of Python 2, I recommand to use the brew-installed Python 2 as often as possible because using <code>pip</code> to install packages for the raw Python 2 needs <code>sudo</code> permission.</p>
@@ -304,11 +321,11 @@ For the two versions of Python 2, I recommand to use the brew-installed Python 2
   <ul class="sidebar-nav">
     <li class="sidebar-nav-item">
       <a target="_blank" href="https://github.com/caijun/" title="https://github.com/caijun/"><i class="fa fa-github fa-3x"></i></a>
+      <a target="_blank" href="https://www.linkedin.com/in/jun-cai-2a4143127/" title="https://www.linkedin.com/in/jun-cai-2a4143127/"><i class="fa fa-linkedin fa-3x"></i></a>
       
       
       <a target="_blank" href="https://twitter.com/caijun2046/" title="https://twitter.com/caijun2046/"><i class="fa fa-twitter fa-3x"></i></a>
        
-      
       
       
       <a target="_blank" href="https://www.facebook.com/tony.tsai.007/" title="https://www.facebook.com/tony.tsai.007/"><i class="fa fa-facebook fa-3x"></i></a>
@@ -408,6 +425,10 @@ MathJax.Hub.Config({
 <script type="text/javascript"
   src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
+
+
+
+
 
 
 <script>

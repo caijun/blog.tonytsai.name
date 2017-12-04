@@ -49,7 +49,7 @@
   <meta name="author" content="Tony Tsai">
 
   
-  <meta name="generator" content="Hugo 0.26" />
+  <meta name="generator" content="Hugo 0.31.1" />
 
   
   
@@ -73,6 +73,23 @@ ga('send', 'pageview');
 
 
 <nav role="navigation">
+<fieldset class="mobile-nav">
+  
+  <select onchange="location = this.value;">
+    <option value="">Navigate…</option>
+      
+        <option value="/">» Blog</option>
+      
+        <option value="http://tonytsai.name/cv.pdf">» Resume</option>
+      
+        <option value="/douban/">» Douban</option>
+      
+        <option value="/archive/">» Archive</option>
+      
+
+  </select>
+</fieldset>
+
 
 <ul class="main-navigation">
   
@@ -166,9 +183,9 @@ ga('send', 'pageview');
 <h3 id="问题描述">问题描述</h3>
 
 <p>最近想更新自己开发的<a href="https://github.com/caijun/geoChina" target="_blank"><em>geoChina</em></a>，发现在Mac上运行以下代码</p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span><span style="color: #719e07">library</span><span style="color: #93A1A1">(</span>geoChina<span style="color: #93A1A1">)</span>
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><code class="language-r" data-lang="r"><span></span><span style="color: #719e07">library</span><span style="color: #93A1A1">(</span>geoChina<span style="color: #93A1A1">)</span>
 geocode<span style="color: #93A1A1">(</span><span style="color: #2AA198">&#39;Tsinghua University&#39;</span><span style="color: #93A1A1">,</span> api <span style="color: #719e07">=</span> <span style="color: #2AA198">&#39;google&#39;</span><span style="color: #93A1A1">,</span> ocs <span style="color: #719e07">=</span> <span style="color: #2AA198">&#39;GCJ-02&#39;</span><span style="color: #93A1A1">,</span> messaging <span style="color: #719e07">=</span> <span style="color: #268BD2">T</span><span style="color: #93A1A1">)</span>
-</pre></div>
+</code></pre></div>
 
 <p>出错，返回
 
@@ -178,18 +195,18 @@ geocode<span style="color: #93A1A1">(</span><span style="color: #2AA198">&#39;Ts
   	<span></span>
   </figcaption>
   <div class="codewrapper">
-    <table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%">1
+    <table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%"><code class="language-bash" data-lang="bash">1
 2
 3
 4
 5
-6</pre></div></td><td class="code"><div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>calling http://maps.googleapis.com/maps/api/geocode/json?address<span style="color: #719e07">=</span>Tsinghua%20University<span style="color: #93A1A1">&amp;</span><span style="color: #268BD2">sensor</span><span style="color: #719e07">=</span><span style="color: #B58900">false</span> ...
+6</code></pre></div></td><td class="code"><div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><code class="language-bash" data-lang="bash"><span></span>calling http://maps.googleapis.com/maps/api/geocode/json?address<span style="color: #719e07">=</span>Tsinghua%20University<span style="color: #93A1A1">&amp;</span><span style="color: #268BD2">sensor</span><span style="color: #719e07">=</span><span style="color: #B58900">false</span> ...
 Warning message:
 In readLines<span style="color: #719e07">(</span>connect, <span style="color: #268BD2">warn</span> <span style="color: #719e07">=</span> FALSE<span style="color: #719e07">)</span> :
   unable to connect to <span style="color: #2AA198">&#39;maps.googleapis.com&#39;</span> on port 80.
 Error in fromJSON<span style="color: #719e07">(</span>paste<span style="color: #719e07">(</span>readLines<span style="color: #719e07">(</span>connect, <span style="color: #268BD2">warn</span> <span style="color: #719e07">=</span> FALSE<span style="color: #719e07">)</span>, <span style="color: #268BD2">collapse</span> <span style="color: #719e07">=</span> <span style="color: #2AA198">&quot;&quot;</span><span style="color: #719e07">))</span> : 
   error in evaluating the argument <span style="color: #2AA198">&#39;content&#39;</span> in selecting a method <span style="color: #719e07">for</span> <span style="color: #719e07">function</span> <span style="color: #2AA198">&#39;fromJSON&#39;</span>: Error in readLines<span style="color: #719e07">(</span>connect, <span style="color: #268BD2">warn</span> <span style="color: #719e07">=</span> FALSE<span style="color: #719e07">)</span> : cannot open the connection
-</pre></div>
+</code></pre></div>
 </td></tr></table>
   </div>
 </figure>
@@ -202,8 +219,8 @@ Error in fromJSON<span style="color: #719e07">(</span>paste<span style="color: #
 <p><em>geoChina</em>的开发的确是在Mac上完成的，但代码并没有针对不同的操作系统作了不同处理。因此可以初步判断是Mac操作系统的终端网络通讯出现了问题。http服务默认80端口，https服务默认443端口，从报错信息来看，终端网络通讯的80端口出现了问题。</p>
 
 <p><code>curl</code>或<code>wget</code>命令能够实现终端网页数据内容下载，因此可以用来验证初步判断。在终端输入</p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>$ wget www.google.com
-</pre></div>
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><code class="language-bash" data-lang="bash"><span></span>$ wget www.google.com
+</code></pre></div>
 
 <p>返回</p>
 
@@ -212,8 +229,8 @@ Connecting to www.google.com|2404:6800:4005:805::1012|:80... failed: Host is dow
 </code></pre>
 
 <p>输入</p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>$ curl -v -L www.google.com
-</pre></div>
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><code class="language-bash" data-lang="bash"><span></span>$ curl -v -L www.google.com
+</code></pre></div>
 
 <p>返回</p>
 
@@ -232,13 +249,13 @@ Connecting to www.google.com|2404:6800:4005:805::1012|:80... failed: Host is dow
 <h3 id="问题解决">问题解决</h3>
 
 <p><a href="#[1]">[1]</a>给出的解决方案是在终端设置http/https代理，google Mac OS X终端设置代理的方法，找到<a href="#[2]">[2]</a>。只需清楚<em>GoAgent</em>代理服务端口，然后编辑<code>~/.bash_profile</code>文件，输入</p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span><span style="color: #B58900">export</span> <span style="color: #268BD2">http_proxy</span><span style="color: #719e07">=</span><span style="color: #2AA198">&#39;http://localhost:8103&#39;</span>
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><code class="language-bash" data-lang="bash"><span></span><span style="color: #B58900">export</span> <span style="color: #268BD2">http_proxy</span><span style="color: #719e07">=</span><span style="color: #2AA198">&#39;http://localhost:8103&#39;</span>
 <span style="color: #B58900">export</span> <span style="color: #268BD2">https_proxy</span><span style="color: #719e07">=</span><span style="color: #2AA198">&#39;http://localhost:8103&#39;</span>
-</pre></div>
+</code></pre></div>
 
 <p>保存<code>.bash_profile</code>文件，在终端更新<code>.bash_profile</code>生效</p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>$ <span style="color: #B58900">source</span> .bash_profile
-</pre></div>
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><code class="language-bash" data-lang="bash"><span></span>$ <span style="color: #B58900">source</span> .bash_profile
+</code></pre></div>
 
 <p>现在<code>curl</code>或<code>wget</code>命令都可以通过代理访问google服务了，但Mac上<code>geoChina::geocode</code>运行还是时好时坏，看来<code>geoChina</code>的开发维护只能暂时转到Windows上了。</p>
 
@@ -340,11 +357,11 @@ PS:本文采用了<a href="http://celavie.me/lib/2013/10/19/Markdown%E5%86%99%E4
   <ul class="sidebar-nav">
     <li class="sidebar-nav-item">
       <a target="_blank" href="https://github.com/caijun/" title="https://github.com/caijun/"><i class="fa fa-github fa-3x"></i></a>
+      <a target="_blank" href="https://www.linkedin.com/in/jun-cai-2a4143127/" title="https://www.linkedin.com/in/jun-cai-2a4143127/"><i class="fa fa-linkedin fa-3x"></i></a>
       
       
       <a target="_blank" href="https://twitter.com/caijun2046/" title="https://twitter.com/caijun2046/"><i class="fa fa-twitter fa-3x"></i></a>
        
-      
       
       
       <a target="_blank" href="https://www.facebook.com/tony.tsai.007/" title="https://www.facebook.com/tony.tsai.007/"><i class="fa fa-facebook fa-3x"></i></a>
@@ -444,6 +461,10 @@ MathJax.Hub.Config({
 <script type="text/javascript"
   src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
+
+
+
+
 
 
 <script>

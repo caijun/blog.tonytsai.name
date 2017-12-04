@@ -49,7 +49,7 @@
   <meta name="author" content="Tony Tsai">
 
   
-  <meta name="generator" content="Hugo 0.26" />
+  <meta name="generator" content="Hugo 0.31.1" />
 
   
   
@@ -73,6 +73,23 @@ ga('send', 'pageview');
 
 
 <nav role="navigation">
+<fieldset class="mobile-nav">
+  
+  <select onchange="location = this.value;">
+    <option value="">Navigate…</option>
+      
+        <option value="/">» Blog</option>
+      
+        <option value="http://tonytsai.name/cv.pdf">» Resume</option>
+      
+        <option value="/douban/">» Douban</option>
+      
+        <option value="/archive/">» Archive</option>
+      
+
+  </select>
+</fieldset>
+
 
 <ul class="main-navigation">
   
@@ -187,9 +204,9 @@ ga('send', 'pageview');
 <h3 id="2-查看主机和虚拟机的ip并测试ping">2. 查看主机和虚拟机的IP并测试ping</h3>
 
 <p>在CentOS中查看IP只需在终端中输入</p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>$ ifconfig
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><code class="language-bash" data-lang="bash"><span></span>$ ifconfig
 $ ping ipaddr
-</pre></div>
+</code></pre></div>
 
 <p>在WIN 7查看IP只需在CLI中输入</p>
 
@@ -213,16 +230,16 @@ Protocol 2
 <h3 id="4-开启ssh服务">4. 开启ssh服务</h3>
 
 <p>在CentOS中开启sshd服务只需输入</p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>$ service sshd start
-</pre></div>
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><code class="language-bash" data-lang="bash"><span></span>$ service sshd start
+</code></pre></div>
 
 <p>设置sshd服务开机自启动，输入</p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>$ chkconfig sshd on
-</pre></div>
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><code class="language-bash" data-lang="bash"><span></span>$ chkconfig sshd on
+</code></pre></div>
 
 <p>查看sshd服务是否开启，输入</p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>$ ps -le<span style="color: #93A1A1">|</span>grep sshd
-</pre></div>
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><code class="language-bash" data-lang="bash"><span></span>$ ps -le<span style="color: #93A1A1">|</span>grep sshd
+</code></pre></div>
 
 <p>显示sshd信息说明服务已经开启。</p>
 
@@ -315,11 +332,11 @@ Protocol 2
   <ul class="sidebar-nav">
     <li class="sidebar-nav-item">
       <a target="_blank" href="https://github.com/caijun/" title="https://github.com/caijun/"><i class="fa fa-github fa-3x"></i></a>
+      <a target="_blank" href="https://www.linkedin.com/in/jun-cai-2a4143127/" title="https://www.linkedin.com/in/jun-cai-2a4143127/"><i class="fa fa-linkedin fa-3x"></i></a>
       
       
       <a target="_blank" href="https://twitter.com/caijun2046/" title="https://twitter.com/caijun2046/"><i class="fa fa-twitter fa-3x"></i></a>
        
-      
       
       
       <a target="_blank" href="https://www.facebook.com/tony.tsai.007/" title="https://www.facebook.com/tony.tsai.007/"><i class="fa fa-facebook fa-3x"></i></a>
@@ -419,6 +436,10 @@ MathJax.Hub.Config({
 <script type="text/javascript"
   src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
+
+
+
+
 
 
 <script>

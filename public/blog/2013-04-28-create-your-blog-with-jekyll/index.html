@@ -49,7 +49,7 @@
   <meta name="author" content="Tony Tsai">
 
   
-  <meta name="generator" content="Hugo 0.26" />
+  <meta name="generator" content="Hugo 0.31.1" />
 
   
   
@@ -73,6 +73,23 @@ ga('send', 'pageview');
 
 
 <nav role="navigation">
+<fieldset class="mobile-nav">
+  
+  <select onchange="location = this.value;">
+    <option value="">Navigate…</option>
+      
+        <option value="/">» Blog</option>
+      
+        <option value="http://tonytsai.name/cv.pdf">» Resume</option>
+      
+        <option value="/douban/">» Douban</option>
+      
+        <option value="/archive/">» Archive</option>
+      
+
+  </select>
+</fieldset>
+
 
 <ul class="main-navigation">
   
@@ -171,24 +188,24 @@ ga('send', 'pageview');
 
 <ol>
 <li><p>Install <em>Ruby</em></p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>$ sudo yum install ruby
-</pre></div></li>
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><code class="language-bash" data-lang="bash"><span></span>$ sudo yum install ruby
+</code></pre></div></li>
 
 <li><p>Install some <em>Ruby</em> dependancies</p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>$ sudo yum install ruby-rdoc ruby-devel
-</pre></div></li>
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><code class="language-bash" data-lang="bash"><span></span>$ sudo yum install ruby-rdoc ruby-devel
+</code></pre></div></li>
 
 <li><p>Install <em>RubyGems</em></p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>$ sudo yum install rubygems
-</pre></div></li>
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><code class="language-bash" data-lang="bash"><span></span>$ sudo yum install rubygems
+</code></pre></div></li>
 
 <li><p>Check <em>RubyGems</em> version</p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>$ gem -v
-</pre></div></li>
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><code class="language-bash" data-lang="bash"><span></span>$ gem -v
+</code></pre></div></li>
 
 <li><p>Update <em>RubyGems</em></p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>$ gem update --system
-</pre></div></li>
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><code class="language-bash" data-lang="bash"><span></span>$ gem update --system
+</code></pre></div></li>
 </ol>
 
 <h3 id="install-jekyll">Install Jekyll</h3>
@@ -196,36 +213,36 @@ ga('send', 'pageview');
 <p><em>Jekyll</em> is a simple, blog-aware, static site generator in Ruby.</p>
 
 <p>Install <em>Jekyll</em> via <em>RubyGems</em></p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>$ gem install jekyll
-</pre></div>
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><code class="language-bash" data-lang="bash"><span></span>$ gem install jekyll
+</code></pre></div>
 
 <p>Update <em>Jekyll</em></p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>$ gem update jekyll
-</pre></div>
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><code class="language-bash" data-lang="bash"><span></span>$ gem update jekyll
+</code></pre></div>
 
 <h3 id="使用jekyll搭建blog">使用Jekyll搭建blog</h3>
 
 <h5 id="1-创建blog主目录">1. 创建blog主目录</h5>
 
 <p>新建一个目录作为blog的主目录</p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>$ mkdir jekyll_blog
-</pre></div>
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><code class="language-bash" data-lang="bash"><span></span>$ mkdir jekyll_blog
+</code></pre></div>
 
 <h5 id="2-创建配置文件">2. 创建配置文件</h5>
 
 <p>在jekyll_blog目录下新建<code>_config.yml</code>文本文件，写入以下内容，其它设置默认。具体设置参见<a href="https://github.com/mojombo/jekyll/wiki/Configuration" target="_blank">Jekyll Configuration</a>。</p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span><span style="color: #93A1A1">markdown:</span> <span style="color: #93A1A1">pandoc</span>
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><code class="language-yaml" data-lang="yaml"><span></span><span style="color: #93A1A1">markdown:</span> <span style="color: #93A1A1">pandoc</span>
 <span style="color: #93A1A1">pandoc:</span> 
     <span style="color: #93A1A1">extensions:</span> <span style="color: #93A1A1">[</span><span style="color: #268BD2">mathjax</span><span style="color: #93A1A1">,</span> <span style="color: #268BD2">standalone</span><span style="color: #93A1A1">]</span>
 <span style="color: #93A1A1">url:</span> <span style="color: #93A1A1">http://blog.tonytsai.name</span>
 <span style="color: #93A1A1">author:</span> <span style="color: #93A1A1">Tony Tsai</span>
-</pre></div>
+</code></pre></div>
 
 <h5 id="3-创建模板文件">3. 创建模板文件</h5>
 
 <p>在jekyll_blog目录下创建<code>_layouts</code>目录，用于存放模板文件</p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>$ mkdir _layouts
-</pre></div>
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><code class="language-bash" data-lang="bash"><span></span>$ mkdir _layouts
+</code></pre></div>
 
 <p>进入<code>_layouts</code>目录，新建<code>default.html</code>，加入以下代码，作为blog的默认模板。
 
@@ -235,7 +252,7 @@ ga('send', 'pageview');
   	<span></span>
   </figcaption>
   <div class="codewrapper">
-    <table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%"> 1
+    <table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%"><code class="language-html" data-lang="html"> 1
  2
  3
  4
@@ -248,7 +265,7 @@ ga('send', 'pageview');
 11
 12
 13
-14</pre></div></td><td class="code"><div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span><span style="color: #719e07">&lt;!DOCTYPE html&gt;</span>
+14</code></pre></div></td><td class="code"><div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><code class="language-html" data-lang="html"><span></span><span style="color: #719e07">&lt;!DOCTYPE html&gt;</span>
 <span style="color: #93A1A1">&lt;</span><span style="color: #268BD2">html</span><span style="color: #93A1A1">&gt;</span>
   <span style="color: #93A1A1">&lt;</span><span style="color: #268BD2">head</span><span style="color: #93A1A1">&gt;</span>
     <span style="color: #93A1A1">&lt;</span><span style="color: #268BD2">meta</span> <span style="color: #93A1A1">http-equiv</span><span style="color: #719e07">=</span><span style="color: #2AA198">&quot;content-type&quot;</span> <span style="color: #93A1A1">content</span><span style="color: #719e07">=</span><span style="color: #2AA198">&quot;text/html; charset=utf-8&quot;</span><span style="color: #93A1A1">/&gt;</span>
@@ -262,7 +279,7 @@ ga('send', 'pageview');
     <span style="color: #93A1A1">&lt;/</span><span style="color: #268BD2">footer</span><span style="color: #93A1A1">&gt;</span>
   <span style="color: #93A1A1">&lt;/</span><span style="color: #268BD2">body</span><span style="color: #93A1A1">&gt;</span>
 <span style="color: #93A1A1">&lt;/</span><span style="color: #268BD2">html</span><span style="color: #93A1A1">&gt;</span>
-</pre></div>
+</code></pre></div>
 </td></tr></table>
   </div>
 </figure>
@@ -273,8 +290,8 @@ ga('send', 'pageview');
 <h5 id="4-创建文章">4. 创建文章</h5>
 
 <p>在jekyll_blog目录下创建<code>_posts</code>目录，用于存放blog文章</p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>$ mkdir _posts
-</pre></div>
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><code class="language-bash" data-lang="bash"><span></span>$ mkdir _posts
+</code></pre></div>
 
 <p>进入<code>_posts</code>目录，创建第一篇文章，文件名为<code>2013-04-28-Create-your-blog-with-Jekyll.md</code>。（注：文件名必须为&rdquo;YYYY-MM-DD-Blog-Title.后缀名&rdquo;，如果采用<code>html</code>网页，后缀名为<code>html</code>；如果采用<a href="http://daringfireball.net/projects/markdown/" target="_blank">markdown</a>格式，后缀名为<code>md</code>）
 在该文件中，写入以下内容：</p>
@@ -304,7 +321,7 @@ tags:
   	<span></span>
   </figcaption>
   <div class="codewrapper">
-    <table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%"> 1
+    <table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%"><code class="language-html" data-lang="html"> 1
  2
  3
  4
@@ -323,7 +340,7 @@ tags:
 17
 18
 19
-20</pre></div></td><td class="code"><div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>{% raw %}
+20</code></pre></div></td><td class="code"><div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><code class="language-html" data-lang="html"><span></span>{% raw %}
 ---
 layout: page
 title: Tony Tsai&#39;s Blog
@@ -343,7 +360,7 @@ title: Tony Tsai&#39;s Blog
 {% endfor %}
 <span style="color: #93A1A1">&lt;/</span><span style="color: #268BD2">ul</span><span style="color: #93A1A1">&gt;</span>
 {% endraw %}
-</pre></div>
+</code></pre></div>
 </td></tr></table>
   </div>
 </figure>
@@ -365,13 +382,13 @@ title: Tony Tsai&#39;s Blog
 <h5 id="6-构建blog网站">6. 构建blog网站</h5>
 
 <p>构建<code>blog</code>网站十分容易，进入<code>jekyll_blog</code>目录，运行<code>jekyll build</code>即可。</p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>$ <span style="color: #B58900">cd</span> jekyll_blog
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><code class="language-bash" data-lang="bash"><span></span>$ <span style="color: #B58900">cd</span> jekyll_blog
 $ jekyll build
-</pre></div>
+</code></pre></div>
 
 <p>可以看到blog网站在新建的<code>_site</code>目录中被构建出来。如果直接用浏览器打开<code>_site/index.html</code>文件，点击第一篇文章，发现找不到文件。这是因为文章路径采用了相对路径。但Jekyll内置有服务器，只要运行</p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>$ jekyll server
-</pre></div>
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><code class="language-bash" data-lang="bash"><span></span>$ jekyll server
+</code></pre></div>
 
 <p>然后在浏览器输入<code>localhost:4000</code>或<code>127.0.0.1:4000/</code>地址就可以浏览blog网站了。</p>
 
@@ -462,11 +479,11 @@ $ jekyll build
   <ul class="sidebar-nav">
     <li class="sidebar-nav-item">
       <a target="_blank" href="https://github.com/caijun/" title="https://github.com/caijun/"><i class="fa fa-github fa-3x"></i></a>
+      <a target="_blank" href="https://www.linkedin.com/in/jun-cai-2a4143127/" title="https://www.linkedin.com/in/jun-cai-2a4143127/"><i class="fa fa-linkedin fa-3x"></i></a>
       
       
       <a target="_blank" href="https://twitter.com/caijun2046/" title="https://twitter.com/caijun2046/"><i class="fa fa-twitter fa-3x"></i></a>
        
-      
       
       
       <a target="_blank" href="https://www.facebook.com/tony.tsai.007/" title="https://www.facebook.com/tony.tsai.007/"><i class="fa fa-facebook fa-3x"></i></a>
@@ -566,6 +583,10 @@ MathJax.Hub.Config({
 <script type="text/javascript"
   src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
+
+
+
+
 
 
 <script>

@@ -49,7 +49,7 @@
   <meta name="author" content="Tony Tsai">
 
   
-  <meta name="generator" content="Hugo 0.26" />
+  <meta name="generator" content="Hugo 0.31.1" />
 
   
   
@@ -73,6 +73,23 @@ ga('send', 'pageview');
 
 
 <nav role="navigation">
+<fieldset class="mobile-nav">
+  
+  <select onchange="location = this.value;">
+    <option value="">Navigate…</option>
+      
+        <option value="/">» Blog</option>
+      
+        <option value="http://tonytsai.name/cv.pdf">» Resume</option>
+      
+        <option value="/douban/">» Douban</option>
+      
+        <option value="/archive/">» Archive</option>
+      
+
+  </select>
+</fieldset>
+
 
 <ul class="main-navigation">
   
@@ -170,10 +187,10 @@ ga('send', 'pageview');
 <p>Linux系统中只有<em>root</em>用户有创建其它用户的权限。</p>
 
 <p>切换到<em>root</em>，创建新用户<em>zyw</em> ，并设置密码</p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>$ su - root
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><code class="language-bash" data-lang="bash"><span></span>$ su - root
 $ useradd zyw
 $ passwd zyw
-</pre></div>
+</code></pre></div>
 
 <h4 id="2-用户缺少主目录">2. 用户缺少主目录</h4>
 
@@ -183,18 +200,18 @@ $ passwd zyw
 </code></pre>
 
 <p>很显然问题在于使用<code>useradd</code>命令创建用户时，忘了使用<code>-d</code>参数指定用户主目录（其实我以为系统会根据用户名自动创建，看来系统没有那么智能）。解决办法是为<em>zyw</em>用户创建主目录<strong>/home/zyw</strong>并设定相应权限，输入以下命令：</p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>$ mkdir /home/zyw
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><code class="language-bash" data-lang="bash"><span></span>$ mkdir /home/zyw
 $ chown zyw:zyw /home/zyw
 $ chmod <span style="color: #2AA198">0700</span> /home/zyw
-</pre></div>
+</code></pre></div>
 
 <h4 id="3-终端提示符不是-user-host-path">3. 终端提示符不是<code>[user@host path]$</code></h4>
 
 <p>再次登录Ubuntu服务器，成功登录。但终端提示符只显示一个<code>$</code>，而不是常见的<code>[user@host path]$</code>。用<code>ls</code>命令列出当前目录清单时，目录和文件也没有用不同颜色标识，而且命令输入错误也不能删除，使用非常不方便。</p>
 
 <p>通过google发现，原因在于用户使用的<code>shell</code>不是常用的<code>bash</code>。查看当前使用的<code>shell</code>，输入：</p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>$ <span style="color: #B58900">echo</span> <span style="color: #268BD2">$SHELL</span>
-</pre></div>
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><code class="language-bash" data-lang="bash"><span></span>$ <span style="color: #B58900">echo</span> <span style="color: #268BD2">$SHELL</span>
+</code></pre></div>
 
 <p>果然输出为<code>sh</code>，而不是<code>bash</code>。解决办法是修改<strong>/etc/passwd</strong>配置文件，将<em>zyw</em>用户使用的<code>shell</code>改为<code>bash</code>。修改<strong>/etc/passwd</strong>需要<code>sudo</code>权限，新建的用户使用不了<code>sudo</code>，提示该用户不在<code>sudoers</code>列表里。解决办法是切换到<em>root</em>用户，执行<code>visudo</code>或者修改<strong>/etc/sudoers</strong>，在<code>root    ALL=(ALL)       ALL</code>下面添加</p>
 
@@ -213,9 +230,9 @@ $ chmod <span style="color: #2AA198">0700</span> /home/zyw
 <h4 id="4-终端缺少配置文件">4. 终端缺少配置文件</h4>
 
 <p>重新登录Terminal，提示符正常，但仍没有颜色高亮。通过<code>ls -a</code>列出用户主目录下所有文件（包括隐藏文件），发现缺少终端配置文件<strong>.bashrc</strong>和<strong>.profile</strong>。解决办法是从<strong>/etc/skel</strong>目录下拷贝过来，输入以下命令：</p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span>$ cp /etc/skel/.bashrc /home/zyw/
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><code class="language-bash" data-lang="bash"><span></span>$ cp /etc/skel/.bashrc /home/zyw/
 $ cp /etc/skel/.profile /home/zyw/
-</pre></div>
+</code></pre></div>
 
 <p>再次登录Terminal，一切都正常了，可以愉快地玩耍了。</p>
 
@@ -314,11 +331,11 @@ $ cp /etc/skel/.profile /home/zyw/
   <ul class="sidebar-nav">
     <li class="sidebar-nav-item">
       <a target="_blank" href="https://github.com/caijun/" title="https://github.com/caijun/"><i class="fa fa-github fa-3x"></i></a>
+      <a target="_blank" href="https://www.linkedin.com/in/jun-cai-2a4143127/" title="https://www.linkedin.com/in/jun-cai-2a4143127/"><i class="fa fa-linkedin fa-3x"></i></a>
       
       
       <a target="_blank" href="https://twitter.com/caijun2046/" title="https://twitter.com/caijun2046/"><i class="fa fa-twitter fa-3x"></i></a>
        
-      
       
       
       <a target="_blank" href="https://www.facebook.com/tony.tsai.007/" title="https://www.facebook.com/tony.tsai.007/"><i class="fa fa-facebook fa-3x"></i></a>
@@ -418,6 +435,10 @@ MathJax.Hub.Config({
 <script type="text/javascript"
   src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
+
+
+
+
 
 
 <script>

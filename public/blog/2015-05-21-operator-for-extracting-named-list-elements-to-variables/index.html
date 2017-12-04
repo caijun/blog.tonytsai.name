@@ -49,7 +49,7 @@
   <meta name="author" content="Tony Tsai">
 
   
-  <meta name="generator" content="Hugo 0.26" />
+  <meta name="generator" content="Hugo 0.31.1" />
 
   
   
@@ -73,6 +73,23 @@ ga('send', 'pageview');
 
 
 <nav role="navigation">
+<fieldset class="mobile-nav">
+  
+  <select onchange="location = this.value;">
+    <option value="">Navigate…</option>
+      
+        <option value="/">» Blog</option>
+      
+        <option value="http://tonytsai.name/cv.pdf">» Resume</option>
+      
+        <option value="/douban/">» Douban</option>
+      
+        <option value="/archive/">» Archive</option>
+      
+
+  </select>
+</fieldset>
+
 
 <ul class="main-navigation">
   
@@ -162,7 +179,7 @@ ga('send', 'pageview');
 <br>
 
           <p>In routine data analysis, I often need to convert list elements into variables. For exampple, when I create a function returning multiple values and I would like to use those values as variables separately, as only one object can be returned by the function, the common way to accomplish this task is that multiple values are combined as a list returned by the function, elements of interest are then extracted and assigned to variables. The following codes describe the process.</p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span><span style="color: #586E75"># define a function returning a matrix and a numeric</span>
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><code class="language-r" data-lang="r"><span></span><span style="color: #586E75"># define a function returning a matrix and a numeric</span>
 fun <span style="color: #719e07">&lt;-</span> <span style="color: #268BD2">function</span><span style="color: #93A1A1">()</span> <span style="color: #DC322F">list</span><span style="color: #93A1A1">(</span>a <span style="color: #719e07">=</span> <span style="color: #DC322F">matrix</span><span style="color: #93A1A1">(</span><span style="color: #2AA198">1</span><span style="color: #719e07">:</span><span style="color: #2AA198">2</span><span style="color: #93A1A1">,</span> nr <span style="color: #719e07">=</span> <span style="color: #2AA198">2</span><span style="color: #93A1A1">,</span> nc <span style="color: #719e07">=</span> <span style="color: #2AA198">1</span><span style="color: #93A1A1">),</span> b <span style="color: #719e07">=</span> <span style="color: #2AA198">2</span><span style="color: #93A1A1">)</span>
 
 <span style="color: #586E75"># call function to return a list containing multiple returning values</span>
@@ -170,20 +187,20 @@ r <span style="color: #719e07">&lt;-</span> fun<span style="color: #93A1A1">()</
 <span style="color: #586E75"># extract elements of interest and assgin them to variables</span>
 x <span style="color: #719e07">&lt;-</span> r<span style="color: #719e07">$</span>a
 y <span style="color: #719e07">&lt;-</span> r<span style="color: #719e07">$</span>b
-</pre></div>
+</code></pre></div>
 
 <p>However, when numerous values have to be returned and lots of assignments have to be written down, the process is really cumbersome. One may argue that it&rsquo;s ok to directly use <code>list$element</code> as a variable, but it can&rsquo;t satisify my geek desire that code should be succinct and is easy to read. The best way is to directly return variables <code>a</code> and <code>b</code> in above case, which is the exact way that MATLAB returns multiple values. Rewrite above example in MATLAB.</p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span># <span style="color: #93A1A1">define</span> <span style="color: #719e07">function</span>
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><code class="language-matlab" data-lang="matlab"><span></span># <span style="color: #93A1A1">define</span> <span style="color: #719e07">function</span>
 <span style="color: #719e07">function</span><span style="color: #93A1A1"> </span>[a, b] <span style="color: #93A1A1">= </span><span style="color: #268BD2">fun</span><span style="color: #93A1A1">()</span>
 <span style="color: #93A1A1">a(:,</span> <span style="color: #2AA198">1</span><span style="color: #93A1A1">)</span> <span style="color: #93A1A1">=</span> <span style="color: #2AA198">1</span><span style="color: #93A1A1">:</span><span style="color: #2AA198">2</span>
 <span style="color: #93A1A1">b</span> <span style="color: #93A1A1">=</span> <span style="color: #2AA198">2</span>
 
 # <span style="color: #93A1A1">call</span> <span style="color: #719e07">function</span>
 <span style="color: #93A1A1">[a,</span> <span style="color: #93A1A1">b]</span> <span style="color: #93A1A1">=</span> <span style="color: #93A1A1">fun()</span>
-</pre></div>
+</code></pre></div>
 
 <p>Therefore, we could customize a similar operator in R to implement such assignment. Fortunately, G. Grothendieck has done such <a href="http://stackoverflow.com/questions/1826519/function-returning-more-than-one-value" target="_blank">work</a> ten years ago. He firstly creates a variable named <code>list</code>, which is a structure with class attribute of <code>result</code>, then defines an S3 method <code>[&lt;-.result</code> of class <code>result</code>. His solution is as follows</p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span><span style="color: #DC322F">list</span> <span style="color: #719e07">&lt;-</span> <span style="color: #719e07">structure</span><span style="color: #93A1A1">(</span><span style="color: #CB4B16">NA</span><span style="color: #93A1A1">,</span> class <span style="color: #719e07">=</span> <span style="color: #2AA198">&quot;result&quot;</span><span style="color: #93A1A1">)</span>
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><code class="language-r" data-lang="r"><span></span><span style="color: #DC322F">list</span> <span style="color: #719e07">&lt;-</span> <span style="color: #719e07">structure</span><span style="color: #93A1A1">(</span><span style="color: #CB4B16">NA</span><span style="color: #93A1A1">,</span> class <span style="color: #719e07">=</span> <span style="color: #2AA198">&quot;result&quot;</span><span style="color: #93A1A1">)</span>
 <span style="color: #2AA198">&quot;[&lt;-.result&quot;</span> <span style="color: #719e07">&lt;-</span> <span style="color: #268BD2">function</span><span style="color: #93A1A1">(</span>x<span style="color: #93A1A1">,</span> <span style="color: #CB4B16">...</span><span style="color: #93A1A1">,</span> value<span style="color: #93A1A1">)</span> <span style="color: #93A1A1">{</span>
    args <span style="color: #719e07">&lt;-</span> <span style="color: #719e07">as.list</span><span style="color: #93A1A1">(</span><span style="color: #719e07">match.call</span><span style="color: #93A1A1">())</span>
    args <span style="color: #719e07">&lt;-</span> <span style="color: #719e07">args</span><span style="color: #93A1A1">[</span><span style="color: #719e07">-</span><span style="color: #DC322F">c</span><span style="color: #93A1A1">(</span><span style="color: #2AA198">1</span><span style="color: #719e07">:</span><span style="color: #2AA198">2</span><span style="color: #93A1A1">,</span> <span style="color: #719e07">length</span><span style="color: #93A1A1">(</span><span style="color: #719e07">args</span><span style="color: #93A1A1">))]</span>
@@ -194,10 +211,10 @@ y <span style="color: #719e07">&lt;-</span> r<span style="color: #719e07">$</spa
    <span style="color: #93A1A1">}</span>
    x
 <span style="color: #93A1A1">}</span>
-</pre></div>
+</code></pre></div>
 
 <p>Applying G. Grothendieck&rsquo;s solution to the above case is as simple as following</p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span><span style="color: #586E75"># extract all variables</span>
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><code class="language-r" data-lang="r"><span></span><span style="color: #586E75"># extract all variables</span>
 <span style="color: #DC322F">list</span><span style="color: #93A1A1">[</span>a<span style="color: #93A1A1">,</span> b<span style="color: #93A1A1">]</span> <span style="color: #719e07">&lt;-</span> fun<span style="color: #93A1A1">()</span>
 
 <span style="color: #586E75"># extract first variable without renaming</span>
@@ -208,10 +225,10 @@ y <span style="color: #719e07">&lt;-</span> r<span style="color: #719e07">$</spa
 
 <span style="color: #586E75"># extract all variable with renaming</span>
 <span style="color: #DC322F">list</span><span style="color: #93A1A1">[</span>x<span style="color: #93A1A1">,</span> y<span style="color: #93A1A1">]</span> <span style="color: #719e07">&lt;-</span> fun<span style="color: #93A1A1">()</span>
-</pre></div>
+</code></pre></div>
 
 <p>This operator is exactly what I want; however, it can be improved in two cases: one is that there are numerous variables to be extracted, the other is that only elements of interest are explicitly extracted while the other elements can be extracted in a silent way. Hence, I modified <code>[&lt;-.result()</code> to make it more easy to use in these two cases. The following are modified codes</p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span><span style="color: #2AA198">&quot;[&lt;-.result&quot;</span> <span style="color: #719e07">&lt;-</span> <span style="color: #268BD2">function</span><span style="color: #93A1A1">(</span>x<span style="color: #93A1A1">,</span> <span style="color: #CB4B16">...</span><span style="color: #93A1A1">,</span> value<span style="color: #93A1A1">)</span> <span style="color: #93A1A1">{</span>
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><code class="language-r" data-lang="r"><span></span><span style="color: #2AA198">&quot;[&lt;-.result&quot;</span> <span style="color: #719e07">&lt;-</span> <span style="color: #268BD2">function</span><span style="color: #93A1A1">(</span>x<span style="color: #93A1A1">,</span> <span style="color: #CB4B16">...</span><span style="color: #93A1A1">,</span> value<span style="color: #93A1A1">)</span> <span style="color: #93A1A1">{</span>
   nv <span style="color: #719e07">&lt;-</span> <span style="color: #719e07">names</span><span style="color: #93A1A1">(</span>value<span style="color: #93A1A1">)</span>
   args <span style="color: #719e07">&lt;-</span> <span style="color: #719e07">as.list</span><span style="color: #93A1A1">(</span><span style="color: #719e07">match.call</span><span style="color: #93A1A1">())</span>
   args <span style="color: #719e07">&lt;-</span> <span style="color: #719e07">args</span><span style="color: #93A1A1">[</span><span style="color: #719e07">-</span><span style="color: #DC322F">c</span><span style="color: #93A1A1">(</span><span style="color: #2AA198">1</span><span style="color: #719e07">:</span><span style="color: #2AA198">2</span><span style="color: #93A1A1">,</span> <span style="color: #719e07">length</span><span style="color: #93A1A1">(</span><span style="color: #719e07">args</span><span style="color: #93A1A1">))]</span>
@@ -239,7 +256,7 @@ y <span style="color: #719e07">&lt;-</span> r<span style="color: #719e07">$</spa
   <span style="color: #93A1A1">}</span>
   x
 <span style="color: #93A1A1">}</span>
-</pre></div>
+</code></pre></div>
 
 <p>My modification not only keeps the usages created by G. Grothendieck, but also adds two extra parameters (<code>all</code> and <code>drop</code>) and changes the returning results of <code>list[] &lt;- value</code>.In G. Grothendieck&rsquo;s solution, calling <code>list[] &lt;- fun()</code> will not return any variables, but in my version, it will return all varaibles correspoding the list elements. The advantage of my solution is to avoid inputting all variables when there are two numerous named list elements.</p>
 
@@ -248,7 +265,7 @@ y <span style="color: #719e07">&lt;-</span> r<span style="color: #719e07">$</spa
 <p>Notice that in above example, list element <code>a</code> is a matrix with the second dimenion which has only one level. Adding parameter <code>drop</code> can simutaniously drop the redundant dimension during the variable extraction. This sort usage avoids an extra <code>drop()</code> operation to keep the extracted variable simple. The default value for argument <code>drop</code> is <code>TRUE</code>.</p>
 
 <p>The following codes demonstrate the new usages of modified <code>[&lt;-.result()</code>.</p>
-<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><span></span><span style="color: #586E75"># implicitly extract all variabes without renaming. note that by default</span>
+<div class="highlight" style="background: #002B36"><pre style="line-height: 125%"><code class="language-r" data-lang="r"><span></span><span style="color: #586E75"># implicitly extract all variabes without renaming. note that by default</span>
 <span style="color: #586E75"># dimensions are dropped.</span>
 <span style="color: #DC322F">list</span><span style="color: #93A1A1">[]</span> <span style="color: #719e07">&lt;-</span> fun<span style="color: #93A1A1">()</span>  <span style="color: #586E75"># return a = 1, b = 2</span>
 
@@ -257,7 +274,7 @@ y <span style="color: #719e07">&lt;-</span> r<span style="color: #719e07">$</spa
 
 <span style="color: #586E75"># set all to TRUE to extract all elements.</span>
 <span style="color: #DC322F">list</span><span style="color: #93A1A1">[</span>x<span style="color: #93A1A1">,</span> <span style="color: #93A1A1">,</span> all <span style="color: #719e07">=</span> <span style="color: #CB4B16">TRUE</span><span style="color: #93A1A1">]</span> <span style="color: #719e07">&lt;-</span> fun<span style="color: #93A1A1">()</span>  <span style="color: #586E75"># return x = 1, b = 2</span>
-</pre></div>
+</code></pre></div>
 
 <p>The modified codes have been packaged into my package <a href="https://github.com/caijun/TTmisc" target="_blank">TTmisc</a>. For more examples of usage and details refer to the repository <a href="(https://github.com/caijun/TTmisc)" target="_blank">TTmisc</a> on my github.</p>
 
@@ -346,11 +363,11 @@ y <span style="color: #719e07">&lt;-</span> r<span style="color: #719e07">$</spa
   <ul class="sidebar-nav">
     <li class="sidebar-nav-item">
       <a target="_blank" href="https://github.com/caijun/" title="https://github.com/caijun/"><i class="fa fa-github fa-3x"></i></a>
+      <a target="_blank" href="https://www.linkedin.com/in/jun-cai-2a4143127/" title="https://www.linkedin.com/in/jun-cai-2a4143127/"><i class="fa fa-linkedin fa-3x"></i></a>
       
       
       <a target="_blank" href="https://twitter.com/caijun2046/" title="https://twitter.com/caijun2046/"><i class="fa fa-twitter fa-3x"></i></a>
        
-      
       
       
       <a target="_blank" href="https://www.facebook.com/tony.tsai.007/" title="https://www.facebook.com/tony.tsai.007/"><i class="fa fa-facebook fa-3x"></i></a>
@@ -450,6 +467,10 @@ MathJax.Hub.Config({
 <script type="text/javascript"
   src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
+
+
+
+
 
 
 <script>
