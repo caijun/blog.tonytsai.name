@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/blog/2017-12-04-detecting-non-breaking-space-in-r/</loc>
+    <lastmod>2017-12-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/blog/2017-09-07-pip-for-different-versions-of-python-on-macos-sierra/</loc>
     <lastmod>2017-09-07T00:00:00+00:00</lastmod>
   </url>
@@ -132,6 +137,12 @@
   
   <url>
     <loc>/archive/</loc>
+  </url>
+  
+  <url>
+    <loc>/tags/ascii/</loc>
+    <lastmod>2017-12-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -354,6 +365,12 @@
   </url>
   
   <url>
+    <loc>/tags/non-breaking-space/</loc>
+    <lastmod>2017-12-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/categories/numerical-computation/</loc>
     <lastmod>2014-11-24T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -385,7 +402,7 @@
   
   <url>
     <loc>/post/</loc>
-    <lastmod>2017-09-07T00:00:00+00:00</lastmod>
+    <lastmod>2017-12-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -415,7 +432,7 @@
   
   <url>
     <loc>/categories/r/</loc>
-    <lastmod>2017-05-23T00:00:00+00:00</lastmod>
+    <lastmod>2017-12-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -517,7 +534,7 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2017-09-07T00:00:00+00:00</lastmod>
+    <lastmod>2017-12-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -530,6 +547,12 @@
   <url>
     <loc>/tags/ubuntu/</loc>
     <lastmod>2014-09-30T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/unicode/</loc>
+    <lastmod>2017-12-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
