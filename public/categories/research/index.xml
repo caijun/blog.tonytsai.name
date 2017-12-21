@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Research on Tony Tsai</title>
+    <link>/categories/research/</link>
+    <description>Recent content in Research on Tony Tsai</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 21 Dec 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/research/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Tips for Sharing Data When Collaborating with Other Researchers</title>
+      <link>/blog/2017-12-21-tips-for-sharing-data-when-collaborating-with-other-researchers/</link>
+      <pubDate>Thu, 21 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/2017-12-21-tips-for-sharing-data-when-collaborating-with-other-researchers/</guid>
+      <description>Recently I have been collaborating with others on several research projects. In the process of collaboration, data exchanging is inevitable; however, for collaborators lack of rich experience in data analysis and computer skills, the way that they are sharing the data results in inefficient collaboration. Therefore, I summarize following tips for sharing data when collorating with other researchers.
+ First of all, please include a README file describing the data, including file contents, variable names, value format, units etc.</description>
+    </item>
+    
+  </channel>
+</rss>
