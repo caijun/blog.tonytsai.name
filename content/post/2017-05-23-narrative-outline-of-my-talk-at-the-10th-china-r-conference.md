@@ -8,7 +8,7 @@ tags: ["China-R Conference", "Epidemics", "Influenza"]
 draft: yes
 ---
 
-The [10th China R Conference](http://china-r.org/bj2017/) was held in Tsinghua University during May 19 - 21. I initialized the session of *R in Public Health*. Though it was my first time to organize a session, to invite speakers, and to host it, the session was successful. The number of audiences was more than 55 persons and beyond my expectation, and the discussions were enthusiastic. I believe that via my talk more Chinese have know the [R Epidemics Consortium (RECON)](http://www.repidemicsconsortium.org/) and they may try to use RECON packages to facilitate their epidemics research.
+The [10th China R Conference](http://china-r.org/bj2017/) was held in Tsinghua University during May 19 - 21. I initialized the session of *R in Public Health*. Though it was my first time to organize a session, to invite speakers, and to host it, the session was successful. The number of audiences was more than 55 persons and beyond my expectation, and the discussions were enthusiastic. I believe that via my talk more Chinese have known the [R Epidemics Consortium (RECON)](http://www.repidemicsconsortium.org/) and they may try to use RECON packages to facilitate their epidemics research.
 
 Since materials on RECON of [my slides](https://github.com/caijun/talks/blob/master/china-r_2017/china-r_2017.pdf) were partly provided by [Dr. Thibaut Jombart](https://sites.google.com/site/thibautjombart/), the founder of RECON, I had sent my slides and narrative outline to Dr. Jombart for reviewing before my talk. The narrative outline of my talk is as follows:
 

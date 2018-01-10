@@ -49,7 +49,7 @@
   <meta name="author" content="Tony Tsai">
 
   
-  <meta name="generator" content="Hugo 0.31.1" />
+  <meta name="generator" content="Hugo 0.32.3" />
 
   
   
@@ -189,9 +189,9 @@ u &lt;- runif(M)  # f3, inverse transform method
 x &lt;- -log(1 - u * (1 - exp(-1)))
 fg &lt;- g(x) / (exp(-x) / (1 - exp(-1)))
 (theta.hat0 &lt;- mean(fg))</code></pre>
-<pre><code>## [1] 0.5249782</code></pre>
+<pre><code>## [1] 0.5246635</code></pre>
 <pre class="r"><code>(se0 &lt;- sd(fg))</code></pre>
-<pre><code>## [1] 0.09679257</code></pre>
+<pre><code>## [1] 0.09686574</code></pre>
 <pre class="r"><code># stratified importance sampling
 k &lt;- 5  # number of strata
 m &lt;- M / k  # replicates per stratum
@@ -205,10 +205,10 @@ for (j in 1:k) {
   se[j] &lt;- sd(fg)
 }
 sum(theta.hat)</code></pre>
-<pre><code>## [1] 0.5248795</code></pre>
+<pre><code>## [1] 0.5248228</code></pre>
 <pre class="r"><code>sum(se)</code></pre>
-<pre><code>## [1] 0.01833763</code></pre>
-<p>The estimate <span class="math inline">\(\hat{\theta}\)</span> is close, while the estimated standard error <span class="math inline">\(\hat{\sigma}\)</span> is reduced from 0.0967926 to 0.0183376 with stratification.</p>
+<pre><code>## [1] 0.01828102</code></pre>
+<p>The estimate <span class="math inline">\(\hat{\theta}\)</span> is close, while the estimated standard error <span class="math inline">\(\hat{\sigma}\)</span> is reduced from 0.0968657 to 0.018281 with stratification.</p>
 
         </div>
         
@@ -374,7 +374,7 @@ sum(theta.hat)</code></pre>
 </div>
 
 <footer role="contentinfo">
-  <p>Copyright &copy; 2017 Tony Tsai - <a href="/license/">License</a> -
+  <p>Copyright &copy; 2018 Tony Tsai - <a href="/license/">License</a> -
   <span class="credit">Powered by <a target="_blank" href="https://github.com/rstudio/blogdown">blogdown</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
 </p>
 

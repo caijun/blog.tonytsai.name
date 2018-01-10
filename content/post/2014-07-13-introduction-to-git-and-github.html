@@ -14,34 +14,48 @@ draft: yes
 <h3>git安装</h3>
 <p>推荐<a href="http://brew.sh/">Homebrew</a>用于管理常用开源软件包在Mac OS X上的安装和升级。<em>Homebrew</em>用Ruby语言开发，支持千余种开源软件在 Mac OS X 中的部署和管理。<em>Homebrew</em> 项目托管在<a href="https://github.com/mxcl/homebrew">Github</a>上。</p>
 <ol style="list-style-type: decimal">
-<li><p>To install <em>Homebrew</em>, run following command in terminal. Note that <code>ruby</code> is installed by default on Mac OS X.</p>
-<pre class="bash"><code>$ ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</code></pre></li>
-<li><p>It is quite easy to install <em>git</em> through <em>Homebrew</em>.</p>
-<pre class="bash"><code>$ brew install git</code></pre></li>
+<li>To install <em>Homebrew</em>, run following command in terminal. Note that <code>ruby</code> is installed by default on Mac OS X.</li>
 </ol>
+<pre class="bash"><code>$ ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>It is quite easy to install <em>git</em> through <em>Homebrew</em>.</li>
+</ol>
+<pre class="bash"><code>$ brew install git</code></pre>
 </div>
 <div id="git-" class="section level3">
 <h3>git 常用命令</h3>
 <ol style="list-style-type: decimal">
-<li><p>将github上面的项目克隆到本地</p>
-<pre class="bash"><code>$ git clone git@github.com:caijun/blog.tonytsai.name.git</code></pre></li>
-<li><p>查看当前项目下所有文件的状态</p>
+<li>将github上面的项目克隆到本地</li>
+</ol>
+<pre class="bash"><code>$ git clone git@github.com:caijun/blog.tonytsai.name.git</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>查看当前项目下所有文件的状态</li>
+</ol>
 <pre class="bash"><code>$ git status</code></pre>
-<p>状态（包括新建、删除、修改）发生改变的文件用红色标出。</p></li>
-<li><p>将更新后的项目提交到git本地仓库</p>
+<p>状态（包括新建、删除、修改）发生改变的文件用红色标出。</p>
+<ol start="3" style="list-style-type: decimal">
+<li>将更新后的项目提交到git本地仓库</li>
+</ol>
 <pre class="bash"><code>$ git add .</code></pre>
 <p><code>.</code>表示当前项目目录下的所有内容。<br />
-若更新包括删除文件，该命令在<code>git 2.0</code>以上版本失效，并产生<code>warning</code>提示使用<code>git add --all</code>代替。</p></li>
-<li><p>对更新内容确认并添加确认信息</p>
-<pre class="bash"><code>$ git commit -m &#39;commit message&#39;</code></pre>
-<p>确认信息对于版本控制很关键，每次版本更新时都应该添加描述准确的确认信息。</p></li>
-<li><p>将项目提到github，首先要与github上面对应的远程仓库建立连接</p>
-<pre class="bash"><code>$ git remote add origin git@github.com:caijun/blog.tonytsai.name.git</code></pre></li>
-<li><p>查看当前项目远程连接的仓库地址</p>
-<pre class="bash"><code>$ git remote -v</code></pre></li>
-<li><p>将本地的项目提交到远程仓库</p>
-<pre class="bash"><code>$ git push -u origin master</code></pre></li>
+若更新包括删除文件，该命令在<code>git 2.0</code>以上版本失效，并产生<code>warning</code>提示使用<code>git add --all</code>代替。</p>
+<ol start="4" style="list-style-type: decimal">
+<li>对更新内容确认并添加确认信息</li>
 </ol>
+<pre class="bash"><code>$ git commit -m &#39;commit message&#39;</code></pre>
+<p>确认信息对于版本控制很关键，每次版本更新时都应该添加描述准确的确认信息。</p>
+<ol start="5" style="list-style-type: decimal">
+<li>将项目提到github，首先要与github上面对应的远程仓库建立连接</li>
+</ol>
+<pre class="bash"><code>$ git remote add origin git@github.com:caijun/blog.tonytsai.name.git</code></pre>
+<ol start="6" style="list-style-type: decimal">
+<li>查看当前项目远程连接的仓库地址</li>
+</ol>
+<pre class="bash"><code>$ git remote -v</code></pre>
+<ol start="7" style="list-style-type: decimal">
+<li>将本地的项目提交到远程仓库</li>
+</ol>
+<pre class="bash"><code>$ git push -u origin master</code></pre>
 </div>
 <div id="git" class="section level3">
 <h3>git使用常见错误及解决办法</h3>

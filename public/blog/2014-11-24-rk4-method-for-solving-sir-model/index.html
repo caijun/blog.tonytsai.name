@@ -49,7 +49,7 @@
   <meta name="author" content="Tony Tsai">
 
   
-  <meta name="generator" content="Hugo 0.31.1" />
+  <meta name="generator" content="Hugo 0.32.3" />
 
   
   
@@ -470,10 +470,7 @@ ind =
 maxVal =
 
    4.9755e+05</code></pre>
-<div class="figure">
-<img src="http://tonytsai.name/materials/RK4SIR_files/figure-html/SIR.png" />
-
-</div>
+<p><img src="http://tonytsai.name/materials/RK4SIR_files/figure-html/SIR.png" /></p>
 <p>Note that by default <strong>MATLAB</strong>’s <code>ode45</code> solver is <a href="http://en.wikipedia.org/wiki/Dormand%E2%80%93Prince_method">Dormand–Prince method</a> (alias <code>dopri5</code>), which is also a member of the Runge–Kutta family of ODE solvers. As <code>ode45</code> is adaptive stepsize integration algorithm, it can give more accurate numerical solution than <strong>RK4</strong> method.</p>
 <p><code>rk45dp7</code> (alias <code>ode45</code>) method from <code>deSolve</code> package provides <code>ode45</code> solver for ODEs in <strong>R</strong>. Solve the SIR model by using <code>ode45</code> method in <code>deSolve</code> and extract <span class="math inline">\(t_{max}\)</span> and <span class="math inline">\(I_{max}\)</span>.</p>
 <pre class="r"><code>r &lt;-  ode(y0, times, SIR, params, method = rkMethod(&quot;ode45&quot;))
@@ -622,9 +619,9 @@ compare$expr &lt;- gsub(&quot;RK4SIR.Yang(n, beta, gamma, S0, I0, incidence = TR
 compare</code></pre>
 <pre><code>## Unit: milliseconds
 ##         expr       min        lq      mean    median        uq       max
-##          rk4 20.450011 20.886987 26.522678 21.678935 23.614650 66.010133
-##       RK4SIR  2.091019  2.260780  2.620531  2.354402  2.945804  3.361457
-##  RK4SIR.Yang  1.979417  2.127702  7.024959  2.204769  2.815772 48.812018
+##          rk4 18.487880 18.647912 24.110060 19.494265 20.203049 64.461932
+##       RK4SIR  2.109225  2.121010  2.371373  2.231460  2.298421  3.309165
+##  RK4SIR.Yang  2.010508  2.043566  6.637264  2.068304  2.135525 47.705381
 ##  neval
 ##     10
 ##     10
@@ -802,7 +799,7 @@ p + geom_violin(aes(color = expr, fill = expr)) +
 </div>
 
 <footer role="contentinfo">
-  <p>Copyright &copy; 2017 Tony Tsai - <a href="/license/">License</a> -
+  <p>Copyright &copy; 2018 Tony Tsai - <a href="/license/">License</a> -
   <span class="credit">Powered by <a target="_blank" href="https://github.com/rstudio/blogdown">blogdown</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
 </p>
 

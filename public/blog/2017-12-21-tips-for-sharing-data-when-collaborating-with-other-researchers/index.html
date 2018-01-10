@@ -49,7 +49,7 @@
   <meta name="author" content="Tony Tsai">
 
   
-  <meta name="generator" content="Hugo 0.31.1" />
+  <meta name="generator" content="Hugo 0.32.3" />
 
   
   
@@ -181,8 +181,8 @@ ga('send', 'pageview');
           <p>Recently I have been collaborating with others on several research projects. In the process of collaboration, data exchanging is inevitable; however, for collaborators lack of rich experience in data analysis and computer skills, the way that they are sharing the data results in inefficient collaboration. Therefore, I summarize following tips for sharing data when collorating with other researchers.</p>
 
 <ul>
-<li>First of all, please include a README file describing the data, including file contents, variable names, value format, units etc. Without README, nobody knows what the data is.</li>
-<li>Store data in plain text files such as <a href="https://en.wikipedia.org/wiki/Comma-separated_values" target="_blank">csv</a>, txt. Therefore, other researchers can open the data files by a text editor (which is shipped with every OS.) and don&rsquo;t need to install professional softwares. Sharing data in csv files is prefered. The following are what you need to pay attention to when storing data in csv files.
+<li>First of all, please include a README file describing the data, including file contents, variable names, value formats, units etc. Without README, nobody knows what the data is.</li>
+<li>Try to store data in plain text files such as <a href="https://en.wikipedia.org/wiki/Comma-separated_values" target="_blank">csv</a>, txt. Therefore, other researchers can open the data files by a text editor (which is shipped with every OS.) and don&rsquo;t need to install professional softwares. Sharing data in csv files is prefered. The following are what you need to pay attention to when storing data in csv files.
 
 <ul>
 <li>Include the header, otherwise no one knows what the data is.</li>
@@ -192,6 +192,7 @@ ga('send', 'pageview');
 <li>Try to avoid storing information in file names. The better way is to store them as variables in csv files.</li>
 <li>For date variable, store it in the commom format such as YYYY-MM-DD or YYYY/MM/DD. By such format, the year, month and day information can be easily extracted when necessary while analyzing the data. The bad example is that the year information included in filenames while the month and day information stored in file contents. The same rule applies to datetime variable.</li>
 <li>Try to store the whole data in a single csv file when the data size is not huge.</li>
+<li>Don&rsquo;t change the way data is organised. When you update the data, try to store data as the way it is organised before. Because your collaborators may use your data as input. Any change you made in the way for organising the data may result in others changing their analysis code.</li>
 </ul>
 
 <p>This post will keep updating and more tips will be added as my collaboration experience increases.</p>
@@ -358,7 +359,7 @@ ga('send', 'pageview');
 </div>
 
 <footer role="contentinfo">
-  <p>Copyright &copy; 2017 Tony Tsai - <a href="/license/">License</a> -
+  <p>Copyright &copy; 2018 Tony Tsai - <a href="/license/">License</a> -
   <span class="credit">Powered by <a target="_blank" href="https://github.com/rstudio/blogdown">blogdown</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
 </p>
 
