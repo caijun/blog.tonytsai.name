@@ -1,0 +1,87 @@
+---
+title: Setting PATH Variable for gs Command in RStudio
+author: ~
+date: '2018-05-07'
+slug: setting-path-variable-for-gs-command-in-rstudio
+categories: ["R"]
+tags: ["gs", "system()", "RStudio", "PATH variable"]
+---
+Update on 2018-07-05
+
+From the [discussion](https://github.com/rstudio/rticles/issues/176#issuecomment-402561606) with Yihui Xie, if Ghostscript was installed via `brew`, Homebrew should automatically make symlinks to `/usr/local/bin/gs` which is already under the PATH. Hence there is no need to set PATH variable for `gs`. However, the following approach is useful for other commands that are not under the PATH.
+
+<hr>
+
+These days I am using [ImageMagick](https://www.imagemagick.org/script/index.php) to convert multiple pdfs (or pngs) into an animation gif to demonstrate the algorithm that I proposed for estimating epidemic onset. The `convert` command needs to call the `gs` command from Ghostscript. I successfully set [PATH variable](https://en.wikipedia.org/wiki/PATH_(variable)) for `gs` command in my .zshrc file and the result of `echo $PATH` in the Terminal shows that the path to the `bin` directory of Ghostscript is in the PATH variable.
+
+```
+$ echo $PATH
+/usr/local/Cellar/ghostscript/9.23/bin:/usr/local/opt/gdal2/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/TeX/texbin:/Users/tonytsai/.rvm/bin
+```
+Now we can easily find the `gs` command in the Terminal by typing
+```
+$ which gs
+/usr/local/Cellar/ghostscript/9.23/bin/gs
+```
+And the `convert` command also works fine in the Terminal. 
+
+However, the `system()` call to the `convert` command can not work in RStudio. The problem lied in the fact that by default OSX GUI applications don't inherit the environment variables set in the bash .profile file. 
+
+Hence, as shown in following command, the PATH variable in RStudio doesn't contain the path to the `bin` directory of Ghostscript. (It is noted that the output of `base::system()` cannot be captured in Rmarkdown. See the [issue](https://github.com/yihui/knitr/issues/1203) of **knitr** package and [the SO question](https://stackoverflow.com/questions/36928322/how-to-capture-the-output-of-system) asked by Yihui Xie. So we will use the following `system()` function to substitute the `base::system()` function, and then **knitr** will be able to capture the output of `system()`.)
+
+```{r}
+evaluate::inject_funs(
+  system <- function(...) cat(base::system(..., intern = TRUE), sep = "\n")
+)
+```
+
+```{r, eval=FALSE}
+system("echo $PATH")
+```
+```
+## /usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Library/TeX/texbin:/opt/X11/bin
+```
+And the `system()` call cannot find the `gs` command in RStudio.
+```{r}
+system("which gs")
+```
+
+[The same problem](https://support.rstudio.com/hc/en-us/community/posts/200629578-system-call-from-RStudio-does-not-find-path-same-command-from-commandline-R-works-fine-) was reported in RStudio Support in December 2013. From the discussion, we know one solution is to open RStudio in the Terminal to inherit the environment variables set in the bash .profile file; however, this way to start RStudio is very inconvenient. Alternatively we can set PATH variable to `gs` in the user `.Renviron` file which is in the user's home directory `~`. The file `R_HOME/etc/Renviron` contains environment variables set by **R** in the configure process. Values in this file can be overridden in user environment file, hence do not change `R_HOME/etc/Renviron` itself. Type `?Startup` in **R** console to see details on the startup mechanism of an **R** session.
+
+[**usethis**](https://github.com/r-lib/usethis) has a useful helper function to modify `.Renviron`. Typing `usethis::edit_r_environ()` open the user `.Renviron` file for editing. Then add following PATH variable to the `.Renviron` file.
+```
+PATH=/usr/local/Cellar/ghostscript/9.23/bin:${PATH}
+```
+
+Save the `.Renviron` file and reopen RStudio to take effect.
+
+<del>Alternatively we can add the path to the `gs` command as the PATH variable in the `Renviron` file for RStudio.</del>
+
+<del>Firstly find the `Renviron` file: `R_HOME/etc/Renviron` under the directory of `R_HOME`.</del>
+```{r}
+Sys.getenv("R_HOME")
+```
+
+<del>Then edit the `Renviron` file and add following PATH environment variable.</del>
+```
+PATH=/usr/local/Cellar/ghostscript/9.23/bin:${PATH}
+```
+
+<del>Save the `Renviron` file and reopen RStudio.</del>
+
+Now check the PATH variable setting again in RStudio.
+```{r, eval=FALSE}
+Sys.getenv("PATH")
+```
+
+```
+[1] "/usr/local/Cellar/ghostscript/9.23/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Library/TeX/texbin:/opt/X11/bin"
+```
+As you can see, the path to the `bin` directory of Ghostscript is now in the PATH variable. And we can find the `gs` command in RStudio and of course, the `convert` command also works fine in RStudio.
+```{r, eval=FALSE}
+system("which gs")
+```
+
+```
+## /usr/local/Cellar/ghostscript/9.23/bin/gs
+```
