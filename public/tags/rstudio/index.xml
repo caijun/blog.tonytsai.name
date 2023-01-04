@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>RStudio on Tony Tsai</title>
+    <link>http://blog.tonytsai.name/tags/rstudio/</link>
+    <description>Recent content in RStudio on Tony Tsai</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 07 May 2018 00:00:00 +0000</lastBuildDate><atom:link href="http://blog.tonytsai.name/tags/rstudio/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Setting PATH Variable for gs Command in RStudio</title>
+      <link>http://blog.tonytsai.name/blog/2018-05-07-setting-path-variable-for-gs-command-in-rstudio/</link>
+      <pubDate>Mon, 07 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.tonytsai.name/blog/2018-05-07-setting-path-variable-for-gs-command-in-rstudio/</guid>
+      <description>Update on 2018-07-05
+From the discussion with Yihui Xie, if Ghostscript was installed via brew, Homebrew should automatically make symlinks to /usr/local/bin/gs which is already under the PATH. Hence there is no need to set PATH variable for gs. However, the following approach is useful for other commands that are not under the PATH.
+These days I am using ImageMagick to convert multiple pdfs (or pngs) into an animation gif to demonstrate the algorithm that I proposed for estimating epidemic onset.</description>
+    </item>
+    
+  </channel>
+</rss>

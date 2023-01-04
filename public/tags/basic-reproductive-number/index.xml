@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Basic Reproductive Number on Tony Tsai</title>
+    <link>http://blog.tonytsai.name/tags/basic-reproductive-number/</link>
+    <description>Recent content in Basic Reproductive Number on Tony Tsai</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 04 Dec 2014 00:00:00 +0000</lastBuildDate><atom:link href="http://blog.tonytsai.name/tags/basic-reproductive-number/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SIRS Model with Time Dependent Transmission Rate</title>
+      <link>http://blog.tonytsai.name/blog/2014-12-04-sirs-model-with-time-dependent-transmission-rate/</link>
+      <pubDate>Thu, 04 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.tonytsai.name/blog/2014-12-04-sirs-model-with-time-dependent-transmission-rate/</guid>
+      <description>1 SIRS Model The SIRS model is simply an extension of the SIR model as it allows members of the recovered class to rejoin the susceptible class at a defined rate, which integrates the impact of waning immunity following antigenic drift. Similar to the SIR model, a fixed population without births and deaths is considered in the SIRS model. The standard form of SIRS model is described as $$ \begin{equation} \begin{aligned} &amp;amp; \frac{dS}{dt} = fR - \frac{\beta SI}{N} \\ &amp;amp; \frac{dI}{dt} = \frac{\beta SI}{N} - \gamma I \\ &amp;amp; \frac{dR}{dt} = \gamma I - fR \end{aligned} \label{eq1} \end{equation} $$ where \(f\) is the average loss of immunity rate of recovered indiviuals, and the other notations are the same as the SIR model.</description>
+    </item>
+    
+  </channel>
+</rss>

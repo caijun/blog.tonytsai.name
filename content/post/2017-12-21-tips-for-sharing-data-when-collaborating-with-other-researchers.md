@@ -6,6 +6,7 @@ slug: tips-for-sharing-data-when-collaborating-with-other-researchers
 categories: ['Research']
 tags: ['data sharing', 'collaboration', 'encoding']
 ---
+
 Recently I have been collaborating with others on several research projects. In the process of collaboration, data exchanging is inevitable; however, for collaborators lack of rich experience in data analysis and computer skills, the way that they are sharing the data results in inefficient collaboration. Therefore, I summarize following tips for sharing data when collorating with other researchers.
 
 * First of all, please include a README file describing the data, including file contents, variable names, value formats, units etc. Without README, nobody knows what the data is.

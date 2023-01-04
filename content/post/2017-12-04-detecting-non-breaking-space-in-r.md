@@ -1,0 +1,68 @@
+---
+title: Detecting Non-breaking Space in R
+author: ~
+date: '2017-12-04'
+slug: detecting-non-breaking-space-in-r
+categories: ['R']
+tags: ['non-breaking space', 'ASCII', 'Unicode']
+---
+
+Last night while I was cleaning data in R, I encountered such a weird behavior of `unique()` function that I once suspected that there had been something wrong with the newly updated R 3.4.3. The following is a reproducible example of my problem.
+
+
+I read in a vector variable `x` from csv file, and printed it on R console.
+
+```r
+x
+```
+
+```
+## [1] "non-breaking space" "non-breaking space"
+```
+Apparently, `x` contained two "identtical" elements and it should have only one unique value. However, 
+
+
+```r
+unique(x)
+```
+
+```
+## [1] "non-breaking space" "non-breaking space"
+```
+returned two unique values that are visually the same. It was so weird. According to my experience of data clean in R, I suspected the problem may occur in the space. I tried `Space` and `Tab`(displayed as `\t` on R console, which can be easily distinguished from `Space`) that were usually encountered during data clean. Unfortunately, the problem was not resolved. I worked on this problem up to 3AM and tried the possibilities that I could think of, including uninstalling the newly updated R 3.4.3 and running above code with an old version of R. After hours of trials and errors, I got a feeling that the problem was relevant to the encoding of the space. Finally I copied the raw data into [ASCII Value Tool](http://asciivalue.com/) to show the [ASCII](https://en.wikipedia.org/wiki/ASCII) value of the space. The ASCII value of `x[1]` is 32 in Decimal value, which is the common ordinary space. On the contrary, `x[2]` has the ASCII value of 160 in Decimal value, which corresponds to [non-breaking space](https://en.wikipedia.org/wiki/Non-breaking_space). In HTML, non-breaking space is common (but this was my first time to encounter non-breaking space while cleaning data in R) and is encoded as `&nbsp;` or `&#160;`. In Unicode, it is encoded as `U+00A0`. In UTF-8, it is encoded as `C2 A0`. 
+
+I used following R  code to confirm that there was non-breaking space in `x[2]`. 
+
+```r
+tools::showNonASCII(x)
+```
+
+```
+## 2: non-breaking<c2><a0>space
+```
+
+```r
+stringi::stri_enc_mark(x)
+```
+
+```
+## [1] "ASCII" "UTF-8"
+```
+`showNonASCII()` picked out non-ASCII character contained in `x[2]` and printed it as `<c2><a0>`. `stri_enc_mark` showed the encodings for `x[1]` and `x[2]` were ASCII and UTF-8. 
+
+After knowing the space in `x[2]` was non-breaking space, I fixed the problem by substituting the non-breaking space with the ordinary space. Now `unique(x)` returns only one unique value.
+
+```r
+y <- gsub("\u00A0", " ", x, fixed = TRUE)
+unique(y)
+```
+
+```
+## [1] "non-breaking space"
+```
+<br>
+In most cases, non-breaking space is displayed as the ordinary space character that we cannot visually tell. Therefore, I installed the [Unicode Character Highlighter](https://packagecontrol.io/packages/Unicode%20Character%20Highlighter) plugin for my commonly used Sublime Text editor. Now my Sublime Text can highlight non-breaking space and I can visually detect it.
+
+At last I ends the post with a [non-breaking space geek joke](https://ridzalzainal.deviantart.com/art/EVA-Unit-01-Non-Breaking-Space-Geek-Joke-403011701) created by Ridzal Zainal. Could you get the point?
+
+<img src="../../../../../../img/non_breaking_space_geek_joke_by_ridzalzainal.png" width="400px" style="display: block; margin: auto;" />

@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+
+  
+    
+    
+      <link href="/css/fonts.css" rel="stylesheet" type="text/css">
+    
+  
+
+  
+  <title>SIRS Model with Time Dependent Transmission Rate</title>
+
+  
+  
+  <link rel="stylesheet" href="/css/hugo-octopress.css">
+
+  
+  
+
+  
+    <link rel="stylesheet" href="/css/fork-awesome.min.css">
+  
+
+  
+  <link href="http://blog.tonytsai.name/favicon.png" rel="icon">
+
+  
+  
+
+  <meta name="description" content="" />
+  <meta name="keywords" content="">
+  <meta name="author" content="Tony Tsai">
+
+  
+  <meta name="generator" content="Hugo 0.109.0">
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
+</head>
+<body>
+
+
+<header role="banner">
+<hgroup>
+  
+  <h1><a href="http://blog.tonytsai.name/">Tony Tsai</a></h1>
+    <h2>May the force of science be with you</h2>
+</hgroup></header>
+
+
+<nav role="navigation">
+<fieldset class="mobile-nav">
+  
+  <select onchange="location = this.value;">
+    <option value="">Navigate…</option>
+      
+        <option value="http://blog.tonytsai.name/">» Blog</option>
+      
+        <option value="http://tonytsai.name/cv.pdf">» Resume</option>
+      
+        <option value="http://blog.tonytsai.name/douban/">» Douban</option>
+      
+        <option value="http://blog.tonytsai.name/archive/">» Archive</option>
+      
+  </select>
+</fieldset>
+
+
+<ul class="main-navigation">
+  
+  
+    
+      <li><a href="http://blog.tonytsai.name/" title="Blog">Blog</a></li>
+    
+  
+    
+      <li><a href="http://tonytsai.name/cv.pdf" title="Resume"  target="_blank"  rel="noopener noreferrer">Resume</a></li>
+    
+  
+    
+      <li><a href="http://blog.tonytsai.name/douban/" title="Douban"  target="_blank"  rel="noopener noreferrer">Douban</a></li>
+    
+  
+    
+      <li><a href="http://blog.tonytsai.name/archive/" title="Archive"  target="_blank"  rel="noopener noreferrer">Archive</a></li>
+    
+  
+</ul>
+
+<ul class="subscription">
+  
+    
+        <a href="http://blog.tonytsai.name/index.xml" target="_blank" type="application/rss+xml" title="RSS" rel="noopener noreferrer"><i class="fa fa-rss-square fa-lg"></i></a>
+    
+  
+</ul>
+
+
+  <form action="https://www.google.com/search" method="get" target="_blank" rel="noopener noreferrer">
+    <fieldset role="search">
+      <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+      <input type="hidden" name="q" value="site:http://blog.tonytsai.name/" />
+    </fieldset>
+  </form>
+
+</nav>
+
+
+<div id="main">
+  <div id="content">
+    <div>
+      <article class="hentry" role="article">
+
+        
+        
+
+<header>
+  <p class="meta">Dec 4, 2014
+     - 17 minute read 
+     - <a href="http://blog.tonytsai.name/blog/2014-12-04-sirs-model-with-time-dependent-transmission-rate/#disqus_thread">Comments</a>
+
+    
+    
+      - <a class="label" href="http://blog.tonytsai.name/categories/influenza/">Influenza </a>
+    
+  </p>
+  <h1 class="entry-title">
+    <a href="http://blog.tonytsai.name/blog/2014-12-04-sirs-model-with-time-dependent-transmission-rate/">SIRS Model with Time Dependent Transmission Rate</a>
+  </h1>
+</header>
+
+
+        <div class="entry-content">
+          
+          
+          
+          <h2 id="1-sirs-model">1 SIRS Model</h2>
+<p>The 
+<a href="http://en.wikipedia.org/wiki/Epidemic_model#The_SIRS_model" target="_blank" rel="noopener">SIRS model</a> is simply an extension of the 
+<a href="http://en.wikipedia.org/wiki/Epidemic_model#The_SIR_model" target="_blank" rel="noopener">SIR model</a> as it allows members of the recovered class to rejoin the susceptible class at a defined rate, which integrates the impact of waning immunity following antigenic drift. Similar to the SIR model, a fixed population without births and deaths is considered in the SIRS model. The standard form of SIRS model is described as
+$$
+\begin{equation}
+\begin{aligned}
+&amp; \frac{dS}{dt} = fR - \frac{\beta SI}{N} \\
+&amp; \frac{dI}{dt} = \frac{\beta SI}{N} - \gamma I \\
+&amp; \frac{dR}{dt} = \gamma I - fR
+\end{aligned}
+\label{eq1}
+\end{equation}
+$$
+where <code>\(f\)</code> is the average loss of immunity rate of recovered indiviuals, and the other notations are the same as the SIR model. Note that SIR model is a special case  of SIRS model under condition of <code>\(f = 0\)</code>. Hence, it is possible to create a general function to solve both SIR and SIRS models.</p>
+<p>As only two of the three ODEs are independent, <code>\(R(t)\)</code> does not have to be treated explicitly and using ODEs of <code>\(S(t)\)</code> and <code>\(I(t)\)</code> to describe the dynamic of SIRS model are adequate. Substitute <code>\(R(t) = N - S(t) - I(t)\)</code> into ODE of <code>\(S(t)\)</code> and the formula is simplified as follows
+$$
+\begin{equation}
+\begin{aligned}
+&amp; \frac{dS}{dt} = f(N - S - I) - \frac{\beta SI}{N} \\
+&amp; \frac{dI}{dt} = \frac{\beta SI}{N} - \gamma I
+\end{aligned}
+\label{eq2}
+\end{equation}
+$$</p>
+<p>The form of SIRS model described in 
+<a href="http://www.pnas.org/content/101/48/16915.abstract" target="_blank" rel="noopener">Dushoff et al. (2004)</a> and 
+<a href="http://www.plosbiology.org/article/info%3Adoi%2F10.1371%2Fjournal.pbio.1000316" target="_blank" rel="noopener">Shaman et al. (2010)</a> is as follows
+$$
+\begin{equation}
+\begin{aligned} \label{eq3}
+&amp; \frac{dS}{dt} = \frac{N - S - I}{L} - \frac{\beta SI}{N} \\
+&amp; \frac{dI}{dt} = \frac{\beta SI}{N} - \frac{I}{D}
+\end{aligned}
+\end{equation}
+$$
+where <code>\(L\)</code> is the average duration of immunity of recoverd indiviuals, and <code>\(D\)</code> is the mean infectious period of infected indiviuals. Comparing with ODEs <code>\((\ref{eq2})\)</code>, <code>\(L = \frac{1}{f}\)</code> and <code>\(D = \frac{1}{\gamma}\)</code> are derived.</p>
+<p>In the following subsections, <strong>RK4</strong> method is applied to solve SIRS model in different forms.</p>
+<h3 id="11-rk4sirsstd-function">1.1 <code>RK4SIRS.std</code> function</h3>
+<p>The iterative formula of <strong>RK4</strong> method for solving SIRS model in the standard form <code>\((\ref{eq1})\)</code> can be easily derived and won&rsquo;t be presented here. The following codes firstly define four helper functions. Three of them describe <code>\(S(t)\)</code>, <code>\(I(t)\)</code> and <code>\(R(t)\)</code> compartments of SIRS model. The other one defines the <strong>infection rate</strong> (see Table 1 in 
+<a href="http://www.pnas.org/content/101/48/16915.abstract" target="_blank" rel="noopener">Dushoff et al. (2004)</a>) to calculate cummulative incidence. Different from SIR model, the infection rate is only the second term of <code>\(S(t)\)</code> compartment in SIRS model. Therefore, an additional helper function is needed to separately define the infection rate.</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#586e75"># define S, I, R compartments of SIRS model</span>
+</span></span><span style="display:flex;"><span>dSdt.std <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">function</span>(t, S, I, R) {
+</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">return</span>(f <span style="color:#719e07">*</span> R <span style="color:#719e07">-</span> beta <span style="color:#719e07">*</span> S <span style="color:#719e07">*</span> I <span style="color:#719e07">/</span> N)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>dIdt.std <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">function</span>(t, S, I) {
+</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">return</span>(beta <span style="color:#719e07">*</span> S <span style="color:#719e07">*</span> I <span style="color:#719e07">/</span> N <span style="color:#719e07">-</span> gamma <span style="color:#719e07">*</span> I)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>dRdt.std <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">function</span>(t, I, R) {
+</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">return</span>(gamma <span style="color:#719e07">*</span> I <span style="color:#719e07">-</span> f <span style="color:#719e07">*</span> R)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#586e75"># define infection rate</span>
+</span></span><span style="display:flex;"><span>dCIdt.std <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">function</span>(t, S, I) {
+</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">return</span>(beta <span style="color:#719e07">*</span> S <span style="color:#719e07">*</span> I <span style="color:#719e07">/</span> N)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The iterative algorithm for calculating cummumcaltive incidence resembles those of <code>\(S(t)\)</code>, <code>\(I(t)\)</code> and <code>\(R(t)\)</code>. The implementation of <strong>RK4</strong> method for SIRS model is presented as follows.</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#586e75"># RK4 method for the numerical integration of SIRS model in standard form</span>
+</span></span><span style="display:flex;"><span>RK4SIRS.std <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">function</span>(n, beta, gamma, f, S0, I0, R0 <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>, dt <span style="color:#719e07">=</span> <span style="color:#2aa198">1</span>, incidence <span style="color:#719e07">=</span> <span style="color:#cb4b16">FALSE</span>) {
+</span></span><span style="display:flex;"><span>  N <span style="color:#719e07">&lt;&lt;-</span> S0 <span style="color:#719e07">+</span> I0 <span style="color:#719e07">+</span> R0
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  S <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">c</span>(S0, <span style="color:#268bd2">rep</span>(<span style="color:#2aa198">0</span>, n))
+</span></span><span style="display:flex;"><span>  I <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">c</span>(I0, <span style="color:#268bd2">rep</span>(<span style="color:#2aa198">0</span>, n))
+</span></span><span style="display:flex;"><span>  R <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">c</span>(R0, <span style="color:#268bd2">rep</span>(<span style="color:#2aa198">0</span>, n))
+</span></span><span style="display:flex;"><span>  CI <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">c</span>(I0, <span style="color:#268bd2">rep</span>(<span style="color:#2aa198">0</span>, n))  <span style="color:#586e75"># cummulative incidence</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">for </span>(i in <span style="color:#2aa198">1</span><span style="color:#719e07">:</span>n) {
+</span></span><span style="display:flex;"><span>    Si <span style="color:#719e07">&lt;-</span> S[i]
+</span></span><span style="display:flex;"><span>    Ii <span style="color:#719e07">&lt;-</span> I[i]
+</span></span><span style="display:flex;"><span>    Ri <span style="color:#719e07">&lt;-</span> R[i]
+</span></span><span style="display:flex;"><span>    CIi <span style="color:#719e07">&lt;-</span> CI[i]
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    S.k1 <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">dSdt.std</span>(i, Si, Ii, Ri)
+</span></span><span style="display:flex;"><span>    I.k1 <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">dIdt.std</span>(i, Si, Ii)
+</span></span><span style="display:flex;"><span>    R.k1 <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">dRdt.std</span>(i, Ii, Ri)
+</span></span><span style="display:flex;"><span>    CI.k1 <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">dCIdt.std</span>(i, Si, Ii)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    S.k2 <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">dSdt.std</span>(i <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">2</span>, Si <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">2</span> <span style="color:#719e07">*</span> S.k1, Ii <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">2</span> <span style="color:#719e07">*</span> I.k1, Ri <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">2</span> <span style="color:#719e07">*</span> R.k1)
+</span></span><span style="display:flex;"><span>    I.k2 <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">dIdt.std</span>(i <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">2</span>, Si <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">2</span> <span style="color:#719e07">*</span> S.k1, Ii <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">2</span> <span style="color:#719e07">*</span> I.k1)
+</span></span><span style="display:flex;"><span>    R.k2 <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">dRdt.std</span>(i <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">2</span>, Ii <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">2</span> <span style="color:#719e07">*</span> I.k1, Ri <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">2</span> <span style="color:#719e07">*</span> R.k1)
+</span></span><span style="display:flex;"><span>    CI.k2 <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">dCIdt.std</span>(i <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">2</span>, Si <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">2</span> <span style="color:#719e07">*</span> S.k1, Ii <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">2</span> <span style="color:#719e07">*</span> I.k1)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    S.k3 <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">dSdt.std</span>(i <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">2</span>, Si <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">2</span> <span style="color:#719e07">*</span> S.k2, Ii <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">2</span> <span style="color:#719e07">*</span> I.k2, Ri <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">2</span> <span style="color:#719e07">*</span> R.k2)
+</span></span><span style="display:flex;"><span>    I.k3 <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">dIdt.std</span>(i <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">2</span>, Si <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">2</span> <span style="color:#719e07">*</span> S.k2, Ii <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">2</span> <span style="color:#719e07">*</span> I.k2)
+</span></span><span style="display:flex;"><span>    R.k3 <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">dRdt.std</span>(i <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">2</span>, Ii <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">2</span> <span style="color:#719e07">*</span> I.k2, Ri <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">2</span> <span style="color:#719e07">*</span> R.k2)
+</span></span><span style="display:flex;"><span>    CI.k3 <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">dCIdt.std</span>(i <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">2</span>, Si <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">2</span> <span style="color:#719e07">*</span> S.k2, Ii <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">2</span> <span style="color:#719e07">*</span> I.k2)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    S.k4 <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">dSdt.std</span>(i <span style="color:#719e07">+</span> dt, Si <span style="color:#719e07">+</span> dt <span style="color:#719e07">*</span> S.k3, Ii <span style="color:#719e07">+</span> dt <span style="color:#719e07">*</span> I.k3, Ri <span style="color:#719e07">+</span> dt <span style="color:#719e07">*</span> R.k3)
+</span></span><span style="display:flex;"><span>    I.k4 <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">dIdt.std</span>(i <span style="color:#719e07">+</span> dt, Si <span style="color:#719e07">+</span> dt <span style="color:#719e07">*</span> S.k3, Ii <span style="color:#719e07">+</span> dt <span style="color:#719e07">*</span> I.k3)
+</span></span><span style="display:flex;"><span>    R.k4 <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">dRdt.std</span>(i <span style="color:#719e07">+</span> dt, Ii <span style="color:#719e07">+</span> dt <span style="color:#719e07">*</span> I.k3, Ri <span style="color:#719e07">+</span> dt <span style="color:#719e07">*</span> R.k3)
+</span></span><span style="display:flex;"><span>    CI.k4 <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">dCIdt.std</span>(i <span style="color:#719e07">+</span> dt, Si <span style="color:#719e07">+</span> dt <span style="color:#719e07">*</span> S.k3, Ii <span style="color:#719e07">+</span> dt <span style="color:#719e07">*</span> I.k3)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    S[i <span style="color:#719e07">+</span> <span style="color:#2aa198">1</span>] <span style="color:#719e07">&lt;-</span> Si <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">6</span> <span style="color:#719e07">*</span> (S.k1 <span style="color:#719e07">+</span> <span style="color:#2aa198">2</span> <span style="color:#719e07">*</span> S.k2 <span style="color:#719e07">+</span> <span style="color:#2aa198">2</span> <span style="color:#719e07">*</span> S.k3 <span style="color:#719e07">+</span> S.k4)
+</span></span><span style="display:flex;"><span>    I[i <span style="color:#719e07">+</span> <span style="color:#2aa198">1</span>] <span style="color:#719e07">&lt;-</span> Ii <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">6</span> <span style="color:#719e07">*</span> (I.k1 <span style="color:#719e07">+</span> <span style="color:#2aa198">2</span> <span style="color:#719e07">*</span> I.k2 <span style="color:#719e07">+</span> <span style="color:#2aa198">2</span> <span style="color:#719e07">*</span> I.k3 <span style="color:#719e07">+</span> I.k4)
+</span></span><span style="display:flex;"><span>    R[i <span style="color:#719e07">+</span> <span style="color:#2aa198">1</span>] <span style="color:#719e07">&lt;-</span> Ri <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">6</span> <span style="color:#719e07">*</span> (R.k1 <span style="color:#719e07">+</span> <span style="color:#2aa198">2</span> <span style="color:#719e07">*</span> R.k2 <span style="color:#719e07">+</span> <span style="color:#2aa198">2</span> <span style="color:#719e07">*</span> R.k3 <span style="color:#719e07">+</span> R.k4)
+</span></span><span style="display:flex;"><span>    CI[i <span style="color:#719e07">+</span> <span style="color:#2aa198">1</span>] <span style="color:#719e07">&lt;-</span> CIi <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">6</span> <span style="color:#719e07">*</span> (CI.k1 <span style="color:#719e07">+</span> <span style="color:#2aa198">2</span> <span style="color:#719e07">*</span> CI.k2 <span style="color:#719e07">+</span> <span style="color:#2aa198">2</span> <span style="color:#719e07">*</span> CI.k3 <span style="color:#719e07">+</span> CI.k4)
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">if </span>(<span style="color:#719e07">!</span>incidence) {
+</span></span><span style="display:flex;"><span>    <span style="color:#268bd2">return</span>(<span style="color:#268bd2">data.frame</span>(n <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span><span style="color:#719e07">:</span>n, S <span style="color:#719e07">=</span> S, I <span style="color:#719e07">=</span> I, R <span style="color:#719e07">=</span> R))
+</span></span><span style="display:flex;"><span>  } else {
+</span></span><span style="display:flex;"><span>    <span style="color:#586e75"># newly infected per day (incidence)</span>
+</span></span><span style="display:flex;"><span>    inc <span style="color:#719e07">=</span> <span style="color:#268bd2">c</span>(I0, <span style="color:#268bd2">diff</span>(CI))
+</span></span><span style="display:flex;"><span>    <span style="color:#268bd2">return</span>(<span style="color:#268bd2">data.frame</span>(n <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span><span style="color:#719e07">:</span>n, S <span style="color:#719e07">=</span> S, I <span style="color:#719e07">=</span> I, R <span style="color:#719e07">=</span> R, inc <span style="color:#719e07">=</span> inc, cum.inc <span style="color:#719e07">=</span> CI))
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="12-rk4sirs-function">1.2 <code>RK4SIRS</code> function</h3>
+<p>There are many repetitive computations in the implementation of <code>RK4SIRS.std</code> function, especially for calculating cummulative incidence. Actually, the system of ODEs of SIRS model describes the transition of an individual between susceptible, infectious, and recovered states. For SIRS model in simplified form <code>\((\ref{eq2})\)</code>, only susceptible and infectious states are necessary to represent the system state and the system state at time <code>\(t\)</code> is usually expressed as state vector <code>\(\mathbf{Z}(t)\equiv (S(t), I(t))\)</code>. As presented in Table 1, infection, recovery, and immunity loss events can change the system state at a rate of <code>\(\frac{\beta SI}{N}\)</code>, <code>\(\gamma I\)</code>, and <code>\(f(N-S-I)\)</code>, respectively.</p>
+<p>Table:  <strong>Table 1. Markov chain transition rate (source: 
+<a href="http://www.pnas.org/content/101/48/16915.abstract" target="_blank" rel="noopener">Dushoff et al. (2004)</a>)</strong></p>
+<p><strong>Event</strong>             <strong>Change</strong>                      <strong>Rate</strong></p>
+<hr>
+<p>Infection      <code>\((S,I)\rightarrow (S-1,I+1)\)</code>        <code>\(\frac{\beta SI}{N}\)</code>  <br>
+Recovery       <code>\((S,I)\rightarrow (S, I-1)\)</code>         <code>\(\gamma I\)</code> <br>
+Immunity loss  <code>\((S,I)\rightarrow (S+1, I)\)</code>         <code>\(f(N-S-I)\)</code></p>
+<p>Instead of directly defining <code>\(S(t)\)</code> and <code>\(I(t)\)</code> compartments of SIRS model, using helper functions to define the events can avoid redundant computing as events describe the changes in system state at fine-grained scale. According to Table 1, <strong>RK4</strong> method for solving SIRS model in simplified form <code>\((\ref{eq2})\)</code> can be easily implemented by slightly modified from <code>RK4SIRS.std</code> function.</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#586e75"># define infection rate</span>
+</span></span><span style="display:flex;"><span>inf.rate <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">function</span>(t, S, I) {
+</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">return</span>(beta <span style="color:#719e07">*</span> S <span style="color:#719e07">*</span> I <span style="color:#719e07">/</span> N)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#586e75"># define recovery rate</span>
+</span></span><span style="display:flex;"><span>rec.rate <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">function</span>(t, I) {
+</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">return</span>(gamma <span style="color:#719e07">*</span> I)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#586e75"># define immunity loss rate</span>
+</span></span><span style="display:flex;"><span>ilos.rate <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">function</span>(t, S, I) {
+</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">return</span>(f <span style="color:#719e07">*</span> (N <span style="color:#719e07">-</span> S <span style="color:#719e07">-</span> I))
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#586e75"># RK4 method for numerical integration of SIRS model in simplified form</span>
+</span></span><span style="display:flex;"><span>RK4SIRS <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">function</span>(n, beta, gamma, f, S0, I0, R0 <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>, dt <span style="color:#719e07">=</span> <span style="color:#2aa198">1</span>, incidence <span style="color:#719e07">=</span> <span style="color:#cb4b16">FALSE</span>) {
+</span></span><span style="display:flex;"><span>  N <span style="color:#719e07">&lt;&lt;-</span> S0 <span style="color:#719e07">+</span> I0 <span style="color:#719e07">+</span> R0
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  S <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">c</span>(S0, <span style="color:#268bd2">rep</span>(<span style="color:#2aa198">0</span>, n))
+</span></span><span style="display:flex;"><span>  I <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">c</span>(I0, <span style="color:#268bd2">rep</span>(<span style="color:#2aa198">0</span>, n))
+</span></span><span style="display:flex;"><span>  R <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">c</span>(R0, <span style="color:#268bd2">rep</span>(<span style="color:#2aa198">0</span>, n))
+</span></span><span style="display:flex;"><span>  CI <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">c</span>(I0, <span style="color:#268bd2">rep</span>(<span style="color:#2aa198">0</span>, n))  <span style="color:#586e75"># cummulative incidence</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">for </span>(i in <span style="color:#2aa198">1</span><span style="color:#719e07">:</span>n) {
+</span></span><span style="display:flex;"><span>    Si <span style="color:#719e07">&lt;-</span> S[i]
+</span></span><span style="display:flex;"><span>    Ii <span style="color:#719e07">&lt;-</span> I[i]
+</span></span><span style="display:flex;"><span>    Ri <span style="color:#719e07">&lt;-</span> R[i]
+</span></span><span style="display:flex;"><span>    CIi <span style="color:#719e07">&lt;-</span> CI[i]
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    Einf <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">inf.rate</span>(i, Si, Ii)  <span style="color:#586e75"># event of infection</span>
+</span></span><span style="display:flex;"><span>    Erec <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">rec.rate</span>(i, Ii)  <span style="color:#586e75"># event of recovery</span>
+</span></span><span style="display:flex;"><span>    Eilos <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">ilos.rate</span>(i, Si, Ii)  <span style="color:#586e75"># event of immunity loss</span>
+</span></span><span style="display:flex;"><span>    S.k1 <span style="color:#719e07">&lt;-</span> Eilos <span style="color:#719e07">-</span> Einf
+</span></span><span style="display:flex;"><span>    I.k1 <span style="color:#719e07">&lt;-</span> Einf <span style="color:#719e07">-</span> Erec
+</span></span><span style="display:flex;"><span>    CI.k1 <span style="color:#719e07">&lt;-</span> Einf
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    Einf <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">inf.rate</span>(i <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">2</span>, Si <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">2</span> <span style="color:#719e07">*</span> S.k1, Ii <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">2</span> <span style="color:#719e07">*</span> I.k1)
+</span></span><span style="display:flex;"><span>    Erec <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">rec.rate</span>(i <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">2</span>, Ii <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">2</span> <span style="color:#719e07">*</span> I.k1)
+</span></span><span style="display:flex;"><span>    Eilos <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">ilos.rate</span>(i <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">2</span>, Si <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">2</span> <span style="color:#719e07">*</span> S.k1, Ii <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">2</span> <span style="color:#719e07">*</span> I.k1)
+</span></span><span style="display:flex;"><span>    S.k2 <span style="color:#719e07">&lt;-</span> Eilos <span style="color:#719e07">-</span> Einf
+</span></span><span style="display:flex;"><span>    I.k2 <span style="color:#719e07">&lt;-</span> Einf <span style="color:#719e07">-</span> Erec
+</span></span><span style="display:flex;"><span>    CI.k2 <span style="color:#719e07">&lt;-</span> Einf
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    Einf <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">inf.rate</span>(i <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">2</span>, Si <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">2</span> <span style="color:#719e07">*</span> S.k2, Ii <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">2</span> <span style="color:#719e07">*</span> I.k2)
+</span></span><span style="display:flex;"><span>    Erec <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">rec.rate</span>(i <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">2</span>, Ii <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">2</span> <span style="color:#719e07">*</span> I.k2)
+</span></span><span style="display:flex;"><span>    Eilos <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">ilos.rate</span>(i <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">2</span>, Si <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">2</span> <span style="color:#719e07">*</span> S.k2, Ii <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">2</span> <span style="color:#719e07">*</span> I.k2)
+</span></span><span style="display:flex;"><span>    S.k3 <span style="color:#719e07">&lt;-</span> Eilos <span style="color:#719e07">-</span> Einf
+</span></span><span style="display:flex;"><span>    I.k3 <span style="color:#719e07">&lt;-</span> Einf <span style="color:#719e07">-</span> Erec
+</span></span><span style="display:flex;"><span>    CI.k3 <span style="color:#719e07">&lt;-</span> Einf
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    Einf <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">inf.rate</span>(i <span style="color:#719e07">+</span> dt, Si <span style="color:#719e07">+</span> dt <span style="color:#719e07">*</span> S.k3, Ii <span style="color:#719e07">+</span> dt <span style="color:#719e07">*</span> I.k3)
+</span></span><span style="display:flex;"><span>    Erec <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">rec.rate</span>(i <span style="color:#719e07">+</span> dt, Ii <span style="color:#719e07">+</span> dt <span style="color:#719e07">*</span> I.k3)
+</span></span><span style="display:flex;"><span>    Eilos <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">ilos.rate</span>(i <span style="color:#719e07">+</span> dt, Si <span style="color:#719e07">+</span> dt <span style="color:#719e07">*</span> S.k3, Ii <span style="color:#719e07">+</span> dt <span style="color:#719e07">*</span> I.k3)
+</span></span><span style="display:flex;"><span>    S.k4 <span style="color:#719e07">&lt;-</span> Eilos <span style="color:#719e07">-</span> Einf
+</span></span><span style="display:flex;"><span>    I.k4 <span style="color:#719e07">&lt;-</span> Einf <span style="color:#719e07">-</span> Erec
+</span></span><span style="display:flex;"><span>    CI.k4 <span style="color:#719e07">&lt;-</span> Einf
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    S[i <span style="color:#719e07">+</span> <span style="color:#2aa198">1</span>] <span style="color:#719e07">&lt;-</span> Si <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">6</span> <span style="color:#719e07">*</span> (S.k1 <span style="color:#719e07">+</span> <span style="color:#2aa198">2</span> <span style="color:#719e07">*</span> S.k2 <span style="color:#719e07">+</span> <span style="color:#2aa198">2</span> <span style="color:#719e07">*</span> S.k3 <span style="color:#719e07">+</span> S.k4)
+</span></span><span style="display:flex;"><span>    I[i <span style="color:#719e07">+</span> <span style="color:#2aa198">1</span>] <span style="color:#719e07">&lt;-</span> Ii <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">6</span> <span style="color:#719e07">*</span> (I.k1 <span style="color:#719e07">+</span> <span style="color:#2aa198">2</span> <span style="color:#719e07">*</span> I.k2 <span style="color:#719e07">+</span> <span style="color:#2aa198">2</span> <span style="color:#719e07">*</span> I.k3 <span style="color:#719e07">+</span> I.k4)
+</span></span><span style="display:flex;"><span>    CI[i <span style="color:#719e07">+</span> <span style="color:#2aa198">1</span>] <span style="color:#719e07">&lt;-</span> CIi <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">6</span> <span style="color:#719e07">*</span> (CI.k1 <span style="color:#719e07">+</span> <span style="color:#2aa198">2</span> <span style="color:#719e07">*</span> CI.k2 <span style="color:#719e07">+</span> <span style="color:#2aa198">2</span> <span style="color:#719e07">*</span> CI.k3 <span style="color:#719e07">+</span> CI.k4)
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  R <span style="color:#719e07">&lt;-</span> N <span style="color:#719e07">-</span> S <span style="color:#719e07">-</span> I
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">if </span>(<span style="color:#719e07">!</span>incidence) {
+</span></span><span style="display:flex;"><span>    <span style="color:#268bd2">return</span>(<span style="color:#268bd2">data.frame</span>(n <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span><span style="color:#719e07">:</span>n, S <span style="color:#719e07">=</span> S, I <span style="color:#719e07">=</span> I, R <span style="color:#719e07">=</span> R))
+</span></span><span style="display:flex;"><span>  } else {
+</span></span><span style="display:flex;"><span>    <span style="color:#586e75"># newly infected per day (incidence)</span>
+</span></span><span style="display:flex;"><span>    inc <span style="color:#719e07">=</span> <span style="color:#268bd2">c</span>(I0, <span style="color:#268bd2">diff</span>(CI))
+</span></span><span style="display:flex;"><span>    <span style="color:#268bd2">return</span>(<span style="color:#268bd2">data.frame</span>(n <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span><span style="color:#719e07">:</span>n, S <span style="color:#719e07">=</span> S, I <span style="color:#719e07">=</span> I, R <span style="color:#719e07">=</span> R, inc <span style="color:#719e07">=</span> inc, cum.inc <span style="color:#719e07">=</span> CI))
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="13-rk4-function">1.3 <code>rk4</code> function</h3>
+<p>Using <code>rk4</code> function from <code>deSolve</code> package to solve SIRS model only needs to redefine the model and the vector of parameters used in SIRS model.</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#586e75"># vector of parameters used in SIRS model</span>
+</span></span><span style="display:flex;"><span>params <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">c</span>(beta <span style="color:#719e07">=</span> beta, gamma <span style="color:#719e07">=</span> gamma, f <span style="color:#719e07">=</span> f)
+</span></span><span style="display:flex;"><span><span style="color:#586e75"># definition of SIRS model</span>
+</span></span><span style="display:flex;"><span>SIRS <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">function</span>(t, y, params) {
+</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">with</span>(<span style="color:#268bd2">as.list</span>(<span style="color:#268bd2">c</span>(params, y)), {
+</span></span><span style="display:flex;"><span>    dS <span style="color:#719e07">&lt;-</span> f <span style="color:#719e07">*</span> R <span style="color:#719e07">-</span> beta <span style="color:#719e07">*</span> S <span style="color:#719e07">*</span> I <span style="color:#719e07">/</span> N
+</span></span><span style="display:flex;"><span>    dI <span style="color:#719e07">&lt;-</span> beta <span style="color:#719e07">*</span> S <span style="color:#719e07">*</span> I <span style="color:#719e07">/</span> N <span style="color:#719e07">-</span> gamma <span style="color:#719e07">*</span> I
+</span></span><span style="display:flex;"><span>    dR <span style="color:#719e07">&lt;-</span> gamma <span style="color:#719e07">*</span> I <span style="color:#719e07">-</span> f <span style="color:#719e07">*</span> R
+</span></span><span style="display:flex;"><span>    <span style="color:#268bd2">list</span>(<span style="color:#268bd2">c</span>(dS, dI, dR))
+</span></span><span style="display:flex;"><span>  })
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The above three functions are tested with the same study case of the spread of Hong Kong flu in New York city and they all give the same results. Note that the parameter <code>\(f = \frac{1}{L} = \frac{1}{3.86 \times 365}\)</code> comes from the parameters combination for generation of synthetic truth in 
+<a href="http://www.pnas.org/content/109/50/20425.abstract" target="_blank" rel="noopener">Shaman and Karspeck (2012)</a>. Here, only results given by <code>RK4SIRS</code> function are presented to avoid redundancy.</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#586e75"># simulate the spread of Hong Kong flu of NYC</span>
+</span></span><span style="display:flex;"><span>S0 <span style="color:#719e07">&lt;-</span> <span style="color:#2aa198">7900000</span>
+</span></span><span style="display:flex;"><span>I0 <span style="color:#719e07">&lt;-</span> <span style="color:#2aa198">10</span>
+</span></span><span style="display:flex;"><span>beta <span style="color:#719e07">&lt;-</span> <span style="color:#2aa198">1</span> <span style="color:#719e07">/</span> <span style="color:#2aa198">2</span>
+</span></span><span style="display:flex;"><span>gamma <span style="color:#719e07">&lt;-</span> <span style="color:#2aa198">1</span> <span style="color:#719e07">/</span> <span style="color:#2aa198">3</span>  <span style="color:#586e75"># gamma = 1 / D</span>
+</span></span><span style="display:flex;"><span>f <span style="color:#719e07">&lt;-</span> <span style="color:#2aa198">1</span> <span style="color:#719e07">/</span> (<span style="color:#2aa198">3.86</span> <span style="color:#719e07">*</span> <span style="color:#2aa198">365</span>)  <span style="color:#586e75"># L = 3.86 years, f = 1 / L</span>
+</span></span><span style="display:flex;"><span>n <span style="color:#719e07">&lt;-</span> <span style="color:#2aa198">200</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>r <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">RK4SIRS</span>(n, beta, gamma, f, S0, I0, incidence <span style="color:#719e07">=</span> <span style="color:#cb4b16">TRUE</span>)
+</span></span><span style="display:flex;"><span><span style="color:#586e75"># plot S, I, R curves</span>
+</span></span><span style="display:flex;"><span><span style="color:#268bd2">library</span>(reshape2)
+</span></span><span style="display:flex;"><span>r.plot <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">melt</span>(r, id <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34;n&#34;</span>, measure <span style="color:#719e07">=</span> <span style="color:#268bd2">c</span>(<span style="color:#2aa198">&#34;S&#34;</span>, <span style="color:#2aa198">&#34;I&#34;</span>, <span style="color:#2aa198">&#34;R&#34;</span>, <span style="color:#2aa198">&#34;inc&#34;</span>, <span style="color:#2aa198">&#34;cum.inc&#34;</span>))
+</span></span><span style="display:flex;"><span><span style="color:#268bd2">library</span>(ggplot2)
+</span></span><span style="display:flex;"><span>p <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">ggplot</span>(r.plot, <span style="color:#268bd2">aes</span>(x <span style="color:#719e07">=</span> n, y <span style="color:#719e07">=</span> value, group <span style="color:#719e07">=</span> variable, color <span style="color:#719e07">=</span> variable))
+</span></span><span style="display:flex;"><span>p <span style="color:#719e07">+</span> <span style="color:#268bd2">geom_line</span>() <span style="color:#719e07">+</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">scale_colour_discrete</span>(name <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34;Legend&#34;</span>, 
+</span></span><span style="display:flex;"><span>                        breaks <span style="color:#719e07">=</span> <span style="color:#268bd2">c</span>(<span style="color:#2aa198">&#34;S&#34;</span>, <span style="color:#2aa198">&#34;I&#34;</span>, <span style="color:#2aa198">&#34;R&#34;</span>, <span style="color:#2aa198">&#34;inc&#34;</span>, <span style="color:#2aa198">&#34;cum.inc&#34;</span>), 
+</span></span><span style="display:flex;"><span>                        labels <span style="color:#719e07">=</span> <span style="color:#268bd2">c</span>(<span style="color:#2aa198">&#34;Susceptible&#34;</span>, <span style="color:#2aa198">&#34;Infected &#34;</span>, <span style="color:#2aa198">&#34;Recovered&#34;</span>, <span style="color:#2aa198">&#34;Incidence&#34;</span>, 
+</span></span><span style="display:flex;"><span>                                   <span style="color:#2aa198">&#34;Cumulative incidence&#34;</span>)) <span style="color:#719e07">+</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">ggtitle</span>(<span style="color:#2aa198">&#34;Spread of Hong Kong Flu in New York City&#34;</span>)
+</span></span></code></pre></div><img src="/post/2014-12-04-sirs-model-with-time-dependent-transmission-rate_files/figure-html/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;" />
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#586e75"># peak of the infected</span>
+</span></span><span style="display:flex;"><span><span style="color:#268bd2">which.max</span>(r<span style="color:#719e07">$</span>I)
+</span></span></code></pre></div><pre tabindex="0"><code>## [1] 75
+</code></pre><div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#268bd2">max</span>(r<span style="color:#719e07">$</span>I)
+</span></span></code></pre></div><pre tabindex="0"><code>## [1] 499451.1
+</code></pre><div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#586e75"># peak of incidence</span>
+</span></span><span style="display:flex;"><span><span style="color:#268bd2">which.max</span>(r<span style="color:#719e07">$</span>inc)
+</span></span></code></pre></div><pre tabindex="0"><code>## [1] 73
+</code></pre><div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#268bd2">max</span>(r<span style="color:#719e07">$</span>inc)
+</span></span></code></pre></div><pre tabindex="0"><code>## [1] 174175.2
+</code></pre><h3 id="14-benchmark">1.4 Benchmark</h3>
+<p><code>RK4SIRS.std</code>, <code>RK4SIRS</code> and <code>rk4</code> are separately runned 1000 times for benchmark performance analysis.</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#586e75">####</span>
+</span></span><span style="display:flex;"><span><span style="color:#268bd2">library</span>(deSolve)
+</span></span><span style="display:flex;"><span><span style="color:#586e75"># initial (state) values for SIR model</span>
+</span></span><span style="display:flex;"><span>y0 <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">c</span>(S <span style="color:#719e07">=</span> S0, I <span style="color:#719e07">=</span> I0, R <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>)
+</span></span><span style="display:flex;"><span><span style="color:#586e75"># vector of time steps</span>
+</span></span><span style="display:flex;"><span>times <span style="color:#719e07">&lt;-</span> <span style="color:#2aa198">0</span><span style="color:#719e07">:</span>n
+</span></span><span style="display:flex;"><span><span style="color:#586e75"># vector of parameters used in SIRS model</span>
+</span></span><span style="display:flex;"><span>params <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">c</span>(beta <span style="color:#719e07">=</span> beta, gamma <span style="color:#719e07">=</span> gamma, f <span style="color:#719e07">=</span> f)
+</span></span><span style="display:flex;"><span><span style="color:#586e75"># definition of SIRS model</span>
+</span></span><span style="display:flex;"><span>SIRS <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">function</span>(t, y, params) {
+</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">with</span>(<span style="color:#268bd2">as.list</span>(<span style="color:#268bd2">c</span>(params, y)), {
+</span></span><span style="display:flex;"><span>    dS <span style="color:#719e07">&lt;-</span> f <span style="color:#719e07">*</span> R <span style="color:#719e07">-</span> beta <span style="color:#719e07">*</span> S <span style="color:#719e07">*</span> I <span style="color:#719e07">/</span> N
+</span></span><span style="display:flex;"><span>    dI <span style="color:#719e07">&lt;-</span> beta <span style="color:#719e07">*</span> S <span style="color:#719e07">*</span> I <span style="color:#719e07">/</span> N <span style="color:#719e07">-</span> gamma <span style="color:#719e07">*</span> I
+</span></span><span style="display:flex;"><span>    dR <span style="color:#719e07">&lt;-</span> gamma <span style="color:#719e07">*</span> I <span style="color:#719e07">-</span> f <span style="color:#719e07">*</span> R
+</span></span><span style="display:flex;"><span>    <span style="color:#268bd2">list</span>(<span style="color:#268bd2">c</span>(dS, dI, dR))
+</span></span><span style="display:flex;"><span>  })
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#586e75">####</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#586e75"># benchmark</span>
+</span></span><span style="display:flex;"><span><span style="color:#268bd2">library</span>(microbenchmark)
+</span></span><span style="display:flex;"><span>compare <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">microbenchmark</span>(<span style="color:#268bd2">rk4</span>(y0, times, SIRS, params), 
+</span></span><span style="display:flex;"><span>                          <span style="color:#268bd2">RK4SIRS</span>(n, beta, gamma, f, S0, I0, incidence <span style="color:#719e07">=</span> <span style="color:#cb4b16">TRUE</span>), 
+</span></span><span style="display:flex;"><span>                          <span style="color:#268bd2">RK4SIRS.std</span>(n, beta, gamma, f, S0, I0, incidence <span style="color:#719e07">=</span> <span style="color:#cb4b16">TRUE</span>), 
+</span></span><span style="display:flex;"><span>                          times <span style="color:#719e07">=</span> <span style="color:#2aa198">10</span>)
+</span></span><span style="display:flex;"><span><span style="color:#586e75"># change expr for display</span>
+</span></span><span style="display:flex;"><span>compare<span style="color:#719e07">$</span>expr <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">gsub</span>(<span style="color:#2aa198">&#34;rk4(y0, times, SIRS, params)&#34;</span>, <span style="color:#2aa198">&#34;rk4&#34;</span>, 
+</span></span><span style="display:flex;"><span>                     compare<span style="color:#719e07">$</span>expr, fixed <span style="color:#719e07">=</span> <span style="color:#cb4b16">TRUE</span>)
+</span></span><span style="display:flex;"><span>compare<span style="color:#719e07">$</span>expr <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">gsub</span>(<span style="color:#2aa198">&#34;RK4SIRS(n, beta, gamma, f, S0, I0, incidence = TRUE)&#34;</span>, <span style="color:#2aa198">&#34;RK4SIRS&#34;</span>, 
+</span></span><span style="display:flex;"><span>                     compare<span style="color:#719e07">$</span>expr, fixed <span style="color:#719e07">=</span> <span style="color:#cb4b16">TRUE</span>)
+</span></span><span style="display:flex;"><span>compare<span style="color:#719e07">$</span>expr <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">gsub</span>(<span style="color:#2aa198">&#34;RK4SIRS.std(n, beta, gamma, f, S0, I0, incidence = TRUE)&#34;</span>, 
+</span></span><span style="display:flex;"><span>                     <span style="color:#2aa198">&#34;RK4SIRS.std&#34;</span>, compare<span style="color:#719e07">$</span>expr, fixed <span style="color:#719e07">=</span> <span style="color:#cb4b16">TRUE</span>)
+</span></span><span style="display:flex;"><span>compare
+</span></span></code></pre></div><pre tabindex="0"><code>## Unit: milliseconds
+##         expr      min        lq      mean    median        uq       max neval
+##          rk4 11.46048 11.619344 13.132164 11.709227 12.170580 22.100666    10
+##      RK4SIRS  2.66024  2.858313  3.158156  2.890771  2.994426  5.543579    10
+##  RK4SIRS.std  4.17314  4.258929 13.824397  4.366474  4.504573 99.067068    10
+</code></pre><div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#586e75"># plot comparing results</span>
+</span></span><span style="display:flex;"><span><span style="color:#268bd2">library</span>(ggplot2)
+</span></span><span style="display:flex;"><span>p <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">autoplot</span>(compare)
+</span></span></code></pre></div><pre tabindex="0"><code>## Coordinate system already present. Adding new coordinate system, which will
+## replace the existing one.
+</code></pre><div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>p <span style="color:#719e07">+</span> <span style="color:#268bd2">geom_violin</span>(<span style="color:#268bd2">aes</span>(color <span style="color:#719e07">=</span> expr, fill <span style="color:#719e07">=</span> expr)) <span style="color:#719e07">+</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">theme</span>(legend.position <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34;none&#34;</span>)
+</span></span></code></pre></div><img src="/post/2014-12-04-sirs-model-with-time-dependent-transmission-rate_files/figure-html/unnamed-chunk-9-1.png" width="672" style="display: block; margin: auto;" />
+<p>As shown in the above figure, <code>RK4SIRS</code> function runs the fastest. Subsequently, SIRS model will be solved in simplified form \eqref{eq:2}.</p>
+<h3 id="15-basic-reproductive-number-r_0">1.5 Basic Reproductive Number <code>\(R_0\)</code></h3>
+<p>Technically, the 
+<a href="http://en.wikipedia.org/wiki/Basic_reproduction_number" target="_blank" rel="noopener">basic reproductive number</a> <code>\(R_0\)</code> is defined as the number of secondary infections caused by a single infective introduced into a population made up entirely of susceptible individuals over the course of the infection of this single infective. For the susceptible population ($S_0 \approx N$), this infective individual makes <code>\(\beta\)</code> contacts per unit time producing new infections with a mean infectious period of <code>\(D\)</code>. Therefore, the basic reproduction number is
+$$
+\begin{equation} \label{eq4}
+R_0 = \beta D = \frac{\beta}{\gamma}
+\end{equation}
+$$</p>
+<p>Actually, the basic reproductive number is often compared to <strong>1</strong> to determine whether an epidemic occurs or the disease simply dies out.</p>
+<h2 id="2-time-dependent-transmission-rate-betat">2 Time Dependent Transmission Rate <code>\(\beta(t)\)</code></h2>
+<p>Equation (4) in 
+<a href="http://www.plosbiology.org/article/info%3Adoi%2F10.1371%2Fjournal.pbio.1000316" target="_blank" rel="noopener">Shaman et al. (2010)</a> shows the relationship between basic reproductive number <code>\(R_0(t)\)</code> and specific humidity <code>\(q(t)\)</code> at time <code>\(t\)</code>. Combining with equation <code>\((\ref{eq4})\)</code>, it&rsquo;s easy to deduce that transmission rate <code>\(\beta\)</code> is also modulated by specific humidity <code>\(q\)</code> and time dependent. Hence, replacing the constant <code>\(\beta\)</code> in ODEs <code>\((\ref{eq2})\)</code> with time dependent <code>\(\beta (t)\)</code> can make SIRS model more reasonable. The resulting SIRS model with time dependent transmission rate <code>\(\beta (t)\)</code> is expressed as follow
+$$
+\begin{equation}
+\begin{aligned} \label{eq:5}
+&amp; \frac{dS}{dt} = f(N - S - I) - \frac{\beta (t) SI}{N} \\
+&amp; \frac{dI}{dt} = \frac{\beta (t) SI}{N} - \gamma I
+\end{aligned}
+\end{equation}
+$$</p>
+<h3 id="21-implementation">2.1 Implementation</h3>
+<p>The <strong>RK4</strong> method for numerical integration of SIRS model with time dependent transmission rate <code>\(\beta(t)\)</code> can be easily implemented by adding parameters to helper event functions.</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#586e75"># define infection rate</span>
+</span></span><span style="display:flex;"><span>inf.rate <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">function</span>(t, beta, S, I) {
+</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">return</span>(beta <span style="color:#719e07">*</span> S <span style="color:#719e07">*</span> I <span style="color:#719e07">/</span> N)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#586e75"># define recovery rate</span>
+</span></span><span style="display:flex;"><span>rec.rate <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">function</span>(t, gamma, I) {
+</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">return</span>(gamma <span style="color:#719e07">*</span> I)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#586e75"># define immunity loss rate</span>
+</span></span><span style="display:flex;"><span>ilos.rate <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">function</span>(t, f, S, I) {
+</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">return</span>(f <span style="color:#719e07">*</span> (N <span style="color:#719e07">-</span> S <span style="color:#719e07">-</span> I))
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#586e75"># beta is a numeric vector of length n or 1</span>
+</span></span><span style="display:flex;"><span>RK4SIRS <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">function</span>(n, beta, gamma, f, S0, I0, R0 <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>, dt <span style="color:#719e07">=</span> <span style="color:#2aa198">1</span>, incidence <span style="color:#719e07">=</span> <span style="color:#cb4b16">FALSE</span>) {
+</span></span><span style="display:flex;"><span>  N <span style="color:#719e07">&lt;&lt;-</span> S0 <span style="color:#719e07">+</span> I0 <span style="color:#719e07">+</span> R0
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  S <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">c</span>(S0, <span style="color:#268bd2">rep</span>(<span style="color:#2aa198">0</span>, n))
+</span></span><span style="display:flex;"><span>  I <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">c</span>(I0, <span style="color:#268bd2">rep</span>(<span style="color:#2aa198">0</span>, n))
+</span></span><span style="display:flex;"><span>  R <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">c</span>(R0, <span style="color:#268bd2">rep</span>(<span style="color:#2aa198">0</span>, n))
+</span></span><span style="display:flex;"><span>  CI <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">c</span>(I0, <span style="color:#268bd2">rep</span>(<span style="color:#2aa198">0</span>, n))  <span style="color:#586e75"># cummulative incidence</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">for </span>(i in <span style="color:#2aa198">1</span><span style="color:#719e07">:</span>n) {
+</span></span><span style="display:flex;"><span>    bti <span style="color:#719e07">&lt;-</span> beta[i]
+</span></span><span style="display:flex;"><span>    Si <span style="color:#719e07">&lt;-</span> S[i]
+</span></span><span style="display:flex;"><span>    Ii <span style="color:#719e07">&lt;-</span> I[i]
+</span></span><span style="display:flex;"><span>    CIi <span style="color:#719e07">&lt;-</span> CI[i]
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    Einf <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">inf.rate</span>(i, bti, Si, Ii)  <span style="color:#586e75"># event of infection</span>
+</span></span><span style="display:flex;"><span>    Erec <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">rec.rate</span>(i, gamma, Ii)  <span style="color:#586e75"># event of recovery</span>
+</span></span><span style="display:flex;"><span>    Eilos <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">ilos.rate</span>(i, f, Si, Ii)  <span style="color:#586e75"># event of immunity loss</span>
+</span></span><span style="display:flex;"><span>    S.k1 <span style="color:#719e07">&lt;-</span> Eilos <span style="color:#719e07">-</span> Einf
+</span></span><span style="display:flex;"><span>    I.k1 <span style="color:#719e07">&lt;-</span> Einf <span style="color:#719e07">-</span> Erec
+</span></span><span style="display:flex;"><span>    CI.k1 <span style="color:#719e07">&lt;-</span> Einf
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    Einf <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">inf.rate</span>(i <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">2</span>, bti, Si <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">2</span> <span style="color:#719e07">*</span> S.k1, Ii <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">2</span> <span style="color:#719e07">*</span> I.k1)
+</span></span><span style="display:flex;"><span>    Erec <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">rec.rate</span>(i <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">2</span>, gamma, Ii <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">2</span> <span style="color:#719e07">*</span> I.k1)
+</span></span><span style="display:flex;"><span>    Eilos <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">ilos.rate</span>(i <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">2</span>, f, Si <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">2</span> <span style="color:#719e07">*</span> S.k1, Ii <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">2</span> <span style="color:#719e07">*</span> I.k1)
+</span></span><span style="display:flex;"><span>    S.k2 <span style="color:#719e07">&lt;-</span> Eilos <span style="color:#719e07">-</span> Einf
+</span></span><span style="display:flex;"><span>    I.k2 <span style="color:#719e07">&lt;-</span> Einf <span style="color:#719e07">-</span> Erec
+</span></span><span style="display:flex;"><span>    CI.k2 <span style="color:#719e07">&lt;-</span> Einf
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    Einf <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">inf.rate</span>(i <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">2</span>, bti, Si <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">2</span> <span style="color:#719e07">*</span> S.k2, Ii <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">2</span> <span style="color:#719e07">*</span> I.k2)
+</span></span><span style="display:flex;"><span>    Erec <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">rec.rate</span>(i <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">2</span>, gamma, Ii <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">2</span> <span style="color:#719e07">*</span> I.k2)
+</span></span><span style="display:flex;"><span>    Eilos <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">ilos.rate</span>(i <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">2</span>, f, Si <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">2</span> <span style="color:#719e07">*</span> S.k2, Ii <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">2</span> <span style="color:#719e07">*</span> I.k2)
+</span></span><span style="display:flex;"><span>    S.k3 <span style="color:#719e07">&lt;-</span> Eilos <span style="color:#719e07">-</span> Einf
+</span></span><span style="display:flex;"><span>    I.k3 <span style="color:#719e07">&lt;-</span> Einf <span style="color:#719e07">-</span> Erec
+</span></span><span style="display:flex;"><span>    CI.k3 <span style="color:#719e07">&lt;-</span> Einf
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    Einf <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">inf.rate</span>(i <span style="color:#719e07">+</span> dt, bti, Si <span style="color:#719e07">+</span> dt <span style="color:#719e07">*</span> S.k3, Ii <span style="color:#719e07">+</span> dt <span style="color:#719e07">*</span> I.k3)
+</span></span><span style="display:flex;"><span>    Erec <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">rec.rate</span>(i <span style="color:#719e07">+</span> dt, gamma, Ii <span style="color:#719e07">+</span> dt <span style="color:#719e07">*</span> I.k3)
+</span></span><span style="display:flex;"><span>    Eilos <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">ilos.rate</span>(i <span style="color:#719e07">+</span> dt, f, Si <span style="color:#719e07">+</span> dt <span style="color:#719e07">*</span> S.k3, Ii <span style="color:#719e07">+</span> dt <span style="color:#719e07">*</span> I.k3)
+</span></span><span style="display:flex;"><span>    S.k4 <span style="color:#719e07">&lt;-</span> Eilos <span style="color:#719e07">-</span> Einf
+</span></span><span style="display:flex;"><span>    I.k4 <span style="color:#719e07">&lt;-</span> Einf <span style="color:#719e07">-</span> Erec
+</span></span><span style="display:flex;"><span>    CI.k4 <span style="color:#719e07">&lt;-</span> Einf
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    S[i <span style="color:#719e07">+</span> <span style="color:#2aa198">1</span>] <span style="color:#719e07">&lt;-</span> Si <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">6</span> <span style="color:#719e07">*</span> (S.k1 <span style="color:#719e07">+</span> <span style="color:#2aa198">2</span> <span style="color:#719e07">*</span> S.k2 <span style="color:#719e07">+</span> <span style="color:#2aa198">2</span> <span style="color:#719e07">*</span> S.k3 <span style="color:#719e07">+</span> S.k4)
+</span></span><span style="display:flex;"><span>    I[i <span style="color:#719e07">+</span> <span style="color:#2aa198">1</span>] <span style="color:#719e07">&lt;-</span> Ii <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">6</span> <span style="color:#719e07">*</span> (I.k1 <span style="color:#719e07">+</span> <span style="color:#2aa198">2</span> <span style="color:#719e07">*</span> I.k2 <span style="color:#719e07">+</span> <span style="color:#2aa198">2</span> <span style="color:#719e07">*</span> I.k3 <span style="color:#719e07">+</span> I.k4)
+</span></span><span style="display:flex;"><span>    CI[i <span style="color:#719e07">+</span> <span style="color:#2aa198">1</span>] <span style="color:#719e07">&lt;-</span> CIi <span style="color:#719e07">+</span> dt <span style="color:#719e07">/</span> <span style="color:#2aa198">6</span> <span style="color:#719e07">*</span> (CI.k1 <span style="color:#719e07">+</span> <span style="color:#2aa198">2</span> <span style="color:#719e07">*</span> CI.k2 <span style="color:#719e07">+</span> <span style="color:#2aa198">2</span> <span style="color:#719e07">*</span> CI.k3 <span style="color:#719e07">+</span> CI.k4)
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  R <span style="color:#719e07">&lt;-</span> N <span style="color:#719e07">-</span> S <span style="color:#719e07">-</span> I
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">if </span>(<span style="color:#719e07">!</span>incidence) {
+</span></span><span style="display:flex;"><span>    <span style="color:#268bd2">return</span>(<span style="color:#268bd2">data.frame</span>(n <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span><span style="color:#719e07">:</span>n, S <span style="color:#719e07">=</span> S, I <span style="color:#719e07">=</span> I, R <span style="color:#719e07">=</span> R))
+</span></span><span style="display:flex;"><span>  } else {
+</span></span><span style="display:flex;"><span>    <span style="color:#586e75"># newly infected per day (incidence)</span>
+</span></span><span style="display:flex;"><span>    inc <span style="color:#719e07">=</span> <span style="color:#268bd2">c</span>(I0, <span style="color:#268bd2">diff</span>(CI))
+</span></span><span style="display:flex;"><span>    <span style="color:#268bd2">return</span>(<span style="color:#268bd2">data.frame</span>(n <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span><span style="color:#719e07">:</span>n, S <span style="color:#719e07">=</span> S, I <span style="color:#719e07">=</span> I, R <span style="color:#719e07">=</span> R, inc <span style="color:#719e07">=</span> inc, cum.inc <span style="color:#719e07">=</span> CI))
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="22-simulation">2.2 Simulation</h3>
+<p>The following simulation example is adapted from <em>Fig. 1a</em> in 
+<a href="http://www.pnas.org/content/101/48/16915.abstract" target="_blank" rel="noopener">Dushoff et al. (2004)</a>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>S0 <span style="color:#719e07">&lt;-</span> <span style="color:#2aa198">500000</span>
+</span></span><span style="display:flex;"><span>I0 <span style="color:#719e07">&lt;-</span> <span style="color:#2aa198">100</span>  <span style="color:#586e75"># I0 has little effect on the dynamic equilibrium</span>
+</span></span><span style="display:flex;"><span>R0 <span style="color:#719e07">&lt;-</span> <span style="color:#2aa198">0</span>
+</span></span><span style="display:flex;"><span>N <span style="color:#719e07">&lt;-</span> S0 <span style="color:#719e07">+</span> I0 <span style="color:#719e07">+</span> R0
+</span></span><span style="display:flex;"><span>L <span style="color:#719e07">&lt;-</span> <span style="color:#2aa198">4</span>  <span style="color:#586e75"># yr</span>
+</span></span><span style="display:flex;"><span>f <span style="color:#719e07">&lt;-</span> <span style="color:#2aa198">1</span> <span style="color:#719e07">/</span> L
+</span></span><span style="display:flex;"><span>D <span style="color:#719e07">&lt;-</span> <span style="color:#2aa198">0.02</span>  <span style="color:#586e75"># yr</span>
+</span></span><span style="display:flex;"><span>gamma <span style="color:#719e07">&lt;-</span> <span style="color:#2aa198">1</span> <span style="color:#719e07">/</span> D
+</span></span><span style="display:flex;"><span>dt <span style="color:#719e07">&lt;-</span> <span style="color:#2aa198">0.01</span>  <span style="color:#586e75"># yr</span>
+</span></span><span style="display:flex;"><span>t <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">seq</span>(from <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>, to <span style="color:#719e07">=</span> <span style="color:#2aa198">20</span>, by <span style="color:#719e07">=</span> dt)
+</span></span><span style="display:flex;"><span>beta0 <span style="color:#719e07">&lt;-</span> <span style="color:#2aa198">500</span>  <span style="color:#586e75"># persons per yr</span>
+</span></span><span style="display:flex;"><span>beta1 <span style="color:#719e07">&lt;-</span> <span style="color:#2aa198">0.04</span>
+</span></span><span style="display:flex;"><span>beta <span style="color:#719e07">&lt;-</span> beta0 <span style="color:#719e07">*</span> (<span style="color:#2aa198">1</span> <span style="color:#719e07">+</span> beta1 <span style="color:#719e07">*</span> <span style="color:#268bd2">cos</span>(<span style="color:#2aa198">2</span> <span style="color:#719e07">*</span> <span style="color:#cb4b16">pi</span> <span style="color:#719e07">*</span> t))
+</span></span><span style="display:flex;"><span>n <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">length</span>(t[<span style="color:#2aa198">-1</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>r <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">RK4SIRS</span>(n, beta, gamma, S0, I0, f <span style="color:#719e07">=</span> f, dt <span style="color:#719e07">=</span> dt, incidence <span style="color:#719e07">=</span> <span style="color:#cb4b16">TRUE</span>)
+</span></span><span style="display:flex;"><span>r <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">cbind</span>(t, r)
+</span></span><span style="display:flex;"><span><span style="color:#586e75"># plot S, I, R curves</span>
+</span></span><span style="display:flex;"><span><span style="color:#268bd2">library</span>(reshape2)
+</span></span><span style="display:flex;"><span>r.plot <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">melt</span>(r, id <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34;t&#34;</span>, measure <span style="color:#719e07">=</span> <span style="color:#268bd2">c</span>(<span style="color:#2aa198">&#34;S&#34;</span>, <span style="color:#2aa198">&#34;I&#34;</span>, <span style="color:#2aa198">&#34;R&#34;</span>, <span style="color:#2aa198">&#34;inc&#34;</span>, <span style="color:#2aa198">&#34;cum.inc&#34;</span>))
+</span></span><span style="display:flex;"><span><span style="color:#586e75"># change levels for display</span>
+</span></span><span style="display:flex;"><span><span style="color:#268bd2">levels</span>(r.plot<span style="color:#719e07">$</span>variable) <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">c</span>(<span style="color:#2aa198">&#34;Susceptible&#34;</span>, <span style="color:#2aa198">&#34;Infected&#34;</span>, <span style="color:#2aa198">&#34;Recovered&#34;</span>, <span style="color:#2aa198">&#34;Incidence&#34;</span>, 
+</span></span><span style="display:flex;"><span>                             <span style="color:#2aa198">&#34;Cummulative incidence&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#268bd2">library</span>(ggplot2)
+</span></span><span style="display:flex;"><span>p <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">ggplot</span>(r.plot, <span style="color:#268bd2">aes</span>(x <span style="color:#719e07">=</span> t, y <span style="color:#719e07">=</span> value, group <span style="color:#719e07">=</span> variable, color <span style="color:#719e07">=</span> variable))
+</span></span><span style="display:flex;"><span>p <span style="color:#719e07">+</span> <span style="color:#268bd2">geom_line</span>() <span style="color:#719e07">+</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">xlab</span>(<span style="color:#2aa198">&#34;Time (years)&#34;</span>) <span style="color:#719e07">+</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">facet_wrap</span>(<span style="color:#719e07">~</span> variable, scales <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34;free&#34;</span>) <span style="color:#719e07">+</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">ggtitle</span>(<span style="color:#2aa198">&#34;Simulation&#34;</span>) <span style="color:#719e07">+</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">theme_bw</span>(base_size <span style="color:#719e07">=</span> <span style="color:#2aa198">12</span>) <span style="color:#719e07">+</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">theme</span>(legend.position <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34;none&#34;</span>)
+</span></span></code></pre></div><img src="/post/2014-12-04-sirs-model-with-time-dependent-transmission-rate_files/figure-html/unnamed-chunk-11-1.png" width="672" style="display: block; margin: auto;" />
+<p>In <em>Fig. 1a</em> simulation, the basic reproductive number <code>\(R_0=D\beta_0=\)</code> 10, and the intrinsic period of oscillation <code>\(T=2\pi \sqrt{\frac{DL}{R_0-1}}=\)</code> 0.59. As shown in above figures, after starting simulation for several years, the compartments of SIRS model (including <strong>incidence</strong>) are in dynamic equilibrium. To show the details of deterministic equilibrium, the following codes only plot the subset results of 10 ~ 20 years.</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>r.eqb <span style="color:#719e07">&lt;-</span> r[r<span style="color:#719e07">$</span>t <span style="color:#719e07">&gt;=</span> <span style="color:#2aa198">10</span>, ]
+</span></span><span style="display:flex;"><span>r.plot <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">melt</span>(r.eqb, id <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34;t&#34;</span>, measure <span style="color:#719e07">=</span> <span style="color:#268bd2">c</span>(<span style="color:#2aa198">&#34;S&#34;</span>, <span style="color:#2aa198">&#34;I&#34;</span>, <span style="color:#2aa198">&#34;R&#34;</span>, <span style="color:#2aa198">&#34;inc&#34;</span>, <span style="color:#2aa198">&#34;cum.inc&#34;</span>))
+</span></span><span style="display:flex;"><span><span style="color:#268bd2">levels</span>(r.plot<span style="color:#719e07">$</span>variable) <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">c</span>(<span style="color:#2aa198">&#34;Susceptible&#34;</span>, <span style="color:#2aa198">&#34;Infected&#34;</span>, <span style="color:#2aa198">&#34;Recovered&#34;</span>, <span style="color:#2aa198">&#34;Incidence&#34;</span>, 
+</span></span><span style="display:flex;"><span>                             <span style="color:#2aa198">&#34;Cummulative incidence&#34;</span>)
+</span></span><span style="display:flex;"><span>p <span style="color:#719e07">&lt;-</span> <span style="color:#268bd2">ggplot</span>(r.plot, <span style="color:#268bd2">aes</span>(x <span style="color:#719e07">=</span> t, y <span style="color:#719e07">=</span> value, group <span style="color:#719e07">=</span> variable, color <span style="color:#719e07">=</span> variable))
+</span></span><span style="display:flex;"><span>p <span style="color:#719e07">+</span> <span style="color:#268bd2">geom_line</span>() <span style="color:#719e07">+</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">scale_x_continuous</span>(breaks <span style="color:#719e07">=</span> <span style="color:#2aa198">10</span><span style="color:#719e07">:</span><span style="color:#2aa198">20</span>, labels <span style="color:#719e07">=</span> <span style="color:#2aa198">10</span><span style="color:#719e07">:</span><span style="color:#2aa198">20</span>, expand <span style="color:#719e07">=</span> <span style="color:#268bd2">c</span>(<span style="color:#2aa198">0</span>, <span style="color:#2aa198">0</span>)) <span style="color:#719e07">+</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">xlab</span>(<span style="color:#2aa198">&#34;Time (years)&#34;</span>) <span style="color:#719e07">+</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">facet_wrap</span>(<span style="color:#719e07">~</span> variable, scales <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34;free&#34;</span>, ncol <span style="color:#719e07">=</span> <span style="color:#2aa198">1</span>) <span style="color:#719e07">+</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">ggtitle</span>(<span style="color:#2aa198">&#34;Subset Results of Equilibrium&#34;</span>) <span style="color:#719e07">+</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">theme_bw</span>(base_size <span style="color:#719e07">=</span> <span style="color:#2aa198">14</span>) <span style="color:#719e07">+</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">theme</span>(legend.position <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34;none&#34;</span>)
+</span></span></code></pre></div><img src="/post/2014-12-04-sirs-model-with-time-dependent-transmission-rate_files/figure-html/unnamed-chunk-12-1.png" width="768" style="display: block; margin: auto;" />
+<p>The <em>Fig. 1b</em> simulation is very similar to Fig. 1a, but with different parameters of <code>\(L=8\)</code> yr, <code>\(D=0.025\)</code> yr, and <code>\(\beta_0=400\)</code> persons per yr. The resulting plots of simulation are presented.</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>L <span style="color:#719e07">&lt;-</span> <span style="color:#2aa198">8</span>  <span style="color:#586e75"># yr</span>
+</span></span><span style="display:flex;"><span>D <span style="color:#719e07">&lt;-</span> <span style="color:#2aa198">0.025</span>  <span style="color:#586e75"># yr</span>
+</span></span><span style="display:flex;"><span>beta0 <span style="color:#719e07">&lt;-</span> <span style="color:#2aa198">400</span>  <span style="color:#586e75"># persons per yr</span>
+</span></span></code></pre></div><img src="/post/2014-12-04-sirs-model-with-time-dependent-transmission-rate_files/figure-html/unnamed-chunk-14-1.png" width="768" style="display: block; margin: auto;" />
+<img src="/post/2014-12-04-sirs-model-with-time-dependent-transmission-rate_files/figure-html/unnamed-chunk-15-1.png" width="768" />
+<p>In <em>Fig. 1b</em> simulation, the basic reproductive number <code>\(R_0=\)</code> 10, and the intrinsic period of oscillation <code>\(T=\)</code> 0.94. From the <code>Infected</code> panel of <code>Subset Results of Equilibrium</code> figure, strong oscillations (noticing the y-axis range) due to <strong>resonance</strong> are observed. This is because comparing with <em>Fig. 1a</em> simulation, while the basic reprodutive number <code>\(R_0\)</code> keeps the same, the period of endogenous SIRS oscillation <code>\(T\)</code> is much more near the period of seasonal forcing (<strong>1</strong> year) (see 
+<a href="http://www.pnas.org/content/101/48/16915.abstract" target="_blank" rel="noopener">Dushoff et al. (2004)</a> for further details).</p>
+
+        </div>
+        
+
+<footer>
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">Tony Tsai</span></span>
+    
+    <time>Dec 4, 2014</time>
+    
+      <span class="categories">
+        Tags:
+        
+          <a class="category" href="http://blog.tonytsai.name/tags/sirs">SIRS</a>  <a class="category" href="http://blog.tonytsai.name/tags/transmission-rate">Transmission Rate</a>  <a class="category" href="http://blog.tonytsai.name/tags/basic-reproductive-number">Basic Reproductive Number</a>  <a class="category" href="http://blog.tonytsai.name/tags/markov-chain-transition-rate">Markov Chain Transition Rate</a>  
+    
+    </span>
+  </p>
+
+  
+
+  <p class="meta">
+    
+        <a class="basic-alignment left" href="http://blog.tonytsai.name/blog/2014-12-03-gains-from-paper-reading/" title="Gains from Paper Reading">Gains from Paper Reading</a>
+    
+
+    
+      <a class="basic-alignment right" href="http://blog.tonytsai.name/blog/2015-04-20-stratified-importance-sampling/" title="Stratified Importance Sampling">Stratified Importance Sampling</a>
+    
+  </p>
+  
+    
+      <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "tonytsai" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+  
+</footer>
+
+      </article>
+    </div>
+    
+
+<aside class="sidebar thirds">
+  <section class="first odd">
+
+    
+      <h1>Who am I</h1>
+    
+
+    <p>
+      
+        I am Jun (Tony) Cai (Tsai). A Young Research Fellow interested in infectious disease epidemiology with a focus on COVID-19 and influenza at School of Public Health, Fudan University.<br>
+View my profile in 
+<a href="https://scholar.google.com/citations?user=_dV_jnkAAAAJ" target="_blank" rel="noopener">Google Scholar</a>.
+      
+    </p>
+  </section>
+
+  
+  
+
+
+
+<ul class="sidebar-nav">
+  <li class="sidebar-nav-item">
+    <a target="_blank" rel="noopener noreferrer" href="https://github.com/caijun/" title="https://github.com/caijun/"><i class="fa fa-github fa-3x"></i></a>
+    <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/jun-cai-2a4143127/" title="https://www.linkedin.com/in/jun-cai-2a4143127/"><i class="fa fa-linkedin fa-3x"></i></a>
+    
+    
+    <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/caijun2046/" title="https://twitter.com/caijun2046/"><i class="fa fa-twitter fa-3x"></i></a>
+    
+    
+    
+    <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/tony.tsai.007/" title="https://www.facebook.com/tony.tsai.007/"><i class="fa fa-facebook fa-3x"></i></a>
+    
+    
+    
+
+  
+  
+  </li>
+</ul>
+
+  
+
+  
+
+  
+  
+  
+    
+      <section class="even">
+        <h1>Recent Posts</h1>
+        <ul id="recent_posts">
+          
+          
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2018-05-07-setting-path-variable-for-gs-command-in-rstudio/">Setting PATH Variable for gs Command in RStudio</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2018-02-13-%E6%B5%81%E6%84%9F%E4%B8%8B%E7%9A%84%E5%8C%97%E4%BA%AC%E4%B8%AD%E5%B9%B4%E4%B8%8E%E7%BB%86%E8%8F%8C%E8%80%90%E8%8D%AF%E6%80%A7/">《流感下的北京中年》与细菌耐药性</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2017-12-21-tips-for-sharing-data-when-collaborating-with-other-researchers/">Tips for Sharing Data When Collaborating with Other Researchers</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="/blog/2017-12-04-detecting-non-breaking-space-in-r/">Detecting Non-breaking Space in R</a>
+              </li>
+            
+          
+        </ul>
+      </section>
+    
+  
+  
+  <section class="even">
+    <h1>Books to Read</h1>
+    <li><a href="https://www.amazon.com/Textbook-Influenza-Robert-G-Webster/dp/0470670487/">Textbook of Influenza</a></li>
+    <li><a href="https://www.amazon.com/Infectious-Diseases-Humans-Dynamics-Publications/dp/019854040X">Infectious Diseases of Humans: Dynamics and Control</a></li>
+    <li><a href="https://www.amazon.com/Modeling-Infectious-Diseases-Humans-Animals/dp/0691116172/">Modeling Infectious Diseases in Humans and Animals</a></li>
+    <li><a href="https://www.amazon.com/Infectious-Disease-Epidemiology-Theory-Practice/dp/1449683797">Infectious Disease Epidemiology: Theory and Practice</a></li>
+    <li><a href="https://www.amazon.com/Bayesian-Analysis-Chapman-Statistical-Science/dp/1439840954">Bayesian Data Analysis</a></li>
+    <li><a href="https://www.amazon.com/Seamless-Integration-Rcpp-Dirk-Eddelbuettel/dp/1461468671">Seamless R and C++ Integration with Rcpp</a></li>
+
+    <h1>Links</h1>
+    <li><a href="http://www.repidemicsconsortium.org/">R Epidemics Consortium</a></li>
+    <li><a href="http://r-bloggers.com/">R-bloggers</a></li>
+    <li><a href="https://rweekly.org/">R Weekly</a></li>
+
+    <h1>Friends</h1>
+    <li><a href="https://xg1990.com/blog/">xg1990</a></li>
+    <li><a href="https://guangchuangyu.github.io/cn/">Guangchuang Yu</a></li>
+  </section>
+
+  <script type="text/javascript" src="//ra.revolvermaps.com/0/0/8.js?i=0551xokm7cj&amp;m=0&amp;s=300&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33" async="async"></script>
+
+</aside>
+
+  </div>
+</div>
+
+    <footer role="contentinfo">
+      <p>Copyright &copy; 2023 Tony Tsai - <a href="http://blog.tonytsai.name/license/">License</a> -
+        <span class="credit">Powered by <a target="_blank" href="https://gohugo.io" rel="noopener noreferrer">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/" rel="noopener noreferrer">Hugo-Octopress</a> theme.
+      </p>
+    </footer>
+
+    
+    
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] },
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\\[','\\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+  }
+});
+</script>
+<script type="text/javascript"
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+    
+    
+    
+
+    
+      <script>
+        var _gaq=[['_setAccount','UA-40665800-1'],['_trackPageview']];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
+      </script>
+    
+  </body>
+</html>
+

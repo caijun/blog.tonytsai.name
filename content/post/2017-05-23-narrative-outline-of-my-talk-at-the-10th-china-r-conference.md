@@ -5,7 +5,7 @@ date: '2017-05-23'
 slug: narrative-outline-of-my-talk-at-the-10th-china-r-conference
 categories: ['R']
 tags: ["China-R Conference", "Epidemics", "Influenza"]
-draft: yes
+draft: false
 ---
 
 The [10th China R Conference](http://china-r.org/bj2017/) was held in Tsinghua University during May 19 - 21. I initialized the session of *R in Public Health*. Though it was my first time to organize a session, to invite speakers, and to host it, the session was successful. The number of audiences was more than 55 persons and beyond my expectation, and the discussions were enthusiastic. I believe that via my talk more Chinese have known the [R Epidemics Consortium (RECON)](http://www.repidemicsconsortium.org/) and they may try to use RECON packages to facilitate their epidemics research.

@@ -3,23 +3,24 @@ title: "Derivation of Number of Infected Individuals I(a)"
 author: ''
 date: '2017-04-22'
 categories: ['Influenza']
-draft: yes
-slug: ''
 tags: []
 bibliography: ["bibliography.bib"]
 link-citations: yes
+draft: false
 output:
-  bookdown::html_document2
+  md_document:
+    toc: false
+    preserve_yaml: true
 ---
 
 
 
-<p><span class="citation">(Hens et al. <a href="#ref-Hens.etal-Modelinginfectiousdisease-2012">2012</a>, 63:41)</span> gives the formula for the total number of infective individuals <span class="math inline">\(I(a)\)</span>:</p>
+<p><span class="citation">(<a href="#ref-Hens.etal-Modelinginfectiousdisease-2012" role="doc-biblioref">Hens et al. 2012, 63:41</a>)</span> gives the formula for the total number of infective individuals <span class="math inline">\(I(a)\)</span>:</p>
 <p><span class="math display" id="eq:Ia">\[
-\begin{equation} 
+\begin{equation}
   I(a) = \frac{\lambda}{\lambda - \nu}N(0)l(a)\left[e^{-\nu a} - e^{-\lambda a}\right],
   \tag{1}
-\end{equation} 
+\end{equation}
 \]</span></p>
 <p>which is obtained by integrating following differential equation with respect to age <span class="math inline">\(a\)</span>:</p>
 <p><span class="math display" id="eq:dIa">\[
@@ -28,7 +29,7 @@ output:
   \tag{2}
 \end{equation}
 \]</span></p>
-<p>This is also equation (4.11) in <span class="citation">(Anderson and May <a href="#ref-Anderson.May-InfectiousDiseasesHumans-1992">1992</a>, 67)</span>. Here I will present the details of integration.</p>
+<p>This is also equation (4.11) in <span class="citation">(<a href="#ref-Anderson.May-InfectiousDiseasesHumans-1992" role="doc-biblioref">Anderson and May 1992, 67</a>)</span>. Here I will present the details of integration.</p>
 <p>Equation <a href="#eq:dIa">(2)</a> can be written as follows:</p>
 <p><span class="math display" id="eq:dIa1">\[
 \begin{equation}
@@ -66,7 +67,7 @@ output:
 \end{equation}
 \]</span></p>
 <p>However, <span class="math inline">\(I(0)=0\)</span> (since no individuals are infected at birth) and therefore the left-hand side of equation <a href="#eq:int">(6)</a> simplifies to <span class="math inline">\(I(a)e^{(\nu + \mu)a}\)</span>.</p>
-<p>Since here we are discussiing the static model (3.8) <span class="citation">(Hens et al. <a href="#ref-Hens.etal-Modelinginfectiousdisease-2012">2012</a>, 63:38)</span> with demographic processes (<span class="math inline">\(\mu\)</span> is the constant mortality rate), the survival function <span class="math inline">\(l(a) = e^{-\mu a}\)</span> and <span class="math inline">\(S(a) = N(0)l(a)e^{-\lambda a} = N(0)e^{-(\mu + \lambda)a}\)</span>. The right hand side of equation <a href="#eq:int">(6)</a> can be writtern as following:</p>
+<p>Since here we are discussiing the static model (3.8) <span class="citation">(<a href="#ref-Hens.etal-Modelinginfectiousdisease-2012" role="doc-biblioref">Hens et al. 2012, 63:38</a>)</span> with demographic processes (<span class="math inline">\(\mu\)</span> is the constant mortality rate), the survival function <span class="math inline">\(l(a) = e^{-\mu a}\)</span> and <span class="math inline">\(S(a) = N(0)l(a)e^{-\lambda a} = N(0)e^{-(\mu + \lambda)a}\)</span>. The right hand side of equation <a href="#eq:int">(6)</a> can be writtern as following:</p>
 <p><span class="math display" id="eq:intR">\[
 \begin{equation}
   \int_{0}^{a}\lambda S(a)e^{(\nu + \mu)a}da = \lambda N(0)\int_{0}^{a}e^{(\nu - \lambda)a}da.
@@ -94,8 +95,8 @@ output:
 <p><span class="math display">\[
 \begin{equation*}
 \begin{split}
-  I(a) &amp;= \frac{\lambda}{\lambda - \nu}N(0)\left[e^{(-\nu -\mu)a} - e^{(-\lambda -\mu)a} \right] \\
-  &amp;= \frac{\lambda}{\lambda - \nu}N(0)e^{-\mu a}\left[e^{-\nu a} - e^{-\lambda a} \right] \\
+  I(a) &amp;= \frac{\lambda}{\lambda - \nu}N(0)\left[e^{(-\nu -\mu)a} - e^{(-\lambda -\mu)a} \right] \\\\
+  &amp;= \frac{\lambda}{\lambda - \nu}N(0)e^{-\mu a}\left[e^{-\nu a} - e^{-\lambda a} \right] \\\\
   &amp;= \frac{\lambda}{\lambda - \nu}N(0)l(a)\left[e^{-\nu a} - e^{-\lambda a} \right].
 \end{split}
 \end{equation*}
@@ -109,18 +110,18 @@ output:
 </div>
 <div id="references" class="section level2 unnumbered">
 <h2>References</h2>
-<div id="refs" class="references">
-<div id="ref-Anderson.May-InfectiousDiseasesHumans-1992">
-<p>Anderson, Roy M., and Robert M. May. 1992. <em>Infectious Diseases of Humans: Dynamics and Control</em>. Oxford University Press.</p>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Anderson.May-InfectiousDiseasesHumans-1992" class="csl-entry">
+Anderson, Roy M., and Robert M. May. 1992. <em>Infectious Diseases of Humans: Dynamics and Control</em>. Oxford University Press.
 </div>
-<div id="ref-Hens.etal-Modelinginfectiousdisease-2012">
-<p>Hens, Niel, Ziv Shkedy, Marc Aerts, Christel Faes, Pierre Van Damme, and Philippe Beutels. 2012. <em>Modeling Infectious Disease Parameters Based on Serological and Social Contact Data: A Modern Statistical Perspective</em>. Vol. 63. Springer Science &amp; Business Media.</p>
+<div id="ref-Hens.etal-Modelinginfectiousdisease-2012" class="csl-entry">
+Hens, Niel, Ziv Shkedy, Marc Aerts, Christel Faes, Pierre Van Damme, and Philippe Beutels. 2012. <em>Modeling Infectious Disease Parameters Based on Serological and Social Contact Data: A Modern Statistical Perspective</em>. Vol. 63. Springer Science &amp; Business Media.
 </div>
 </div>
 </div>
-<div class="footnotes">
+<div class="footnotes footnotes-end-of-document">
 <hr />
 <ol>
-<li id="fn1"><p><a href="http://mathworld.wolfram.com/IntegratingFactor.html" class="uri">http://mathworld.wolfram.com/IntegratingFactor.html</a><a href="#fnref1" class="footnote-back">↩</a></p></li>
+<li id="fn1"><p><a href="http://mathworld.wolfram.com/IntegratingFactor.html" class="uri">http://mathworld.wolfram.com/IntegratingFactor.html</a><a href="#fnref1" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>

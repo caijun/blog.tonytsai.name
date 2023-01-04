@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on Tony Tsai</title>
+    <link>http://blog.tonytsai.name/categories/linux/</link>
+    <description>Recent content in Linux on Tony Tsai</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 30 Sep 2014 00:00:00 +0000</lastBuildDate><atom:link href="http://blog.tonytsai.name/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Problems with adduser on Ubuntu and Solutions</title>
+      <link>http://blog.tonytsai.name/blog/2014-09-30-problems-with-adduser-on-ubuntu-and-solutions/</link>
+      <pubDate>Tue, 30 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.tonytsai.name/blog/2014-09-30-problems-with-adduser-on-ubuntu-and-solutions/</guid>
+      <description>最近想为Ubuntu服务器增加一个用户，然后ssh远程登录使用。折腾了好久总算搞定，现将过程中遇到的问题记录下来，以便将来参考。 1. 创建新用户</description>
+    </item>
+    
+    <item>
+      <title>How to Connect to VMware Machine (CentOS 6.4) via SSH</title>
+      <link>http://blog.tonytsai.name/blog/2013-06-08-how-to-connect-to-vmware-machine-centos-6.4-via-ssh/</link>
+      <pubDate>Sat, 08 Jun 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.tonytsai.name/blog/2013-06-08-how-to-connect-to-vmware-machine-centos-6.4-via-ssh/</guid>
+      <description>之前使用CentOS虚拟机都是在GUI里操作，四年前配置的笔记本实在吃不消，非常的卡，都没有了工作的欲望。最近在做《高性能计算导论》课程作业</description>
+    </item>
+    
+  </channel>
+</rss>

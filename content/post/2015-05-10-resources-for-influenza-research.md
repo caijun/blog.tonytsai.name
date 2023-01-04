@@ -2,10 +2,9 @@
 title: Resources for Influenza Research
 author: ~
 date: '2015-05-10'
-slug: ''
 categories: ["Influenza"]
 tags: ["Resource", "Research"]
-draft: yes
+draft: false
 ---
 
 Today I made a list of resources for influenza research. I will keep updating this list as my influenza research goes further. The up-to-date version can be found on my [github](https://github.com/caijun/res4flu).

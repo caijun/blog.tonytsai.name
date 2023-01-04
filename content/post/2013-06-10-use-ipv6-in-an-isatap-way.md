@@ -2,10 +2,9 @@
 title: Use IPv6 in an ISATAP Way
 author: ~
 date: '2013-06-10'
-slug: ''
 categories: ["Windows"]
 tags: ["IPv6", "ISATAP", "Windows 7", "THU"]
-draft: yes
+draft: false
 ---
 
 地学前沿最后一次课是和宫老师一起吃饭聊天（主要是听宫老师讲），期间宫老师提到了他写的一篇文章[How to find an academic job](http://nature.berkeley.edu/~penggong/Acadjobhunt.pdf)，挂在了他在berkely的个人主页上。回来google了一下，点击下载，结果又出现了恼人的浏览器报错：**无法显示此网页 与auth.ccert.edu.cn 的连接已中断**。google图片、连接THU的IPv6主页和六维空间都会出现该错误。不得不吐槽一下THU的网络，出奇的慢，而且还有流量限制。最近连[Stack Overflow](http://stackoverflow.com/)，[TeX - LaTeX Stack Exchange](http://tex.stackexchange.com/)都不能正常显示了（在BNU都能正常显示），下午甚至WOK都不能完全显示，简直无法工作，而且非常影响工作心情。

@@ -2,10 +2,9 @@
 title: Operator for Extracting Named List Elements to Variables
 author: ~
 date: '2015-05-21'
-slug: ''
 categories: ["R"]
 tags: ["list Operator", "Variable Extraction"]
-draft: yes
+draft: false
 ---
 
 In routine data analysis, I often need to convert list elements into variables. For exampple, when I create a function returning multiple values and I would like to use those values as variables separately, as only one object can be returned by the function, the common way to accomplish this task is that multiple values are combined as a list returned by the function, elements of interest are then extracted and assigned to variables. The following codes describe the process.

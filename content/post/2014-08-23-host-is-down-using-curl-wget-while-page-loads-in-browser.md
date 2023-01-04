@@ -2,10 +2,9 @@
 title: Host Is Down Using curl/wget While Page Loads in Browser
 author: ~
 date: '2014-08-23'
-slug: ''
 categories: ["Mac OS X"]
 tags: ["GoAgent", "Proxy", "geoChina"]
-draft: yes
+draft: false
 ---
 
 ### 问题描述
@@ -70,7 +69,8 @@ $ source .bash_profile
 如有同侪知道解决办法，烦请邮件告知。
 
 <br>
-PS:本文采用了[添加文内注释/参考文献引用](http://celavie.me/lib/2013/10/19/Markdown%E5%86%99%E4%BD%9C%EF%BC%88%E4%BA%8C%EF%BC%89.html)<em>Markdown</em>写法。
+
+PS:本文采用了[添加文内注释/参考文献引用](https://github.com/JiajiaCong/Learning_Pandoc_and_Markdown)<em>Markdown</em>写法。
 
 ### 参考链接
 <span id="[1]">[1]</span>: [Unable to resolve host using curl/wget while page loads in browser](http://superuser.com/questions/518297/unable-to-resolve-host-using-curl-wget-while-page-loads-in-browser)

@@ -1,0 +1,80 @@
+<!-- To modify sidebar width check the css file lines 757 and 765 (for large screens) -->
+
+<aside class="sidebar thirds">
+  <section class="first odd">
+
+    {{ with .Site.Params.sidebarHeader }}
+      <h1>{{ . | markdownify }}</h1>
+    {{ end }}
+
+    <p>
+      {{ with .Site.Params.sidebarText }}
+        {{ . | markdownify }}
+      {{ end }}
+    </p>
+  </section>
+
+  <!-- Social media icons are moved to social.html -->
+  {{ partial "social.html" . }}
+
+  <!-- Sidebar menu - items are read from the config file
+       first we check if it is enabled in config file and then start adding items.
+       if Site.Params.sidebarNewWindow exists and is set to true then open these links in a new window -->
+
+  {{ with .Site.Params.sidebarMenuEnabled }}
+    {{ if eq . true }}
+      <section class="odd">
+        {{ with $.Site.Params.sidebarMenuHeader }}
+          <h1>{{ . }}</h1>
+        {{ end }}
+        {{ range $.Site.Menus.sidebar }}
+          <li>
+            <a href="{{ .URL | absURL }}" title="{{ .Name }}" {{ if eq $.Site.Params.sidebarNewWindow true }} target="_blank" rel="noopener noreferrer" {{ end }}>{{ .Name }}</a>
+          </li>
+        {{ end }}
+      </section>
+    {{ end }}
+  {{ end }}
+
+  <!-- Add recent posts - limit is .Site.Params.sidebarRecentLimit - example copied from https://gohugo.io/templates/go-templates/ -->
+  <!-- Only display this section if sideBarRecentLimit is not zero -->
+  {{ with .Site.Params.sidebarRecentLimit }}
+    {{ if not (eq . 0) }}
+      <section class="even">
+        <h1>Recent Posts</h1>
+        <ul id="recent_posts">
+          {{ $pages := where $.Site.Pages "Type" "post" }}
+          {{ range first . $pages }}
+            {{ if .IsPage }}
+              <li class="post">
+                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+              </li>
+            {{ end }}
+          {{ end }}
+        </ul>
+      </section>
+    {{ end }}
+  {{ end }}
+  
+  <section class="even">
+    <h1>Books to Read</h1>
+    <li><a href="https://www.amazon.com/Textbook-Influenza-Robert-G-Webster/dp/0470670487/">Textbook of Influenza</a></li>
+    <li><a href="https://www.amazon.com/Infectious-Diseases-Humans-Dynamics-Publications/dp/019854040X">Infectious Diseases of Humans: Dynamics and Control</a></li>
+    <li><a href="https://www.amazon.com/Modeling-Infectious-Diseases-Humans-Animals/dp/0691116172/">Modeling Infectious Diseases in Humans and Animals</a></li>
+    <li><a href="https://www.amazon.com/Infectious-Disease-Epidemiology-Theory-Practice/dp/1449683797">Infectious Disease Epidemiology: Theory and Practice</a></li>
+    <li><a href="https://www.amazon.com/Bayesian-Analysis-Chapman-Statistical-Science/dp/1439840954">Bayesian Data Analysis</a></li>
+    <li><a href="https://www.amazon.com/Seamless-Integration-Rcpp-Dirk-Eddelbuettel/dp/1461468671">Seamless R and C++ Integration with Rcpp</a></li>
+
+    <h1>Links</h1>
+    <li><a href="http://www.repidemicsconsortium.org/">R Epidemics Consortium</a></li>
+    <li><a href="http://r-bloggers.com/">R-bloggers</a></li>
+    <li><a href="https://rweekly.org/">R Weekly</a></li>
+
+    <h1>Friends</h1>
+    <li><a href="https://xg1990.com/blog/">xg1990</a></li>
+    <li><a href="https://guangchuangyu.github.io/cn/">Guangchuang Yu</a></li>
+  </section>
+
+  <script type="text/javascript" src="//ra.revolvermaps.com/0/0/8.js?i=0551xokm7cj&amp;m=0&amp;s=300&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33" async="async"></script>
+
+</aside>

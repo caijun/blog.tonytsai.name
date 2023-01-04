@@ -2,10 +2,9 @@
 title: Optimization of Disk Usage for animint
 author: ~
 date: '2015-08-09'
-slug: ''
 categories: ["R"]
 tags: ["animint", "optimization", "disk space", "GSoC 2015"]
-draft: yes
+draft: false
 ---
 
 ## Problem

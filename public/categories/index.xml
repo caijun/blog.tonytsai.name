@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Tony Tsai</title>
+    <link>http://blog.tonytsai.name/categories/</link>
+    <description>Recent content in Categories on Tony Tsai</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 07 May 2018 00:00:00 +0000</lastBuildDate><atom:link href="http://blog.tonytsai.name/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>R</title>
+      <link>http://blog.tonytsai.name/categories/r/</link>
+      <pubDate>Mon, 07 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.tonytsai.name/categories/r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>流感</title>
+      <link>http://blog.tonytsai.name/categories/%E6%B5%81%E6%84%9F/</link>
+      <pubDate>Tue, 13 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.tonytsai.name/categories/%E6%B5%81%E6%84%9F/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Research</title>
+      <link>http://blog.tonytsai.name/categories/research/</link>
+      <pubDate>Thu, 21 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.tonytsai.name/categories/research/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>http://blog.tonytsai.name/categories/python/</link>
+      <pubDate>Thu, 07 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.tonytsai.name/categories/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Influenza</title>
+      <link>http://blog.tonytsai.name/categories/influenza/</link>
+      <pubDate>Sat, 22 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.tonytsai.name/categories/influenza/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MathJax</title>
+      <link>http://blog.tonytsai.name/categories/mathjax/</link>
+      <pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.tonytsai.name/categories/mathjax/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Statistical Computing</title>
+      <link>http://blog.tonytsai.name/categories/statistical-computing/</link>
+      <pubDate>Thu, 23 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.tonytsai.name/categories/statistical-computing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Numerical Computation</title>
+      <link>http://blog.tonytsai.name/categories/numerical-computation/</link>
+      <pubDate>Mon, 24 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.tonytsai.name/categories/numerical-computation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>http://blog.tonytsai.name/categories/linux/</link>
+      <pubDate>Tue, 30 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.tonytsai.name/categories/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GIS</title>
+      <link>http://blog.tonytsai.name/categories/gis/</link>
+      <pubDate>Sun, 21 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.tonytsai.name/categories/gis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mac OS X</title>
+      <link>http://blog.tonytsai.name/categories/mac-os-x/</link>
+      <pubDate>Sat, 23 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.tonytsai.name/categories/mac-os-x/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GitHub</title>
+      <link>http://blog.tonytsai.name/categories/github/</link>
+      <pubDate>Sun, 13 Jul 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.tonytsai.name/categories/github/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>LaTeX</title>
+      <link>http://blog.tonytsai.name/categories/latex/</link>
+      <pubDate>Wed, 04 Dec 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.tonytsai.name/categories/latex/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Windows</title>
+      <link>http://blog.tonytsai.name/categories/windows/</link>
+      <pubDate>Mon, 10 Jun 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.tonytsai.name/categories/windows/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Web</title>
+      <link>http://blog.tonytsai.name/categories/web/</link>
+      <pubDate>Sun, 28 Apr 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.tonytsai.name/categories/web/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

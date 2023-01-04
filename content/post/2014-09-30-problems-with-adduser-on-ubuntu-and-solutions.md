@@ -2,10 +2,9 @@
 title: Problems with adduser on Ubuntu and Solutions
 author: ~
 date: '2014-09-30'
-slug: ''
 categories: ["Linux"]
 tags: ["Ubuntu", "adduser", "Shell", "Prompt"]
-draft: yes
+draft: false
 ---
 
 最近想为Ubuntu服务器增加一个用户，然后`ssh`远程登录使用。折腾了好久总算搞定，现将过程中遇到的问题记录下来，以便将来参考。

@@ -28,7 +28,7 @@ tags: ["gs", "system()", "RStudio", "PATH variable"]
 <pre><code>## /usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Library/TeX/texbin:/opt/X11/bin</code></pre>
 <p>And the <code>system()</code> call cannot find the <code>gs</code> command in RStudio.</p>
 <pre class="r"><code>system(&quot;which gs&quot;)</code></pre>
-<pre><code>## /usr/local/Cellar/ghostscript/9.23/bin/gs</code></pre>
+<pre><code>## /usr/local/bin/gs</code></pre>
 <p><a href="https://support.rstudio.com/hc/en-us/community/posts/200629578-system-call-from-RStudio-does-not-find-path-same-command-from-commandline-R-works-fine-">The same problem</a> was reported in RStudio Support in December 2013. From the discussion, we know one solution is to open RStudio in the Terminal to inherit the environment variables set in the bash .profile file; however, this way to start RStudio is very inconvenient. Alternatively we can set PATH variable to <code>gs</code> in the user <code>.Renviron</code> file which is in the user’s home directory <code>~</code>. The file <code>R_HOME/etc/Renviron</code> contains environment variables set by <strong>R</strong> in the configure process. Values in this file can be overridden in user environment file, hence do not change <code>R_HOME/etc/Renviron</code> itself. Type <code>?Startup</code> in <strong>R</strong> console to see details on the startup mechanism of an <strong>R</strong> session.</p>
 <p><a href="https://github.com/r-lib/usethis"><strong>usethis</strong></a> has a useful helper function to modify <code>.Renviron</code>. Typing <code>usethis::edit_r_environ()</code> open the user <code>.Renviron</code> file for editing. Then add following PATH variable to the <code>.Renviron</code> file.</p>
 <pre><code>PATH=/usr/local/Cellar/ghostscript/9.23/bin:${PATH}</code></pre>
@@ -40,7 +40,7 @@ Alternatively we can add the path to the <code>gs</code> command as the PATH var
 Firstly find the <code>Renviron</code> file: <code>R_HOME/etc/Renviron</code> under the directory of <code>R_HOME</code>.
 </del>
 <pre class="r"><code>Sys.getenv(&quot;R_HOME&quot;)</code></pre>
-<pre><code>## [1] &quot;/usr/local/Cellar/r/3.5.1/lib/R&quot;</code></pre>
+<pre><code>## [1] &quot;/Library/Frameworks/R.framework/Resources&quot;</code></pre>
 <del>
 Then edit the <code>Renviron</code> file and add following PATH environment variable.
 </del>

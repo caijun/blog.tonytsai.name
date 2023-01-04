@@ -2,10 +2,13 @@
 title: SIRS Model with Time Dependent Transmission Rate
 author: ''
 date: '2014-12-04'
-slug: ''
 categories: ["Influenza"]
 tags: ["SIRS", "Transmission Rate", "Basic Reproductive Number", "Markov Chain Transition Rate"]
-draft: yes
+draft: false
+output:
+  md_document:
+    toc: false
+    preserve_yaml: true
 ---
 
 ## 1 SIRS Model
@@ -13,8 +16,8 @@ The [SIRS model](http://en.wikipedia.org/wiki/Epidemic_model#The_SIRS_model) is 
 $$
 \begin{equation}
 \begin{aligned}
-  & \frac{dS}{dt} = fR - \frac{\beta SI}{N} \\
-  & \frac{dI}{dt} = \frac{\beta SI}{N} - \gamma I \\
+  & \frac{dS}{dt} = fR - \frac{\beta SI}{N} \\\\
+  & \frac{dI}{dt} = \frac{\beta SI}{N} - \gamma I \\\\
   & \frac{dR}{dt} = \gamma I - fR
 \end{aligned}
 \label{eq1}
@@ -26,7 +29,7 @@ As only two of the three ODEs are independent, $R(t)$ does not have to be treate
 $$
 \begin{equation}
 \begin{aligned}
-  & \frac{dS}{dt} = f(N - S - I) - \frac{\beta SI}{N} \\
+  & \frac{dS}{dt} = f(N - S - I) - \frac{\beta SI}{N} \\\\
   & \frac{dI}{dt} = \frac{\beta SI}{N} - \gamma I
 \end{aligned}
 \label{eq2}
@@ -37,7 +40,7 @@ The form of SIRS model described in [Dushoff et al. (2004)](http://www.pnas.org/
 $$
 \begin{equation}
 \begin{aligned} \label{eq3}
-  & \frac{dS}{dt} = \frac{N - S - I}{L} - \frac{\beta SI}{N} \\
+  & \frac{dS}{dt} = \frac{N - S - I}{L} - \frac{\beta SI}{N} \\\\
   & \frac{dI}{dt} = \frac{\beta SI}{N} - \frac{I}{D}
 \end{aligned}
 \end{equation}
@@ -323,7 +326,7 @@ Equation (4) in [Shaman et al. (2010)](http://www.plosbiology.org/article/info%3
 $$
 \begin{equation}
 \begin{aligned} \label{eq:5}
-  & \frac{dS}{dt} = f(N - S - I) - \frac{\beta (t) SI}{N} \\
+  & \frac{dS}{dt} = f(N - S - I) - \frac{\beta (t) SI}{N} \\\\
   & \frac{dI}{dt} = \frac{\beta (t) SI}{N} - \gamma I
 \end{aligned}
 \end{equation}

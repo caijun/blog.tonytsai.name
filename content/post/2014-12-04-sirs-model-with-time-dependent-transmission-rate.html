@@ -2,47 +2,55 @@
 title: SIRS Model with Time Dependent Transmission Rate
 author: ''
 date: '2014-12-04'
-slug: ''
 categories: ["Influenza"]
 tags: ["SIRS", "Transmission Rate", "Basic Reproductive Number", "Markov Chain Transition Rate"]
-draft: yes
+draft: false
+output:
+  md_document:
+    toc: false
+    preserve_yaml: true
 ---
 
 
 
 <div id="sirs-model" class="section level2">
 <h2>1 SIRS Model</h2>
-<p>The <a href="http://en.wikipedia.org/wiki/Epidemic_model#The_SIRS_model">SIRS model</a> is simply an extension of the <a href="http://en.wikipedia.org/wiki/Epidemic_model#The_SIR_model">SIR model</a> as it allows members of the recovered class to rejoin the susceptible class at a defined rate, which integrates the impact of waning immunity following antigenic drift. Similar to the SIR model, a fixed population without births and deaths is considered in the SIRS model. The standard form of SIRS model is described as <span class="math display">\[
+<p>The <a href="http://en.wikipedia.org/wiki/Epidemic_model#The_SIRS_model">SIRS model</a> is simply an extension of the <a href="http://en.wikipedia.org/wiki/Epidemic_model#The_SIR_model">SIR model</a> as it allows members of the recovered class to rejoin the susceptible class at a defined rate, which integrates the impact of waning immunity following antigenic drift. Similar to the SIR model, a fixed population without births and deaths is considered in the SIRS model. The standard form of SIRS model is described as
+<span class="math display">\[
 \begin{equation}
 \begin{aligned}
-  &amp; \frac{dS}{dt} = fR - \frac{\beta SI}{N} \\
-  &amp; \frac{dI}{dt} = \frac{\beta SI}{N} - \gamma I \\
+  &amp; \frac{dS}{dt} = fR - \frac{\beta SI}{N} \\\\
+  &amp; \frac{dI}{dt} = \frac{\beta SI}{N} - \gamma I \\\\
   &amp; \frac{dR}{dt} = \gamma I - fR
 \end{aligned}
 \label{eq1}
 \end{equation}
-\]</span> where <span class="math inline">\(f\)</span> is the average loss of immunity rate of recovered indiviuals, and the other notations are the same as the SIR model. Note that SIR model is a special case of SIRS model under condition of <span class="math inline">\(f = 0\)</span>. Hence, it is possible to create a general function to solve both SIR and SIRS models.</p>
-<p>As only two of the three ODEs are independent, <span class="math inline">\(R(t)\)</span> does not have to be treated explicitly and using ODEs of <span class="math inline">\(S(t)\)</span> and <span class="math inline">\(I(t)\)</span> to describe the dynamic of SIRS model are adequate. Substitute <span class="math inline">\(R(t) = N - S(t) - I(t)\)</span> into ODE of <span class="math inline">\(S(t)\)</span> and the formula is simplified as follows <span class="math display">\[
+\]</span>
+where <span class="math inline">\(f\)</span> is the average loss of immunity rate of recovered indiviuals, and the other notations are the same as the SIR model. Note that SIR model is a special case of SIRS model under condition of <span class="math inline">\(f = 0\)</span>. Hence, it is possible to create a general function to solve both SIR and SIRS models.</p>
+<p>As only two of the three ODEs are independent, <span class="math inline">\(R(t)\)</span> does not have to be treated explicitly and using ODEs of <span class="math inline">\(S(t)\)</span> and <span class="math inline">\(I(t)\)</span> to describe the dynamic of SIRS model are adequate. Substitute <span class="math inline">\(R(t) = N - S(t) - I(t)\)</span> into ODE of <span class="math inline">\(S(t)\)</span> and the formula is simplified as follows
+<span class="math display">\[
 \begin{equation}
 \begin{aligned}
-  &amp; \frac{dS}{dt} = f(N - S - I) - \frac{\beta SI}{N} \\
+  &amp; \frac{dS}{dt} = f(N - S - I) - \frac{\beta SI}{N} \\\\
   &amp; \frac{dI}{dt} = \frac{\beta SI}{N} - \gamma I
 \end{aligned}
 \label{eq2}
 \end{equation}
 \]</span></p>
-<p>The form of SIRS model described in <a href="http://www.pnas.org/content/101/48/16915.abstract">Dushoff et al. (2004)</a> and <a href="http://www.plosbiology.org/article/info%3Adoi%2F10.1371%2Fjournal.pbio.1000316">Shaman et al. (2010)</a> is as follows <span class="math display">\[
+<p>The form of SIRS model described in <a href="http://www.pnas.org/content/101/48/16915.abstract">Dushoff et al. (2004)</a> and <a href="http://www.plosbiology.org/article/info%3Adoi%2F10.1371%2Fjournal.pbio.1000316">Shaman et al. (2010)</a> is as follows
+<span class="math display">\[
 \begin{equation}
 \begin{aligned} \label{eq3}
-  &amp; \frac{dS}{dt} = \frac{N - S - I}{L} - \frac{\beta SI}{N} \\
+  &amp; \frac{dS}{dt} = \frac{N - S - I}{L} - \frac{\beta SI}{N} \\\\
   &amp; \frac{dI}{dt} = \frac{\beta SI}{N} - \frac{I}{D}
 \end{aligned}
 \end{equation}
-\]</span> where <span class="math inline">\(L\)</span> is the average duration of immunity of recoverd indiviuals, and <span class="math inline">\(D\)</span> is the mean infectious period of infected indiviuals. Comparing with ODEs <span class="math inline">\((\ref{eq2})\)</span>, <span class="math inline">\(L = \frac{1}{f}\)</span> and <span class="math inline">\(D = \frac{1}{\gamma}\)</span> are derived.</p>
+\]</span>
+where <span class="math inline">\(L\)</span> is the average duration of immunity of recoverd indiviuals, and <span class="math inline">\(D\)</span> is the mean infectious period of infected indiviuals. Comparing with ODEs <span class="math inline">\((\ref{eq2})\)</span>, <span class="math inline">\(L = \frac{1}{f}\)</span> and <span class="math inline">\(D = \frac{1}{\gamma}\)</span> are derived.</p>
 <p>In the following subsections, <strong>RK4</strong> method is applied to solve SIRS model in different forms.</p>
 <div id="rk4sirs.std-function" class="section level3">
 <h3>1.1 <code>RK4SIRS.std</code> function</h3>
-<p>The iterative formula of <strong>RK4</strong> method for solving SIRS model in the standard form <span class="math inline">\((\ref{eq1})\)</span> can be easily derived and won’t be presented here. The following codes firstly define four helper functions. Three of them describe <span class="math inline">\(S(t)\)</span>, <span class="math inline">\(I(t)\)</span> and <span class="math inline">\(R(t)\)</span> compartments of SIRS model. The other one defines the <strong>infection rate</strong> (see Table 1 in <a href="http://www.pnas.org/content/101/48/16915.abstract">Dushoff et al. (2004)</a>) to calculate cummulative incidence. Different from SIR model, the infection rate is only the second term of <span class="math inline">\(S(t)\)</span> compartment in SIRS model. Therefore, an additional helper function is needed to separately define the infection rate.</p>
+<p>The iterative formula of <strong>RK4</strong> method for solving SIRS model in the standard form <span class="math inline">\((\ref{eq1})\)</span> can be easily derived and won’t be presented here. The following codes firstly define four helper functions. Three of them describe <span class="math inline">\(S(t)\)</span>, <span class="math inline">\(I(t)\)</span> and <span class="math inline">\(R(t)\)</span> compartments of SIRS model. The other one defines the <strong>infection rate</strong> (see Table 1 in <a href="http://www.pnas.org/content/101/48/16915.abstract">Dushoff et al. (2004)</a>) to calculate cummulative incidence. Different from SIR model, the infection rate is only the second term of <span class="math inline">\(S(t)\)</span> compartment in SIRS model. Therefore, an additional helper function is needed to separately define the infection rate.</p>
 <pre class="r"><code># define S, I, R compartments of SIRS model
 dSdt.std &lt;- function(t, S, I, R) {
   return(f * R - beta * S * I / N)
@@ -113,7 +121,7 @@ RK4SIRS.std &lt;- function(n, beta, gamma, f, S0, I0, R0 = 0, dt = 1, incidence 
 <h3>1.2 <code>RK4SIRS</code> function</h3>
 <p>There are many repetitive computations in the implementation of <code>RK4SIRS.std</code> function, especially for calculating cummulative incidence. Actually, the system of ODEs of SIRS model describes the transition of an individual between susceptible, infectious, and recovered states. For SIRS model in simplified form <span class="math inline">\((\ref{eq2})\)</span>, only susceptible and infectious states are necessary to represent the system state and the system state at time <span class="math inline">\(t\)</span> is usually expressed as state vector <span class="math inline">\(\mathbf{Z}(t)\equiv (S(t), I(t))\)</span>. As presented in Table 1, infection, recovery, and immunity loss events can change the system state at a rate of <span class="math inline">\(\frac{\beta SI}{N}\)</span>, <span class="math inline">\(\gamma I\)</span>, and <span class="math inline">\(f(N-S-I)\)</span>, respectively.</p>
 <table>
-<caption><strong>Table 1. Markov chain transition rate (source: <a href="http://www.pnas.org/content/101/48/16915.abstract">Dushoff et al. (2004)</a>)</strong></caption>
+<caption><strong>Table 1. Markov chain transition rate (source: <a href="http://www.pnas.org/content/101/48/16915.abstract">Dushoff et al. (2004)</a>)</strong></caption>
 <thead>
 <tr class="header">
 <th align="center"><strong>Event</strong></th>
@@ -295,25 +303,24 @@ compare$expr &lt;- gsub(&quot;RK4SIRS.std(n, beta, gamma, f, S0, I0, incidence =
                      &quot;RK4SIRS.std&quot;, compare$expr, fixed = TRUE)
 compare</code></pre>
 <pre><code>## Unit: milliseconds
-##         expr       min        lq      mean    median        uq        max
-##          rk4 19.674739 20.304135 28.593657 20.903847 25.024324  89.132203
-##      RK4SIRS  2.719620  2.793662  2.997289  2.900025  2.959738   4.134423
-##  RK4SIRS.std  4.271374  4.331624 14.235036  4.383367  4.588928 102.638533
-##  neval
-##     10
-##     10
-##     10</code></pre>
+##         expr       min        lq     mean    median       uq       max neval
+##          rk4 13.908238 17.574356 25.44839 22.637835 28.51470  55.34237    10
+##      RK4SIRS  3.112263  5.711621 11.83692  9.003308 17.33588  32.80484    10
+##  RK4SIRS.std  5.555803  8.233619 25.02948  9.365615 12.79199 161.69769    10</code></pre>
 <pre class="r"><code># plot comparing results
 library(ggplot2)
-p &lt;- autoplot(compare)
-p + geom_violin(aes(color = expr, fill = expr)) + 
+p &lt;- autoplot(compare)</code></pre>
+<pre><code>## Coordinate system already present. Adding new coordinate system, which will
+## replace the existing one.</code></pre>
+<pre class="r"><code>p + geom_violin(aes(color = expr, fill = expr)) + 
   theme(legend.position = &quot;none&quot;)</code></pre>
 <p><img src="/post/2014-12-04-sirs-model-with-time-dependent-transmission-rate_files/figure-html/unnamed-chunk-9-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>As shown in the above figure, <code>RK4SIRS</code> function runs the fastest. Subsequently, SIRS model will be solved in simplified form .</p>
+<p>As shown in the above figure, <code>RK4SIRS</code> function runs the fastest. Subsequently, SIRS model will be solved in simplified form <span class="math inline">\(\eqref{eq:2}\)</span>.</p>
 </div>
 <div id="basic-reproductive-number-r_0" class="section level3">
 <h3>1.5 Basic Reproductive Number <span class="math inline">\(R_0\)</span></h3>
-<p>Technically, the <a href="http://en.wikipedia.org/wiki/Basic_reproduction_number">basic reproductive number</a> <span class="math inline">\(R_0\)</span> is defined as the number of secondary infections caused by a single infective introduced into a population made up entirely of susceptible individuals over the course of the infection of this single infective. For the susceptible population (<span class="math inline">\(S_0 \approx N\)</span>), this infective individual makes <span class="math inline">\(\beta\)</span> contacts per unit time producing new infections with a mean infectious period of <span class="math inline">\(D\)</span>. Therefore, the basic reproduction number is <span class="math display">\[
+<p>Technically, the <a href="http://en.wikipedia.org/wiki/Basic_reproduction_number">basic reproductive number</a> <span class="math inline">\(R_0\)</span> is defined as the number of secondary infections caused by a single infective introduced into a population made up entirely of susceptible individuals over the course of the infection of this single infective. For the susceptible population (<span class="math inline">\(S_0 \approx N\)</span>), this infective individual makes <span class="math inline">\(\beta\)</span> contacts per unit time producing new infections with a mean infectious period of <span class="math inline">\(D\)</span>. Therefore, the basic reproduction number is
+<span class="math display">\[
 \begin{equation} \label{eq4}
   R_0 = \beta D = \frac{\beta}{\gamma}
 \end{equation}
@@ -323,10 +330,11 @@ p + geom_violin(aes(color = expr, fill = expr)) +
 </div>
 <div id="time-dependent-transmission-rate-betat" class="section level2">
 <h2>2 Time Dependent Transmission Rate <span class="math inline">\(\beta(t)\)</span></h2>
-<p>Equation (4) in <a href="http://www.plosbiology.org/article/info%3Adoi%2F10.1371%2Fjournal.pbio.1000316">Shaman et al. (2010)</a> shows the relationship between basic reproductive number <span class="math inline">\(R_0(t)\)</span> and specific humidity <span class="math inline">\(q(t)\)</span> at time <span class="math inline">\(t\)</span>. Combining with equation <span class="math inline">\((\ref{eq4})\)</span>, it’s easy to deduce that transmission rate <span class="math inline">\(\beta\)</span> is also modulated by specific humidity <span class="math inline">\(q\)</span> and time dependent. Hence, replacing the constant <span class="math inline">\(\beta\)</span> in ODEs <span class="math inline">\((\ref{eq2})\)</span> with time dependent <span class="math inline">\(\beta (t)\)</span> can make SIRS model more reasonable. The resulting SIRS model with time dependent transmission rate <span class="math inline">\(\beta (t)\)</span> is expressed as follow <span class="math display">\[
+<p>Equation (4) in <a href="http://www.plosbiology.org/article/info%3Adoi%2F10.1371%2Fjournal.pbio.1000316">Shaman et al. (2010)</a> shows the relationship between basic reproductive number <span class="math inline">\(R_0(t)\)</span> and specific humidity <span class="math inline">\(q(t)\)</span> at time <span class="math inline">\(t\)</span>. Combining with equation <span class="math inline">\((\ref{eq4})\)</span>, it’s easy to deduce that transmission rate <span class="math inline">\(\beta\)</span> is also modulated by specific humidity <span class="math inline">\(q\)</span> and time dependent. Hence, replacing the constant <span class="math inline">\(\beta\)</span> in ODEs <span class="math inline">\((\ref{eq2})\)</span> with time dependent <span class="math inline">\(\beta (t)\)</span> can make SIRS model more reasonable. The resulting SIRS model with time dependent transmission rate <span class="math inline">\(\beta (t)\)</span> is expressed as follow
+<span class="math display">\[
 \begin{equation}
 \begin{aligned} \label{eq:5}
-  &amp; \frac{dS}{dt} = f(N - S - I) - \frac{\beta (t) SI}{N} \\
+  &amp; \frac{dS}{dt} = f(N - S - I) - \frac{\beta (t) SI}{N} \\\\
   &amp; \frac{dI}{dt} = \frac{\beta (t) SI}{N} - \gamma I
 \end{aligned}
 \end{equation}
@@ -408,7 +416,7 @@ RK4SIRS &lt;- function(n, beta, gamma, f, S0, I0, R0 = 0, dt = 1, incidence = FA
 </div>
 <div id="simulation" class="section level3">
 <h3>2.2 Simulation</h3>
-<p>The following simulation example is adapted from <em>Fig. 1a</em> in <a href="http://www.pnas.org/content/101/48/16915.abstract">Dushoff et al. (2004)</a>.</p>
+<p>The following simulation example is adapted from <em>Fig. 1a</em> in <a href="http://www.pnas.org/content/101/48/16915.abstract">Dushoff et al. (2004)</a>.</p>
 <pre class="r"><code>S0 &lt;- 500000
 I0 &lt;- 100  # I0 has little effect on the dynamic equilibrium
 R0 &lt;- 0
@@ -461,6 +469,6 @@ D &lt;- 0.025  # yr
 beta0 &lt;- 400  # persons per yr</code></pre>
 <p><img src="/post/2014-12-04-sirs-model-with-time-dependent-transmission-rate_files/figure-html/unnamed-chunk-14-1.png" width="768" style="display: block; margin: auto;" /></p>
 <p><img src="/post/2014-12-04-sirs-model-with-time-dependent-transmission-rate_files/figure-html/unnamed-chunk-15-1.png" width="768" /></p>
-<p>In <em>Fig. 1b</em> simulation, the basic reproductive number <span class="math inline">\(R_0=\)</span> 10, and the intrinsic period of oscillation <span class="math inline">\(T=\)</span> 0.94. From the <code>Infected</code> panel of <code>Subset Results of Equilibrium</code> figure, strong oscillations (noticing the y-axis range) due to <strong>resonance</strong> are observed. This is because comparing with <em>Fig. 1a</em> simulation, while the basic reprodutive number <span class="math inline">\(R_0\)</span> keeps the same, the period of endogenous SIRS oscillation <span class="math inline">\(T\)</span> is much more near the period of seasonal forcing (<strong>1</strong> year) (see <a href="http://www.pnas.org/content/101/48/16915.abstract">Dushoff et al. (2004)</a> for further details).</p>
+<p>In <em>Fig. 1b</em> simulation, the basic reproductive number <span class="math inline">\(R_0=\)</span> 10, and the intrinsic period of oscillation <span class="math inline">\(T=\)</span> 0.94. From the <code>Infected</code> panel of <code>Subset Results of Equilibrium</code> figure, strong oscillations (noticing the y-axis range) due to <strong>resonance</strong> are observed. This is because comparing with <em>Fig. 1a</em> simulation, while the basic reprodutive number <span class="math inline">\(R_0\)</span> keeps the same, the period of endogenous SIRS oscillation <span class="math inline">\(T\)</span> is much more near the period of seasonal forcing (<strong>1</strong> year) (see <a href="http://www.pnas.org/content/101/48/16915.abstract">Dushoff et al. (2004)</a> for further details).</p>
 </div>
 </div>

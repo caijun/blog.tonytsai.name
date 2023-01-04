@@ -2,46 +2,42 @@ baseurl = "http://blog.tonytsai.name/"
 disablePathToLower = false
 languageCode = "en-us"
 title = "Tony Tsai"
-theme = "Hugo-Octopress"
+theme = "hugo-octopress"
 
 # Ignore files when rendering
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
+
+# if true, auto-detect Chinese/Japanese/Korean Languages in the content. (.Summary and .WordCount can work properly in CJKLanguage)
+hasCJKLanguage = true
 
 # Disqus shortcode
 # Disable comments for any individual post by adding "comments: false" in its frontmatter
 # Note it's not under [params] anymore
 disqusShortname = "tonytsai"
 
-# if true, auto-detect Chinese/Japanese/Korean Languages in the content. (.Summary and .WordCount can work properly in CJKLanguage)
-hasCJKLanguage = true
-
 # Number of blog posts in each pagination page
 paginate = 6
-
-pygmentsstyle = "solarized_dark"
-
-# Use internal highlighter instead of Chroma
-pygmentsUseClassic=true
-
-# You need to install Solarized from https://github.com/john2x/solarized-pygment
-# Octopress classic theme uses Solarized_dark
-# Options are solarized_dark (octopress), solarized_dark256 and solarized_light
-
-# Highlight shortcode and code fences (```) will be treated similarly
-pygmentscodefences = true
-
-# pygments options can be added here (and in the highlight shortcode in the markdown file)
-# Hugo supports these pygments options: style, encoding, noclasses, hl_lines, linenos
-# for example: pygmentsoptions = "linenos=true"
 
 [permalinks]
 post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the old ones
 
-# Make tags and categories work
-[indexes]
-  tag = "tags"
-  category = "categories"
-
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  # Default is startLevel 2 and endLevel 3, we want to render every heading
+  [markup.tableOfContents]
+    endLevel = 8
+    startLevel = 1
+  # set the Chroma highlighting options
+  # https://gohugo.io/getting-started/configuration-markup/#highlight
+  [markup.highlight]
+    style = "solarized-dark"
+    lineNos = false
+  # if you want to keep using Blackfriday
+  # defaultMarkdownHandler = "blackfriday"
+  #   [markup.blackFriday]
+  #     hrefTargetBlank = true # open links in a new tab
 
 [params]
 
@@ -53,12 +49,11 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
   sidebarHeader = "Who am I"
 
   # Sidebar text also supports markdown
-  # New lines can be added with </br> or normal markdown (two spaces at the end of line or two new lines).
+  # New lines can be added with two spaces at the end of line. New paragraphs can be added with two an empty line.
   # when adding two new lines, remember to remove the indentation otherwise the new line will be treated as a codeblock
-  sidebarText = """I am Jun (Tony) Cai (Tsai). A Ph.D. candidate interested in influenza transmission dynamics at Department of Earth System Science, Tsinghua University.
-    </br>
+  sidebarText = """I am Jun (Tony) Cai (Tsai). A Young Research Fellow interested in infectious disease epidemiology with a focus on COVID-19 and influenza at School of Public Health, Fudan University.  
     View my profile in [Google Scholar](https://scholar.google.com/citations?user=_dV_jnkAAAAJ).
-    """
+  """
   # Sidebar menu - if true will add a sidebar menu between sidebar text and recent posts
   sidebarMenuEnabled = false
   sidebarMenuHeader = "Sidebar Links"
@@ -69,9 +64,9 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
   linkedin = "https://www.linkedin.com/in/jun-cai-2a4143127/"
   bitbucket = ""
   twitter = "https://twitter.com/caijun2046/"
+  mastodon = ""
   keybase = ""
   stackoverflow = ""
-  googleplus = ""
   youtube = ""
   instagram = ""
   weibo = "http://weibo.com/caijun2046/"
@@ -94,14 +89,15 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
   # Search engine URL
   searchEngineURL = "https://www.google.com/search"
 
-  # Text of the "Continue Reading" label. &rarr; == right arrow, but it gets messed up in the string so it was added to index.html manually
-  continueReadingText = "Read On"
+  # Text of the "Continue Reading" label. Supports markdown and inline HTML.
+  # For example, &rarr; == right arrow.
+  continueReadingText = "Read On &rarr;"
 
   # Google analytics code - remove if you do not have/want Google Analytics - needs JavaScript
   googleAnalytics = "UA-40665800-1"
 
   # Optional piwik tracking
-  #[params.analytics.piwik]
+  # [params.analytics.piwik]
   #  URL = "https://stats.example.com"
   #  ID = "42"
 
@@ -113,14 +109,14 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
   textrss = false
 
   # Website's default description
-  defaultDescription = ""
+  description = ""
 
   # Populate this with your own search keywords - these will appear in the meta tags
   # defaultKeywords = ["keyword1" , "keyword2" , "keyword3" , "keyword4"]
 
   # CSS override files
   # Paths should be relative to the `static` directory
-  # customCSS = ["css/custom.css", "css/custom2.css"]
+  # customCSS = ["css/custom.css","css/custom2.css"]
 
   # 404.html header and text - both support markdown
   notFoundHeader = "There's nothing here"
@@ -134,11 +130,32 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
   # Set to true to disable downloading of remote Google fonts
   disableGoogleFonts = false
 
+  # Remove or Set to false to use local fonts
+  # remoteFonts = false
+  
+  # Remove or set to false to use FontAwesome CDN, otherwise the theme uses ForkAwesome local fonts.
+  # fontAwesome = false
+
   # Generate taxonomy pages
   generateTaxonomyList = true
 
   # This is not needed unless alphabetical sort is needed
   # sortTaxonomyAlphabetical = true
+
+  # Twitter card config
+  # Enable with this.
+  # twitterCardEnabled = true
+  # Don't include the @.
+  # twitterCardSite = 
+  # twitterCardDomain = "parsiya.net"
+  # Don't include the @.
+  # twitterCardAuthor = "CryptoGangsta"
+
+  # Set to true to enable compact index. Set to false or remove to go back to classic view.
+  # compactIndex = true
+
+  # Set mainSections.
+  mainSections = ["post", "blog"]
 
 # Menu
 # If navigationNewWindow (under [params]) is set to true then all links except root ("/") will open in a new window
@@ -173,16 +190,11 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
   weight = 0
 
 [[menu.sidebar]]
-  Name = "Hugo"
-  URL = "/categories/hugo/"
+  Name = "Hugo category"
+  URL = "/categories/golang/"
   weight = 1
 
 [[menu.sidebar]]
-  Name = "Homepage"
-  URL = "/"
+  Name = "About page"
+  URL = "/about"
   weight = 2
-
-# Blackfriday is Hugo's markdown engine. Options are at: https://gohugo.io/overview/configuration/#configure-blackfriday-rendering
-[blackfriday]
-  hrefTargetBlank = true # open the external links in a new window
-  fractions = false

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on Tony Tsai</title>
+    <link>http://blog.tonytsai.name/categories/python/</link>
+    <description>Recent content in Python on Tony Tsai</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 07 Sep 2017 00:00:00 +0000</lastBuildDate><atom:link href="http://blog.tonytsai.name/categories/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>pip for Different Versions of Python on macOS Sierra</title>
+      <link>http://blog.tonytsai.name/blog/2017-09-07-pip-for-different-versions-of-python-on-macos-sierra/</link>
+      <pubDate>Thu, 07 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.tonytsai.name/blog/2017-09-07-pip-for-different-versions-of-python-on-macos-sierra/</guid>
+      <description>Three versions of Python exist on my macOS Sierra. The first one is the original Python come with macOS. The other two are Python 2 and Python 3 installed by brew.
+To load the raw Python 2 interpreter inside the terminal, type
+$ python Python 2.7.10 (default, Feb 7 2017, 00:08:15) [GCC 4.2.1 Compatible Apple LLVM 8.0.0 (clang-800.0.34)] on darwin Type &amp;#34;help&amp;#34;, &amp;#34;copyright&amp;#34;, &amp;#34;credits&amp;#34; or &amp;#34;license&amp;#34; for more information. &amp;gt;&amp;gt;&amp;gt; To load the brew-installed Python 2 interpreter inside the terminal, type</description>
+    </item>
+    
+  </channel>
+</rss>

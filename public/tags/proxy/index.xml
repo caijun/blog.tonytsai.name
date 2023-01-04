@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Proxy on Tony Tsai</title>
+    <link>http://blog.tonytsai.name/tags/proxy/</link>
+    <description>Recent content in Proxy on Tony Tsai</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 23 Aug 2014 00:00:00 +0000</lastBuildDate><atom:link href="http://blog.tonytsai.name/tags/proxy/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Host Is Down Using curl/wget While Page Loads in Browser</title>
+      <link>http://blog.tonytsai.name/blog/2014-08-23-host-is-down-using-curl/wget-while-page-loads-in-browser/</link>
+      <pubDate>Sat, 23 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.tonytsai.name/blog/2014-08-23-host-is-down-using-curl/wget-while-page-loads-in-browser/</guid>
+      <description>问题描述 最近想更新自己开发的 geoChina，发现在Mac上运行以下代码 library(geoChina) geocode(&amp;#39;Tsinghua University&amp;#39;, api = &amp;#39;google&amp;#39;, ocs = &amp;#39;GCJ-02&amp;#39;, messaging = T) 出错，返回 1 2 3 4 5 6 calling http://maps.googleapis.com/maps/api/geocode/json?address=Tsinghua%20University&amp;amp;sensor=false ... Warning message: In readLines(connect, warn = FALSE) :</description>
+    </item>
+    
+  </channel>
+</rss>

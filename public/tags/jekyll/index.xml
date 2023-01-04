@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jekyll on Tony Tsai</title>
+    <link>http://blog.tonytsai.name/tags/jekyll/</link>
+    <description>Recent content in Jekyll on Tony Tsai</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 28 Apr 2013 00:00:00 +0000</lastBuildDate><atom:link href="http://blog.tonytsai.name/tags/jekyll/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Create Your Blog with Jekyll</title>
+      <link>http://blog.tonytsai.name/blog/2013-04-28-create-your-blog-with-jekyll/</link>
+      <pubDate>Sun, 28 Apr 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.tonytsai.name/blog/2013-04-28-create-your-blog-with-jekyll/</guid>
+      <description>在使用Jekyll搭建个人blog之前，确认你的PC安装有Jekyll。最简单的安装Jekyll方法是通过RubyGems，RubyGems</description>
+    </item>
+    
+  </channel>
+</rss>

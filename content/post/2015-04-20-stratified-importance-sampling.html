@@ -2,10 +2,13 @@
 title: Stratified Importance Sampling
 author: ''
 date: '2015-04-20'
-slug: ''
 categories: ["R"]
 tags: ["Statistical Computing", "Variance Reduction", "Stratified Importance Sampling"]
-draft: yes
+draft: false
+output:
+  md_document:
+    toc: false
+    preserve_yaml: true
 ---
 
 
@@ -21,9 +24,9 @@ u &lt;- runif(M)  # f3, inverse transform method
 x &lt;- -log(1 - u * (1 - exp(-1)))
 fg &lt;- g(x) / (exp(-x) / (1 - exp(-1)))
 (theta.hat0 &lt;- mean(fg))</code></pre>
-<pre><code>## [1] 0.5246635</code></pre>
+<pre><code>## [1] 0.525293</code></pre>
 <pre class="r"><code>(se0 &lt;- sd(fg))</code></pre>
-<pre><code>## [1] 0.09686574</code></pre>
+<pre><code>## [1] 0.09676129</code></pre>
 <pre class="r"><code># stratified importance sampling
 k &lt;- 5  # number of strata
 m &lt;- M / k  # replicates per stratum
@@ -37,7 +40,7 @@ for (j in 1:k) {
   se[j] &lt;- sd(fg)
 }
 sum(theta.hat)</code></pre>
-<pre><code>## [1] 0.5248228</code></pre>
+<pre><code>## [1] 0.5248827</code></pre>
 <pre class="r"><code>sum(se)</code></pre>
-<pre><code>## [1] 0.01828102</code></pre>
-<p>The estimate <span class="math inline">\(\hat{\theta}\)</span> is close, while the estimated standard error <span class="math inline">\(\hat{\sigma}\)</span> is reduced from 0.0968657 to 0.018281 with stratification.</p>
+<pre><code>## [1] 0.01828823</code></pre>
+<p>The estimate <span class="math inline">\(\hat{\theta}\)</span> is close, while the estimated standard error <span class="math inline">\(\hat{\sigma}\)</span> is reduced from 0.0967613 to 0.0182882 with stratification.</p>

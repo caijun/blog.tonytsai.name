@@ -2,10 +2,9 @@
 title: How to Connect to VMware Machine (CentOS 6.4) via SSH
 author: ~
 date: '2013-06-08'
-slug: ''
 categories: ["Linux"]
 tags: ["SSH", "VMWare Machine"]
-draft: yes
+draft: false
 ---
 
 之前使用CentOS虚拟机都是在GUI里操作，四年前配置的笔记本实在吃不消，非常的卡，都没有了工作的欲望。最近在做《高性能计算导论》课程作业时，需要SSH远程登录Linux环境操作，就想到是否也可以SSH远程登录我的CentOS虚拟机，在Terminal里操作，节省一些资源。Google了一下，发现的确可以，现将配置过程记录下来。（昨天上完《高性能计算导论》课程和付老师交流，他说不要怕花时间在配置工具上，我笑了。）

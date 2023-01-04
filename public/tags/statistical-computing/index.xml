@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Statistical Computing on Tony Tsai</title>
+    <link>http://blog.tonytsai.name/tags/statistical-computing/</link>
+    <description>Recent content in Statistical Computing on Tony Tsai</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 20 Apr 2015 00:00:00 +0000</lastBuildDate><atom:link href="http://blog.tonytsai.name/tags/statistical-computing/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Stratified Importance Sampling</title>
+      <link>http://blog.tonytsai.name/blog/2015-04-20-stratified-importance-sampling/</link>
+      <pubDate>Mon, 20 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.tonytsai.name/blog/2015-04-20-stratified-importance-sampling/</guid>
+      <description>The following R codes implement the Example 5.13 in Statistical Computing with R, and compare the estimate \(\hat{\theta}\) and \(\hat{\sigma}\) from stratified importance sampling to the results from importance sampling. The example illustrates that stratification can reduce the varinace of importance sampling estimator.
+M &amp;lt;- 100000 # number of replicates g &amp;lt;- function(x) { exp(-x - log(1 + x^2)) * (x &amp;gt; 0) * (x &amp;lt; 1) } # importance sampling u &amp;lt;- runif(M) # f3, inverse transform method x &amp;lt;- -log(1 - u * (1 - exp(-1))) fg &amp;lt;- g(x) / (exp(-x) / (1 - exp(-1))) (theta.</description>
+    </item>
+    
+  </channel>
+</rss>

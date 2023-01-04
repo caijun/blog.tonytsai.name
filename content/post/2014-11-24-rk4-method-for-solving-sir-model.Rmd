@@ -2,10 +2,13 @@
 title: RK4 Method for Solving SIR Model
 author: ''
 date: '2014-11-24'
-slug: ''
 categories: ["Influenza"]
 tags: ["RK4", "SIR", "Incidence", "Benchmark"]
-draft: yes
+draft: false
+output:
+  md_document:
+    toc: false
+    preserve_yaml: true
 ---
 
 My object is to rewrite the 4th order Runge-Kutta (abbreviated for **RK4**) method for solving the absolute humidity-driven SIRS model developed by [Yang et al. (2014)](http://www.ploscompbiol.org/article/info%3Adoi%2F10.1371%2Fjournal.pcbi.1003583) in **R** language. The details of the SIRS model are provided in the paper.
@@ -20,7 +23,7 @@ Consider the following initial value problem of ODE
 $$
 \begin{equation}
 \begin{aligned}
-  & \frac{dy}{dt} = f(t, y) \\
+  & \frac{dy}{dt} = f(t, y) \\\\
   & y(t_0) = y_0
 \end{aligned}
 \label{eq1-rk4}
@@ -32,12 +35,12 @@ The iterative formula of **RK4** method for solving ODE $(\ref{eq1-rk4})$ is as 
 $$
 \begin{equation}
 \begin{aligned}
-  & y_{n + 1} = y_n + \frac{\Delta t}{6}(k_1 + 2k_2 + 2k_3 + k_4) \\
-  & k_1 = f(t_n, y_n) \\
-  & k_2 = f(t_n + \frac{\Delta t}{2}, y_n + \frac{k_1\Delta t}{2}) \\
-  & k_3 = f(t_n + \frac{\Delta t}{2}, y_n + \frac{k_2\Delta t}{2}) \\
-  & k_4 = f(t_n + \Delta t, y_n + k_3\Delta t) \\
-  & t\_{n + 1} = t_n + \Delta t \\
+  & y_{n + 1} = y_n + \frac{\Delta t}{6}(k_1 + 2k_2 + 2k_3 + k_4) \\\\
+  & k_1 = f(t_n, y_n) \\\\
+  & k_2 = f(t_n + \frac{\Delta t}{2}, y_n + \frac{k_1\Delta t}{2}) \\\\
+  & k_3 = f(t_n + \frac{\Delta t}{2}, y_n + \frac{k_2\Delta t}{2}) \\\\
+  & k_4 = f(t_n + \Delta t, y_n + k_3\Delta t) \\\\
+  & t\_{n + 1} = t_n + \Delta t \\\\
   & n = 0, 1, 2, 3, \dots
 \end{aligned}
 \label{eq2}
@@ -48,8 +51,8 @@ For simplicity, here I use the simplest [SIR model](http://en.wikipedia.org/wiki
 $$
 \begin{equation} \label{eq3}
 \begin{aligned}
-  & \frac{dS}{dt} = -\frac{\beta SI}{N} \\
-  & \frac{dI}{dt} = \frac{\beta SI}{N} - \gamma I \\
+  & \frac{dS}{dt} = -\frac{\beta SI}{N} \\\\
+  & \frac{dI}{dt} = \frac{\beta SI}{N} - \gamma I \\\\
   & \frac{dR}{dt} = \gamma I
 \end{aligned}
 \end{equation}
@@ -60,10 +63,10 @@ According to the general iterative formula $(\ref{eq2})$, the iterative formulas
 $$
 \begin{equation}
 \begin{aligned}
-  & S_{n + 1} = S_n + \frac{\Delta t}{6}(k_1^S + 2k_2^S + 2k_3^S + k_4^S) \\
-  & k_1^S = f(t_n, S_n, I_n) = -\frac{\beta S_nI_n}{N} \\
-  & k_2^S = f(t_n + \frac{\Delta t}{2}, S_n + \frac{k_1^S\Delta t}{2}, I_n + \frac{k_1^I\Delta t}{2}) = -\frac{\beta}{N}(S_n + \frac{k_1^S\Delta t}{2})(I_n + \frac{k_1^I\Delta t}{2}) \\
-  & k_3^S = f(t_n + \frac{\Delta t}{2}, S_n + \frac{k_2^S\Delta t}{2}, I_n + \frac{k_2^I\Delta t}{2}) = -\frac{\beta}{N}(S_n + \frac{k_2^S\Delta t}{2})(I_n + \frac{k_2^I\Delta t}{2}) \\
+  & S_{n + 1} = S_n + \frac{\Delta t}{6}(k_1^S + 2k_2^S + 2k_3^S + k_4^S) \\\\
+  & k_1^S = f(t_n, S_n, I_n) = -\frac{\beta S_nI_n}{N} \\\\
+  & k_2^S = f(t_n + \frac{\Delta t}{2}, S_n + \frac{k_1^S\Delta t}{2}, I_n + \frac{k_1^I\Delta t}{2}) = -\frac{\beta}{N}(S_n + \frac{k_1^S\Delta t}{2})(I_n + \frac{k_1^I\Delta t}{2}) \\\\
+  & k_3^S = f(t_n + \frac{\Delta t}{2}, S_n + \frac{k_2^S\Delta t}{2}, I_n + \frac{k_2^I\Delta t}{2}) = -\frac{\beta}{N}(S_n + \frac{k_2^S\Delta t}{2})(I_n + \frac{k_2^I\Delta t}{2}) \\\\
   & k_4^S = f(t_n + \Delta t, S_n + k_3^S\Delta t, I_n + k_3^I\Delta t) = -\frac{\beta}{N}(S_n + k_3^S\Delta t)(I_n + k_3^I\Delta t)
 \end{aligned}
 \end{equation}
@@ -72,10 +75,10 @@ $$
 $$
 \begin{equation}
 \begin{aligned}
-  & I_{n + 1} = I_n + \frac{\Delta t}{6}(k_1^I + 2k_2^I + 2k_3^I + k_4^I) \\
-  & k_1^I = f(t_n, S_n, I_n) = \frac{\beta S_nI_n}{N} - \gamma I_n \\
-  & k_2^I = f(t_n + \frac{\Delta t}{2}, S_n + \frac{k_1^S\Delta t}{2}, I_n + \frac{k_1^I\Delta t}{2}) = \frac{\beta}{N}(S_n + \frac{k_1^S\Delta t}{2})(I_n + \frac{k_1^I\Delta t}{2}) - \gamma (I_n + \frac{k_1^I\Delta t}{2}) \\
-  & k_3^I = f(t_n + \frac{\Delta t}{2}, S_n + \frac{k_2^S\Delta t}{2}, I_n + \frac{k_2^I\Delta t}{2}) = \frac{\beta}{N}(S_n + \frac{k_2^S\Delta t}{2})(I_n + \frac{k_2^I\Delta t}{2}) - \gamma (I_n + \frac{k_2^I\Delta t}{2}) \\
+  & I_{n + 1} = I_n + \frac{\Delta t}{6}(k_1^I + 2k_2^I + 2k_3^I + k_4^I) \\\\
+  & k_1^I = f(t_n, S_n, I_n) = \frac{\beta S_nI_n}{N} - \gamma I_n \\\\
+  & k_2^I = f(t_n + \frac{\Delta t}{2}, S_n + \frac{k_1^S\Delta t}{2}, I_n + \frac{k_1^I\Delta t}{2}) = \frac{\beta}{N}(S_n + \frac{k_1^S\Delta t}{2})(I_n + \frac{k_1^I\Delta t}{2}) - \gamma (I_n + \frac{k_1^I\Delta t}{2}) \\\\
+  & k_3^I = f(t_n + \frac{\Delta t}{2}, S_n + \frac{k_2^S\Delta t}{2}, I_n + \frac{k_2^I\Delta t}{2}) = \frac{\beta}{N}(S_n + \frac{k_2^S\Delta t}{2})(I_n + \frac{k_2^I\Delta t}{2}) - \gamma (I_n + \frac{k_2^I\Delta t}{2}) \\\\
   & k_4^I = f(t_n + \Delta t, S_n + k_3^S\Delta t, I_n + k_3^I\Delta t) = \frac{\beta}{N}(S_n + k_3^S\Delta t)(I_n + k_3^I\Delta t) - \gamma (I_n + k_3^I\Delta t)
 \end{aligned}
 \end{equation}
@@ -84,10 +87,10 @@ $$
 $$
 \begin{equation}
 \begin{aligned}
-  & R_{n + 1} = R_n + \frac{\Delta t}{6}(k_1^R + 2k_2^R + 2k_3^R + k_4^R) \\
-  & k_1^R = f(t_n, I_n) = \gamma I_n \\
-  & k_2^R = f(t_n + \frac{\Delta t}{2}, I_n + \frac{k_1^I\Delta t}{2}) = \gamma (I_n + \frac{k_1^I\Delta t}{2}) \\
-  & k_3^R = f(t_n + \frac{\Delta t}{2}, I_n + \frac{k_2^I\Delta t}{2}) = \gamma (I_n + \frac{k_2^I\Delta t}{2}) \\
+  & R_{n + 1} = R_n + \frac{\Delta t}{6}(k_1^R + 2k_2^R + 2k_3^R + k_4^R) \\\\
+  & k_1^R = f(t_n, I_n) = \gamma I_n \\\\
+  & k_2^R = f(t_n + \frac{\Delta t}{2}, I_n + \frac{k_1^I\Delta t}{2}) = \gamma (I_n + \frac{k_1^I\Delta t}{2}) \\\\
+  & k_3^R = f(t_n + \frac{\Delta t}{2}, I_n + \frac{k_2^I\Delta t}{2}) = \gamma (I_n + \frac{k_2^I\Delta t}{2}) \\\\
   & k_4^R = f(t_n + \Delta t, I_n + k_3^I\Delta t) = \gamma (I_n + k_3^I\Delta t)
 \end{aligned}
 \end{equation}
@@ -98,9 +101,9 @@ Note that since the population $N = S(t) + I(t) + R(t)$ is constant, there will 
 The specific simulation parameters for SIR model are from the study case of [spread of Hong Kong flu in New York city](https://www.math.duke.edu//education/ccp/materials/diffcalc/sir/sir1.html). The inital values for the population variables are
 $$
 \begin{aligned}
-  & S(0) = 7,900,000 \\
-  & I(0) = 10 \\
-  & R(0) = 0 \\
+  & S(0) = 7,900,000 \\\\
+  & I(0) = 10 \\\\
+  & R(0) = 0 \\\\
   & N = S(0) + I(0) + R(0) = 7,900,010
 \end{aligned}
 $$
@@ -399,8 +402,8 @@ The results given by both `deSolve` package and **MATLAB** show that $I_{max} = 
 Instead of $S(t)$, $I(t)$ and $R(t)$ of SIR model, health workers in practice often collect daily number of newly infected people. This is the loosely expressed [incidence](http://en.wikipedia.org/wiki/Incidence_%28epidemiology%29). Besides incidence, cummulative incidence is also of interest. Let $C(t)$ denote incidence at time $t$, $P(t)$ denote cummulative incidence at time $t$. $C(t)$ and $P(t)$ can be calculated as follows
 $$
 \begin{aligned}
-  & C(t) = \frac{dP}{dt} = \frac{\beta SI}{N} \\
-  & C(t_0) = S_0 \\
+  & C(t) = \frac{dP}{dt} = \frac{\beta SI}{N} \\\\
+  & C(t_0) = S_0 \\\\
   & P(t) = \int_0^t{C(t)}dt = \int_0^t{\frac{\beta SI}{N}}dt
 \end{aligned}
 $$

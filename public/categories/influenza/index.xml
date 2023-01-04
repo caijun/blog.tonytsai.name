@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Influenza on Tony Tsai</title>
+    <link>http://blog.tonytsai.name/categories/influenza/</link>
+    <description>Recent content in Influenza on Tony Tsai</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 22 Apr 2017 00:00:00 +0000</lastBuildDate><atom:link href="http://blog.tonytsai.name/categories/influenza/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Derivation of Number of Infected Individuals I(a)</title>
+      <link>http://blog.tonytsai.name/blog/2017-04-22-derivation-of-number-of-infected-individuals-ia/</link>
+      <pubDate>Sat, 22 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.tonytsai.name/blog/2017-04-22-derivation-of-number-of-infected-individuals-ia/</guid>
+      <description>( Hens et al. 2012, 63:41) gives the formula for the total number of infective individuals \(I(a)\):
+$$ \begin{equation} I(a) = \frac{\lambda}{\lambda - \nu}N(0)l(a)\left[e^{-\nu a} - e^{-\lambda a}\right], \tag{1} \end{equation} $$
+which is obtained by integrating following differential equation with respect to age \(a\):
+$$ \begin{equation} \frac{dI(a)}{da}=\lambda S(a) - (\nu + \mu)I(a). \tag{2} \end{equation} $$
+This is also equation (4.11) in ( Anderson and May 1992, 67). Here I will present the details of integration.</description>
+    </item>
+    
+    <item>
+      <title>Resources for Influenza Research</title>
+      <link>http://blog.tonytsai.name/blog/2015-05-10-resources-for-influenza-research/</link>
+      <pubDate>Sun, 10 May 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.tonytsai.name/blog/2015-05-10-resources-for-influenza-research/</guid>
+      <description>Today I made a list of resources for influenza research. I will keep updating this list as my influenza research goes further. The up-to-date version can be found on my github.
+Contents Infectious Diseases Epidemiology Modeling Infectious Diseases Topics and Keywords Ecology and Evolution of Influenza Seasonality of Influenza Dynamics of Influenza Influenza Transmission Influenza Forecasting Digital Detection of Influenza Databases for Influenza Research Workshops and Conferences MOOCs Contributing Topics and Keywords Influenza | Flu Pandemic (Antigenic Shift) vs.</description>
+    </item>
+    
+    <item>
+      <title>SIRS Model with Time Dependent Transmission Rate</title>
+      <link>http://blog.tonytsai.name/blog/2014-12-04-sirs-model-with-time-dependent-transmission-rate/</link>
+      <pubDate>Thu, 04 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.tonytsai.name/blog/2014-12-04-sirs-model-with-time-dependent-transmission-rate/</guid>
+      <description>1 SIRS Model The SIRS model is simply an extension of the SIR model as it allows members of the recovered class to rejoin the susceptible class at a defined rate, which integrates the impact of waning immunity following antigenic drift. Similar to the SIR model, a fixed population without births and deaths is considered in the SIRS model. The standard form of SIRS model is described as $$ \begin{equation} \begin{aligned} &amp;amp; \frac{dS}{dt} = fR - \frac{\beta SI}{N} \\ &amp;amp; \frac{dI}{dt} = \frac{\beta SI}{N} - \gamma I \\ &amp;amp; \frac{dR}{dt} = \gamma I - fR \end{aligned} \label{eq1} \end{equation} $$ where \(f\) is the average loss of immunity rate of recovered indiviuals, and the other notations are the same as the SIR model.</description>
+    </item>
+    
+    <item>
+      <title>Gains from Paper Reading</title>
+      <link>http://blog.tonytsai.name/blog/2014-12-03-gains-from-paper-reading/</link>
+      <pubDate>Wed, 03 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.tonytsai.name/blog/2014-12-03-gains-from-paper-reading/</guid>
+      <description>因探究流感传染能力、存活能力与湿度的关系，今天自己将两年前读过的一篇论文（ Shaman.Kohn-PNAS-2009）又翻出来重新读了一遍，</description>
+    </item>
+    
+    <item>
+      <title>RK4 Method for Solving SIR Model</title>
+      <link>http://blog.tonytsai.name/blog/2014-11-24-rk4-method-for-solving-sir-model/</link>
+      <pubDate>Mon, 24 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.tonytsai.name/blog/2014-11-24-rk4-method-for-solving-sir-model/</guid>
+      <description>My object is to rewrite the 4th order Runge-Kutta (abbreviated for RK4) method for solving the absolute humidity-driven SIRS model developed by Yang et al. (2014) in R language. The details of the SIRS model are provided in the paper.
+1 RK4 1.1 Preliminary RK4 is one of the classic methods for numerical integration of ODE models. A brief introduction of RK4 refers to Wikipedia.
+Consider the following initial value problem of ODE $$ \begin{equation} \begin{aligned} &amp;amp; \frac{dy}{dt} = f(t, y) \\ &amp;amp; y(t_0) = y_0 \end{aligned} \label{eq1-rk4} \end{equation} $$ where \(y(t)\) is the unknown function (scalar or vector) which I would like to approximate.</description>
+    </item>
+    
+  </channel>
+</rss>

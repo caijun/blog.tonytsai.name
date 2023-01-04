@@ -3,19 +3,20 @@ title: "Derivation of Number of Infected Individuals I(a)"
 author: ''
 date: '2017-04-22'
 categories: ['Influenza']
-draft: yes
-slug: ''
 tags: []
 bibliography: ["bibliography.bib"]
 link-citations: yes
+draft: false
 output:
-  bookdown::html_document2
+  md_document:
+    toc: false
+    preserve_yaml: true
 ---
 
 [@Hens.etal-Modelinginfectiousdisease-2012, pp. 41] gives the formula for the total number of infective individuals $I(a)$:
 
 $$
-\begin{equation} 
+\begin{equation}
   I(a) = \frac{\lambda}{\lambda - \nu}N(0)l(a)\left[e^{-\nu a} - e^{-\lambda a}\right],
   (\#eq:Ia)
 \end{equation} 
@@ -116,8 +117,8 @@ Dividing both sides of this equation by $e^{(\nu + \mu)a}$ leads to the intended
 $$
 \begin{equation*}
 \begin{split}
-  I(a) &= \frac{\lambda}{\lambda - \nu}N(0)\left[e^{(-\nu -\mu)a} - e^{(-\lambda -\mu)a} \right] \\
-  &= \frac{\lambda}{\lambda - \nu}N(0)e^{-\mu a}\left[e^{-\nu a} - e^{-\lambda a} \right] \\
+  I(a) &= \frac{\lambda}{\lambda - \nu}N(0)\left[e^{(-\nu -\mu)a} - e^{(-\lambda -\mu)a} \right] \\\\
+  &= \frac{\lambda}{\lambda - \nu}N(0)e^{-\mu a}\left[e^{-\nu a} - e^{-\lambda a} \right] \\\\
   &= \frac{\lambda}{\lambda - \nu}N(0)l(a)\left[e^{-\nu a} - e^{-\lambda a} \right].
 \end{split}
 \end{equation*}

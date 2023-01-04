@@ -2,10 +2,9 @@
 title: Display Multi-line Equations and Matrix Correctly in Hugo
 author: ~
 date: '2017-01-05'
-slug: ''
 categories: ["MathJax"]
 tags: ["Matrix", "Multi-line Equations", "Hugo"]
-draft: yes
+draft: false
 ---
 
 The first test case is to create a matrix consisting of following elements
