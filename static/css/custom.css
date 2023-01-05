@@ -1,0 +1,28 @@
+#blog-archives p {
+    margin-top: -1em;
+    margin-bottom: 1em;
+}
+
+#blog-archives h1 {
+    color: #222;
+    margin-top: 0em;
+    margin-bottom: 0em;
+}
+
+#blog-archives h2 {
+    margin-bottom: 0.3em;
+    font-weight: normal;
+    display: inline-block;
+    position: relative;
+    top: -1px;
+    float: left;
+    margin-top: 0.8em;     /* align year with the rest */
+}
+
+#blog-archives time {
+    position: absolute;
+    text-align: right;
+    left: 0em;
+    top: 1.5em; /* may need to change this to align the month/date on the tag/category (archive) pages with post name */
+    font-family: "PT Sans","Helvetica Neue",Arial,sans-serif;
+}
